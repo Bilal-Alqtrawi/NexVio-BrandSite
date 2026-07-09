@@ -1,0 +1,40 @@
+import { Button } from "@/components/ui/button";
+import { ArrowRight } from "lucide-react";
+import Image from "next/image";
+import Link from "next/link";
+
+export default function CTA() {
+  return (
+    <section className="relative container mx-auto px-4 pt-16 pb-24 sm:px-8">
+      <div className="from-brand-yellow relative rounded-lg bg-linear-to-b via-yellow-300 to-yellow-500 py-6">
+        <div className="text-center text-white">
+          <Image
+            alt="NexVio Logo"
+            src={"/logo.svg"}
+            width={100}
+            height={100}
+            className="mx-auto mt-5 h-10 w-auto brightness-0 invert-100"
+          />
+
+          <div className="my-10">
+            <h2 className="text-4xl font-medium">Get your free consultation</h2>
+            <p className="font-light">
+              Tell us about your business & how we can help you grow.
+            </p>
+          </div>
+
+          <Button
+            nativeButton={false}
+            render={<Link href="/contact" />}
+            className="text-foreground transation hover:bg-foreground group space-x-3 rounded-full bg-white px-6 py-8 duration-300 hover:text-white"
+          >
+            <span className="uppercase">contact us</span>
+            <span className="bg-foreground inline-flex size-10.25 items-center justify-center rounded-full text-white group-hover:bg-white group-hover:text-black">
+              <ArrowRight size={16} />
+            </span>
+          </Button>
+        </div>
+      </div>
+    </section>
+  );
+}
