@@ -6,7 +6,7 @@ import Link from "next/link";
 export default function CTA() {
   return (
     <section className="relative container mx-auto px-4 pt-16 pb-24 sm:px-8">
-      <div className="from-brand-yellow relative rounded-lg bg-linear-to-b via-yellow-300 to-yellow-500 py-6">
+      <div className="transation relative rounded-lg bg-linear-to-b from-[#FFD900] via-[#F7C914] via-25% to-[#E9AA3B] py-12 shadow-xl duration-300 hover:scale-101">
         <div className="text-center text-white">
           <Image
             alt="NexVio Logo"
