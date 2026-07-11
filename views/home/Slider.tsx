@@ -25,16 +25,15 @@ const slides: SlideItem[] = [
   {
     id: "01",
     image: "/sliders/slider-1.svg",
-    title: "Customers & Loyalty",
-    description:
-      "Omnichannel loyalty benefit support. (registers, mobile POS, kiosks, eCommerce)."
+    title: "Sales & Checkout",
+    description: "Registers, mobile POS, kiosks, eCommerce"
   },
 
   {
     id: "03",
     image: "/sliders/slider-3.svg",
-    title: "Operations",
-    description: "Inventory, staff & multi-location control"
+    title: "Sales & Checkout",
+    description: "Registers, mobile POS, kiosks, eCommerce"
   }
 ];
 
@@ -144,11 +143,11 @@ export default function Slider() {
             <Button
               nativeButton={false}
               render={<Link href="/contact" />}
-              className="text-foreground transation hover:bg-foreground group mr-5 shrink space-x-3 rounded-full bg-white px-6 py-8 duration-300 hover:text-white sm:mr-15"
+              className="text-foreground transation hover:bg-foreground group mr-8 shrink space-x-3 rounded-full bg-white py-8 duration-300 hover:text-white sm:mr-15 sm:px-6"
             >
               <span>view more</span>
               <span className="bg-foreground inline-flex size-10.25 items-center justify-center rounded-full text-white group-hover:bg-white group-hover:text-black">
-                <ChevronRight className="size-8" />
+                <ChevronRight className="sm:size-8" />
               </span>
             </Button>
           </div>
@@ -171,7 +170,7 @@ export default function Slider() {
         <button
           onClick={() => goTo(-1)}
           aria-label="Previous slide"
-          className="absolute -bottom-8 left-[calc(7%+1rem)] z-10 hidden h-11 w-11 -translate-x-1/2 items-center justify-center rounded-full bg-white text-black shadow-md transition-transform hover:scale-105 sm:left-[calc(4.5%+2rem)] sm:flex"
+          className="absolute top-1/2 left-6 z-10 flex h-11 w-11 -translate-x-1/2 -translate-y-1/2 items-center justify-center rounded-full bg-white text-black shadow-md transition-transform hover:scale-105 sm:left-[calc(4.5%+2rem)] lg:top-auto lg:-bottom-8 lg:translate-y-0"
         >
           <ChevronLeft size={18} />
         </button>
@@ -179,7 +178,7 @@ export default function Slider() {
         <button
           onClick={() => goTo(1)}
           aria-label="Next slide"
-          className="absolute -top-8 right-[calc(7%+1rem)] z-10 flex h-11 w-11 translate-x-1/2 items-center justify-center rounded-full bg-yellow-400 text-black shadow-md transition-transform hover:scale-105 sm:right-[calc(4.5%+2rem)]"
+          className="absolute top-1/2 right-6 z-10 flex h-11 w-11 translate-x-1/2 -translate-y-1/2 items-center justify-center rounded-full bg-yellow-400 text-black shadow-md transition-transform hover:scale-105 sm:right-[calc(4.5%+2rem)] lg:-top-8"
         >
           <ChevronRight size={18} />
         </button>
