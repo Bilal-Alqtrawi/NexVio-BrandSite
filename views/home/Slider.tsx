@@ -38,8 +38,27 @@ const slides: SlideItem[] = [
   }
 ];
 
+const variants = {
+  enter: (direction: number) => ({
+    x: direction > 0 ? "100%" : "-100%",
+    scale: 0.95,
+    opacity: 0
+  }),
+  center: {
+    x: 0,
+    scale: 1,
+    opacity: 1
+  },
+  exit: (direction: number) => ({
+    x: direction < 0 ? "100%" : "-100%",
+    scale: 0.95,
+    opacity: 0
+  })
+};
+
 export default function Slider() {
   const [index, setIndex] = useState(0);
+  const [direction, setDirection] = useState(0);
 
   const goTo = (dir: 1 | -1) => {
     setIndex((prev) => (prev + dir + slides.length) % slides.length);
@@ -75,19 +94,25 @@ export default function Slider() {
             src={prevSlide.image}
             alt=""
             fill
-            className="absolute! -top-50! -left-10!"
+            className="absolute! top-0 left-0 h-90! rounded-l-none rounded-r-xl object-cover"
           />
         </button>
 
         {/* Active slide */}
         <div className="relative aspect-16/10 w-full flex-1 overflow-hidden rounded-3xl bg-[#F5F1E8] sm:aspect-16/8">
-          <AnimatePresence mode="wait">
+          <AnimatePresence initial={false} custom={direction}>
             <motion.div
               key={active.id}
-              initial={{ opacity: 0, scale: 1.02 }}
-              animate={{ opacity: 1, scale: 1 }}
-              exit={{ opacity: 0, scale: 0.98 }}
-              transition={{ duration: 0.5, ease: "easeInOut" }}
+              custom={direction}
+              variants={variants}
+              initial="enter"
+              animate="center"
+              exit="exit"
+              transition={{
+                x: { type: "spring", stiffness: 300, damping: 30 },
+                opacity: { duration: 0.2 },
+                scale: { duration: 0.4 }
+              }}
               className="absolute inset-0"
             >
               <Image
@@ -139,14 +164,14 @@ export default function Slider() {
             src={nextSlide.image}
             alt=""
             fill
-            className="absolute! top-50! -right-10!"
+            className="absolute! top-50! h-90 rounded-l-xl rounded-r-none object-cover"
           />
         </button>
 
         <button
           onClick={() => goTo(-1)}
           aria-label="Previous slide"
-          className="absolute bottom-8 left-[calc(7%+1rem)] z-10 hidden h-11 w-11 -translate-x-1/2 items-center justify-center rounded-full bg-white text-black shadow-md transition-transform hover:scale-105 sm:left-[calc(7%+2rem)] sm:flex"
+          className="absolute -bottom-8 left-[calc(7%+1rem)] z-10 hidden h-11 w-11 -translate-x-1/2 items-center justify-center rounded-full bg-white text-black shadow-md transition-transform hover:scale-105 sm:left-[calc(4.5%+2rem)] sm:flex"
         >
           <ChevronLeft size={18} />
         </button>
@@ -154,7 +179,7 @@ export default function Slider() {
         <button
           onClick={() => goTo(1)}
           aria-label="Next slide"
-          className="absolute top-8 right-[calc(7%+1rem)] z-10 flex h-11 w-11 translate-x-1/2 items-center justify-center rounded-full bg-yellow-400 text-black shadow-md transition-transform hover:scale-105 sm:right-[calc(7%+2rem)]"
+          className="absolute -top-8 right-[calc(7%+1rem)] z-10 flex h-11 w-11 translate-x-1/2 items-center justify-center rounded-full bg-yellow-400 text-black shadow-md transition-transform hover:scale-105 sm:right-[calc(4.5%+2rem)]"
         >
           <ChevronRight size={18} />
         </button>

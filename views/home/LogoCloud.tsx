@@ -1,4 +1,7 @@
+"use client";
+
 import Image from "next/image";
+import { motion } from "framer-motion";
 
 const LogosImages: string[] = [
   "/logos/logo-1.png",
@@ -13,24 +16,32 @@ const LogosImages: string[] = [
 
 export default function LogoCloud() {
   return (
-    <section className="relative container mx-auto w-full overflow-hidden px-4 pt-16 pb-24 sm:px-8">
-      <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 md:grid-cols-4">
-        {LogosImages.map((logo, idx) => (
+    <section className="relative w-full overflow-hidden pt-16 pb-24">
+      <motion.div
+        className="flex items-center gap-8"
+        animate={{ x: ["0%", "-150%"] }}
+        transition={{
+          repeat: Infinity,
+          duration: 10,
+          ease: "linear"
+        }}
+      >
+        {[...LogosImages, ...LogosImages].map((logo, idx) => (
           <div
             key={idx}
-            className="group rounded-3xl border border-neutral-200/60 bg-white/60 shadow-[0_4px_20px_rgba(0,0,0,0.05)] backdrop-blur-sm transition-all duration-300 ease-out hover:-translate-y-1 hover:scale-[1.03] hover:border-neutral-300 hover:shadow-[0_18px_45px_rgba(0,0,0,0.12)]"
+            className="flex shrink-0 items-center justify-center bg-transparent transition-all duration-300 hover:scale-105"
           >
             <Image
               src={logo}
-              alt={logo.split("/")[2]}
-              width={220}
-              height={110}
-              quality={100}
-              className="h-auto w-full object-contain opacity-75 grayscale transition-all duration-300 group-hover:opacity-100 group-hover:grayscale-0"
+              alt={`logo-${idx}`}
+              width={150}
+              height={75}
+              quality={90}
+              className="h-20 w-auto object-cover opacity-75 grayscale transition-all duration-300 hover:opacity-100 hover:grayscale-0"
             />
           </div>
         ))}
-      </div>
+      </motion.div>
     </section>
   );
 }

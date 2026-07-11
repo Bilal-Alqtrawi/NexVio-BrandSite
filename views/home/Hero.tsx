@@ -33,7 +33,7 @@ const cardHoverEffect: Variants = {
 export default function Hero() {
   return (
     <motion.section
-      className="relative container mx-auto w-full overflow-hidden px-4 pt-16 pb-24 sm:px-8"
+      className="relative container mx-auto w-full overflow-hidden px-4 pt-16 pb-24 sm:px-6"
       variants={containerVariants}
       initial="hidden"
       animate="visible"

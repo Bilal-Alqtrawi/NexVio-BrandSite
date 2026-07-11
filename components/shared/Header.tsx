@@ -14,8 +14,8 @@ const navLinks1 = [
 ];
 
 const navLinks2 = [
-  { href: ".", name: "About" },
-  { href: ".", name: "Help" }
+  { href: "/about", name: "About" },
+  { href: "/help", name: "Help" }
 ];
 
 const allLinks = [...navLinks1, ...navLinks2];
