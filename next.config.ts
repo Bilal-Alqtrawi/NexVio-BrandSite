@@ -5,10 +5,19 @@ const nextConfig: NextConfig = {
     qualities: [75, 90],
     dangerouslyAllowSVG: true,
     contentDispositionType: "attachment",
-    contentSecurityPolicy: "default-src 'self'; script-src 'none'; sandbox;"
+    contentSecurityPolicy: "d efault-src 'self'; script-src 'none'; sandbox;"
   },
   compiler: {
     removeConsole: process.env.NODE_ENV === "production"
+  },
+  async redirects() {
+    return [
+      {
+        source: "/",
+        destination: "/home",
+        permanent: true
+      }
+    ];
   }
 };
 

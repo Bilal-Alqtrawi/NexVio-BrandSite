@@ -59,21 +59,21 @@ export default function Features() {
         The Technology Behind Business Owners&apos; Success
       </h2>
 
-      <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 md:grid-cols-3">
-        {features.map((feat, i) => (
+      <div className="flex w-full snap-x snap-mandatory scrollbar-none gap-6 overflow-x-auto pb-6 sm:grid sm:grid-cols-2 sm:overflow-x-visible sm:pb-0 lg:grid-cols-3">
+        {features.map((feat) => (
           <div
             key={feat.id}
             style={{
               backgroundImage: `url(${feat.imageSrc})`,
               boxShadow: `11px 18px 30px -16px ${feat.shadowColor}`
             }}
-            className={`group transation relative z-3 flex h-80 flex-col rounded-3xl border border-white bg-cover p-8 duration-300 hover:scale-105`}
+            className="group relative z-3 flex h-85 w-[85vw] shrink-0 snap-center flex-col rounded-3xl border border-white bg-cover p-8 transition-transform duration-300 hover:scale-105 sm:h-80 sm:w-full sm:snap-align-none"
           >
             <div>
               <span className="font-monospace mb-5 inline-flex">
                 {feat.id <= 9 ? `0${feat.id}` : feat.id}
               </span>
-              <h2 className="mb-2 max-w-25 text-2xl font-semibold">
+              <h2 className="mb-2 max-w-25 text-xl font-semibold sm:text-2xl">
                 {feat.title}
               </h2>
               <p className="max-w-40 text-sm">{feat.desc}</p>
