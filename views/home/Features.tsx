@@ -1,12 +1,4 @@
-import {
-  Card,
-  CardContent,
-  CardDescription,
-  CardHeader,
-  CardTitle
-} from "@/components/ui/card";
 import { ArrowRight } from "lucide-react";
-import Image from "next/image";
 import Link from "next/link";
 
 const features = [
@@ -15,42 +7,48 @@ const features = [
     imageSrc: "/features/feat-1.svg",
     title: "Business Intelligence",
     desc: "Business Technology Solutions",
-    href: "."
+    href: ".",
+    shadowColor: "#E1C7D1"
   },
   {
     id: 2,
     imageSrc: "/features/feat-2.svg",
     title: "Inventory Management",
     desc: "Business Technology Solutions",
-    href: "."
+    href: ".",
+    shadowColor: "#E3E5FC"
   },
   {
     id: 3,
     imageSrc: "/features/feat-3.svg",
     title: "Smart POS",
     desc: "Business Technology Solutions",
-    href: "."
+    href: ".",
+    shadowColor: "#C6D5F9"
   },
   {
     id: 4,
     imageSrc: "/features/feat-4.svg",
     title: "Employee Management",
     desc: "Business Technology Solutions",
-    href: "."
+    href: ".",
+    shadowColor: "#CEE5F7"
   },
   {
     id: 5,
     imageSrc: "/features/feat-5.svg",
     title: "Integrated Payments",
     desc: "Business Technology Solutions",
-    href: "."
+    href: ".",
+    shadowColor: "#BEEDFA"
   },
   {
     id: 6,
     imageSrc: "/features/feat-6.svg",
     title: "Customer Relationship Management",
     desc: "Business Technology Solutions",
-    href: "."
+    href: ".",
+    shadowColor: "#B2DAB2"
   }
 ] as const;
 
@@ -62,11 +60,14 @@ export default function Features() {
       </h2>
 
       <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 md:grid-cols-3">
-        {features.map((feat) => (
+        {features.map((feat, i) => (
           <div
             key={feat.id}
-            style={{ backgroundImage: `url(${feat.imageSrc})` }}
-            className="group transation relative z-3 flex h-80 flex-col border-white! bg-cover p-8 duration-300 hover:scale-105"
+            style={{
+              backgroundImage: `url(${feat.imageSrc})`,
+              boxShadow: `11px 18px 30px -16px ${feat.shadowColor}`
+            }}
+            className={`group transation relative z-3 flex h-80 flex-col rounded-3xl border border-white bg-cover p-8 duration-300 hover:scale-105`}
           >
             <div>
               <span className="font-monospace mb-5 inline-flex">
@@ -84,7 +85,7 @@ export default function Features() {
             >
               <ArrowRight
                 size={18}
-                className="duration-75 group-hover:animate-pulse"
+                className="text-neutral-900 transition-transform duration-300 ease-out group-hover:translate-x-1.5"
               />
             </Link>
           </div>

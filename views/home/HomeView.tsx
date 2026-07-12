@@ -6,14 +6,12 @@ import CTA from "./CTA";
 
 export default function HomeView() {
   return (
-    <main>
-      {/* <div className="container mx-auto px-4 sm:px-8"> */}
+    <main className="min-h-screen w-full opacity-100 transition-opacity duration-300">
       <Hero />
       <Features />
       <LogoCloud />
       <Slider />
       <CTA />
-      {/* </div> */}
     </main>
   );
 }

@@ -1,5 +1,5 @@
 import HelpView from "@/views/help/HelpView";
 
-export default function Page() {
+export default async function Page() {
   return <HelpView />;
 }

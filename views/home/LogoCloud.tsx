@@ -4,14 +4,14 @@ import Image from "next/image";
 import { motion } from "framer-motion";
 
 const LogosImages: string[] = [
-  "/logos/logo-1.png",
-  "/logos/logo-2.png",
-  "/logos/logo-3.png",
-  "/logos/logo-4.png",
-  "/logos/logo-5.png",
-  "/logos/logo-6.png",
-  "/logos/logo-7.png",
-  "/logos/logo-8.png"
+  "/logos/logo-1.svg",
+  "/logos/logo-2.svg",
+  "/logos/logo-3.svg",
+  "/logos/logo-4.svg",
+  "/logos/logo-5.svg",
+  "/logos/logo-6.svg",
+  "/logos/logo-7.svg",
+  "/logos/logo-8.svg"
 ];
 
 export default function LogoCloud() {
@@ -19,7 +19,7 @@ export default function LogoCloud() {
     <section className="relative w-full overflow-hidden pt-16 pb-24">
       <motion.div
         className="flex items-center gap-8"
-        animate={{ x: ["0%", "-150%"] }}
+        animate={{ x: ["0%", "-120%"] }}
         transition={{
           repeat: Infinity,
           duration: 10,
@@ -29,7 +29,7 @@ export default function LogoCloud() {
         {[...LogosImages, ...LogosImages].map((logo, idx) => (
           <div
             key={idx}
-            className="flex shrink-0 items-center justify-center bg-transparent transition-all duration-300 hover:scale-105"
+            className="flex shrink-0 items-center justify-center rounded-xl bg-[#d9d9d9] shadow-sm transition-all duration-300 hover:scale-105"
           >
             <Image
               src={logo}

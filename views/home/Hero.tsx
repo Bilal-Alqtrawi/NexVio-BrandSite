@@ -3,22 +3,20 @@
 import Image from "next/image";
 import { motion, Variants } from "framer-motion";
 
-const containerVariants: Variants = {
+const textContainerVariants: Variants = {
   hidden: { opacity: 0 },
   visible: {
     opacity: 1,
-    transition: {
-      staggerChildren: 0.1
-    }
+    transition: { staggerChildren: 0.05 }
   }
 };
 
-const itemVariants: Variants = {
-  hidden: { opacity: 0, y: 20 },
+const textItemVariants: Variants = {
+  hidden: { opacity: 0, y: 15 },
   visible: {
     opacity: 1,
     y: 0,
-    transition: { duration: 0.5, ease: [0.215, 0.61, 0.355, 1] }
+    transition: { duration: 0.4, ease: "easeOut" }
   }
 };
 
@@ -32,33 +30,33 @@ const cardHoverEffect: Variants = {
 
 export default function Hero() {
   return (
-    <motion.section
-      className="relative container mx-auto w-full overflow-hidden px-4 pt-16 pb-24 sm:px-6"
-      variants={containerVariants}
-      initial="hidden"
-      animate="visible"
-    >
-      <div className="mb-16 space-y-4 text-center">
+    <motion.section className="relative container mx-auto w-full overflow-hidden px-4 pt-16 pb-24 sm:px-6">
+      <motion.div
+        className="mb-16 space-y-4 text-center"
+        variants={textContainerVariants}
+        initial="hidden"
+        animate="visible"
+      >
         <motion.h1
-          variants={itemVariants}
-          className="text-primary font text-4xl leading-[1.1] tracking-tight sm:text-5xl"
+          variants={textItemVariants}
+          className="text-primary text-4xl leading-[1.1] tracking-tight sm:text-5xl"
         >
           Everything Your Business Needs.
         </motion.h1>
 
         <motion.h2
-          variants={itemVariants}
+          variants={textItemVariants}
           className="text-muted-foreground text-xl font-light tracking-wide sm:text-2xl lg:text-3xl"
         >
           Business Technology Solutions
         </motion.h2>
-      </div>
+      </motion.div>
 
       <div className="grid grid-cols-1 items-stretch gap-6 md:grid-cols-2 lg:grid-cols-4">
         <motion.div
           whileHover="hover"
           variants={cardHoverEffect}
-          style={{ willChange: "transform, opacity" }}
+          style={{ willChange: "transform" }}
           className="relative overflow-hidden rounded-[2rem] lg:col-span-2"
         >
           <Image
@@ -68,6 +66,7 @@ export default function Hero() {
             height={432}
             className="block h-auto w-full object-cover select-none"
             priority
+            sizes="(max-width: 768px) 100vw, 50vw"
           />
         </motion.div>
 
@@ -75,7 +74,6 @@ export default function Hero() {
           <motion.div
             whileHover="hover"
             variants={cardHoverEffect}
-            style={{ willChange: "transform, opacity" }}
             className="relative overflow-hidden rounded-[2rem]"
           >
             <Image
@@ -84,13 +82,14 @@ export default function Hero() {
               width={250}
               height={208}
               className="block h-auto w-full object-cover select-none"
+              priority
+              sizes="(max-width: 768px) 100vw, 25vw"
             />
           </motion.div>
 
           <motion.div
             whileHover="hover"
             variants={cardHoverEffect}
-            style={{ willChange: "transform, opacity" }}
             className="relative overflow-hidden rounded-[2rem]"
           >
             <Image
@@ -99,6 +98,8 @@ export default function Hero() {
               width={250}
               height={235}
               className="block h-auto w-full object-cover select-none"
+              priority
+              sizes="(max-width: 768px) 100vw, 25vw"
             />
           </motion.div>
         </div>
@@ -106,7 +107,6 @@ export default function Hero() {
         <motion.div
           whileHover="hover"
           variants={cardHoverEffect}
-          style={{ willChange: "transform, opacity" }}
           className="relative overflow-hidden rounded-[2rem] lg:col-span-1"
         >
           <Image
@@ -115,6 +115,8 @@ export default function Hero() {
             width={251}
             height={432}
             className="block h-auto w-full object-cover select-none"
+            priority
+            sizes="(max-width: 768px) 100vw, 25vw"
           />
         </motion.div>
       </div>

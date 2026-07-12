@@ -60,8 +60,14 @@ export default function Header() {
         <div className="shrink-0 grow lg:grow-0">
           <Link
             className="mx-auto inline-flex"
-            href="/"
+            href="/home"
             aria-label="NexVio home"
+            onClick={(e) => {
+              if (window.location.pathname === "/") {
+                e.preventDefault();
+                window.scrollTo({ top: 0, behavior: "smooth" });
+              }
+            }}
           >
             <Logo />
           </Link>

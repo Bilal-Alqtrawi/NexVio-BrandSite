@@ -10,7 +10,6 @@ interface CarouselCardProps {
   item: CarouselItem;
   relativeIndex: number;
   isPriority: boolean;
-  /** لما تكون true، الحركة بتصير فورية (احتراماً لـ prefers-reduced-motion) */
   reduceMotion: boolean;
 }
 
@@ -36,13 +35,6 @@ function CarouselCardComponent({
         duration: reduceMotion ? 0 : 0.55,
         ease: [0.16, 1, 0.3, 1]
       }}
-      /*
-        مهم: ما في هون ولا static class للـ position (left/translate)،
-        المقاس نفسه جاي 100% من الحاوية الأب (CarouselStack) اللي
-        فيها clamp() + aspect-ratio عشان يبقى Responsive حقيقي وبنفس
-        الوقت النسبة/الأبعاد (500:490) محفوظة بالضبط على أي شاشة.
-        الحركة (x, y, rotate, scale) هي المصدر الوحيد للـ positioning.
-      */
       className="absolute inset-0 shrink-0 transform-gpu overflow-hidden rounded-[2.2rem] border-white bg-white shadow-2xl will-change-transform select-none"
       style={{
         transformOrigin: "center center",
@@ -54,7 +46,7 @@ function CarouselCardComponent({
         alt={item.title}
         fill
         sizes="(min-width: 1280px) 500px, (min-width: 768px) 39vw, 60vw"
-        className="object-cover object-center"
+        className={`object-cover object-center ${relativeIndex === 0 ? "" :"opacity-50"}`}
         priority={isPriority}
         quality={75}
       />

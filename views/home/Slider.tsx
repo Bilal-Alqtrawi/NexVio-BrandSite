@@ -87,13 +87,13 @@ export default function Slider() {
         <button
           onClick={() => goTo(-1)}
           aria-label="Previous slide"
-          className="relative hidden w-[7%] shrink-0 rounded-2xl opacity-70 transition-opacity hover:opacity-100 sm:block"
+          className="relative hidden h-80 w-[7%] shrink-0 opacity-70 transition-opacity hover:opacity-100 sm:block"
         >
           <Image
             src={prevSlide.image}
             alt=""
             fill
-            className="absolute! top-0 left-0 h-90! rounded-l-none rounded-r-xl object-cover"
+            className="rounded-l-none rounded-r-3xl object-cover"
           />
         </button>
 
@@ -126,7 +126,7 @@ export default function Slider() {
           </AnimatePresence>
 
           {/* Slide number */}
-          <div className="absolute top-6 left-6 text-sm font-medium text-white/80 sm:top-8 sm:left-8">
+          <div className="absolute top-6 left-6 text-4xl font-medium text-white/80 sm:top-8 sm:left-8">
             {active.id}
           </div>
 
@@ -143,11 +143,11 @@ export default function Slider() {
             <Button
               nativeButton={false}
               render={<Link href="/contact" />}
-              className="text-foreground transation hover:bg-foreground group mr-8 shrink space-x-3 rounded-full bg-white py-8 duration-300 hover:text-white sm:mr-15 sm:px-6"
+              className="text-foreground transation hover:bg-foreground group mr-8 shrink space-x-3 rounded-full bg-white py-4 duration-300 hover:text-white sm:mr-15 sm:px-6 lg:py-8"
             >
               <span>view more</span>
-              <span className="bg-foreground inline-flex size-10.25 items-center justify-center rounded-full text-white group-hover:bg-white group-hover:text-black">
-                <ChevronRight className="sm:size-8" />
+              <span className="bg-foreground inline-flex size-6  lg:size-10.25 items-center justify-center rounded-full text-white group-hover:bg-white group-hover:text-black">
+                <ChevronRight className="size-4 sm:size-8" />
               </span>
             </Button>
           </div>
@@ -157,13 +157,13 @@ export default function Slider() {
         <button
           onClick={() => goTo(1)}
           aria-label="Next slide"
-          className="relative hidden w-[7%] shrink-0 overflow-hidden rounded-2xl opacity-70 transition-opacity hover:opacity-100 sm:block"
+          className="relative mt-auto hidden h-90 w-[7%] shrink-0 overflow-hidden opacity-70 transition-opacity hover:opacity-100 sm:block"
         >
           <Image
             src={nextSlide.image}
             alt=""
             fill
-            className="absolute! top-50! h-90 rounded-l-xl rounded-r-none object-cover"
+            className="rounded-l-3xl rounded-r-none object-cover"
           />
         </button>
 

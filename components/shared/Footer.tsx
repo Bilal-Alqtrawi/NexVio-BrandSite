@@ -21,19 +21,39 @@ const socialLinks = [
 const footerColumns = [
   {
     title: "About",
-    links: ["About Nayax", "Why Nayax", "Careers", "Affiliate Program"]
+    links: [
+      { name: "About Nexvio", href: "about" },
+      { name: "Why Nexvio", href: "/why-nexvio" },
+      { name: "Careers", href: "/careers" },
+      { name: "Affiliate Program", href: "/affiliate-program" }
+    ]
   },
   {
     title: "About",
-    links: ["About Nayax", "Why Nayax", "Careers", "Affiliate Program"]
+    links: [
+      { name: "About Nexvio", href: "about" },
+      { name: "Why Nexvio", href: "/why-nexvio" },
+      { name: "Careers", href: "/careers" },
+      { name: "Affiliate Program", href: "/affiliate-program" }
+    ]
   },
   {
     title: "Help Center",
-    links: ["POS Touch", "Nova Market", "Monyx Wallet", "Weezmo"]
+    links: [
+      { name: "POS Touch", href: "/pos-touch" },
+      { name: "Nova Market", href: "/nova-market" },
+      { name: "Monyx Wallet", href: "/monyx-wallet" },
+      { name: "Weezmo", href: "/weezmo" }
+    ]
   },
   {
     title: "About",
-    links: ["About Nexvio", "Why Nexvio", "Careers", "Affiliate Program"]
+    links: [
+      { name: "About Nexvio", href: "about" },
+      { name: "Why Nexvio", href: "/why-nexvio" },
+      { name: "Careers", href: "/careers" },
+      { name: "Affiliate Program", href: "/affiliate-program" }
+    ]
   }
 ];
 
@@ -80,13 +100,13 @@ export default function Footer() {
               {column.title}
             </h3>
             <ul className="mt-5 flex list-none flex-col gap-3.5">
-              {column.links.map((link) => (
-                <li key={link}>
+              {column.links.map((link, idx) => (
+                <li key={idx}>
                   <Link
-                    href="."
+                    href={link.href}
                     className="text-sm text-white/55 transition hover:text-white"
                   >
-                    {link}
+                    {link.name}
                   </Link>
                 </li>
               ))}

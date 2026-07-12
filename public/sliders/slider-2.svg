@@ -1,7 +1,6 @@
 <svg width="920" height="471" viewBox="0 0 920 471" fill="none" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-<rect width="920" height="471" rx="30" fill="#D9D9D9"/>
-<rect width="920" height="471" rx="30" fill="url(#pattern0_2_360)"/>
-<rect width="920" height="471" rx="30" fill="url(#paint0_linear_2_360)" fill-opacity="0.44"/>
+<rect width="920" height="471" fill="url(#pattern0_2_360)"/>
+<rect width="920" height="471" fill="url(#paint0_linear_2_360)" fill-opacity="0.44"/>
 <defs>
 <pattern id="pattern0_2_360" patternContentUnits="objectBoundingBox" width="1" height="1">
 <use xlink:href="#image0_2_360" transform="matrix(0.000666667 0 0 0.00130219 0 -0.00069356)"/>

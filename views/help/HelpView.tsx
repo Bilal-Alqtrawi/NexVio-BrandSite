@@ -6,7 +6,7 @@ import { PeekCarousel } from "./PeekCarousel";
 const gallery: CarouselItem[] = [
   {
     id: 1,
-    imageSrc: "/help/help-3.svg",
+    imageSrc: "/help/help-1.jpeg",
     title: "Personalize Your Profile",
     description:
       "Begin by creating your profile. Tell us about your dietary preferences, nutritional goals, and budget. Our AI technology tailors every meal plan to fit your unique needs."
@@ -20,7 +20,7 @@ const gallery: CarouselItem[] = [
   },
   {
     id: 3,
-    imageSrc: "/help/help-1.jpeg",
+    imageSrc: "/help/help-3.svg",
     title: "Track Your Smart Progress",
     description:
       "Monitor your daily nutritional balance effortlessly. Our smart system syncs your ingredients and dynamic grocery lists to save you time and reduce food waste."

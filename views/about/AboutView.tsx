@@ -5,15 +5,17 @@ import Link from "next/link";
 export default function AboutView() {
   return (
     <main className="from-background to-card/20 text-foreground w-full bg-linear-to-b pb-24">
-      <section className="container mx-auto px-4 pt-16 pb-8 sm:px-8">
-        <div className="relative flex w-fit items-center justify-between gap-4 select-none sm:gap-10">
-          <h1 className="pr-2 text-3xl font-bold tracking-tight text-neutral-950 sm:text-4xl">
+      <section className="container mx-auto px-4 py-12 sm:px-8">
+        <div className="relative flex flex-col gap-3 sm:flex-row sm:items-center sm:gap-6">
+          <h1 className="shrink-0 text-3xl font-bold tracking-tight text-neutral-950 sm:text-4xl">
             About
           </h1>
-          <span className="absolute top-1/2 left-[50%] inline-flex h-16 w-0.5 -translate-x-1/2 -translate-y-1/2 rotate-20 bg-neutral-700" />
-          <span className="inline-flexhover:text-brand-yellow cursor-pointer pt-1 pl-2 text-sm font-medium tracking-wide text-neutral-500 transition-colors duration-200">
-            About Nexvio
+          <span className="hidden rotate-12 transform text-5xl font-extralight text-black sm:block">
+            /
           </span>
+          <p className="max-w-xs pt-1 text-sm leading-relaxed font-medium text-neutral-500">
+            About Nexvio
+          </p>
         </div>
       </section>
 
@@ -26,7 +28,7 @@ export default function AboutView() {
                   src="/about/about.svg"
                   alt="About Nexvio platform team working together"
                   fill
-                  sizes="(max-w-1024px) 100vw, 50vw"
+                  sizes="(max-width: 1024px) 100vw, 50vw"
                   className="object-cover object-center"
                   priority
                 />
@@ -55,8 +57,10 @@ export default function AboutView() {
               <Button
                 variant="outline"
                 className="bg-brand-yellow h-12 w-full rounded-full border-none text-sm font-bold tracking-wide text-neutral-950 shadow-md transition-all duration-200 active:scale-98 sm:w-64"
+                nativeButton={false}
+                render={<Link href="/support" />}
               >
-                <Link href="/support">Get Support</Link>
+                <span>Get Support</span>
               </Button>
             </div>
           </div>
