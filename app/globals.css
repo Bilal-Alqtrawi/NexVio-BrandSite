@@ -102,3 +102,23 @@
     transform: translateX(100%);
   }
 }
+@keyframes cinematicFloat {
+  0%,
+  100% {
+    transform: translate3d(0, 0px, 0);
+  }
+  50% {
+    transform: translate3d(-6px, -15px, 0);
+  }
+}
+@keyframes shadowPulse {
+  0%,
+  100% {
+    transform: translate3d(-50%, 0, 0) scale(1);
+    opacity: 0.5;
+  }
+  50% {
+    transform: translate3d(-50%, 0, 0) scale(0.88);
+    opacity: 0.25;
+  }
+}

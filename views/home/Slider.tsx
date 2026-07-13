@@ -13,6 +13,7 @@ type SlideItem = {
   image: string;
   title: string;
   description: string;
+  slug: string;
 };
 
 const slides: SlideItem[] = [
@@ -20,20 +21,23 @@ const slides: SlideItem[] = [
     id: "02",
     image: "/sliders/slider-2.svg",
     title: "Sales & Checkout",
-    description: "Registers, mobile POS, kiosks, eCommerce"
+    description: "Registers, mobile POS, kiosks, eCommerce",
+    slug: "nova-modu"
   },
   {
     id: "01",
     image: "/sliders/slider-1.svg",
     title: "Sales & Checkout",
-    description: "Registers, mobile POS, kiosks, eCommerce"
+    description: "Registers, mobile POS, kiosks, eCommerce",
+    slug: "nova-modu"
   },
 
   {
     id: "03",
     image: "/sliders/slider-3.svg",
     title: "Sales & Checkout",
-    description: "Registers, mobile POS, kiosks, eCommerce"
+    description: "Registers, mobile POS, kiosks, eCommerce",
+    slug: "nova-modu"
   }
 ];
 
@@ -142,11 +146,11 @@ export default function Slider() {
             {/* View more pill */}
             <Button
               nativeButton={false}
-              render={<Link href="/contact" />}
+              render={<Link href={`/devices/${active.slug}`} />}
               className="text-foreground transation hover:bg-foreground group mr-8 shrink space-x-3 rounded-full bg-white py-4 duration-300 hover:text-white sm:mr-15 sm:px-6 lg:py-8"
             >
               <span>view more</span>
-              <span className="bg-foreground inline-flex size-6  lg:size-10.25 items-center justify-center rounded-full text-white group-hover:bg-white group-hover:text-black">
+              <span className="bg-foreground inline-flex size-6 items-center justify-center rounded-full text-white group-hover:bg-white group-hover:text-black lg:size-10.25">
                 <ChevronRight className="size-4 sm:size-8" />
               </span>
             </Button>

@@ -5,7 +5,15 @@ const nextConfig: NextConfig = {
     qualities: [75, 90],
     dangerouslyAllowSVG: true,
     contentDispositionType: "attachment",
-    contentSecurityPolicy: "d efault-src 'self'; script-src 'none'; sandbox;"
+    contentSecurityPolicy: "d efault-src 'self'; script-src 'none'; sandbox;",
+    remotePatterns: [
+      {
+        protocol: "https",
+        hostname: "images.unsplash.com",
+        port: "",
+        pathname: "/**"
+      }
+    ]
   },
   compiler: {
     removeConsole: process.env.NODE_ENV === "production"
