@@ -12,7 +12,6 @@ import type { Device } from "@/lib/devices";
 
 const ICON_MAP = [Cpu, Wifi, Award];
 
-// إعدادات حركة تأثير الانتقال بين الكروت بالضغط
 const cardVariants = {
   enter: (direction: number) => ({
     x: direction > 0 ? 100 : -100,
@@ -31,17 +30,15 @@ const cardVariants = {
 export default function DeviceHighlightsSlider({ device }: { device: Device }) {
   const targetRef = useRef<HTMLDivElement>(null);
   const [currentIndex, setCurrentIndex] = useState(0);
-  const [direction, setDirection] = useState(0); // 1 لليمين، -1 لليسار
+  const [direction, setDirection] = useState(0);
 
   const highlights = device.highlights || [];
 
-  // مراقبة الـ Scroll لتمدد الخلفية فقط
   const { scrollYProgress } = useScroll({
     target: targetRef,
     offset: ["start end", "end end"]
   });
 
-  // تمدد الكادر التدريجي عند الوصول للسكشن
   const containerWidth = useTransform<number, string>(
     scrollYProgress,
     [0, 0.25],
@@ -53,7 +50,6 @@ export default function DeviceHighlightsSlider({ device }: { device: Device }) {
     ["32px", "0px"]
   );
 
-  // وظائف أزرار التنقل
   const handleNext = () => {
     if (currentIndex < highlights.length - 1) {
       setDirection(1);
@@ -68,7 +64,6 @@ export default function DeviceHighlightsSlider({ device }: { device: Device }) {
     }
   };
 
-  // تحديد الأيقونة الحالية
   const IconComponent = ICON_MAP[currentIndex % ICON_MAP.length];
 
   return (
@@ -83,7 +78,6 @@ export default function DeviceHighlightsSlider({ device }: { device: Device }) {
         }}
         className="sticky top-0 z-10 mx-auto flex h-screen max-w-full transform-gpu flex-col justify-between overflow-hidden bg-[#1a1a1a] pt-28 pb-12 will-change-[width,border-radius] md:pt-36 md:pb-16"
       >
-        {/* أ. رأس السكشن الثابت */}
         <div className="container mx-auto max-w-7xl shrink-0 px-6 text-center">
           <h2 className="text-3xl font-black tracking-widest text-white uppercase sm:text-5xl">
             Highlights
@@ -104,12 +98,10 @@ export default function DeviceHighlightsSlider({ device }: { device: Device }) {
                   transition={{ duration: 0.35, ease: "easeInOut" }}
                   className="absolute flex h-full w-full transform-gpu flex-col justify-between rounded-[32px] border border-neutral-800 bg-[#2d2d2d] p-8 shadow-2xl sm:p-12"
                 >
-                  {/* حاوية الأيقونة */}
                   <div className="flex size-14 items-center justify-center rounded-2xl bg-[#FFD700] p-3 text-neutral-950 shadow-md">
                     <IconComponent className="size-7 stroke-[2.5]" />
                   </div>
 
-                  {/* النصوص */}
                   <div className="mt-6 space-y-4">
                     <h3 className="text-xl leading-snug font-black tracking-tight text-white sm:text-2xl">
                       {highlights[currentIndex].title}.
@@ -124,10 +116,8 @@ export default function DeviceHighlightsSlider({ device }: { device: Device }) {
           </div>
         </div>
 
-        {/* ج. أزرار التحكم السفليّة التفاعلية */}
         <div className="container mx-auto flex shrink-0 items-center justify-center gap-6 px-6">
           <div className="flex items-center gap-4 text-neutral-400">
-            {/* زر السهم الأيسر */}
             <button
               onClick={handlePrev}
               disabled={currentIndex === 0}
@@ -140,7 +130,6 @@ export default function DeviceHighlightsSlider({ device }: { device: Device }) {
               <ChevronLeft className="size-5" />
             </button>
 
-            {/* النقاط التوضيحية البسيطة */}
             <div className="flex items-center gap-1.5 px-1">
               {highlights.map((_, idx) => (
                 <div
@@ -154,7 +143,6 @@ export default function DeviceHighlightsSlider({ device }: { device: Device }) {
               ))}
             </div>
 
-            {/* زر السهم الأيمن */}
             <button
               onClick={handleNext}
               disabled={currentIndex === highlights.length - 1}

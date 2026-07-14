@@ -73,8 +73,7 @@ export default function DeviceSpecs({ device }: { device: Device }) {
                   The {device.name} ecosystem offers fast secure transactions,
                   enterprise connectivity, and optimized workflow tracking.
                 </p>
-                {/* الحاوية السحرية: تضمن عدم خروج الصورة من الأسفل نهائياً عبر الـ absolute bottom-0 ومقصوصة بالـ rounded الحواف */}
-                <div className="absolute -right-8 -bottom-8 -left-8 flex h-[200px] w-[calc(100%+64px)] items-end justify-center overflow-hidden">
+                <div className="absolute -right-8 -bottom-8 -left-8 flex h-50 w-[calc(100%+64px)] items-end justify-center overflow-hidden">
                   <div className="relative h-[90%] w-full translate-y-2 transform transition-transform duration-500 group-hover:translate-y-0">
                     <Image
                       src={device.deviceImg}
@@ -99,7 +98,6 @@ export default function DeviceSpecs({ device }: { device: Device }) {
             }
           />
 
-          {/* 3. كارد الـ Engagement */}
           <FlipCard
             title="Engagement"
             frontBg="bg-white border border-neutral-200/50"

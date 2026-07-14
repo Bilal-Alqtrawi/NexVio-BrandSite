@@ -1,7 +1,8 @@
 "use client";
 
-import React, { useRef } from "react";
+import { useRef } from "react";
 import { motion, useScroll, useTransform, MotionValue } from "framer-motion";
+import type { Device } from "@/lib/devices";
 
 const STATS = [
   { value: "1.5M+", label: "Managed and Connected Devices" },
@@ -9,13 +10,17 @@ const STATS = [
   { value: "120+", label: "Countries Worldwide" }
 ];
 
-const TEXT_PARAGRAPH =
-  "Powering business ecosystems since 2005, NexVio is a global fintech company and leader in payment and commerce enablement, offering end-to-end solutions that facilitate sustainable business growth.";
+/* const TEXT_PARAGRAPH =
+  "Powering business ecosystems since 2005, NexVio is a global fintech company and leader in payment and commerce enablement, offering end-to-end solutions that facilitate sustainable business growth."; */
 
 interface WordProps {
   children: string;
   progress: MotionValue<number>;
   range: [number, number];
+}
+
+interface DeviceStatsRevealProps {
+  device: Device;
 }
 
 const WordReveal = ({ children, progress, range }: WordProps) => {
@@ -31,7 +36,7 @@ const WordReveal = ({ children, progress, range }: WordProps) => {
   );
 };
 
-export default function DeviceStatsReveal() {
+export default function DeviceStatsReveal({ device }: DeviceStatsRevealProps) {
   const containerRef = useRef<HTMLDivElement>(null);
 
   const { scrollYProgress } = useScroll({
@@ -42,7 +47,8 @@ export default function DeviceStatsReveal() {
   const bgWidth = useTransform(scrollYProgress, [0, 0.35], ["92vw", "100vw"]);
   const bgRadius = useTransform(scrollYProgress, [0, 0.35], ["32px", "0px"]);
 
-  const words = TEXT_PARAGRAPH.split(" ");
+  const words = device.description.split(" ");
+  // const words = TEXT_PARAGRAPH.split(" ");
 
   return (
     <section
@@ -76,21 +82,19 @@ export default function DeviceStatsReveal() {
           </div>
 
           <div className="w-full max-w-4xl space-y-12 md:space-y-16">
-            {/* شبكة الإحصائيات */}
             <div className="grid grid-cols-1 gap-8 text-center md:grid-cols-3">
               {STATS.map((stat) => (
                 <div key={stat.label} className="space-y-2">
                   <span className="block text-4xl font-black tracking-tight text-neutral-950 sm:text-5xl md:text-[54px]">
                     {stat.value}
                   </span>
-                  <span className="mx-auto block max-w-[200px] text-sm leading-snug font-semibold text-neutral-600">
+                  <span className="mx-auto block max-w-50 text-sm leading-snug font-semibold text-neutral-600">
                     {stat.label}
                   </span>
                 </div>
               ))}
             </div>
 
-            {/* أزرار الأكشن */}
             <div className="flex flex-wrap items-center justify-center gap-4">
               <button className="transform-gpu rounded-full bg-[#FFD700] px-8 py-3.5 text-sm font-bold text-neutral-950 shadow-sm transition-all duration-200 hover:scale-105 hover:bg-[#e6c200] active:scale-95">
                 About NexVio

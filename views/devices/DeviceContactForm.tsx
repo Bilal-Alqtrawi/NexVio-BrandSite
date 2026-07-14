@@ -2,6 +2,11 @@
 
 import React, { useState } from "react";
 import Image from "next/image";
+import type { Device } from "@/lib/devices";
+
+interface DeviceContactFormProps {
+  device: Device;
+}
 
 // الشعارات الفعلية من مجلد public/logos الخاص بمشروعك
 const LOGO_PARTNERS = [
@@ -15,7 +20,7 @@ const LOGO_PARTNERS = [
   { src: "/logos/logo-8.svg", alt: "Express City Wash" }
 ];
 
-export default function DeviceContactForm() {
+export default function DeviceContactForm({ device }: DeviceContactFormProps) {
   const [formData, setFormData] = useState({
     firstName: "",
     lastName: "",
@@ -30,11 +35,15 @@ export default function DeviceContactForm() {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    console.log("Submitted Data Form:", formData);
+    console.log(`Submitted Form for ${device.name}:`, formData);
   };
 
   return (
-    <section className="w-full border-t border-neutral-200 bg-[#FBF9F4] px-6 py-20 md:py-28">
+    // تم إضافة id="contact-us" ليعمل التمرير السلس من سكشن المساعدة
+    <section
+      id="contact-us"
+      className="w-full border-t border-neutral-200 bg-[#FBF9F4] px-6 py-20 md:py-28"
+    >
       <div className="container mx-auto grid max-w-7xl grid-cols-1 items-start gap-16 lg:grid-cols-12 lg:gap-8">
         {/* العمود الأيسر: العناوين والشعارات */}
         <div className="space-y-10 lg:sticky lg:top-8 lg:col-span-5">

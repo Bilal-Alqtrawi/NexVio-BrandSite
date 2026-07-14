@@ -6,7 +6,11 @@ import { Button } from "@/components/ui/button";
 import type { Device } from "@/lib/devices";
 import { ArrowUpRight } from "lucide-react";
 
-export default function DeviceHero({ device }: { device: Device }) {
+interface DeviceHeroProps {
+  device: Device;
+}
+
+export default function DeviceHero({ device }: DeviceHeroProps) {
   return (
     <section className="relative flex min-h-[80vh] w-full items-center overflow-hidden bg-[#FBF9F4] pt-16 pb-24 md:pt-20 md:pb-28">
       <div className="pointer-events-none absolute inset-y-0 right-0 z-0 w-full select-none lg:w-[60%]">

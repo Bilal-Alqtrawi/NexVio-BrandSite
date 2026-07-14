@@ -3,7 +3,6 @@ import type { Metadata } from "next";
 import { devices, getDeviceBySlug } from "@/lib/devices";
 import DeviceHero from "@/views/devices/DeviceHero";
 import DeviceSpecs from "@/views/devices/DeviceSpecs";
-import DeviceCTA from "@/views/home/CTA";
 import LogoCloud from "@/views/home/LogoCloud";
 import DeviceSpecsSheet from "@/views/devices/DeviceSpecsSheet";
 import DeviceHowHelp from "@/views/devices/DeviceHowHelp";
@@ -44,14 +43,19 @@ export default async function DevicePage({ params }: Props) {
       <DeviceHero device={device} />
       <LogoCloud />
       <DeviceSpecs device={device} />
-      <DeviceSpecsSheet device={device} />
-      <DeviceHowHelp />
+      {device.specSheet && (
+        <DeviceSpecsSheet specSheet={device.specSheet} device={device} />
+      )}
+      <DeviceHowHelp device={device} />
       <DeviceHighlightsSlider device={device} />
-      <DeviceOperatorVideo />
-      <DeviceStatsReveal />
-      <InfinitePaymentsMarquee />
-      <DeviceContactForm />
-      <DeviceFAQ />
+      {/* {device.videoUrl && <DeviceOperatorVideo videoUrl={device.videoUrl} />} */}
+      <DeviceOperatorVideo device={device} />
+
+      <DeviceStatsReveal device={device} />
+      <InfinitePaymentsMarquee device={device} />
+      <DeviceContactForm device={device} />
+
+      <DeviceFAQ faqs={device.faqs} />
     </main>
   );
 }
