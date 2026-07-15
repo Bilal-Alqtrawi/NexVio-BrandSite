@@ -122,3 +122,10 @@
     opacity: 0.25;
   }
 }
+
+html {
+  scroll-behavior: smooth;
+}
+body {
+  scroll-behavior: smooth;
+}

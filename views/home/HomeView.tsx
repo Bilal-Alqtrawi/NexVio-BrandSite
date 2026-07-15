@@ -1,7 +1,7 @@
 import Hero from "./Hero";
 import Features from "./Features";
 import LogoCloud from "./LogoCloud";
-import Slider from "./Slider";
+import Devices from "./Devices";
 import CTA from "./CTA";
 
 export default function HomeView() {
@@ -10,7 +10,7 @@ export default function HomeView() {
       <Hero />
       <Features />
       <LogoCloud />
-      <Slider />
+      <Devices />
       <CTA />
     </main>
   );

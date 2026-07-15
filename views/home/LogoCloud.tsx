@@ -16,7 +16,10 @@ const LogosImages: string[] = [
 
 export default function LogoCloud() {
   return (
-    <section className="relative w-full overflow-hidden pt-16 pb-24">
+    <section
+      id="partners"
+      className="relative w-full overflow-hidden pt-16 pb-24"
+    >
       <motion.div
         className="flex items-center gap-8"
         animate={{ x: ["0%", "-120%"] }}

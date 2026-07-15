@@ -8,9 +8,8 @@ import { ArrowRight } from "lucide-react";
 import { useEffect, useState } from "react";
 
 const navLinks1 = [
-  { href: ".", name: "Business Types" },
-  { href: ".", name: "smart devices" },
-  { href: ".", name: "POS" }
+  { href: "/home#features", name: "Business Types" },
+  { href: "/home#devices", name: "smart devices" }
 ];
 
 const navLinks2 = [
@@ -91,7 +90,7 @@ export default function Header() {
 
           <Button
             nativeButton={false}
-            render={<Link href="/get-started" />}
+            render={<Link href="." />}
             className="space-x-3 rounded-full px-6 py-8"
           >
             <span>Get Started</span>

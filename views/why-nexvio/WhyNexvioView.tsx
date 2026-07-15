@@ -9,7 +9,7 @@ const stats = [
 
 export default function WhyNexvioView() {
   return (
-    <main className="bg-[#FFFAF2] py-4">
+    <main className="bg-[#FFFAF2] py-10 lg:py-16">
       <section className="container mx-auto px-4 sm:px-8">
         <div className="relative mx-auto mb-20 max-w-7xl rounded-[2.5rem] bg-[#FFD700] px-8 py-16 text-center shadow-lg">
           <h2 className="mx-auto max-w-md text-3xl font-bold text-neutral-950 sm:text-4xl">

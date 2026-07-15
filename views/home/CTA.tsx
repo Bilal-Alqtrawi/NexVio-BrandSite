@@ -16,9 +16,9 @@ export default function CTA() {
             className="mx-auto mt-5 h-10 w-auto brightness-0 invert-100"
           />
 
-          <div className="my-10">
+          <div className="my-10 space-y-2">
             <h2 className="text-4xl font-medium">Get your free consultation</h2>
-            <p className="font-light">
+            <p className="px-3 font-light text-background/95">
               Tell us about your business & how we can help you grow.
             </p>
           </div>

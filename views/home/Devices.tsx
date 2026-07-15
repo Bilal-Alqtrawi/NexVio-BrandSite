@@ -27,7 +27,7 @@ const variants = {
   })
 };
 
-export default function Slider() {
+export default function Devices() {
   const [index, setIndex] = useState(0);
   const [direction, setDirection] = useState(0);
 
@@ -44,7 +44,10 @@ export default function Slider() {
   const nextSlide = getSlide(1);
 
   return (
-    <section className="relative w-full overflow-x-hidden pt-16 pb-24">
+    <section
+      id="devices"
+      className="relative w-full overflow-x-hidden pt-16 pb-24"
+    >
       <div className="container mx-auto flex flex-col justify-between gap-4 px-4 sm:flex-row sm:items-start sm:px-40">
         <h2 className="text-2xl leading-tight font-medium tracking-[2px] sm:text-3xl">
           Everything Your Business <br /> Needs. Connected

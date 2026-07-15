@@ -54,7 +54,10 @@ const features = [
 
 export default function Features() {
   return (
-    <section className="relative container mx-auto w-full space-y-10 overflow-hidden px-4 pt-16 pb-24 sm:px-6">
+    <section
+      id="features"
+      className="relative container mx-auto w-full space-y-10 overflow-hidden px-4 pt-16 pb-24 sm:px-6"
+    >
       <h2 className="font mx-auto max-w-2xl text-center text-2xl leading-[1.3] tracking-tight sm:text-5xl">
         The Technology Behind Business Owners&apos; Success
       </h2>
