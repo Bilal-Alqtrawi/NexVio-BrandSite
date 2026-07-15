@@ -8,7 +8,7 @@ import { ArrowRight } from "lucide-react";
 import { useEffect, useState } from "react";
 
 const navLinks1 = [
-  { href: "/home#features", name: "Business Types" },
+  { href: "/industries", name: "Business Types" },
   { href: "/home#devices", name: "smart devices" }
 ];
 

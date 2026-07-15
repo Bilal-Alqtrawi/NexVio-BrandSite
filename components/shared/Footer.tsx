@@ -23,9 +23,10 @@ const footerColumns = [
     title: "About",
     links: [
       { name: "About Nexvio", href: "/about" },
+      { name: "NexVio at a Glance", href: "/at-a-glance" },
       { name: "Why Nexvio", href: "/why-nexvio" },
-      { name: "Vision and Mission", href: "/home" },
-      { name: "NexVio Overview", href: "/home#overview" },
+      { name: "Vision and Mission", href: "/vision-and-mission" },
+      // { name: "NexVio Overview", href: "/home#overview" },
       { name: "Partners in Success", href: "/home#partners" }
     ]
   },

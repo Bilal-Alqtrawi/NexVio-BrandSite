@@ -7,7 +7,7 @@ const features = [
     imageSrc: "/features/feat-1.svg",
     title: "Business Intelligence",
     desc: "Business Technology Solutions",
-    href: ".",
+    href: "/solutions/business-intelligence",
     shadowColor: "#E1C7D1"
   },
   {
@@ -15,7 +15,7 @@ const features = [
     imageSrc: "/features/feat-2.svg",
     title: "Inventory Management",
     desc: "Business Technology Solutions",
-    href: ".",
+    href: "/solutions/inventory-management",
     shadowColor: "#E3E5FC"
   },
   {
@@ -23,7 +23,7 @@ const features = [
     imageSrc: "/features/feat-3.svg",
     title: "Smart POS",
     desc: "Business Technology Solutions",
-    href: ".",
+    href: "/solutions/smart-pos",
     shadowColor: "#C6D5F9"
   },
   {
@@ -31,7 +31,7 @@ const features = [
     imageSrc: "/features/feat-4.svg",
     title: "Employee Management",
     desc: "Business Technology Solutions",
-    href: ".",
+    href: "/solutions/employee-management",
     shadowColor: "#CEE5F7"
   },
   {
@@ -39,7 +39,7 @@ const features = [
     imageSrc: "/features/feat-5.svg",
     title: "Integrated Payments",
     desc: "Business Technology Solutions",
-    href: ".",
+    href: "/solutions/integrated-payments",
     shadowColor: "#BEEDFA"
   },
   {
@@ -47,7 +47,7 @@ const features = [
     imageSrc: "/features/feat-6.svg",
     title: "Customer Relationship Management",
     desc: "Business Technology Solutions",
-    href: ".",
+    href: "/solutions/crm",
     shadowColor: "#B2DAB2"
   }
 ] as const;
