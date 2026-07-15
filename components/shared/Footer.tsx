@@ -35,9 +35,12 @@ const footerColumns = [
     links: [
       { name: "NexVio System", href: "/home" },
       { name: "NexVio Devices", href: "/home#devices" },
-      { name: "Platform Capabilities", href: "/home#features" },
-      { name: "Business Intelligence", href: "/home#features" },
-      { name: "CRM", href: "." }
+      { name: "Platform Capabilities", href: "/capabilities" },
+      {
+        name: "Business Intelligence",
+        href: "/solutions/business-intelligence"
+      },
+      { name: "CRM", href: "/solutions/crm" }
     ]
   },
   {

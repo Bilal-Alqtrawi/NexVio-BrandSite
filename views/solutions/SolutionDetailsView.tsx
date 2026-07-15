@@ -38,9 +38,9 @@ export default function SolutionDetailsView({
   const isBI = data.slug === "business-intelligence";
 
   return (
-    <main className="relative w-full overflow-hidden bg-[#FAF8F5] font-sans text-neutral-900">
+    <main className="bg-brand-cream relative w-full overflow-hidden font-sans text-neutral-900">
       {/* --- SECTION 1: ASYMMETRIC EDITORIAL HERO --- */}
-      <section className="relative flex min-h-[90vh] items-center px-4 pt-32 pb-20 sm:px-6 lg:px-8">
+      <section className="relative flex min-h-[90vh] items-center px-4 pt-10 pb-20 sm:px-6 lg:px-8">
         <div className="absolute inset-0 z-0 opacity-40">
           <div className="absolute top-0 right-0 size-[600px] translate-x-12 -translate-y-12 rounded-full bg-[#F5C41B]/10 blur-[130px]" />
           <div className="absolute bottom-0 left-0 size-[400px] -translate-x-12 translate-y-12 rounded-full bg-neutral-200 blur-[100px]" />
@@ -310,7 +310,7 @@ export default function SolutionDetailsView({
                 {data.benefits.map((benefit, i) => (
                   <div key={i} className="group flex gap-3">
                     <span className="mt-1 shrink-0 font-mono text-xs font-bold text-[#F5C41B]">
-                      // 0{i + 1}
+                      0{i + 1}
                     </span>
                     <p className="text-sm leading-snug font-bold text-neutral-200 transition-colors group-hover:text-white">
                       {benefit}

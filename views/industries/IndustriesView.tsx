@@ -136,7 +136,7 @@ export default function IndustriesView() {
 
       <div className="relative z-10">
         {/* --- 1️⃣ الهيرو التحريري الفخم (Editorial Title Section) --- */}
-        <section className="mx-auto max-w-5xl space-y-6 px-4 pt-32 pb-16 text-center sm:px-6 lg:px-8">
+        <section className="mx-auto max-w-5xl space-y-6 px-4 pt-10 pb-16 text-center sm:px-6 lg:px-8">
           <div className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/[0.03] px-4 py-1.5 text-xs font-black tracking-widest text-[#F5C41B] uppercase backdrop-blur-xs">
             <Layers className="size-3.5" />
             One Platform. Multiple Industries.
@@ -212,7 +212,7 @@ export default function IndustriesView() {
 
                   <div className="space-y-4">
                     <span className="font-mono text-[10px] font-black tracking-widest text-[#F5C41B] uppercase">
-                      [ INDUSTRY MATRIX //{" "}
+                      [ INDUSTRY MATRIX{" "}
                       {INDUSTRIES_DATA[activeTab].id.toUpperCase()} ]
                     </span>
                     <h3 className="text-3xl leading-none font-black tracking-tight text-white uppercase md:text-4xl">
@@ -303,7 +303,7 @@ export default function IndustriesView() {
                   className="space-y-3 rounded-3xl border border-white/5 bg-white/[0.02] p-6 transition-colors hover:border-white/10"
                 >
                   <span className="font-mono text-xs font-bold text-[#F5C41B]">
-                    // INTEGRATION_0{idx + 1}
+                    INTEGRATION_0{idx + 1}
                   </span>
                   <h4 className="text-base font-black tracking-wider text-white uppercase">
                     {item.title}
