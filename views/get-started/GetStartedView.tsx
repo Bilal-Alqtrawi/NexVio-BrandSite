@@ -1,46 +1,44 @@
 "use client";
 
-import { Button } from "@/components/ui/button";
 import { ArrowRight, Code2, Zap, LayoutTemplate } from "lucide-react";
-import { motion } from "framer-motion";
+import { motion, Variants } from "framer-motion";
+
+const fadeUp = {
+  hidden: { opacity: 0, y: 30 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: { duration: 0.6, ease: "easeOut" }
+  }
+} as Variants;
+
+const staggerContainer = {
+  hidden: { opacity: 0 },
+  visible: {
+    opacity: 1,
+    transition: { staggerChildren: 0.2 }
+  }
+} as Variants;
+
+const services = [
+  {
+    title: "React/Next.js App",
+    desc: "High-performance web apps built for massive scale.",
+    icon: <Code2 size={32} className="text-brand-yellow mb-4" />
+  },
+  {
+    title: "Front-end Optimization",
+    desc: "Lightning-fast loading times and spotless clean code.",
+    icon: <Zap size={32} className="text-brand-yellow mb-4" />
+  },
+  {
+    title: "Custom UI/UX",
+    desc: "Pixel-perfect, engaging interfaces using Tailwind CSS.",
+    icon: <LayoutTemplate size={32} className="text-brand-yellow mb-4" />
+  }
+];
 
 export default function GetStartedView() {
-  // إعدادات الحركات (Animations)
-  const fadeUp = {
-    hidden: { opacity: 0, y: 30 },
-    visible: {
-      opacity: 1,
-      y: 0,
-      transition: { duration: 0.6, ease: "easeOut" }
-    }
-  };
-
-  const staggerContainer = {
-    hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: { staggerChildren: 0.2 }
-    }
-  };
-
-  const services = [
-    {
-      title: "React/Next.js App",
-      desc: "High-performance web apps built for massive scale.",
-      icon: <Code2 size={32} className="text-brand-yellow mb-4" />
-    },
-    {
-      title: "Front-end Optimization",
-      desc: "Lightning-fast loading times and spotless clean code.",
-      icon: <Zap size={32} className="text-brand-yellow mb-4" />
-    },
-    {
-      title: "Custom UI/UX",
-      desc: "Pixel-perfect, engaging interfaces using Tailwind CSS.",
-      icon: <LayoutTemplate size={32} className="text-brand-yellow mb-4" />
-    }
-  ];
-
   return (
     <main className="container mx-auto overflow-hidden px-6 py-12 lg:py-24">
       {/* Hero Section */}
