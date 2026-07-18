@@ -7,14 +7,21 @@ import {
   useTransform,
   AnimatePresence
 } from "framer-motion";
-import { ChevronLeft, ChevronRight, Cpu, Wifi, Award } from "lucide-react";
+import {
+  ChevronLeft,
+  ChevronRight,
+  Cpu,
+  Wifi,
+  Award,
+  ShieldCheck
+} from "lucide-react";
 import type { Device } from "@/lib/devices";
 
-const ICON_MAP = [Cpu, Wifi, Award];
+const ICON_MAP = [Cpu, Wifi, Award, ShieldCheck];
 
 const cardVariants = {
   enter: (direction: number) => ({
-    x: direction > 0 ? 100 : -100,
+    x: direction > 0 ? 150 : -150,
     opacity: 0
   }),
   center: {
@@ -22,7 +29,7 @@ const cardVariants = {
     opacity: 1
   },
   exit: (direction: number) => ({
-    x: direction < 0 ? 100 : -100,
+    x: direction < 0 ? 150 : -150,
     opacity: 0
   })
 };
@@ -39,12 +46,12 @@ export default function DeviceHighlightsSlider({ device }: { device: Device }) {
     offset: ["start end", "end end"]
   });
 
-  const containerWidth = useTransform<number, string>(
+  const containerWidth = useTransform(
     scrollYProgress,
     [0, 0.25],
     ["92vw", "100vw"]
   );
-  const containerRadius = useTransform<number, string>(
+  const containerRadius = useTransform(
     scrollYProgress,
     [0, 0.25],
     ["32px", "0px"]
@@ -72,10 +79,7 @@ export default function DeviceHighlightsSlider({ device }: { device: Device }) {
       className="relative h-screen overflow-x-hidden bg-transparent"
     >
       <motion.div
-        style={{
-          width: containerWidth,
-          borderRadius: containerRadius
-        }}
+        style={{ width: containerWidth, borderRadius: containerRadius }}
         className="sticky top-0 z-10 mx-auto flex h-screen max-w-full transform-gpu flex-col justify-between overflow-hidden bg-[#1a1a1a] pt-28 pb-12 will-change-[width,border-radius] md:pt-36 md:pb-16"
       >
         <div className="container mx-auto max-w-7xl shrink-0 px-6 text-center">
@@ -84,8 +88,9 @@ export default function DeviceHighlightsSlider({ device }: { device: Device }) {
           </h2>
         </div>
 
+        {/* تعديل مساحة الحاوية لمنع التفاف العناصر بشكل عشوائي */}
         <div className="my-auto flex w-full flex-1 items-center justify-center overflow-hidden px-6">
-          <div className="md justify- relative flex min-h-80 w-full max-w-120 items-center">
+          <div className="relative flex h-80 w-full max-w-lg items-center justify-center">
             <AnimatePresence initial={false} custom={direction} mode="wait">
               {highlights.length > 0 && (
                 <motion.div
@@ -95,18 +100,18 @@ export default function DeviceHighlightsSlider({ device }: { device: Device }) {
                   initial="enter"
                   animate="center"
                   exit="exit"
-                  transition={{ duration: 0.35, ease: "easeInOut" }}
+                  transition={{ duration: 0.3, ease: "easeInOut" }}
                   className="absolute flex h-full w-full transform-gpu flex-col justify-between rounded-[32px] border border-neutral-800 bg-[#2d2d2d] p-8 shadow-2xl sm:p-12"
                 >
-                  <div className="flex size-14 items-center justify-center rounded-2xl bg-[#FFD700] p-3 text-neutral-950 shadow-md">
+                  <div className="flex size-14 shrink-0 items-center justify-center rounded-2xl bg-[#FFD700] p-3 text-neutral-950 shadow-md">
                     <IconComponent className="size-7 stroke-[2.5]" />
                   </div>
 
-                  <div className="mt-6 space-y-4">
+                  <div className="mt-4 flex-1 space-y-3">
                     <h3 className="text-xl leading-snug font-black tracking-tight text-white sm:text-2xl">
                       {highlights[currentIndex].title}.
                     </h3>
-                    <p className="max-w-sm text-sm leading-relaxed font-medium text-neutral-400 sm:text-base">
+                    <p className="text-sm leading-relaxed font-medium text-neutral-400 sm:text-base">
                       {highlights[currentIndex].description}
                     </p>
                   </div>

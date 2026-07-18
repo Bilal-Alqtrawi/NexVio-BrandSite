@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState } from "react";
+import { useState } from "react";
 import Link from "next/link";
 import { motion, AnimatePresence } from "framer-motion";
 import {
@@ -130,21 +130,20 @@ export default function IndustriesView() {
 
   return (
     <main className="relative min-h-screen overflow-hidden bg-[#0d0c0a] font-sans text-white">
-      <div className="pointer-events-none absolute top-0 right-0 size-[700px] translate-x-1/4 -translate-y-1/3 rounded-full bg-[#ffcc00]/8 blur-[180px]" />
+      <div className="pointer-events-none absolute top-0 right-0 size-175 translate-x-1/4 -translate-y-1/3 rounded-full bg-[#ffcc00]/8 blur-[180px]" />
 
-      <div className="pointer-events-none absolute bottom-1/4 left-0 size-[500px] rounded-full bg-blue-500/3 blur-[120px]" />
+      <div className="pointer-events-none absolute bottom-1/4 left-0 size-125 rounded-full bg-blue-500/3 blur-[120px]" />
 
       <div className="relative z-10">
-        {/* --- 1️⃣ الهيرو التحريري الفخم (Editorial Title Section) --- */}
         <section className="mx-auto max-w-5xl space-y-6 px-4 pt-10 pb-16 text-center sm:px-6 lg:px-8">
-          <div className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/[0.03] px-4 py-1.5 text-xs font-black tracking-widest text-[#F5C41B] uppercase backdrop-blur-xs">
+          <div className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/3 px-4 py-1.5 text-xs font-black tracking-widest text-[#F5C41B] uppercase backdrop-blur-xs">
             <Layers className="size-3.5" />
             One Platform. Multiple Industries.
           </div>
 
           <h1 className="text-4xl leading-[1.05] font-black tracking-tight uppercase sm:text-6xl md:text-7xl">
             Industries <br />
-            <span className="via-brand-yellow bg-gradient-to-r from-[#F5C41B] to-white bg-clip-text text-transparent">
+            <span className="via-brand-yellow bg-linear-to-r from-[#F5C41B] to-white bg-clip-text text-transparent">
               We Empower
             </span>
           </h1>
@@ -169,10 +168,10 @@ export default function IndustriesView() {
                   <button
                     key={industry.id}
                     onClick={() => setActiveTab(index)}
-                    className={`relative flex h-[135px] flex-col items-start justify-between rounded-[24px] border p-5 text-left transition-all duration-300 ${
+                    className={`relative flex h-33.75 flex-col items-start justify-between rounded-[24px] border p-5 text-left transition-all duration-300 ${
                       isActive
                         ? "scale-102 border-[#FAF8F5] bg-[#FAF8F5] text-black shadow-[0_20px_40px_-15px_rgba(245,196,27,0.2)]"
-                        : "border-white/10 bg-white/[0.02] text-white hover:border-white/20 hover:bg-white/[0.05]"
+                        : "border-white/10 bg-white/2 text-white hover:border-white/20 hover:bg-white/5"
                     }`}
                   >
                     <div className="flex w-full items-center justify-between">
@@ -183,7 +182,7 @@ export default function IndustriesView() {
                             : "bg-white/5 text-white/75"
                         }`}
                       >
-                        <IconComponent className="size-5 stroke-[2]" />
+                        <IconComponent className="size-5 stroke-2" />
                       </div>
                       <span className="text-lg">{industry.emoji}</span>
                     </div>
@@ -205,7 +204,7 @@ export default function IndustriesView() {
                   animate={{ opacity: 1, x: 0 }}
                   exit={{ opacity: 0, x: -20 }}
                   transition={{ duration: 0.3 }}
-                  className="relative space-y-8 overflow-hidden rounded-[36px] border border-white/10 bg-gradient-to-b from-white/[0.04] to-transparent p-8 backdrop-blur-md md:p-12"
+                  className="relative space-y-8 overflow-hidden rounded-[36px] border border-white/10 bg-linear-to-b from-white/4 to-transparent p-8 backdrop-blur-md md:p-12"
                 >
                   {/* تأثير بصري صغير متحرك */}
                   <div className="pointer-events-none absolute top-0 right-0 size-48 rounded-full bg-[#F5C41B]/5 blur-3xl" />
@@ -220,7 +219,7 @@ export default function IndustriesView() {
                       {INDUSTRIES_DATA[activeTab].emoji}
                     </h3>
                     <p className="text-base font-bold text-neutral-300">
-                      "{INDUSTRIES_DATA[activeTab].tagline}"
+                      &quot;{INDUSTRIES_DATA[activeTab].tagline}&quot;
                     </p>
                   </div>
 
@@ -246,13 +245,18 @@ export default function IndustriesView() {
                     </ul>
                   </div>
 
-                  {/* زر الدعوة السريع */}
                   <div className="pt-6">
                     <Link
-                      href="/contact"
+                      href={
+                        INDUSTRIES_DATA[activeTab].id === "restaurants"
+                          ? "/solutions/restaurant"
+                          : "/contact"
+                      }
                       className="group inline-flex items-center gap-3 rounded-full bg-white px-7 py-3.5 text-xs font-black tracking-widest text-black uppercase transition-all duration-300 hover:scale-105 hover:bg-[#F5C41B]"
                     >
-                      Configure for My Business
+                      {INDUSTRIES_DATA[activeTab].id === "restaurants"
+                        ? "Explore Restaurant Solution"
+                        : "Configure for My Business"}
                       <ArrowUpRight className="size-4 stroke-[2.5]" />
                     </Link>
                   </div>
@@ -262,8 +266,7 @@ export default function IndustriesView() {
           </div>
         </section>
 
-        {/* --- 3️⃣ قسم التأكيد على البنية التحتية المتصلة (The Connected Ecosystem) --- */}
-        <section className="border-t border-white/5 bg-white/[0.01] px-4 py-24 sm:px-6 lg:px-8">
+        <section className="border-t border-white/5 bg-white/1 px-4 py-24 sm:px-6 lg:px-8">
           <div className="container mx-auto grid max-w-7xl grid-cols-1 items-center gap-16 lg:grid-cols-12">
             <div className="space-y-5 lg:col-span-5">
               <span className="rounded-full bg-[#F5C41B]/10 px-3 py-1 text-[11px] font-black tracking-widest text-[#F5C41B] uppercase">
@@ -300,7 +303,7 @@ export default function IndustriesView() {
               ].map((item, idx) => (
                 <div
                   key={idx}
-                  className="space-y-3 rounded-3xl border border-white/5 bg-white/[0.02] p-6 transition-colors hover:border-white/10"
+                  className="space-y-3 rounded-3xl border border-white/5 bg-white/2 p-6 transition-colors hover:border-white/10"
                 >
                   <span className="font-mono text-xs font-bold text-[#F5C41B]">
                     INTEGRATION_0{idx + 1}
@@ -323,8 +326,8 @@ export default function IndustriesView() {
             Ready to upgrade your workflow?
           </h2>
           <p className="mx-auto mt-6 max-w-md text-sm leading-relaxed text-neutral-400">
-            Let's connect your devices, teams, and data. Explore a tailormade
-            configuration built strictly for your operational style.
+            Let&apos;s connect your devices, teams, and data. Explore a
+            tailormade configuration built strictly for your operational style.
           </p>
           <div className="pt-8">
             <Link

@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useRef } from "react";
+import { useRef } from "react";
 import { motion, useScroll, useTransform, Variants } from "framer-motion";
 import {
   Target,
@@ -14,6 +14,7 @@ import {
   ArrowUpRight,
   Quote
 } from "lucide-react";
+import Link from "next/link";
 
 interface CoreValue {
   icon: React.ReactNode;
@@ -53,7 +54,6 @@ const CORE_VALUES: CoreValue[] = [
   }
 ];
 
-// تعريف صريح للـ Types لمنع خطأ الـ Variant Typescript Assignment
 const fadeInUp: Variants = {
   hidden: { opacity: 0, y: 30 },
   visible: {
@@ -108,13 +108,11 @@ export default function VisionAndMissionView() {
       </div>
 
       <div className="relative z-10">
-        {/* 2. HERO SECTION */}
         <section className="relative flex min-h-[85vh] items-center justify-center px-6 pt-28 pb-20 md:pt-20 md:pb-32">
           <motion.div
             style={{ scale: heroScale, opacity: heroOpacity }}
             className="container mx-auto max-w-5xl text-center"
           >
-            {/* Our Purpose Badge */}
             <motion.div
               initial={{ opacity: 0, y: -10 }}
               animate={{ opacity: 1, y: 0 }}
@@ -166,13 +164,13 @@ export default function VisionAndMissionView() {
               transition={{ duration: 0.8, delay: 0.3 }}
               className="mt-10 flex flex-wrap justify-center gap-4"
             >
-              <a
+              <Link
                 href="/contact"
                 className="group inline-flex items-center gap-2 rounded-xl bg-neutral-950 px-6 py-3.5 text-sm font-bold tracking-wider text-white uppercase shadow-md transition-all duration-300 hover:-translate-y-0.5 hover:bg-neutral-800"
               >
                 Get In Touch
                 <ArrowUpRight className="size-4 stroke-3 transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
-              </a>
+              </Link>
             </motion.div>
           </motion.div>
         </section>

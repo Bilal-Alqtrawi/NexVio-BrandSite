@@ -46,7 +46,7 @@ function CarouselCardComponent({
         alt={item.title}
         fill
         sizes="(min-width: 1280px) 500px, (min-width: 768px) 39vw, 60vw"
-        className={`object-cover object-center ${relativeIndex === 0 ? "" :"opacity-50"}`}
+        className={`object-cover object-center ${relativeIndex === 0 ? "" : "opacity-50"}`}
         priority={isPriority}
         quality={75}
       />

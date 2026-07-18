@@ -26,7 +26,7 @@ export default function FaqView() {
             /
           </span>
           <p className="text-muted-foreground max-w-50 pt-1 text-xs leading-relaxed font-medium tracking-wide">
-            Meal planning made easy: your questions, answered
+            Everything you need to know, answered
           </p>
         </div>
       </section>

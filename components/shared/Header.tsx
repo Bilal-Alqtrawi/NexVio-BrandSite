@@ -90,7 +90,7 @@ export default function Header() {
 
           <Button
             nativeButton={false}
-            render={<Link href="." />}
+            render={<Link href="/get-started" />}
             className="space-x-3 rounded-full px-6 py-8"
           >
             <span>Get Started</span>

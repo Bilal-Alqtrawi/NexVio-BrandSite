@@ -3,7 +3,13 @@
 import { useState } from "react";
 import Image from "next/image";
 import { AnimatePresence, motion } from "framer-motion";
-import { ChevronLeft, ChevronRight } from "lucide-react";
+import {
+  ChevronLeft,
+  ChevronRight,
+  CheckCircle2,
+  Smartphone,
+  Cpu
+} from "lucide-react";
 import { cn } from "@/lib/utils";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
@@ -27,6 +33,27 @@ const variants = {
   })
 };
 
+// البيانات المضافة المستخلصة من الملف PAGE 07
+const keyBenefits = [
+  "Integrated POS and Payment Acceptance",
+  "Fast & Secure Transactions",
+  "Touchscreen User Interface",
+  "CRM Integration",
+  "Receipt Printing",
+  "Kitchen Connectivity",
+  "Cloud Synchronization",
+  "Real-Time Business Updates"
+] as const;
+
+const controls = [
+  "Take Orders",
+  "Accept Payments",
+  "Manage Customers",
+  "Print Receipts",
+  "Connect with the Kitchen",
+  "Access Reports"
+] as const;
+
 export default function Devices() {
   const [index, setIndex] = useState(0);
   const [direction, setDirection] = useState(0);
@@ -46,19 +73,31 @@ export default function Devices() {
   return (
     <section
       id="devices"
-      className="relative w-full overflow-x-hidden pt-16 pb-24"
+      className="relative w-full space-y-16 overflow-x-hidden pt-16 pb-24"
     >
-      <div className="container mx-auto flex flex-col justify-between gap-4 px-4 sm:flex-row sm:items-start sm:px-40">
-        <h2 className="text-2xl leading-tight font-medium tracking-[2px] sm:text-3xl">
-          Everything Your Business <br /> Needs. Connected
-        </h2>
-        <div className="mt-auto text-sm leading-relaxed text-black/60 sm:text-right">
-          <p>Business Technology Solutions</p>
-          <p>Business Technology Ecosystem</p>
+      {/* 1. Header Section - تم تحديث النصوص لتطابق الصفحة 7 */}
+      <div className="container mx-auto flex flex-col justify-between gap-6 px-4 sm:flex-row sm:items-start sm:px-10 lg:px-40">
+        <div className="max-w-2xl space-y-3">
+          <span className="text-xs font-bold tracking-widest text-neutral-400 uppercase">
+            Smart Commerce Devices
+          </span>
+          <h2 className="text-3xl leading-tight font-black tracking-tight text-neutral-900 sm:text-5xl">
+            Powerful Technology.
+            <br />
+            One Smart Device.
+          </h2>
+        </div>
+        <div className="max-w-md self-end text-sm leading-relaxed text-neutral-600 sm:text-right">
+          <p>
+            NexVio Smart Commerce Devices combine Point of Sale, integrated
+            payments and business management into one intelligent solution,
+            designed for speed, mobility and flexibility.
+          </p>
         </div>
       </div>
 
-      <div className="relative mt-10 flex w-full items-stretch gap-3 px-4 sm:gap-4 sm:px-0">
+      {/* 2. Slider Section - تم الحفاظ عليه تماماً دون أي كسر بالهيكل أو الأنيميشن */}
+      <div className="relative flex w-full items-stretch gap-3 px-4 sm:gap-4 sm:px-0">
         <button
           onClick={() => goTo(-1)}
           aria-label="Previous slide"
@@ -127,7 +166,7 @@ export default function Devices() {
           </div>
         </div>
 
-        {/* Next peek - يظهر فقط على الشاشات الكبيرة */}
+        {/* Next peek */}
         <button
           onClick={() => goTo(1)}
           aria-label="Next slide"
@@ -141,7 +180,6 @@ export default function Devices() {
           />
         </button>
 
-        {/* أزرار التنقل الدائرية بهوامش ممتازة */}
         <button
           onClick={() => goTo(-1)}
           aria-label="Previous slide"
@@ -159,6 +197,7 @@ export default function Devices() {
         </button>
       </div>
 
+      {/* Dots Indicator */}
       <div className="mt-6 flex items-center justify-center gap-2">
         {devices.map((device, i) => (
           <button
@@ -174,6 +213,64 @@ export default function Devices() {
             )}
           />
         ))}
+      </div>
+
+      {/* 3. New Features Grid - القسم المضاف الجديد بالأسفل ليعرض محتوى الفوائد بالتفصيل */}
+      <div className="container mx-auto px-4 sm:px-10 lg:px-40">
+        <div className="grid grid-cols-1 gap-8 rounded-3xl border border-neutral-200/60 bg-[#FDFBF7] p-8 shadow-xs sm:p-12 md:grid-cols-2">
+          {/* العمود الأول: الميزات الرئيسية */}
+          <div className="space-y-6">
+            <div className="flex items-center gap-3">
+              <div className="rounded-xl bg-neutral-900 p-2 text-white">
+                <Cpu size={18} />
+              </div>
+              <h3 className="text-xl font-bold tracking-tight text-neutral-900">
+                Key Benefits
+              </h3>
+            </div>
+            <div className="grid grid-cols-1 gap-3 sm:grid-cols-2">
+              {keyBenefits.map((benefit, idx) => (
+                <div
+                  key={idx}
+                  className="flex items-center gap-2.5 text-xs font-medium text-neutral-700 sm:text-sm"
+                >
+                  <CheckCircle2
+                    size={15}
+                    className="shrink-0 text-neutral-900"
+                  />
+                  <span>{benefit}</span>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          {/* العمود الثاني: التحكم الكامل والوظائف */}
+          <div className="space-y-6 border-t border-neutral-200 pt-6 md:border-t-0 md:border-l md:pt-0 md:pl-8">
+            <div className="flex items-center gap-3">
+              <div className="rounded-xl bg-neutral-900 p-2 text-white">
+                <Smartphone size={18} />
+              </div>
+              <h3 className="text-xl font-bold tracking-tight text-neutral-900">
+                One Device. Complete Control.
+              </h3>
+            </div>
+            <p className="text-xs leading-relaxed text-neutral-500">
+              Every device is fully integrated with the NexVio platform,
+              allowing your team to complete daily workflows from a single
+              interface:
+            </p>
+            <div className="grid grid-cols-2 gap-2.5 sm:grid-cols-3">
+              {controls.map((control, idx) => (
+                <div
+                  key={idx}
+                  className="cursor-default rounded-xl border border-neutral-200 bg-white p-3 text-center text-xs font-bold text-neutral-800 shadow-2xs transition-colors duration-250 hover:bg-neutral-900 hover:text-white"
+                >
+                  {control}
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
       </div>
     </section>
   );

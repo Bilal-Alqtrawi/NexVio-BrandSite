@@ -40,13 +40,14 @@ const footerColumns = [
         name: "Business Intelligence",
         href: "/solutions/business-intelligence"
       },
-      { name: "CRM", href: "/solutions/crm" }
+      { name: "CRM", href: "/solutions/crm" },
+      { name: "Security & Reliability", href: "/solutions/security-reliability" }
     ]
   },
   {
-    title: "Help",
+    title: "Help",  
     links: [
-      { name: "Support", href: "/help" },
+      { name: "Support", href: "/faq" },
       { name: "Contact", href: "/contact" }
     ]
   }

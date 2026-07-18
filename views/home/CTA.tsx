@@ -18,7 +18,7 @@ export default function CTA() {
 
           <div className="my-10 space-y-2">
             <h2 className="text-4xl font-medium">Get your free consultation</h2>
-            <p className="px-3 font-light text-background/95">
+            <p className="text-background/95 px-3 font-light">
               Tell us about your business & how we can help you grow.
             </p>
           </div>
@@ -26,7 +26,7 @@ export default function CTA() {
           <Button
             nativeButton={false}
             render={<Link href="/contact" />}
-            className="text-foreground transation hover:bg-foreground group space-x-3 rounded-full bg-white px-6 py-8 duration-300 hover:text-white"
+            className="text-foreground hover:bg-foreground group transation space-x-3 rounded-full bg-white px-6 py-8 duration-300 hover:text-white"
           >
             <span className="uppercase">contact us</span>
             <span className="bg-foreground inline-flex size-10.25 items-center justify-center rounded-full text-white group-hover:bg-white group-hover:text-black">

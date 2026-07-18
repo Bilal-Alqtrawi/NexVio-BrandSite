@@ -3,33 +3,11 @@
 import React, { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Plus, Minus } from "lucide-react";
-
-interface FAQItemData {
-  question: string;
-  answer: string;
-}
+import type { Device } from "@/lib/devices";
 
 interface DeviceFAQProps {
-  faqs?: FAQItemData[];
+  device: Device;
 }
-
-const DEFAULT_FAQ_DATA: FAQItemData[] = [
-  {
-    question: "What payment methods does this device accept?",
-    answer:
-      "It accepts all major credit and debit cards, contactless payments (Apple Pay, Google Pay), chip & PIN, magstripe, and QR code-based mobile wallets."
-  },
-  {
-    question: "What size is the display screen?",
-    answer:
-      "It features a vibrant, high-definition optimized color touchscreen display designed for easy viewing and outdoor readability."
-  },
-  {
-    question: "Is the device truly mobile?",
-    answer:
-      "Yes, it is fully portable equipped with long-lasting battery life, stable cellular network support, Wi-Fi, and standalone operation anywhere."
-  }
-];
 
 function FAQItem({
   question,
@@ -79,11 +57,27 @@ function FAQItem({
   );
 }
 
-export default function DeviceFAQ({ faqs }: DeviceFAQProps) {
-  // هنا نستخدم الـ index (الرقم الترتيبي) لتحديد العنصر المفتوح بدلاً من الـ id
+export default function DeviceFAQ({ device }: DeviceFAQProps) {
   const [openIndex, setOpenIndex] = useState<number | null>(null);
 
-  const displayData = faqs && faqs.length > 0 ? faqs : DEFAULT_FAQ_DATA;
+  // توليد أسئلة ديناميكية ذكية مخصصة باسم الجهاز الحالي في حال عدم وجود faqs ثابتة له
+  const dynamicFaqs =
+    device?.faqs && device?.faqs?.length > 0
+      ? device?.faqs
+      : [
+          {
+            question: `What payment methods does ${device?.name} accept?`,
+            answer: `The ${device?.name} accepts all major credit and debit cards, contactless smart payments (Apple Pay, Google Pay), secure chip & PIN transactions, and local QR code-based mobile wallets seamlessly.`
+          },
+          {
+            question: `Is ${device?.name} suitable for high-volume retail environments?`,
+            answer: `Absolutely. ${device?.name} is engineered with robust, enterprise-grade hardware components built to optimize throughput, reduce customer checkout lines, and withstand continuous daily operations.`
+          },
+          {
+            question: `What are the primary connectivity options for ${device?.name}?`,
+            answer: `It comes equipped with flexible communication arrays including stable high-speed cellular network support (4G LTE/5G depending on hardware variant), dual-band Wi-Fi, and built-in Bluetooth features.`
+          }
+        ];
 
   return (
     <section className="w-full bg-white px-6 py-20 md:py-28">
@@ -92,7 +86,7 @@ export default function DeviceFAQ({ faqs }: DeviceFAQProps) {
           FAQ
         </h2>
         <div className="flex flex-col">
-          {displayData.map((faq, index) => (
+          {dynamicFaqs.map((faq, index) => (
             <FAQItem
               key={`faq-${index}`}
               question={faq.question}

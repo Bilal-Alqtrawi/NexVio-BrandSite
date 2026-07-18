@@ -8,7 +8,14 @@ interface DeviceContactFormProps {
   device: Device;
 }
 
-// الشعارات الفعلية من مجلد public/logos الخاص بمشروعك
+// قائمة الدول مع أكواد الاتصال الخاصة بها
+const COUNTRIES_DATA = [
+  { code: "PS", name: "Palestine (فلسطين)", dialCode: "+970" },
+  { code: "JO", name: "Jordan (الأردن)", dialCode: "+962" },
+  { code: "EG", name: "Egypt (مصر)", dialCode: "+20" },
+  { code: "AE", name: "UAE (الإمارات)", dialCode: "+971" }
+];
+
 const LOGO_PARTNERS = [
   { src: "/logos/logo-1.svg", alt: "iRobot" },
   { src: "/logos/logo-2.svg", alt: "Femina" },
@@ -21,31 +28,42 @@ const LOGO_PARTNERS = [
 ];
 
 export default function DeviceContactForm({ device }: DeviceContactFormProps) {
+  const [selectedCountry, setSelectedCountry] = useState(COUNTRIES_DATA[0]);
   const [formData, setFormData] = useState({
     firstName: "",
     lastName: "",
     email: "",
     company: "",
-    country: "Palestine",
+    country: COUNTRIES_DATA[0].name,
     inquiryType: "",
     phone: "",
     message: "",
     marketing: false
   });
 
+  const handleCountryChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
+    const countryName = e.target.value;
+    const found =
+      COUNTRIES_DATA.find((c) => c.name === countryName) || COUNTRIES_DATA[0];
+    setSelectedCountry(found);
+    setFormData((prev) => ({ ...prev, country: countryName }));
+  };
+
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    console.log(`Submitted Form for ${device.name}:`, formData);
+    console.log(`Submitted Form for ${device.name}:`, {
+      ...formData,
+      phone: `${selectedCountry.dialCode} ${formData.phone}`
+    });
   };
 
   return (
-    // تم إضافة id="contact-us" ليعمل التمرير السلس من سكشن المساعدة
     <section
       id="contact-us"
       className="w-full border-t border-neutral-200 bg-[#FBF9F4] px-6 py-20 md:py-28"
     >
       <div className="container mx-auto grid max-w-7xl grid-cols-1 items-start gap-16 lg:grid-cols-12 lg:gap-8">
-        {/* العمود الأيسر: العناوين والشعارات */}
+        {/* العمود الأيسر */}
         <div className="space-y-10 lg:sticky lg:top-8 lg:col-span-5">
           <div className="space-y-4">
             <h2 className="max-w-md text-3xl leading-[1.15] font-black tracking-tight text-neutral-950 uppercase sm:text-4xl lg:text-[42px]">
@@ -56,7 +74,6 @@ export default function DeviceContactForm({ device }: DeviceContactFormProps) {
             </p>
           </div>
 
-          {/* شبكة الشعارات الحقيقية مع حجم وعرض مرن وثابت */}
           <div className="grid grid-cols-2 items-center gap-x-6 gap-y-8 pt-4 sm:grid-cols-3">
             {LOGO_PARTNERS.map((logo, index) => (
               <div
@@ -69,14 +86,14 @@ export default function DeviceContactForm({ device }: DeviceContactFormProps) {
                   width={130}
                   height={45}
                   className="max-h-10 w-auto object-contain"
-                  priority={index < 4} // تحميل أول 4 صور فوراً لتحسين الـ LCP
+                  priority={index < 4}
                 />
               </div>
             ))}
           </div>
         </div>
 
-        {/* العمود الأيمن: الفورم الاحترافي */}
+        {/* العمود الأيمن */}
         <div className="w-full bg-transparent lg:col-span-7">
           <form onSubmit={handleSubmit} className="w-full space-y-5">
             <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
@@ -84,7 +101,7 @@ export default function DeviceContactForm({ device }: DeviceContactFormProps) {
                 type="text"
                 placeholder="First Name*"
                 required
-                className="h-14 w-full rounded-lg border border-neutral-400 bg-white px-5 text-sm font-medium text-neutral-900 placeholder-neutral-400 focus:border-neutral-900 focus:outline-none"
+                className="h-14 w-full rounded-lg border border-neutral-400 bg-white px-5 text-sm font-medium text-neutral-900 focus:border-neutral-900 focus:outline-none"
                 onChange={(e) =>
                   setFormData({ ...formData, firstName: e.target.value })
                 }
@@ -93,7 +110,7 @@ export default function DeviceContactForm({ device }: DeviceContactFormProps) {
                 type="text"
                 placeholder="Last Name*"
                 required
-                className="h-14 w-full rounded-lg border border-neutral-400 bg-white px-5 text-sm font-medium text-neutral-900 placeholder-neutral-400 focus:border-neutral-900 focus:outline-none"
+                className="h-14 w-full rounded-lg border border-neutral-400 bg-white px-5 text-sm font-medium text-neutral-900 focus:border-neutral-900 focus:outline-none"
                 onChange={(e) =>
                   setFormData({ ...formData, lastName: e.target.value })
                 }
@@ -105,7 +122,7 @@ export default function DeviceContactForm({ device }: DeviceContactFormProps) {
                 type="email"
                 placeholder="Email*"
                 required
-                className="h-14 w-full rounded-lg border border-neutral-400 bg-white px-5 text-sm font-medium text-neutral-900 placeholder-neutral-400 focus:border-neutral-900 focus:outline-none"
+                className="h-14 w-full rounded-lg border border-neutral-400 bg-white px-5 text-sm font-medium text-neutral-900 focus:border-neutral-900 focus:outline-none"
                 onChange={(e) =>
                   setFormData({ ...formData, email: e.target.value })
                 }
@@ -114,7 +131,7 @@ export default function DeviceContactForm({ device }: DeviceContactFormProps) {
                 type="text"
                 placeholder="Company*"
                 required
-                className="h-14 w-full rounded-lg border border-neutral-400 bg-white px-5 text-sm font-medium text-neutral-900 placeholder-neutral-400 focus:border-neutral-900 focus:outline-none"
+                className="h-14 w-full rounded-lg border border-neutral-400 bg-white px-5 text-sm font-medium text-neutral-900 focus:border-neutral-900 focus:outline-none"
                 onChange={(e) =>
                   setFormData({ ...formData, company: e.target.value })
                 }
@@ -128,21 +145,19 @@ export default function DeviceContactForm({ device }: DeviceContactFormProps) {
               <select
                 className="h-14 w-full appearance-none rounded-lg border border-neutral-400 bg-white px-5 text-sm font-medium text-neutral-900 focus:border-neutral-900 focus:outline-none"
                 style={{
-                  backgroundImage:
-                    "url(\"data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%234a4a4a' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6 9 12 15 18 9'/%3e%3c/svg%3e\")",
+                  backgroundImage: `url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%234a4a4a' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6 9 12 15 18 9'/%3e%3c/svg%3e")`,
                   backgroundRepeat: "no-repeat",
                   backgroundPosition: "right 20px center",
                   backgroundSize: "16px"
                 }}
-                onChange={(e) =>
-                  setFormData({ ...formData, country: e.target.value })
-                }
-                defaultValue="Palestine"
+                onChange={handleCountryChange}
+                value={formData.country}
               >
-                <option value="Palestine">Palestine (فلسطين)</option>
-                <option value="Jordan">Jordan</option>
-                <option value="Egypt">Egypt</option>
-                <option value="UAE">UAE</option>
+                {COUNTRIES_DATA.map((c) => (
+                  <option key={c.code} value={c.name}>
+                    {c.name}
+                  </option>
+                ))}
               </select>
             </div>
 
@@ -151,8 +166,7 @@ export default function DeviceContactForm({ device }: DeviceContactFormProps) {
                 required
                 className="h-14 w-full appearance-none rounded-lg border border-neutral-400 bg-white px-5 text-sm font-medium text-neutral-900 focus:border-neutral-900 focus:outline-none"
                 style={{
-                  backgroundImage:
-                    "url(\"data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%234a4a4a' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6 9 12 15 18 9'/%3e%3c/svg%3e\")",
+                  backgroundImage: `url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%234a4a4a' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6 9 12 15 18 9'/%3e%3c/svg%3e")`,
                   backgroundRepeat: "no-repeat",
                   backgroundPosition: "right 20px center",
                   backgroundSize: "16px"
@@ -173,13 +187,17 @@ export default function DeviceContactForm({ device }: DeviceContactFormProps) {
 
             <div className="grid grid-cols-1 gap-4 sm:grid-cols-12">
               <div className="flex h-14 items-center justify-between rounded-lg border border-neutral-400 bg-white px-5 text-sm font-medium text-neutral-800 sm:col-span-4">
-                <span>Palestine (فلسطين)</span>
-                <span className="font-mono text-neutral-400">+970</span>
+                <span className="truncate">
+                  {selectedCountry.name.split(" ")[0]}
+                </span>
+                <span className="font-mono text-neutral-400">
+                  {selectedCountry.dialCode}
+                </span>
               </div>
               <input
                 type="tel"
                 placeholder="Phone Number"
-                className="h-14 w-full rounded-lg border border-neutral-400 bg-white px-5 text-sm font-medium text-neutral-900 placeholder-neutral-400 focus:border-neutral-900 focus:outline-none sm:col-span-8"
+                className="h-14 w-full rounded-lg border border-neutral-400 bg-white px-5 text-sm font-medium text-neutral-900 focus:border-neutral-900 focus:outline-none sm:col-span-8"
                 onChange={(e) =>
                   setFormData({ ...formData, phone: e.target.value })
                 }
@@ -191,20 +209,12 @@ export default function DeviceContactForm({ device }: DeviceContactFormProps) {
                 placeholder="Message*"
                 required
                 rows={4}
-                className="w-full resize-y rounded-lg border border-neutral-400 bg-white p-5 text-sm font-medium text-neutral-900 placeholder-neutral-400 focus:border-neutral-900 focus:outline-none"
+                className="w-full resize-y rounded-lg border border-neutral-400 bg-white p-5 text-sm font-medium text-neutral-900 focus:border-neutral-900 focus:outline-none"
                 onChange={(e) =>
                   setFormData({ ...formData, message: e.target.value })
                 }
               />
             </div>
-
-            <p className="text-[11px] leading-relaxed font-medium text-neutral-500">
-              Your information will be processed in accordance with our{" "}
-              <span className="cursor-pointer font-bold text-neutral-700 underline">
-                Privacy Policy
-              </span>
-              .
-            </p>
 
             <div className="flex items-start gap-3 pt-2">
               <input
@@ -220,9 +230,7 @@ export default function DeviceContactForm({ device }: DeviceContactFormProps) {
                 className="cursor-pointer text-[11px] leading-relaxed font-medium text-neutral-500 select-none"
               >
                 I want to receive marketing materials, promotions and
-                newsletters from NexVio. You can withdraw your consent at any
-                time by sending us an email or using the unsubscribe button, in
-                accordance with our Privacy Policy.
+                newsletters from NexVio.
               </label>
             </div>
 
@@ -240,3 +248,4 @@ export default function DeviceContactForm({ device }: DeviceContactFormProps) {
     </section>
   );
 }
+    

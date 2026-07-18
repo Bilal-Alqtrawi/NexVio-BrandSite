@@ -55,7 +55,7 @@ export default async function DevicePage({ params }: Props) {
       <InfinitePaymentsMarquee device={device} />
       <DeviceContactForm device={device} />
 
-      <DeviceFAQ faqs={device.faqs} />
+      <DeviceFAQ device={device} />
     </main>
   );
 }

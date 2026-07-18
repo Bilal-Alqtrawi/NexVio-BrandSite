@@ -7,23 +7,23 @@ const gallery: CarouselItem[] = [
   {
     id: 1,
     imageSrc: "/help/help-1.jpeg",
-    title: "Personalize Your Profile",
+    title: "Set Up Your Business Profile",
     description:
-      "Begin by creating your profile. Tell us about your dietary preferences, nutritional goals, and budget. Our AI technology tailors every meal plan to fit your unique needs."
+      "Tell us about your business — your locations, menu or catalog, and team. Our onboarding team configures your NexVio platform and smart devices to match how you actually operate."
   },
   {
     id: 2,
     imageSrc: "/help/help-2.svg",
-    title: "Explore Curated Menus",
+    title: "Connect Every Part of Your Business",
     description:
-      "Browse through hundreds of chef-crafted menus tailored specifically to your macro targets. Swap meals instantly and enjoy customized preparation instructions."
+      "POS, integrated payments, inventory, CRM and kitchen connectivity all sync automatically, so every sale, order and stock update flows through one connected platform."
   },
   {
     id: 3,
     imageSrc: "/help/help-3.svg",
-    title: "Track Your Smart Progress",
+    title: "Go Live and Track Your Growth",
     description:
-      "Monitor your daily nutritional balance effortlessly. Our smart system syncs your ingredients and dynamic grocery lists to save you time and reduce food waste."
+      "Start selling with confidence while real-time dashboards and reports keep you informed — with dedicated NexVio support across the UAE whenever you need it."
   }
 ];
 
@@ -39,8 +39,8 @@ export default function HelpView() {
             /
           </span>
           <p className="max-w-xs pt-1 text-xs leading-relaxed font-medium text-neutral-500">
-            Step into the world of hassle-free meal planning with our easy
-            3-step process
+            Step into hassle-free business setup with our easy 3-step onboarding
+            process
           </p>
         </div>
       </section>

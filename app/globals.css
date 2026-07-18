@@ -38,6 +38,8 @@
   --radius-2xl: calc(var(--radius) * 1.8);
   --radius-3xl: calc(var(--radius) * 2.2);
   --radius-4xl: calc(var(--radius) * 2.6);
+
+  --animate-marquee: marquee 25s linear infinite;
 }
 
 :root {
@@ -120,8 +122,21 @@
   50% {
     transform: translate3d(-50%, 0, 0) scale(0.88);
     opacity: 0.25;
+    -webkit-transform: translate3d(-50%, 0, 0) scale(0.88);
+    -moz-transform: translate3d(-50%, 0, 0) scale(0.88);
+    -ms-transform: translate3d(-50%, 0, 0) scale(0.88);
+    -o-transform: translate3d(-50%, 0, 0) scale(0.88);
   }
 }
+
+@keyframes marquee {
+  from {
+    transform: translateX(0%);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+} 
 
 html {
   scroll-behavior: smooth;

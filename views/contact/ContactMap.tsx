@@ -31,7 +31,7 @@ const OFFICE_LOCATIONS: OfficeLocation[] = [
     name: "NexVio Middle East",
     x: "57%",
     y: "37%",
-    city: "Palestine / Dubai"
+    city: "UAE / Dubai"
   },
   {
     id: "sa",
@@ -131,7 +131,6 @@ export default function ContactMap() {
           ))}
         </div>
 
-        {/* الهيدر السفلي لمعلومات التواصل المباشر */}
         <div className="relative z-10 mt-16 grid grid-cols-1 gap-8 border-t border-neutral-900 pt-12 sm:grid-cols-3">
           <div className="flex items-start gap-4">
             <div className="flex size-12 shrink-0 items-center justify-center rounded-2xl border border-neutral-800 bg-neutral-900/80 text-[#FFD700]">
@@ -147,6 +146,7 @@ export default function ContactMap() {
             </div>
           </div>
 
+          {/* Call Sales Directly */}
           <div className="flex items-start gap-4">
             <div className="flex size-12 shrink-0 items-center justify-center rounded-2xl border border-neutral-800 bg-neutral-900/80 text-[#FFD700]">
               <Phone className="size-5" />
@@ -156,10 +156,10 @@ export default function ContactMap() {
                 Call Sales Directly
               </h4>
               <p className="mt-1 text-xs text-neutral-400">
-                Palestine: +970 (2) 244-XXXX
+                UAE: +xxx (x) xxx-XXXX
               </p>
               <p className="text-xs text-neutral-400">
-                International: +1 (800) 555-XXXX
+                International: +x (xxx) xxx-XXXX
               </p>
             </div>
           </div>
@@ -168,12 +168,32 @@ export default function ContactMap() {
             <div className="flex size-12 shrink-0 items-center justify-center rounded-2xl border border-neutral-800 bg-neutral-900/80 text-[#FFD700]">
               <Mail className="size-5" />
             </div>
-            <div>
+            <div className="space-y-2">
               <h4 className="text-sm font-bold tracking-wider text-white uppercase">
                 Email Inquiries
               </h4>
-              <p className="mt-1 text-xs text-neutral-400">sales@nexvio.com</p>
-              <p className="text-xs text-neutral-400">support@nexvio.com</p>
+              <div>
+                <p className="text-[10px] font-bold tracking-wider text-neutral-500 uppercase">
+                  Support Email:
+                </p>
+                <a
+                  href="mailto:Support@nex-vio.com"
+                  className="text-xs text-neutral-400 transition-colors hover:text-[#FFD700]"
+                >
+                  Support@nex-vio.com
+                </a>
+              </div>
+              <div>
+                <p className="text-[10px] font-bold tracking-wider text-neutral-500 uppercase">
+                  Office Email:
+                </p>
+                <a
+                  href="mailto:Office@nex-vio.com"
+                  className="text-xs text-neutral-400 transition-colors hover:text-[#FFD700]"
+                >
+                  Office@nex-vio.com
+                </a>
+              </div>
             </div>
           </div>
         </div>

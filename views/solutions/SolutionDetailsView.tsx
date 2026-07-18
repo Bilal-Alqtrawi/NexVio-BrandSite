@@ -1,14 +1,11 @@
 "use client";
 
-import React from "react";
 import Link from "next/link";
 import { motion, Variants } from "framer-motion";
 import {
   ArrowUpRight,
   Sparkles,
   ArrowRight,
-  Database,
-  Users,
   LineChart,
   CheckCircle2,
   Lock
@@ -39,11 +36,10 @@ export default function SolutionDetailsView({
 
   return (
     <main className="bg-brand-cream relative w-full overflow-hidden font-sans text-neutral-900">
-      {/* --- SECTION 1: ASYMMETRIC EDITORIAL HERO --- */}
       <section className="relative flex min-h-[90vh] items-center px-4 pt-10 pb-20 sm:px-6 lg:px-8">
         <div className="absolute inset-0 z-0 opacity-40">
-          <div className="absolute top-0 right-0 size-[600px] translate-x-12 -translate-y-12 rounded-full bg-[#F5C41B]/10 blur-[130px]" />
-          <div className="absolute bottom-0 left-0 size-[400px] -translate-x-12 translate-y-12 rounded-full bg-neutral-200 blur-[100px]" />
+          <div className="absolute top-0 right-0 size-150 translate-x-12 -translate-y-12 rounded-full bg-[#F5C41B]/10 blur-[130px]" />
+          <div className="absolute bottom-0 left-0 size-100 -translate-x-12 translate-y-12 rounded-full bg-neutral-200 blur-[100px]" />
         </div>
 
         <div className="relative z-10 container mx-auto grid max-w-7xl grid-cols-1 items-center gap-12 lg:grid-cols-12 lg:gap-8">
@@ -56,7 +52,7 @@ export default function SolutionDetailsView({
 
             <h1 className="text-4xl leading-[1.05] font-black tracking-tight text-neutral-950 sm:text-5xl md:text-6xl xl:text-7xl">
               {data.title} <br />
-              <span className="relative inline-block bg-gradient-to-r from-[#F5C41B] to-[#D4A313] bg-clip-text text-transparent">
+              <span className="relative inline-block bg-linear-to-r from-[#F5C41B] to-[#D4A313] bg-clip-text text-transparent">
                 {data.highlightedText}
               </span>
             </h1>
@@ -86,7 +82,7 @@ export default function SolutionDetailsView({
               initial={{ opacity: 0, scale: 0.95, y: 20 }}
               animate={{ opacity: 1, scale: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.2 }}
-              className="relative aspect-square w-full max-w-[440px] rounded-[38px] border border-neutral-200 bg-white p-6 shadow-[0_24px_60px_-15px_rgba(0,0,0,0.06)]"
+              className="relative aspect-square w-full max-w-110 rounded-[38px] border border-neutral-200 bg-white p-6 shadow-[0_24px_60px_-15px_rgba(0,0,0,0.06)]"
             >
               <div className="absolute top-4 right-4 flex gap-1.5">
                 <span className="size-2.5 rounded-full bg-red-400" />
@@ -205,12 +201,12 @@ export default function SolutionDetailsView({
                         <span className="text-xs font-black text-neutral-900">
                           {cust.spend}
                         </span>
-                      </motion.div>
+                      </motion.div> 
                     ))}
                   </div>
 
                   <div className="mt-2 flex items-center justify-center gap-2 text-xs font-bold text-[#D4A313]">
-                    <span>Manage all loyalty pipelines</span>
+                    <span>Manage all loyalty pipelines</span> 
                     <ArrowRight className="size-3.5" />
                   </div>
                 </div>
@@ -237,10 +233,9 @@ export default function SolutionDetailsView({
             whileInView="visible"
             viewport={{ once: true, margin: "-100px" }}
             variants={stagger}
-            className="grid auto-rows-[180px] grid-cols-1 gap-6 md:grid-cols-3"
+            className="grid auto-rows-45 grid-cols-1 gap-6 md:grid-cols-3"
           >
             {data.capabilities.map((cap, idx) => {
-              // Bento layout rules: Make first and fifth item take 2 column spans for asymmetry
               const isFeatured = idx === 0 || idx === 4;
               return (
                 <motion.div
@@ -278,12 +273,10 @@ export default function SolutionDetailsView({
         </div>
       </section>
 
-      {/* --- SECTION 3: THE DARK BREAK (WHY IT MATTERS) --- */}
       <section className="relative overflow-hidden bg-[#0B0F12] px-4 py-28 text-white sm:px-6 lg:px-8">
-        {/* Dark Background Decorative Ambient Lights */}
         <div className="absolute inset-0 z-0">
-          <div className="absolute top-1/2 left-1/4 size-[500px] -translate-y-1/2 rounded-full bg-[#F5C41B]/5 blur-[120px]" />
-          <div className="absolute top-0 right-0 size-[350px] rounded-full bg-neutral-800/20 blur-[90px]" />
+          <div className="absolute top-1/2 left-1/4 size-125 -translate-y-1/2 rounded-full bg-[#F5C41B]/5 blur-[120px]" />
+          <div className="absolute top-0 right-0 size-87.5 rounded-full bg-neutral-800/20 blur-[90px]" />
         </div>
 
         <div className="relative z-10 container mx-auto grid max-w-7xl grid-cols-1 items-center gap-16 lg:grid-cols-12">
