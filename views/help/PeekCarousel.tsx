@@ -48,24 +48,30 @@ export function PeekCarousel({
   const activeItem = items[currentIndex];
 
   return (
-    <section className="relative overflow-visible">
-      <div className="relative grid min-h-115 grid-cols-1 items-center gap-12 overflow-visible py-8 lg:grid-cols-12 lg:gap-4 lg:py-0">
-        <div
-          className="absolute inset-y-0 left-0 -z-10 w-full"
-          style={{ backgroundColor }}
-        />
+    <section className="relative w-full overflow-hidden py-8 lg:overflow-visible lg:py-16">
+      {/* 1. الخلفية تغطي المكون كاملاً في الموبايل لتبدو الصورة بداخلها */}
+      <div
+        className="absolute inset-0 z-0 w-full lg:top-8 lg:bottom-8"
+        style={{ backgroundColor }}
+      />
 
-        <CarouselContent
-          item={activeItem}
-          index={currentIndex}
-          total={items.length}
-          onPrev={handlePrev}
-          onNext={handleNext}
-          disabled={isTransitioning}
-        />
-
-        <div className="relative z-10 flex w-full items-center justify-center bg-transparent lg:col-span-7 lg:justify-end">
+      {/* 2. المحتوى فوق الخلفية */}
+      <div className="relative z-10 container mx-auto grid grid-cols-1 items-center gap-6 px-4 sm:px-6 lg:min-h-115 lg:grid-cols-12 lg:gap-4 lg:px-8">
+        {/* الصورة أولاً في الموبايل عبر order-1 */}
+        <div className="relative z-20 order-1 flex w-full items-center justify-center pt-2 lg:order-2 lg:col-span-7 lg:justify-end lg:pt-0">
           <CarouselStack items={items} currentIndex={currentIndex} />
+        </div>
+
+        {/* النص والأزرار ثانياً في الموبايل عبر order-2 */}
+        <div className="order-2 lg:order-1 lg:col-span-5">
+          <CarouselContent
+            item={activeItem}
+            index={currentIndex}
+            total={items.length}
+            onPrev={handlePrev}
+            onNext={handleNext}
+            disabled={isTransitioning}
+          />
         </div>
       </div>
     </section>

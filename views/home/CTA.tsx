@@ -1,3 +1,4 @@
+import ImagePlaceholder from "@/components/ImagePlaceholder";
 import { Button } from "@/components/ui/button";
 import { ArrowRight } from "lucide-react";
 import Image from "next/image";
@@ -13,7 +14,8 @@ export default function CTA() {
             src={"/logo.svg"}
             width={100}
             height={100}
-            className="mx-auto mt-5 h-10 w-auto brightness-0 invert-100"
+            style={{ width: "auto", height: "auto" }}
+            className="mx-auto mt-5 h-10! w-auto brightness-0 invert-100"
           />
 
           <div className="my-10 space-y-2">

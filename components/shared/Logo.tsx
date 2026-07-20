@@ -7,7 +7,8 @@ export default function Logo() {
       alt="NexVio Logo"
       width={131}
       height={28}
-      className="transation h-8 w-auto duration-300 hover:scale-105"
+      style={{ width: "auto", height: "auto" }}
+      className="transation h-8! w-auto! duration-300 hover:scale-105"
       priority
     />
   );

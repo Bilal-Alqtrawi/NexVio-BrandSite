@@ -9,7 +9,8 @@ export default function Loading() {
           alt="Nexvio Loading..."
           width={150}
           height={38}
-          className="h-auto w-36 select-none"
+          style={{ width: "auto", height: "auto" }}
+          className="h-auto w-36! select-none"
           priority
         />
       </div>

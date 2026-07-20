@@ -33,7 +33,6 @@ const WHY_NEXVIO = [
 export default function AboutView() {
   return (
     <main className="from-background to-card/20 text-foreground w-full bg-linear-to-b pb-24 font-sans">
-      {/* --- SECTION 1: HEADER --- */}
       <section className="container mx-auto px-4 py-12 sm:px-8">
         <div className="relative flex flex-col gap-3 sm:flex-row sm:items-center sm:gap-6">
           <h1 className="shrink-0 text-3xl font-black tracking-tight text-neutral-950 uppercase sm:text-4xl">

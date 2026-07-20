@@ -33,7 +33,6 @@ const variants = {
   })
 };
 
-// البيانات المضافة المستخلصة من الملف PAGE 07
 const keyBenefits = [
   "Integrated POS and Payment Acceptance",
   "Fast & Secure Transactions",
@@ -75,7 +74,6 @@ export default function Devices() {
       id="devices"
       className="relative w-full space-y-16 overflow-x-hidden pt-16 pb-24"
     >
-      {/* 1. Header Section - تم تحديث النصوص لتطابق الصفحة 7 */}
       <div className="container mx-auto flex flex-col justify-between gap-6 px-4 sm:flex-row sm:items-start sm:px-10 lg:px-40">
         <div className="max-w-2xl space-y-3">
           <span className="text-xs font-bold tracking-widest text-neutral-400 uppercase">
@@ -96,7 +94,6 @@ export default function Devices() {
         </div>
       </div>
 
-      {/* 2. Slider Section - تم الحفاظ عليه تماماً دون أي كسر بالهيكل أو الأنيميشن */}
       <div className="relative flex w-full items-stretch gap-3 px-4 sm:gap-4 sm:px-0">
         <button
           onClick={() => goTo(-1)}
@@ -120,6 +117,15 @@ export default function Devices() {
               initial="enter"
               animate="center"
               exit="exit"
+              drag="x"
+              dragConstraints={{ left: 0, right: 0 }}
+              dragElastic={0.2}
+              onDragEnd={(e, { offset, velocity }) => {
+                const swipe = Math.abs(offset.x) > 50;
+                if (velocity.x > 500 || swipe) {
+                  goTo(offset.x < 0 ? 1 : -1);
+                }
+              }}
               transition={{
                 x: { type: "spring", stiffness: 300, damping: 30 },
                 opacity: { duration: 0.2 },
@@ -156,7 +162,7 @@ export default function Devices() {
             <Button
               nativeButton={false}
               render={<Link href={`/devices/${active.slug}`} />}
-              className="text-foreground hover:bg-foreground group shrink-0 space-x-3 self-start rounded-full bg-white px-5 py-3 transition duration-300 hover:text-white sm:mr-15 sm:self-auto sm:px-6 lg:py-8"
+              className="text-foreground hover:bg-foreground group flex shrink-0 space-x-3 self-start rounded-full bg-white px-5 py-3 transition duration-300 hover:text-white sm:mr-15 sm:self-auto sm:px-6 lg:py-8"
             >
               <span className="text-sm font-medium">view more</span>
               <span className="bg-foreground inline-flex size-5 items-center justify-center rounded-full text-white group-hover:bg-white group-hover:text-black sm:size-6 lg:size-10.25">
@@ -183,7 +189,7 @@ export default function Devices() {
         <button
           onClick={() => goTo(-1)}
           aria-label="Previous slide"
-          className="absolute top-1/2 left-4 z-20 flex h-10 w-10 -translate-x-1/2 -translate-y-1/2 items-center justify-center rounded-full bg-white text-black shadow-md transition-transform hover:scale-105 sm:left-[calc(4.5%+2rem)] lg:top-auto lg:-bottom-8 lg:translate-y-0"
+          className="absolute top-1/2 left-4 z-20 hidden h-10 w-10 -translate-x-1/2 -translate-y-1/2 items-center justify-center rounded-full bg-white text-black shadow-md transition-transform hover:scale-105 sm:left-[calc(4.5%+2rem)] lg:top-auto lg:-bottom-8 lg:flex lg:translate-y-0"
         >
           <ChevronLeft size={16} />
         </button>
@@ -191,13 +197,12 @@ export default function Devices() {
         <button
           onClick={() => goTo(1)}
           aria-label="Next slide"
-          className="absolute top-1/2 right-4 z-20 flex h-10 w-10 translate-x-1/2 -translate-y-1/2 items-center justify-center rounded-full bg-yellow-400 text-black shadow-md transition-transform hover:scale-105 sm:right-[calc(4.5%+2rem)] lg:-top-8"
+          className="absolute top-1/2 right-4 z-20 hidden h-10 w-10 translate-x-1/2 -translate-y-1/2 items-center justify-center rounded-full bg-yellow-400 text-black shadow-md transition-transform hover:scale-105 sm:right-[calc(4.5%+2rem)] lg:-top-8 lg:flex"
         >
           <ChevronRight size={16} />
         </button>
       </div>
 
-      {/* Dots Indicator */}
       <div className="mt-6 flex items-center justify-center gap-2">
         {devices.map((device, i) => (
           <button
@@ -215,10 +220,8 @@ export default function Devices() {
         ))}
       </div>
 
-      {/* 3. New Features Grid - القسم المضاف الجديد بالأسفل ليعرض محتوى الفوائد بالتفصيل */}
       <div className="container mx-auto px-4 sm:px-10 lg:px-40">
         <div className="grid grid-cols-1 gap-8 rounded-3xl border border-neutral-200/60 bg-[#FDFBF7] p-8 shadow-xs sm:p-12 md:grid-cols-2">
-          {/* العمود الأول: الميزات الرئيسية */}
           <div className="space-y-6">
             <div className="flex items-center gap-3">
               <div className="rounded-xl bg-neutral-900 p-2 text-white">
@@ -244,7 +247,6 @@ export default function Devices() {
             </div>
           </div>
 
-          {/* العمود الثاني: التحكم الكامل والوظائف */}
           <div className="space-y-6 border-t border-neutral-200 pt-6 md:border-t-0 md:border-l md:pt-0 md:pl-8">
             <div className="flex items-center gap-3">
               <div className="rounded-xl bg-neutral-900 p-2 text-white">

@@ -33,16 +33,16 @@ export function CarouselContent({
           initial={{ opacity: 0, x: -20 }}
           animate={{ opacity: 1, x: 0 }}
           exit={{ opacity: 0, x: 20 }}
-          transition={{ duration: 0.35, ease: "easeOut" }}
+          transition={{ duration: 0.2, ease: "easeOut" }}
           className="space-y-4"
         >
           <span className="block font-mono text-xl font-bold tracking-wider text-neutral-800">
             {step}
           </span>
-          <h2 className="text-2xl leading-tight font-black tracking-tight text-neutral-950 sm:text-3xl">
+          <h2 className="text-xl leading-tight font-black tracking-tight text-neutral-950 sm:text-3xl">
             {item.title}
           </h2>
-          <p className="max-w-sm text-sm leading-relaxed font-normal text-neutral-600">
+          <p className="max-w-sm text-sm leading-relaxed font-normal text-neutral-600 ">
             {item.description}
           </p>
         </motion.div>

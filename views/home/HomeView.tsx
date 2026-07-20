@@ -1,7 +1,10 @@
-import Hero from "./Hero";
-import Features from "./Features";
+import dynamic from "next/dynamic";
+
+const Hero = dynamic(() => import("./Hero"));
+const Devices = dynamic(() => import("./Devices"));
+const Features = dynamic(() => import("./Features"));
+
 import LogoCloud from "./LogoCloud";
-import Devices from "./Devices";
 import CTA from "./CTA";
 
 export default function HomeView() {

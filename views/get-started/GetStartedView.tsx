@@ -50,14 +50,15 @@ export default function GetStartedView() {
         className="mb-20 text-center"
       >
         <div className="border-brand-yellow/30 bg-brand-yellow/10 text-brand-yellow mb-6 inline-block rounded-full border px-4 py-1.5 text-sm font-medium tracking-wide">
-          Let's Collaborate
+          Let&apos;s Collaborate
         </div>
-        <h1 className="bg-gradient-to-r from-gray-900 to-gray-500 bg-clip-text text-5xl font-extrabold tracking-tight text-transparent lg:text-7xl">
+        <h1 className="bg-linear-to-r from-gray-900 to-gray-500 bg-clip-text text-5xl font-extrabold tracking-tight text-transparent lg:text-7xl">
           Build Something <br className="hidden md:block" /> Exceptional.
         </h1>
         <p className="text-muted-foreground mx-auto mt-6 max-w-2xl text-lg leading-relaxed lg:text-xl">
-          You're one step away from high-performance, clean-coded web solutions.
-          Select the service that fits your vision, and let's get to work.
+          You&apos;re one step away from high-performance, clean-coded web
+          solutions. Select the service that fits your vision, and let&apos;s
+          get to work.
         </p>
       </motion.section>
 
@@ -69,14 +70,14 @@ export default function GetStartedView() {
         viewport={{ once: true, margin: "-50px" }}
         className="mb-24 grid gap-8 md:grid-cols-3"
       >
-        {services.map((service, index) => (
+        {services.map((service) => (
           <motion.div
             key={service.title}
             variants={fadeUp}
             className="group relative rounded-3xl border border-gray-100 bg-white p-8 shadow-sm transition-all duration-500 hover:-translate-y-2 hover:shadow-2xl"
           >
             {/* تأثير إضاءة خلفية عند الـ Hover */}
-            <div className="from-brand-yellow/5 absolute inset-0 rounded-3xl bg-gradient-to-br to-transparent opacity-0 transition-opacity duration-500 group-hover:opacity-100"></div>
+            <div className="from-brand-yellow/5 absolute inset-0 rounded-3xl bg-linear-to-br to-transparent opacity-0 transition-opacity duration-500 group-hover:opacity-100"></div>
 
             <div className="relative z-10">
               {service.icon}
@@ -89,7 +90,6 @@ export default function GetStartedView() {
         ))}
       </motion.section>
 
-      {/* Form Section with Parallax-like floating feel */}
       <motion.section
         initial="hidden"
         whileInView="visible"
@@ -98,21 +98,19 @@ export default function GetStartedView() {
         className="relative mx-auto mt-16 max-w-4xl"
       >
         {/* Glow Effect */}
-        <div className="from-brand-yellow/30 absolute -inset-4 rounded-[3rem] bg-gradient-to-r to-orange-400/20 opacity-60 blur-2xl"></div>
+        <div className="from-brand-yellow/30 absolute -inset-4 rounded-[3rem] bg-linear-to-r to-orange-400/20 opacity-60 blur-2xl"></div>
 
         <div className="relative overflow-hidden rounded-[2.5rem] border border-white/60 bg-white/70 p-8 shadow-2xl backdrop-blur-2xl lg:p-16">
-          {/* دائرة ديكور في الخلفية */}
           <div className="bg-brand-yellow/10 absolute -top-24 -right-24 h-64 w-64 rounded-full blur-3xl"></div>
 
           <div className="relative z-10 grid items-center gap-12 lg:grid-cols-5">
-            {/* النص الجانبي للنموذج */}
             <div className="space-y-6 lg:col-span-2">
               <h2 className="text-4xl font-extrabold text-gray-900">
                 Let’s start <br /> the conversation.
               </h2>
               <p className="text-lg text-gray-500">
-                Fill out the form and I'll get back to you within 24 hours with
-                a solid plan.
+                Fill out the form and I&apos;ll get back to you within 24 hours
+                with a solid plan.
               </p>
             </div>
 

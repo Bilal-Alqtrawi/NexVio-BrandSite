@@ -41,11 +41,14 @@ const footerColumns = [
         href: "/solutions/business-intelligence"
       },
       { name: "CRM", href: "/solutions/crm" },
-      { name: "Security & Reliability", href: "/solutions/security-reliability" }
+      {
+        name: "Security & Reliability",
+        href: "/solutions/security-reliability"
+      }
     ]
   },
   {
-    title: "Help",  
+    title: "Help",
     links: [
       { name: "Support", href: "/faq" },
       { name: "Contact", href: "/contact" }
@@ -64,7 +67,8 @@ export default function Footer() {
               alt="NexVio Logo"
               width={131}
               height={28}
-              className="h-8 w-auto"
+              style={{ width: "auto", height: "auto" }}
+              className="h-8! w-auto"
               priority
             />
           </Link>

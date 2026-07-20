@@ -85,7 +85,6 @@ export default function Hero() {
               width={250}
               height={208}
               className="block h-auto w-full object-cover select-none"
-              priority
               sizes="(max-width: 768px) 100vw, 25vw"
             />
           </motion.div>
@@ -101,7 +100,6 @@ export default function Hero() {
               width={250}
               height={235}
               className="block h-auto w-full object-cover select-none"
-              priority
               sizes="(max-width: 768px) 100vw, 25vw"
             />
           </motion.div>
@@ -118,7 +116,6 @@ export default function Hero() {
             width={251}
             height={432}
             className="block h-auto w-full object-cover select-none"
-            priority
             sizes="(max-width: 768px) 100vw, 25vw"
           />
         </motion.div>
