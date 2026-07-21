@@ -2,6 +2,7 @@
 
 import Image from "next/image";
 import { motion, Variants } from "framer-motion";
+import { ShieldCheck } from "lucide-react";
 
 const textContainerVariants: Variants = {
   hidden: { opacity: 0 },
@@ -44,7 +45,7 @@ export default function Hero() {
           variants={textItemVariants}
           className="text-primary text-4xl leading-[1.1] tracking-tight sm:text-5xl"
         >
-          Everything Your Business Needs.
+          Everything Your Business Needs
         </motion.h1>
 
         <motion.h2
@@ -56,22 +57,27 @@ export default function Hero() {
       </motion.div>
 
       <div className="grid grid-cols-1 items-stretch gap-6 md:grid-cols-2 lg:grid-cols-4">
-        <motion.div
+        <motion.figure
           whileHover="hover"
           variants={cardHoverEffect}
           style={{ willChange: "transform" }}
-          className="relative overflow-hidden rounded-[2rem] lg:col-span-2"
+          className="from-brand-teal to-teal-light relative flex flex-col items-center justify-center overflow-hidden rounded-[2rem] bg-linear-to-t lg:col-span-2"
         >
           <Image
             src="/hero/box-1.svg"
             alt="Business Innovation Terminal"
             width={518}
             height={432}
-            className="block h-auto w-full object-cover select-none"
             priority
+            className="block h-auto w-full object-cover p-0 select-none"
             sizes="(max-width: 768px) 100vw, 50vw"
           />
-        </motion.div>
+
+          <figcaption className="text-brand-cream mx-auto max-w-lg text-center text-xl font-semibold">
+            Smart Machine Management With Real-Time Analytics, Reports, And
+            Monitoring
+          </figcaption>
+        </motion.figure>
 
         <div className="flex flex-col gap-6 lg:col-span-1">
           <motion.div
@@ -81,9 +87,9 @@ export default function Hero() {
           >
             <Image
               src="/hero/box-2.svg"
-              alt="Smart Device Sync"
+              alt="POS Solutions Management"
               width={250}
-              height={208}
+              height={235}
               className="block h-auto w-full object-cover select-none"
               sizes="(max-width: 768px) 100vw, 25vw"
             />
@@ -92,16 +98,12 @@ export default function Hero() {
           <motion.div
             whileHover="hover"
             variants={cardHoverEffect}
-            className="relative overflow-hidden rounded-[2rem]"
+            className="from-brand-yellow-light via-brand-yellow-light to-brand-yellow relative flex h-52 w-auto flex-col items-center justify-center gap-4 overflow-hidden rounded-[2rem] bg-linear-to-br"
           >
-            <Image
-              src="/hero/box-3.svg"
-              alt="POS Solutions Management"
-              width={250}
-              height={235}
-              className="block h-auto w-full object-cover select-none"
-              sizes="(max-width: 768px) 100vw, 25vw"
-            />
+            <ShieldCheck size={60} color="white" />
+            <p className="text-center text-lg font-semibold tracking-tight">
+              Smart, Safe, and <br /> Secure
+            </p>
           </motion.div>
         </div>
 

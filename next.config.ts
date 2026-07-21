@@ -24,6 +24,16 @@ const nextConfig: NextConfig = {
         source: "/",
         destination: "/home",
         permanent: true
+      },
+      {
+        source: "/devices/nova-156",
+        destination: "/home#devices",
+        permanent: true
+      },
+      {
+        source: "/devices/nova-c3",
+        destination: "/devices/nova-c20",
+        permanent: true
       }
     ];
   }

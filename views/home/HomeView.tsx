@@ -2,7 +2,7 @@ import dynamic from "next/dynamic";
 
 const Hero = dynamic(() => import("./Hero"));
 const Devices = dynamic(() => import("./Devices"));
-const Features = dynamic(() => import("./Features"));
+const Features = dynamic(() => import("./features/Features"));
 
 import LogoCloud from "./LogoCloud";
 import CTA from "./CTA";

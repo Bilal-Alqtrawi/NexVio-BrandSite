@@ -13,6 +13,11 @@
 
   --color-brand-yellow: var(--brand-yellow);
   --color-brand-cream: var(--brand-cream);
+  --color-brand-yellow-light: var(--brand-yellow-light);
+  --color-brand-yellow-dark: var(--brand-yellow-dark);
+
+  --color-brand-teal: var(--brand-teal);
+  --color-teal-light: var(--brand-teal-light);
 
   --color-ring: var(--ring);
   --color-input: var(--input);
@@ -44,35 +49,40 @@
 
 :root {
   --background: #fffbf0;
-  --foreground: #000000;
+  --foreground: #192d34;
 
   --card: #ffffff;
-  --card-foreground: #000000;
+  --card-foreground: #192d34;
 
   --popover: #ffffff;
-  --popover-foreground: #000000;
+  --popover-foreground: #192d34;
 
-  --primary: #000000;
+  --primary: #192d34;
   --primary-foreground: #ffffff;
 
-  --secondary: #ffcc00;
-  --secondary-foreground: #000000;
+  --secondary: #fedf11;
+  --secondary-foreground: #192d34;
 
   --muted: #f4f4f5;
-  --muted-foreground: #7c7c7c;
+  --muted-foreground: #80a6af;
 
-  --accent: #ffcc00;
-  --accent-foreground: #000000;
+  --accent: #ffe958;
+  --accent-foreground: #192d34;
 
   --destructive: #e5484d;
   --border: #d9d9d9;
   --input: #d9d9d9;
-  --ring: #ffcc00;
+  --ring: #cbb524;
 
   --radius: 1rem;
 
-  --brand-yellow: #ffcc00;
+  --brand-yellow: #fedf11;
+  --brand-yellow-light: #ffe958;
+  --brand-yellow-dark: #a89302;
   --brand-cream: #fffbf0;
+
+  --brand-teal: #192d34;
+  --brand-teal-light: #80a6af;
 }
 
 @layer base {
@@ -104,6 +114,7 @@
     transform: translateX(100%);
   }
 }
+
 @keyframes cinematicFloat {
   0%,
   100% {
@@ -113,6 +124,7 @@
     transform: translate3d(-6px, -15px, 0);
   }
 }
+
 @keyframes shadowPulse {
   0%,
   100% {
@@ -136,7 +148,7 @@
   to {
     transform: translateX(-50%);
   }
-} 
+}
 
 html {
   scroll-behavior: smooth;

@@ -34,14 +34,14 @@ const variants = {
 };
 
 const keyBenefits = [
-  "Integrated POS and Payment Acceptance",
-  "Fast & Secure Transactions",
-  "Touchscreen User Interface",
-  "CRM Integration",
-  "Receipt Printing",
-  "Kitchen Connectivity",
-  "Cloud Synchronization",
-  "Real-Time Business Updates"
+  "All-in-One POS & Payment Solution",
+  "Fast & Secure Card Payments",
+  "Easy-to-Use Touchscreen Interface",
+  "Instant Receipt Printing",
+  "Cloud-Based Data Sync",
+  "CRM & Loyalty Integration",
+  "Kitchen Display Connectivity",
+  "Real-Time Sales & Performance Reports"
 ] as const;
 
 const controls = [
@@ -85,11 +85,11 @@ export default function Devices() {
             One Smart Device.
           </h2>
         </div>
-        <div className="max-w-md self-end text-sm leading-relaxed text-neutral-600 sm:text-right">
+        <div className="max-w-md self-end space-y-1 text-base leading-relaxed text-neutral-600 sm:text-right sm:text-lg">
+          <p>NexVio Smart Commerce Devices combine Point of Sale,</p>
           <p>
-            NexVio Smart Commerce Devices combine Point of Sale, integrated
-            payments and business management into one intelligent solution,
-            designed for speed, mobility and flexibility.
+            integrated payments and business management into one intelligent
+            solution.
           </p>
         </div>
       </div>

@@ -10,9 +10,9 @@ export default function IndustriesView() {
   const [activeTab, setActiveTab] = useState(0);
 
   return (
-    <main className="relative min-h-screen overflow-hidden bg-[#0d0c0a] font-sans text-white">
-      <div className="pointer-events-none absolute top-0 right-0 size-175 translate-x-1/4 -translate-y-1/3 rounded-full bg-[#ffcc00]/8 blur-[180px]" />
-      <div className="pointer-events-none absolute bottom-1/4 left-0 size-125 rounded-full bg-blue-500/3 blur-[120px]" />
+    <main className="relative min-h-screen overflow-hidden bg-[#152830] font-sans text-white">
+      <div className="pointer-events-none absolute top-0 right-0 size-175 translate-x-1/4 -translate-y-1/3 rounded-full bg-[#80a6af]/20 blur-[180px]" />
+      <div className="pointer-events-none absolute bottom-1/4 left-0 size-125 rounded-full bg-[#ffcc00]/8 blur-[120px]" />
 
       <div className="relative z-10">
         <section className="mx-auto max-w-5xl space-y-6 px-4 pt-10 pb-16 text-center sm:px-6 lg:px-8">

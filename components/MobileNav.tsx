@@ -98,10 +98,12 @@ export default function MobileNav({ links }: { links: NavLink[] }) {
 
               <motion.div variants={itemVariants} className="mt-4 px-2">
                 <Button
+                  nativeButton={false}
+                  render={<Link href="/contact" />}
                   className="w-full space-x-3 rounded-full py-6"
                   onClick={() => setOpen(false)}
                 >
-                  <span>Get Started</span>
+                  <span>Contact us</span>
                   <span className="bg-muted-foreground/80 inline-flex size-8 items-center justify-center rounded-full">
                     <ArrowRight size={14} />
                   </span>

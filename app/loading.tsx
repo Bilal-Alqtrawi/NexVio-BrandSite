@@ -6,7 +6,7 @@ export default function Loading() {
       <div className="animate-pulse">
         <Image
           src="/logo.svg"
-          alt="Nexvio Loading..."
+          alt="NexVio Loading..."
           width={150}
           height={38}
           style={{ width: "auto", height: "auto" }}

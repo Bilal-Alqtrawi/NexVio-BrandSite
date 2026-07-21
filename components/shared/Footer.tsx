@@ -8,25 +8,26 @@ import {
 } from "react-icons/fa";
 import { FaXTwitter } from "react-icons/fa6";
 import { RiWhatsappFill } from "react-icons/ri";
+import { Mail, MapPin, Phone } from "lucide-react";
+import { COMPANY } from "@/lib/company";
 
 const socialLinks = [
-  { href: "https://facebook.com", label: "Facebook", Icon: FaFacebookF },
-  { href: "https://instagram.com", label: "Instagram", Icon: FaInstagram },
-  { href: "https://x.com", label: "X", Icon: FaXTwitter },
-  { href: "https://linkedin.com", label: "LinkedIn", Icon: FaLinkedinIn },
-  { href: "https://youtube.com", label: "YouTube", Icon: FaYoutube },
-  { href: "https://wa.me", label: "WhatsApp", Icon: RiWhatsappFill }
+  { href: COMPANY.social.facebook, label: "Facebook", Icon: FaFacebookF },
+  { href: COMPANY.social.instagram, label: "Instagram", Icon: FaInstagram },
+  { href: COMPANY.social.x, label: "X", Icon: FaXTwitter },
+  { href: COMPANY.social.linkedin, label: "LinkedIn", Icon: FaLinkedinIn },
+  { href: COMPANY.social.youtube, label: "YouTube", Icon: FaYoutube },
+  { href: COMPANY.social.whatsapp, label: "WhatsApp", Icon: RiWhatsappFill }
 ];
 
 const footerColumns = [
   {
     title: "About",
     links: [
-      { name: "About Nexvio", href: "/about" },
+      { name: "About NexVio", href: "/about" },
       { name: "NexVio at a Glance", href: "/at-a-glance" },
-      { name: "Why Nexvio", href: "/why-nexvio" },
+      { name: "Why NexVio", href: "/why-nexvio" },
       { name: "Vision and Mission", href: "/vision-and-mission" },
-      // { name: "NexVio Overview", href: "/home#overview" },
       { name: "Partners in Success", href: "/home#partners" }
     ]
   },
@@ -58,7 +59,7 @@ const footerColumns = [
 
 export default function Footer() {
   return (
-    <footer className="bg-linear-to-r from-black via-[#0A1115] via-45% to-[#1C3039] text-white/70">
+    <footer className="bg-linear-to-r from-[#0f1c22] via-[#152830] via-45% to-[#1C3039] text-white/70">
       <div className="container mx-auto grid gap-12 px-4 py-16 sm:px-6 lg:grid-cols-[2fr_1fr_1fr_1fr] lg:gap-8 lg:py-20">
         <div className="max-w-lg">
           <Link href="/" className="inline-flex items-center gap-2">
@@ -72,11 +73,49 @@ export default function Footer() {
               priority
             />
           </Link>
-          <p className="text mt-5 leading-relaxed text-white/50">
-            Modern businesses need more than just a Point of Sale system. They
-            need a complete platform that connects every part of their business
-            into one intelligent ecosystem.
+          <p className="mt-5 leading-relaxed text-white/50">
+            Empowering businesses across the UAE with reliable POS systems,
+            secure payment solutions, and cloud-based business management
+            technology.
           </p>
+
+          <ul className="mt-5 space-y-2.5 text-sm text-white/55">
+            <li>
+              <a
+                href={`tel:${COMPANY.phoneTel}`}
+                className="inline-flex items-center gap-2 transition hover:text-white"
+              >
+                <Phone className="size-3.5 text-brand-yellow" />
+                {COMPANY.phoneInternational}
+              </a>
+            </li>
+            <li>
+              <a
+                href={`mailto:${COMPANY.email}`}
+                className="inline-flex items-center gap-2 transition hover:text-white"
+              >
+                <Mail className="size-3.5 text-brand-yellow" />
+                {COMPANY.email}
+              </a>
+            </li>
+            <li>
+              <a
+                href={COMPANY.mapsUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-start gap-2 transition hover:text-white"
+              >
+                <MapPin className="mt-0.5 size-3.5 shrink-0 text-brand-yellow" />
+                <span>
+                  {COMPANY.locationLabel}
+                  <span className="mt-0.5 block text-xs text-white/40">
+                    {COMPANY.locationDetail}
+                  </span>
+                </span>
+              </a>
+            </li>
+          </ul>
+
           <ul className="mt-6 flex list-none items-center gap-3">
             {socialLinks.map(({ href, label, Icon }) => (
               <li key={label}>

@@ -29,10 +29,18 @@ interface SolutionDetailsViewProps {
   data: SolutionData;
 }
 
+const KPI_STATS = [
+  { label: "Today's Sales", value: "AED 12.4K" },
+  { label: "Transactions", value: "186" },
+  { label: "Avg Order", value: "AED 67" },
+  { label: "Revenue", value: "+18%" }
+];
+
 export default function SolutionDetailsView({
   data
 }: SolutionDetailsViewProps) {
   const isBI = data.slug === "business-intelligence";
+  const barValues = [50, 80, 45, 95, 60, 110, 75];
 
   return (
     <main className="bg-brand-cream relative w-full overflow-hidden font-sans text-neutral-900">
@@ -43,7 +51,6 @@ export default function SolutionDetailsView({
         </div>
 
         <div className="relative z-10 container mx-auto grid max-w-7xl grid-cols-1 items-center gap-12 lg:grid-cols-12 lg:gap-8">
-          {/* Left Side: Typography & Action */}
           <div className="space-y-6 text-left lg:col-span-7">
             <div className="inline-flex items-center gap-2 rounded-full border border-neutral-300/70 bg-white/80 px-4 py-1.5 text-xs font-bold tracking-widest text-[#D4A313] uppercase shadow-xs backdrop-blur-md">
               <Sparkles className="size-3.5 text-[#F5C41B]" />
@@ -70,13 +77,12 @@ export default function SolutionDetailsView({
                 href="/contact"
                 className="group inline-flex items-center gap-3 rounded-full bg-neutral-950 px-8 py-4.5 text-xs font-bold tracking-widest text-white uppercase transition-all duration-300 hover:scale-105 hover:bg-[#F5C41B] hover:text-black"
               >
-                Schedule Interactive Demo
+                Request a Demo
                 <ArrowUpRight className="size-4 stroke-[2.5]" />
               </Link>
             </div>
           </div>
 
-          {/* Right Side: CSS Interactive Graphic Mockup (No static image!) */}
           <div className="flex w-full justify-center lg:col-span-5 lg:justify-end">
             <motion.div
               initial={{ opacity: 0, scale: 0.95, y: 20 }}
@@ -91,27 +97,56 @@ export default function SolutionDetailsView({
               </div>
 
               {isBI ? (
-                /* Interactive Business Intelligence Mockup Chart */
                 <div className="flex h-full flex-col justify-between pt-6">
                   <div className="border-b border-neutral-100 pb-4">
                     <span className="text-[10px] font-black tracking-widest text-neutral-400 uppercase">
-                      NexVio Live Pulse
+                      {data.chartTitle ?? "NEXVIO ANALYTICS"}
                     </span>
                     <h4 className="mt-0.5 text-lg font-black text-neutral-900">
-                      Real-Time Revenue
+                      {data.chartSubtitle ?? "Business Performance"}
                     </h4>
                   </div>
 
-                  {/* Fake Chart Bars */}
-                  <div className="flex h-40 items-end justify-between gap-3 px-2">
-                    {[50, 80, 45, 95, 60, 110, 75].map((val, idx) => (
+                  <div className="grid grid-cols-4 gap-2 py-3">
+                    {KPI_STATS.map((kpi) => (
+                      <div
+                        key={kpi.label}
+                        className="rounded-xl bg-[#FAF8F5] px-2 py-2 text-center"
+                      >
+                        <p className="text-[9px] font-bold tracking-wide text-neutral-400 uppercase">
+                          {kpi.label}
+                        </p>
+                        <p className="mt-0.5 text-xs font-black text-neutral-900">
+                          {kpi.value}
+                        </p>
+                      </div>
+                    ))}
+                  </div>
+
+                  <div className="relative flex h-36 items-end justify-between gap-3 px-2">
+                    <svg
+                      className="pointer-events-none absolute inset-x-2 top-2 h-28 w-[calc(100%-1rem)]"
+                      viewBox="0 0 100 40"
+                      preserveAspectRatio="none"
+                    >
+                      <polyline
+                        fill="none"
+                        stroke="#F5C41B"
+                        strokeWidth="1.5"
+                        points="5,28 20,18 35,30 50,10 65,22 80,6 95,16"
+                      />
+                    </svg>
+                    {barValues.map((val, idx) => (
                       <div
                         key={idx}
-                        className="flex w-full flex-col items-center gap-2"
+                        className="relative z-10 flex w-full flex-col items-center gap-1"
                       >
+                        <span className="text-[9px] font-bold text-neutral-500">
+                          {val}
+                        </span>
                         <motion.div
                           initial={{ height: 0 }}
-                          animate={{ height: `${val}px` }}
+                          animate={{ height: `${val * 0.9}px` }}
                           transition={{
                             duration: 1.2,
                             delay: 0.3 + idx * 0.1,
@@ -119,9 +154,6 @@ export default function SolutionDetailsView({
                           }}
                           className={`w-full rounded-t-md ${idx === 5 ? "bg-[#F5C41B]" : "bg-neutral-900/10 hover:bg-neutral-950/20"} transition-all`}
                         />
-                        <span className="text-[10px] font-bold text-neutral-400">
-                          M0{idx + 1}
-                        </span>
                       </div>
                     ))}
                   </div>
@@ -141,7 +173,6 @@ export default function SolutionDetailsView({
                   </div>
                 </div>
               ) : (
-                /* Interactive CRM Card Mockup */
                 <div className="flex h-full flex-col justify-between pt-6">
                   <div className="border-b border-neutral-100 pb-4">
                     <span className="text-[10px] font-black tracking-widest text-neutral-400 uppercase">
@@ -201,12 +232,12 @@ export default function SolutionDetailsView({
                         <span className="text-xs font-black text-neutral-900">
                           {cust.spend}
                         </span>
-                      </motion.div> 
+                      </motion.div>
                     ))}
                   </div>
 
                   <div className="mt-2 flex items-center justify-center gap-2 text-xs font-bold text-[#D4A313]">
-                    <span>Manage all loyalty pipelines</span> 
+                    <span>Manage all loyalty pipelines</span>
                     <ArrowRight className="size-3.5" />
                   </div>
                 </div>
@@ -216,12 +247,11 @@ export default function SolutionDetailsView({
         </div>
       </section>
 
-      {/* --- SECTION 2: THE BENTO GRID (CAPABILITIES) --- */}
       <section className="border-t border-neutral-200 bg-white px-4 py-24 sm:px-6 lg:px-8">
         <div className="container mx-auto max-w-7xl">
           <div className="mb-16 max-w-3xl space-y-4">
             <span className="rounded-full bg-[#F5C41B]/10 px-3.5 py-1.5 text-xs font-black tracking-widest text-[#D4A313] uppercase">
-              System Modules
+              {data.modulesLabel}
             </span>
             <h2 className="text-3xl font-black tracking-tight text-neutral-950 uppercase sm:text-4xl md:text-5xl">
               {data.capabilitiesTitle}
@@ -256,15 +286,11 @@ export default function SolutionDetailsView({
 
                   <div>
                     <h3 className="text-lg font-black text-neutral-900 duration-200 group-hover:translate-x-1">
-                      {cap}
+                      {cap.title}
                     </h3>
-                    {isFeatured && (
-                      <p className="mt-2 max-w-md text-xs text-neutral-500">
-                        Powering high-performance commercial environments with
-                        real-time sync, offline data reliability and bulletproof
-                        architecture.
-                      </p>
-                    )}
+                    <p className="mt-2 max-w-md text-xs text-neutral-500">
+                      {cap.description}
+                    </p>
                   </div>
                 </motion.div>
               );
@@ -273,10 +299,9 @@ export default function SolutionDetailsView({
         </div>
       </section>
 
-      <section className="relative overflow-hidden bg-[#0B0F12] px-4 py-28 text-white sm:px-6 lg:px-8">
+      <section className="relative overflow-hidden bg-[#152830] px-4 py-28 text-white sm:px-6 lg:px-8">
         <div className="absolute inset-0 z-0">
-          <div className="absolute top-1/2 left-1/4 size-125 -translate-y-1/2 rounded-full bg-[#F5C41B]/5 blur-[120px]" />
-          <div className="absolute top-0 right-0 size-87.5 rounded-full bg-neutral-800/20 blur-[90px]" />
+          <div className="absolute top-1/2 left-1/4 size-125 -translate-y-1/2 rounded-full bg-[#80a6af]/15 blur-[120px]" />
         </div>
 
         <div className="relative z-10 container mx-auto grid max-w-7xl grid-cols-1 items-center gap-16 lg:grid-cols-12">
@@ -293,7 +318,7 @@ export default function SolutionDetailsView({
           </div>
 
           <div className="lg:col-span-7">
-            <div className="rounded-[36px] border border-neutral-800 bg-neutral-900/40 p-8 backdrop-blur-md md:p-12">
+            <div className="rounded-[36px] border border-neutral-700 bg-neutral-900/40 p-8 backdrop-blur-md md:p-12">
               <h3 className="mb-8 flex items-center gap-2 text-xs font-black tracking-widest text-neutral-400 uppercase">
                 <span className="size-1.5 animate-pulse rounded-full bg-[#F5C41B]" />
                 {data.benefitsTitle}
@@ -316,7 +341,6 @@ export default function SolutionDetailsView({
         </div>
       </section>
 
-      {/* --- SECTION 4: MINIMALIST BIG TYPOGRAPHY CTA --- */}
       <section className="bg-[#FAF8F5] px-4 py-24 sm:px-6 md:py-36 lg:px-8">
         <div className="container mx-auto max-w-4xl space-y-8 text-center">
           <div className="mb-4 inline-flex size-12 items-center justify-center rounded-2xl bg-neutral-100 text-neutral-950">
@@ -340,7 +364,7 @@ export default function SolutionDetailsView({
               href="/contact"
               className="inline-flex items-center gap-3 border-b-2 border-neutral-950 pb-2 text-sm font-black tracking-widest text-neutral-950 uppercase transition-colors hover:border-[#D4A313] hover:text-[#D4A313]"
             >
-              Get Started Now
+              Contact us
               <ArrowRight className="size-4" />
             </Link>
           </div>

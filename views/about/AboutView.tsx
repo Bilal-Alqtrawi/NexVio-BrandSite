@@ -1,33 +1,34 @@
 "use client";
 
+import ContactUsButton from "@/components/shared/ContactUsButton";
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
 import {
   Layers,
   CreditCard,
   Cloud,
-  Users2,
   Package,
-  Utensils,
+  Users2,
   BarChart3,
   GitBranch,
   MapPin,
   ShieldCheck,
-  Sparkles
+  Sparkles,
+  MonitorSmartphone
 } from "lucide-react";
 import Image from "next/image";
 
 const WHY_NEXVIO = [
   { icon: Layers, label: "One Connected Platform" },
-  { icon: CreditCard, label: "Smart POS & Integrated Payments" },
-  { icon: Cloud, label: "Cloud-Based Business Management" },
-  { icon: Users2, label: "Customer Relationship Management (CRM)" },
-  { icon: Package, label: "Inventory & Employee Management" },
-  { icon: Utensils, label: "Kitchen Connectivity (KDS)" },
+  { icon: CreditCard, label: "Smart POS & Payments" },
+  { icon: Cloud, label: "Cloud-Based Platform" },
+  { icon: Package, label: "Inventory & Team Management" },
+  { icon: Users2, label: "Customer Loyalty & CRM" },
   { icon: BarChart3, label: "Business Intelligence & Analytics" },
   { icon: GitBranch, label: "Multi-Branch Management" },
-  { icon: MapPin, label: "Local UAE Implementation & Support" },
-  { icon: ShieldCheck, label: "Built on Trusted Global Technology" }
+  { icon: MapPin, label: "Local UAE Support" },
+  { icon: ShieldCheck, label: "Trusted Technology" },
+  { icon: MonitorSmartphone, label: "Kitchen Display System (KDS)" }
 ];
 
 export default function AboutView() {
@@ -35,27 +36,28 @@ export default function AboutView() {
     <main className="from-background to-card/20 text-foreground w-full bg-linear-to-b pb-24 font-sans">
       <section className="container mx-auto px-4 py-12 sm:px-8">
         <div className="relative flex flex-col gap-3 sm:flex-row sm:items-center sm:gap-6">
-          <h1 className="shrink-0 text-3xl font-black tracking-tight text-neutral-950 uppercase sm:text-4xl">
+          <h1 className="text-brand-teal shrink-0 text-3xl font-black tracking-tight uppercase sm:text-4xl">
             About
           </h1>
-          <span className="hidden rotate-12 transform text-5xl font-extralight text-black sm:block">
+          <span className="text-brand-teal hidden rotate-12 transform text-5xl font-extralight sm:block">
             /
           </span>
           <p className="text-muted-foreground max-w-sm pt-1 text-sm leading-relaxed font-bold tracking-wider uppercase">
-            More Than Technology. A Complete Business Solution.
+            More Than a POS
+            <br />
+            A Complete Business Platform
           </p>
         </div>
       </section>
 
-      {/* --- SECTION 2: VISION & CORE PARAGRAPHS --- */}
       <section className="container mx-auto px-4 pl-4 sm:px-0 sm:pl-6">
         <div className="relative">
-          <div className="bg-card/10 flex flex-col items-center gap-8 rounded-3xl border border-black p-6 backdrop-blur-xs lg:flex-row lg:gap-12 lg:rounded-l-full lg:p-8 lg:pr-16">
-            <div className="w-full max-w-145 shrink-0 rounded-full border border-black p-3 sm:p-4 lg:w-1/2 dark:border-white/10">
+          <div className="bg-card/10 border-brand-teal/20 flex flex-col items-center gap-8 rounded-3xl border p-6 backdrop-blur-xs lg:flex-row lg:gap-12 lg:rounded-l-full lg:p-8 lg:pr-16">
+            <div className="border-brand-teal/20 w-full max-w-145 shrink-0 rounded-full border p-3 sm:p-4 lg:w-1/2">
               <div className="relative aspect-16/10 w-full overflow-hidden rounded-full shadow-xs">
                 <Image
-                  src="/about/about.svg"
-                  alt="About Nexvio platform team working together"
+                  src="/about/about-office.png"
+                  alt="NexVio office and team workspace"
                   fill
                   sizes="(max-width: 1024px) 100vw, 50vw"
                   className="object-cover object-center"
@@ -65,51 +67,34 @@ export default function AboutView() {
             </div>
 
             <div className="flex-1 lg:max-w-xl">
-              <p className="text-base leading-relaxed font-bold text-neutral-950 md:text-lg">
-                Choosing the right business technology is one of the most
-                important decisions any business can make.
+              <p className="text-brand-teal text-base leading-relaxed font-bold md:text-lg">
+                Run your entire business from one connected platform—combining
+                smart POS, integrated payments, business management, and
+                real-time insights to simplify operations and drive growth.
               </p>
-              <p className="mt-4 text-sm leading-relaxed font-normal text-neutral-700 sm:text-base dark:text-neutral-300">
-                NexVio is more than a Point of Sale system. It is a complete
-                business platform designed to simplify operations, improve
-                productivity and support long-term growth. By combining
-                intelligent software, smart commerce devices and integrated
-                payments into one connected ecosystem, businesses can eliminate
-                unnecessary complexity while gaining greater visibility and
-                control over daily operations.
+              <p className="text-brand-teal/80 mt-4 text-sm leading-relaxed font-normal sm:text-base">
+                Whether you&apos;re opening your first business or expanding
+                across multiple locations, NexVio provides the flexibility,
+                reliability and support needed to grow with confidence.
               </p>
             </div>
           </div>
 
           <div className="mt-12 max-w-3xl space-y-6 px-4 sm:px-12 lg:px-24">
-            <p className="text-sm leading-relaxed text-neutral-600 sm:text-base dark:text-neutral-400">
-              Whether you&apos;re opening your first business or expanding
-              across multiple locations, NexVio provides the flexibility,
-              reliability and support needed to grow with confidence.
-            </p>
-
             <div className="pt-4">
-              <Button
-                variant="outline"
-                className="bg-brand-yellow h-12 w-full rounded-full border-none text-sm font-bold tracking-wide text-neutral-950 shadow-md transition-all duration-200 active:scale-98 sm:w-64"
-                nativeButton={false}
-                render={<Link href="/contact" />}
-              >
-                <span>Talk to Our Team</span>
-              </Button>
+              <ContactUsButton variant="yellow" className="w-full sm:w-64" />
             </div>
           </div>
         </div>
       </section>
 
-      {/* --- SECTION 3: WHY CHOOSE NEXVIO (10 Core Features Grid) --- */}
       <section className="container mx-auto mt-28 px-4 sm:px-8">
         <div className="mb-12 space-y-2 text-center">
           <span className="text-xs font-black tracking-widest text-[#D4A313] uppercase">
             Strategic Advantages
           </span>
-          <h2 className="text-3xl font-black tracking-tight text-neutral-950 uppercase sm:text-4xl lg:text-5xl">
-            Why Choose NexVio
+          <h2 className="text-brand-teal text-3xl font-black tracking-tight uppercase sm:text-4xl lg:text-5xl">
+            Why Businesses Choose NexVio
           </h2>
         </div>
 
@@ -120,9 +105,9 @@ export default function AboutView() {
               className="flex flex-col items-start justify-between gap-4 rounded-2xl border border-neutral-200/70 bg-white p-5 shadow-[0_4px_20px_-4px_rgba(0,0,0,0.02)] transition-all duration-300 hover:border-[#F5C41B] hover:shadow-[0_12px_30px_-10px_rgba(245,196,27,0.15)]"
             >
               <span className="inline-flex size-10 items-center justify-center rounded-full bg-[#F5C41B]/10 text-[#D4A313]">
-                <Icon className="size-5 stroke-[2]" />
+                <Icon className="size-5 stroke-2" />
               </span>
-              <p className="text-sm leading-snug font-black text-neutral-950">
+              <p className="text-brand-teal text-sm leading-snug font-black">
                 {label}
               </p>
             </div>
@@ -130,11 +115,10 @@ export default function AboutView() {
         </div>
       </section>
 
-      {/* --- SECTION 4: PARTNERSHIP ECOSYSTEM (Nayax x NexVio) --- */}
       <section className="container mx-auto mt-24 px-4 sm:px-8">
-        <div className="relative overflow-hidden rounded-[2.5rem] bg-neutral-950 px-8 py-16 text-center text-white sm:px-16">
+        <div className="relative overflow-hidden rounded-[2.5rem] bg-[#152830] px-8 py-16 text-center text-white sm:px-16">
           <div className="pointer-events-none absolute inset-0 opacity-10">
-            <div className="absolute top-0 left-0 size-80 -translate-x-20 -translate-y-20 rounded-full bg-white blur-[100px]" />
+            <div className="absolute top-0 left-0 size-80 -translate-x-20 -translate-y-20 rounded-full bg-[#80a6af] blur-[100px]" />
           </div>
 
           <p className="text-xs font-black tracking-[0.2em] text-[#F5C41B] uppercase">
@@ -142,28 +126,19 @@ export default function AboutView() {
           </p>
 
           <h2 className="mx-auto mt-4 max-w-3xl text-2xl leading-snug font-black uppercase sm:text-3xl lg:text-4xl">
-            Partnering for Global Innovation & Local Success
+            Global Technology. Local UAE Expertise
           </h2>
 
-          <p className="mx-auto mt-6 max-w-3xl text-sm leading-relaxed text-neutral-400 sm:text-base">
-            NexVio is an Authorized Nayax Partner, delivering business solutions
-            powered by Nayax&apos;s globally trusted commerce and payment
-            technology. By combining world-class innovation with local
-            implementation, onboarding, training and dedicated support across
-            the United Arab Emirates, NexVio helps businesses deploy reliable,
-            scalable and future-ready commerce solutions with confidence.
+          <p className="mx-auto mt-6 max-w-3xl text-sm leading-relaxed text-neutral-300 sm:text-base">
+            As an Authorized Nayax Partner, NexVio combines globally trusted
+            commerce technology with local expertise to deliver secure,
+            scalable, and future-ready business solutions across the UAE.
           </p>
 
-          <p className="mx-auto mt-4 max-w-3xl text-xs leading-relaxed text-neutral-500 sm:text-sm">
-            This partnership enables our customers to benefit from
-            internationally proven technology while working with a trusted local
-            team that understands the UAE market and is committed to their
-            long-term success.
+          <p className="mx-auto mt-4 max-w-3xl text-sm leading-relaxed text-neutral-400">
+            From implementation and training to ongoing support, we help
+            businesses succeed with confidence.
           </p>
-
-          <div className="mt-6 flex items-center justify-center gap-2 font-mono text-xs font-bold text-neutral-500">
-            <span>( nayax x nexvio )</span>
-          </div>
 
           <div className="mt-10 flex flex-col items-center justify-center gap-3 sm:flex-row">
             <Button
@@ -185,13 +160,12 @@ export default function AboutView() {
         </div>
       </section>
 
-      {/* --- SECTION 5: THE NEXVIO PROMISE (New Closure Section) --- */}
       <section className="container mx-auto mt-24 border-t border-neutral-200/60 px-4 pt-16 text-center sm:px-8">
         <div className="mx-auto max-w-2xl space-y-4">
-          <div className="inline-flex size-10 items-center justify-center rounded-xl bg-neutral-950 text-[#F5C41B]">
+          <div className="inline-flex size-10 items-center justify-center rounded-xl bg-[#152830] text-[#F5C41B]">
             <Sparkles className="size-5" />
           </div>
-          <h3 className="text-xl font-black tracking-tight text-neutral-950 uppercase sm:text-2xl">
+          <h3 className="text-brand-teal text-xl font-black tracking-tight uppercase sm:text-2xl">
             The NexVio Promise
           </h3>
           <p className="text-base leading-relaxed font-medium text-neutral-600 italic sm:text-lg">

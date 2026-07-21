@@ -19,6 +19,7 @@ export default function DeviceHero({ device }: DeviceHeroProps) {
           alt=""
           fill
           priority
+          // style={{ width: "auto", height: "auto" }}
           sizes="(max-width: 1024px) 100vw, 60vw"
           className="object-cover object-center brightness-[0.94]"
         />
@@ -71,7 +72,7 @@ export default function DeviceHero({ device }: DeviceHeroProps) {
               render={<Link href="/contact" />}
               className="group inline-flex items-center gap-3 rounded-full bg-[#FFD700] px-7 py-3.5 text-sm font-bold tracking-wide text-neutral-950 shadow-md shadow-neutral-950/5 transition-all duration-300 hover:bg-neutral-900 hover:text-white"
             >
-              <span>Contact Us</span>
+              <span>Contact us</span>
               <span className="inline-flex size-6 items-center justify-center rounded-full bg-neutral-950 text-white transition-transform duration-300 group-hover:rotate-45 group-hover:bg-white group-hover:text-neutral-950">
                 <ArrowUpRight className="size-3.5 stroke-[2.5]" />
               </span>

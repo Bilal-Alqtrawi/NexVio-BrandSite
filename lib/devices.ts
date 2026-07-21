@@ -39,9 +39,9 @@ export const devices: Device[] = [
     tagline: "All-in-one POS and payment terminal",
     description:
       "Serve customers and accept payments anywhere, using a single, compact retail POS solution, built for business growth.",
-    bannerImg: "/sliders/slider-3.svg",
-    deviceImg: "/sliders/slider-3.svg",
-    videoUrl: "/videos/nova-55f.mp4", // يمكنك استبداله برابط اليوتيوب أو المسار المباشر
+    bannerImg: "/banners/F55.png",
+    deviceImg: "/banners/F55.png",
+    videoUrl: "/videos/nova-55f.mp4",
     specs: [
       "Accepts cards, wallets, and more - on the go",
       "Loyalty tools for small & large businesses",
@@ -117,41 +117,13 @@ export const devices: Device[] = [
     }
   },
   {
-    slug: "nova-156",
-    name: "Nova 156",
-    tagline: "The complete desktop countertop powerhouse",
-    description:
-      "A fully integrated countertop system combining dual screens, heavy-duty POS, and complete peripherals for high-volume stores.",
-    bannerImg: "/sliders/156.png",
-    deviceImg: "/sliders/156.png",
-    videoUrl: "/videos/nova-156.mp4",
-    specs: [
-      '15.6" primary operator touchscreen',
-      '10.1" customer-facing secondary display',
-      "Heavy-duty electronic cash drawer & scanner",
-      "High-speed desktop thermal printer included"
-    ],
-    highlights: [
-      {
-        title: "Dual-Screen Engagement",
-        description:
-          "Show itemized billing and promotional campaigns to customers in real time."
-      },
-      {
-        title: "All-in-One Desk Set",
-        description:
-          "Organize your checkout counter with integrated payment terminal and printer mounts."
-      }
-    ]
-  },
-  {
     slug: "nova-kiosk",
     name: "Nova Kiosk",
     tagline: "Self-service reimagined for modern retail",
     description:
-      "Empower your customers to browse, order, and pay independently with a sleek, interactive self-service terminal.",
+      "Empower your customers to browse, order, and pay independently with a sleek interactive terminal assembled on a dedicated kiosk stand.",
     bannerImg: "/sliders/nova-kiosk.png",
-    deviceImg: "/sliders/nova-kiosk.png",
+    deviceImg: "/banners/nova-kiosk.png",
     videoUrl: "/videos/nova-kiosk.mp4",
     specs: [
       '21.5" Full HD interactive touch display',
@@ -173,80 +145,79 @@ export const devices: Device[] = [
     ]
   },
   {
-    slug: "nova-c3",
-    name: "Nova C3",
-    tagline: "Compact PIN Pad Terminal for High-Traffic Contactless Payments",
+    slug: "nova-c20",
+    name: "Nova C20",
+    tagline: "Compact countertop cash register for high-traffic retail",
     description:
-      "A compact, durable PIN pad terminal that streamlines checkouts to keep your lines moving and your customers happy, ensuring smooth and seamless retail operations.",
-    bannerImg: "/sliders/slider-1.svg",
-    deviceImg: "/sliders/slider-1.svg",
+      "A durable countertop cash register built for fast checkouts, keeping lines moving and customers happy with smooth retail operations.",
+    bannerImg: "/sliders/slider-2.svg",
+    deviceImg: "/sliders/slider-2.svg",
     videoUrl: "/videos/nova-c3.mp4",
     specs: [
       "Accepts EMV, contactless, magnetic stripe, QR code, and mobile wallet payments",
-      "Interactive 2.4” customer-facing color touchscreen",
-      "Compact, ergonomic design perfect for countertop or integrated setups",
-      "Wired and wireless communication options for always-on activity"
+      "Interactive customer-facing color touchscreen",
+      "Compact ergonomic design for countertop setups",
+      "Wired and wireless communication options"
     ],
     highlights: [
       {
         title: "Smart, Simple Transactions",
         description:
-          "Instant NFC and mobile wallet support makes every transaction fast, simple, and user-friendly, keeping checkout lines moving quickly."
+          "Instant NFC and mobile wallet support makes every transaction fast, simple, and user-friendly."
       },
       {
         title: "Fortified by Design",
         description:
-          "Built-in advanced encryption, PCI compliance, and highly secure processors keep every single financial transaction safe and worry-free."
+          "Built-in advanced encryption, PCI compliance, and secure processors keep every transaction safe."
       },
       {
         title: "Seamless Integration",
         description:
-          "Connects effortlessly and integrates seamlessly with existing Nayax POS systems and self-checkout kiosks."
+          "Connects effortlessly with existing Nayax POS systems and self-checkout kiosks."
       },
       {
         title: "Improved Customer Engagement",
         description:
-          "Drives sales and enhances user interaction with a high-performance multilingual display designed for in-store promotions."
+          "Drives sales with a high-performance multilingual display designed for in-store promotions."
       }
     ],
     specSheet: {
       processor: "Highly secure dedicated crypto processor",
       os: "Secure Android Terminal OS",
-      display:
-        "2.4” interactive color touchscreen display with multilingual support",
+      display: "Interactive color touchscreen with multilingual support",
       connectivity: "Flexible wired and wireless communication options",
-      printer: "Not applicable (Integrated PIN pad interface)"
+      printer: "Integrated receipt printing support"
     },
     faqs: [
       {
-        question: "What payment methods does the Nova C3 accept?",
+        question: "What payment methods does the Nova C20 accept?",
         answer:
-          "The Nova C3 accepts a wide variety of cashless options including EMV chip, contactless cards, magnetic stripe, QR codes, and popular mobile wallets like Apple Pay and Google Pay."
+          "The Nova C20 accepts EMV chip, contactless cards, magnetic stripe, QR codes, and popular mobile wallets like Apple Pay and Google Pay."
       },
       {
-        question: "Is the Nova C3 secure for processing retail transactions?",
+        question: "Is the Nova C20 secure for processing retail transactions?",
         answer:
-          "Yes, it is fully PCI PTS 6.x compliant and certified with EMV Contact/Contactless Level 1 and Level 2, featuring end-to-end advanced encryption protocols."
+          "Yes, it is fully PCI compliant and certified with EMV Contact/Contactless, featuring end-to-end advanced encryption protocols."
       },
       {
         question: "Can it be integrated into self-service kiosks?",
         answer:
-          "Absolutely. Thanks to its compact, ergonomic design and robust connectivity, it seamlessly integrates with Nayax POS setups and self-checkout kiosks."
+          "Absolutely. Thanks to its compact design and robust connectivity, it seamlessly integrates with Nayax POS setups and self-checkout kiosks."
       }
     ]
   },
   {
     slug: "nova-market",
     name: "Nova Market",
-    tagline: "Elegant dual-display retail station",
+    tagline: "Elegant dual-display retail POS station",
     description:
-      "A minimalist, stylish tablet-based register with a customer-facing display, perfect for trendy boutiques, cafes, and modern micromarkets.",
-    bannerImg: "/sliders/slider-2.svg",
-    deviceImg: "/sliders/slider-2.svg",
+      "A stylish dual-display POS station designed for boutiques, cafés, and modern micromarkets—built as a true cash register, not a PIN pad.",
+    bannerImg: "/sliders/156.png",
+    deviceImg: "/banners/156.png",
     videoUrl: "/videos/nova-market.mp4",
     specs: [
       "High-definition dual IPS capacitive display",
-      "Sleek white minimalist structural design",
+      "Sleek minimalist structural design",
       "Integrated high-speed printer and scanning sensors"
     ],
     highlights: [

@@ -179,13 +179,9 @@ export default function AtAGlanceView() {
               }}
               className="mx-auto mt-6 max-w-3xl text-base leading-relaxed font-medium text-neutral-600 sm:text-lg md:text-xl"
             >
-              Technology earns trust through consistency, reliability and
-              results. Today, more than 3,000 businesses rely on technology
-              built on our experience to simplify operations, improve efficiency
-              and support sustainable growth. Across restaurants, cafés, retail
-              stores and service businesses, organizations choose NexVio because
-              they need more than software. They need a technology partner
-              committed to helping their business succeed.
+              With over 16 years of industry expertise and more than 3,000
+              businesses served, NexVio delivers proven technology designed to
+              support long-term business growth.
             </motion.p>
 
             <motion.div
@@ -198,7 +194,7 @@ export default function AtAGlanceView() {
                 href="/contact"
                 className="group inline-flex items-center gap-2 rounded-xl bg-neutral-950 px-7 py-4 text-sm font-bold tracking-wider text-white uppercase shadow-md transition-all duration-300 hover:-translate-y-0.5 hover:bg-neutral-800"
               >
-                Become a Partner
+                Contact us
                 <ArrowUpRight className="size-4 stroke-3 transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
               </Link>
             </motion.div>
@@ -220,13 +216,13 @@ export default function AtAGlanceView() {
                   Our Track Record
                 </span>
                 <h2 className="text-3xl leading-tight font-black tracking-tight text-neutral-950 uppercase sm:text-4xl md:text-5xl">
-                  Solid Foundation. Continuous Growth.
+                  Built on Experience Designed for Growth
                 </h2>
                 <div className="h-1 w-12 rounded-full bg-[#F5C41B]" />
                 <p className="text-base leading-relaxed font-medium text-neutral-600 sm:text-lg">
-                  We don&apos;t just deploy platforms; we design ecosystems that
-                  integrate smoothly with daily routines, providing operators
-                  with full visibility and maximum uptime.
+                  With over 16 years of industry expertise and more than 3,000
+                  businesses served, NexVio delivers proven technology designed
+                  to support long-term business growth.
                 </p>
               </motion.div>
 
@@ -256,11 +252,11 @@ export default function AtAGlanceView() {
                   <div className="mb-3 flex size-10 items-center justify-center rounded-lg border border-neutral-100 bg-neutral-50 text-[#F5C41B]">
                     <Users className="size-5" />
                   </div>
-                  <div className="text-3xl font-black tracking-tight text-neutral-950">
-                    <Counter value={3000} suffix="+" />
+                  <div className="text-3xl font-black tracking-tight text-[#D4A313]">
+                    <Counter value={3000} />
                   </div>
                   <h4 className="mt-1 text-xs font-bold tracking-wide text-neutral-900 uppercase">
-                    3000+ Businesses
+                    3000 Businesses
                   </h4>
                   <p className="mt-1 text-[11px] font-medium text-neutral-500">
                     Powered by our experience
@@ -297,7 +293,7 @@ export default function AtAGlanceView() {
                 Key Facts
               </span>
               <h2 className="mt-4 text-3xl font-black tracking-tight text-neutral-950 uppercase sm:text-4xl md:text-5xl">
-                What Sets Us Apart
+                Why We&apos;re Different
               </h2>
               <div className="mx-auto mt-4 h-1 w-12 rounded-full bg-[#F5C41B]" />
             </div>
@@ -313,12 +309,12 @@ export default function AtAGlanceView() {
                 {
                   icon: Layers,
                   title: "One Unified Platform",
-                  desc: "Manage your business through one connected ecosystem."
+                  desc: "Everything your business needs in one connected ecosystem."
                 },
                 {
                   icon: Cloud,
-                  title: "Cloud-Based Tech",
-                  desc: "Access your business securely from anywhere."
+                  title: "Cloud-Based Platform",
+                  desc: "Access your business anytime, anywhere."
                 },
                 {
                   icon: Smartphone,
@@ -328,7 +324,7 @@ export default function AtAGlanceView() {
                 {
                   icon: HeartHandshake,
                   title: "Local UAE Support",
-                  desc: "Implementation, training and dedicated customer support."
+                  desc: "Local implementation, training, and ongoing support."
                 }
               ].map((item, index) => (
                 <motion.div
@@ -400,18 +396,21 @@ export default function AtAGlanceView() {
             >
               <div className="mb-6 inline-flex items-center gap-2 rounded-full border border-neutral-300/80 bg-neutral-50 px-4 py-1.5 text-xs font-bold tracking-widest text-[#D4A313] uppercase shadow-xs">
                 <TrendingUp className="size-3.5" />
-                Empower your Business
+                Empower Your Business
               </div>
 
+              <p className="mb-4 text-xs font-black tracking-widest text-[#D4A313] uppercase">
+                Let&apos;s Build The Future Of Your Business
+              </p>
+
               <h2 className="text-3xl leading-tight font-black tracking-tight text-neutral-950 uppercase sm:text-4xl">
-                Ready to take the next step <br />
-                with NexVio?
+                Let&apos;s Build What&apos;s Next
               </h2>
 
               <p className="mx-auto mt-6 max-w-xl text-sm leading-relaxed font-medium text-neutral-500 sm:text-base">
-                Discover how our connected ecosystem can streamline your
-                workflow, automate inventory, and empower customer relationships
-                today.
+                Discover how NexVio can simplify operations, connect every part
+                of your business, and support long-term growth through one
+                intelligent platform.
               </p>
 
               <div className="mt-10 flex flex-wrap justify-center gap-4">
@@ -419,7 +418,7 @@ export default function AtAGlanceView() {
                   href="/contact"
                   className="group inline-flex items-center gap-2 rounded-xl bg-neutral-950 px-6 py-3.5 text-sm font-bold tracking-wider text-white uppercase shadow-md transition-all duration-300 hover:-translate-y-0.5 hover:bg-neutral-800"
                 >
-                  Request a Demo
+                  Contact us
                   <ArrowUpRight className="size-4 stroke-3 transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
                 </Link>
               </div>

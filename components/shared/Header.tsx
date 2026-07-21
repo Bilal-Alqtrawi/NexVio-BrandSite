@@ -9,7 +9,7 @@ import { useEffect, useState } from "react";
 
 const navLinks1 = [
   { href: "/industries", name: "Business Types" },
-  { href: "/home#devices", name: "smart devices" }
+  { href: "/home#devices", name: "Smart Devices" }
 ];
 
 const navLinks2 = [
@@ -91,10 +91,10 @@ export default function Header() {
           <Button
             nativeButton={false}
             render={<Link href="/get-started" />}
-            className="space-x-3 rounded-full px-6 py-8"
+            className="bg-brand-teal hover:bg-brand-teal/90 space-x-3 rounded-full px-6 py-7 text-white"
           >
             <span>Get Started</span>
-            <span className="bg-muted-foreground/80 inline-flex size-10.25 items-center justify-center rounded-full">
+            <span className="bg-teal-light inline-flex size-10.25 items-center justify-center rounded-full">
               <ArrowRight size={16} />
             </span>
           </Button>
@@ -103,11 +103,11 @@ export default function Header() {
         <div className="flex flex-1 items-center justify-end gap-2 lg:hidden">
           <Button
             nativeButton={false}
-            render={<Link href="." />}
+            render={<Link href="/contact" />}
             size="sm"
             className="xs:inline-flex hidden gap-2 rounded-full px-4 py-5"
           >
-            <span>Get Started</span>
+            <span>Contact us</span>
             <ArrowRight size={14} />
           </Button>
           <MobileNav links={allLinks} />

@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
+import ContactUsButton from "@/components/shared/ContactUsButton";
 import {
   Layers,
   Smartphone,
@@ -60,11 +61,10 @@ export default function WhyNexvioView() {
             One Platform. Endless Possibilities.
           </h1>
           <p className="mt-5 text-sm leading-relaxed text-neutral-600 sm:text-base">
-            Running a business shouldn&apos;t require managing multiple systems,
-            switching between different devices or relying on disconnected
-            software. NexVio brings everything together into one intelligent
-            platform, helping businesses simplify operations, improve efficiency
-            and make smarter decisions every day.
+            NexVio brings together smart POS, integrated payments, and business
+            management in one intelligent platform, helping businesses simplify
+            operations, manage sales efficiently, and deliver a better customer
+            experience.
           </p>
         </div>
       </section>
@@ -72,17 +72,14 @@ export default function WhyNexvioView() {
       <section className="container mx-auto px-4 sm:px-8">
         <div className="relative mx-auto mb-20 max-w-7xl rounded-[2.5rem] bg-[#FFD700] px-8 py-16 text-center shadow-lg">
           <h2 className="mx-auto max-w-lg text-3xl font-bold text-neutral-950 sm:text-4xl">
-            Less complexity. More visibility. Greater control.
+            Less Complexity. More Control. Better Business.
           </h2>
           <p className="mx-auto mt-4 max-w-md text-sm font-medium text-neutral-900">
             A better way to run your business.
           </p>
-          <Link
-            href="/contact"
-            className="mt-4 inline-block cursor-pointer text-sm font-medium text-neutral-900 underline underline-offset-4 hover:text-neutral-700"
-          >
-            Talk to our team
-          </Link>
+          <div className="mt-4">
+            <ContactUsButton variant="link" />
+          </div>
         </div>
 
         <div className="grid grid-cols-1 gap-x-8 gap-y-12 sm:grid-cols-2 lg:grid-cols-3">
@@ -106,7 +103,7 @@ export default function WhyNexvioView() {
       </section>
 
       <section className="container mx-auto mt-20 px-4 sm:px-8">
-        <div className="rounded-[2.5rem] bg-neutral-950 px-8 py-14 text-center text-white sm:px-16">
+        <div className="rounded-[2.5rem] bg-[#152830] px-8 py-14 text-center text-white sm:px-16">
           <p className="text-brand-yellow text-xs font-bold tracking-[0.2em] uppercase">
             The NexVio Advantage
           </p>

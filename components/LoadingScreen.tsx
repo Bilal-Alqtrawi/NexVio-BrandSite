@@ -62,7 +62,7 @@ export default function LoadingScreen() {
           >
             <Image
               src="/logo.svg"
-              alt="Nexvio"
+              alt="NexVio"
               width={160}
               height={40}
               className="h-auto w-40 select-none"

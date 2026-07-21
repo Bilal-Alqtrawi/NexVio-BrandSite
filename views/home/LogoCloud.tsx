@@ -3,15 +3,15 @@
 import Image from "next/image";
 import { motion } from "framer-motion";
 
-const LogosImages: string[] = [
-  "/logos/logo-1.svg",
-  "/logos/logo-2.svg",
-  "/logos/logo-3.svg",
-  "/logos/logo-4.svg",
-  "/logos/logo-5.svg",
-  "/logos/logo-6.svg",
-  "/logos/logo-7.svg",
-  "/logos/logo-8.svg"
+const LogosImages = [
+  { src: "/companies-logo/express-logo.svg", name: "Express" },
+  { src: "/companies-logo/kidistar.png", name: "Kidistar" },
+  { src: "/companies-logo/tiba.png", name: "Tiba" },
+  { src: "/logos/logo-1.svg", name: "Partner" },
+  { src: "/logos/logo-2.svg", name: "Partner" },
+  { src: "/logos/logo-3.svg", name: "Partner" },
+  { src: "/logos/logo-4.svg", name: "Partner" },
+  { src: "/logos/logo-5.svg", name: "Partner" }
 ];
 
 export default function LogoCloud() {
@@ -32,15 +32,19 @@ export default function LogoCloud() {
         {[...LogosImages, ...LogosImages].map((logo, idx) => (
           <div
             key={idx}
-            className="flex shrink-0 items-center justify-center rounded-xl bg-[#d9d9d9] shadow-sm transition-all duration-300 hover:scale-105"
+            className={`flex shrink-0 items-center justify-center rounded-xl px-4 py-2 shadow-sm transition-all duration-300 hover:scale-105 ${
+              idx % 2 === 0
+                ? "bg-brand-yellow"
+                : "bg-brand-teal"
+            }`}
           >
             <Image
-              src={logo}
-              alt={`logo-${idx}`}
+              src={logo.src}
+              alt={logo.name}
               width={150}
               height={75}
               quality={90}
-              className="h-20 w-auto object-cover opacity-75 grayscale transition-all duration-300 hover:opacity-100 hover:grayscale-0"
+              className="h-20 w-auto object-contain brightness-0 invert"
             />
           </div>
         ))}

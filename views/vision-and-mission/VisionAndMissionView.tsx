@@ -168,7 +168,7 @@ export default function VisionAndMissionView() {
                 href="/contact"
                 className="group inline-flex items-center gap-2 rounded-xl bg-neutral-950 px-6 py-3.5 text-sm font-bold tracking-wider text-white uppercase shadow-md transition-all duration-300 hover:-translate-y-0.5 hover:bg-neutral-800"
               >
-                Get In Touch
+                Contact us
                 <ArrowUpRight className="size-4 stroke-3 transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
               </Link>
             </motion.div>
@@ -193,10 +193,9 @@ export default function VisionAndMissionView() {
                   Our Vision
                 </h3>
                 <p className="mt-4 text-base leading-relaxed font-medium text-neutral-600">
-                  To become the preferred provider of Smart Business Solutions
-                  across the Middle East, enabling businesses to embrace digital
-                  transformation through intelligent, connected and scalable
-                  technology.
+                  To shape the future of connected commerce across the Middle
+                  East through intelligent technology that empowers every
+                  business.
                 </p>
               </motion.div>
 
@@ -215,9 +214,9 @@ export default function VisionAndMissionView() {
                   Our Mission
                 </h3>
                 <p className="mt-4 text-base leading-relaxed font-medium text-neutral-600">
-                  To empower businesses with innovative commerce solutions that
-                  simplify operations, improve efficiency and create exceptional
-                  customer experiences through one connected ecosystem.
+                  To simplify business operations through one intelligent
+                  platform that connects commerce, payments, and business
+                  management into one seamless experience.
                 </p>
               </motion.div>
             </div>
@@ -288,9 +287,8 @@ export default function VisionAndMissionView() {
               </span>
 
               <blockquote className="relative z-10 mx-auto mt-8 max-w-2xl text-xl leading-relaxed font-extrabold text-neutral-900 md:text-3xl">
-                &ldquo;We are committed to delivering technology that not only
-                supports business operations today, but also helps businesses
-                grow with confidence in the future.&rdquo;
+                &ldquo;We build technology that simplifies today and empowers
+                tomorrow.&rdquo;
               </blockquote>
 
               <div className="relative z-10 mx-auto mt-8 h-1 w-10 rounded-full bg-linear-to-r from-[#F5C41B] to-[#E4B210]" />
