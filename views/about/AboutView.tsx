@@ -44,8 +44,7 @@ export default function AboutView() {
           </span>
           <p className="text-muted-foreground max-w-sm pt-1 text-sm leading-relaxed font-bold tracking-wider uppercase">
             More Than a POS
-            <br />
-            A Complete Business Platform
+            <br />A Complete Business Platform
           </p>
         </div>
       </section>
@@ -82,7 +81,7 @@ export default function AboutView() {
 
           <div className="mt-12 max-w-3xl space-y-6 px-4 sm:px-12 lg:px-24">
             <div className="pt-4">
-              <ContactUsButton variant="yellow" className="w-full sm:w-64" />
+              <ContactUsButton variant="teal" />
             </div>
           </div>
         </div>
@@ -150,7 +149,7 @@ export default function AboutView() {
             </Button>
             <Button
               variant="outline"
-              className="h-12 w-full rounded-full border-white/30 bg-transparent px-8 text-sm font-bold tracking-wide text-white hover:bg-white/10 sm:w-auto"
+              className="hover:text-brand-cream h-12 w-full rounded-full border-white/30 bg-transparent px-8 text-sm font-bold tracking-wide text-white hover:bg-white/10 sm:w-auto"
               nativeButton={false}
               render={<Link href="/vision-and-mission" />}
             >
@@ -161,8 +160,8 @@ export default function AboutView() {
       </section>
 
       <section className="container mx-auto mt-24 border-t border-neutral-200/60 px-4 pt-16 text-center sm:px-8">
-        <div className="mx-auto max-w-2xl space-y-4">
-          <div className="inline-flex size-10 items-center justify-center rounded-xl bg-[#152830] text-[#F5C41B]">
+        <div className="mx-auto max-w-2xl space-y-4 bg-brand-yellow-light p-6 rounded-md shadow-lg">
+          <div className="inline-flex size-10 items-center justify-center rounded-xl bg-[#152830] text-brand-yellow">
             <Sparkles className="size-5" />
           </div>
           <h3 className="text-brand-teal text-xl font-black tracking-tight uppercase sm:text-2xl">
@@ -170,7 +169,7 @@ export default function AboutView() {
           </h3>
           <p className="text-base leading-relaxed font-medium text-neutral-600 italic sm:text-lg">
             &ldquo;Helping businesses simplify operations, improve efficiency
-            and deliver better customer experiences—every day.&rdquo;
+            and deliver better customer experiences every day.&rdquo;
           </p>
         </div>
       </section>

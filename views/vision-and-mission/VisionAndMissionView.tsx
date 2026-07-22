@@ -15,6 +15,7 @@ import {
   Quote
 } from "lucide-react";
 import Link from "next/link";
+import ContactUsButton from "@/components/shared/ContactUsButton";
 
 interface CoreValue {
   icon: React.ReactNode;
@@ -150,7 +151,7 @@ export default function VisionAndMissionView() {
               className="mx-auto mt-8 max-w-3xl text-base leading-relaxed font-medium text-neutral-600 sm:text-lg md:text-xl"
             >
               At NexVio, we believe technology should make running a business
-              easier—not more complicated. Our purpose is to simplify daily
+              easier not more complicated. Our purpose is to simplify daily
               operations by connecting every essential business function into
               one intelligent platform. From sales and payments to inventory,
               customer management and business insights, everything works
@@ -164,13 +165,7 @@ export default function VisionAndMissionView() {
               transition={{ duration: 0.8, delay: 0.3 }}
               className="mt-10 flex flex-wrap justify-center gap-4"
             >
-              <Link
-                href="/contact"
-                className="group inline-flex items-center gap-2 rounded-xl bg-neutral-950 px-6 py-3.5 text-sm font-bold tracking-wider text-white uppercase shadow-md transition-all duration-300 hover:-translate-y-0.5 hover:bg-neutral-800"
-              >
-                Contact us
-                <ArrowUpRight className="size-4 stroke-3 transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
-              </Link>
+              <ContactUsButton variant="teal" />
             </motion.div>
           </motion.div>
         </section>

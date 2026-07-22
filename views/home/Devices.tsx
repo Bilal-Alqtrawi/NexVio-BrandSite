@@ -85,10 +85,10 @@ export default function Devices() {
             One Smart Device.
           </h2>
         </div>
-        <div className="max-w-md self-end space-y-1 text-base leading-relaxed text-neutral-600 sm:text-right sm:text-lg">
+        <div className="max-w-xl space-y-1 mt-5  self-center text-base leading-8 text-neutral-600">
           <p>NexVio Smart Commerce Devices combine Point of Sale,</p>
           <p>
-            integrated payments and business management into one intelligent
+            integrated payments & business management into one intelligent
             solution.
           </p>
         </div>

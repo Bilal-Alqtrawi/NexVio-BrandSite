@@ -21,6 +21,7 @@ import {
   Truck,
   Heart
 } from "lucide-react";
+import ContactUsButton from "@/components/shared/ContactUsButton";
 
 const CAPABILITIES_DATA = [
   {
@@ -167,7 +168,7 @@ export default function CapabilitiesView() {
 
           <p className="mx-auto max-w-2xl text-base leading-relaxed font-semibold text-neutral-600 sm:text-lg">
             NexVio brings POS, payments, sales, inventory, and reporting
-            together in one intelligent platform—helping businesses operate
+            together in one intelligent platform helping businesses operate
             faster, more efficiently, and with complete control.
           </p>
         </section>
@@ -272,16 +273,10 @@ export default function CapabilitiesView() {
                 <p className="text-sm leading-relaxed font-semibold text-neutral-300">
                   Run your entire business from one intelligent platform. Every
                   sale, payment, inventory update, and report is synchronized in
-                  real time—giving you complete visibility and control.
+                  real time giving you complete visibility and control.
                 </p>
                 <div className="pt-2">
-                  <Link
-                    href="/contact"
-                    className="inline-flex items-center gap-2.5 rounded-full bg-[#ffcc00] px-6 py-3.5 text-xs font-black tracking-widest text-black uppercase transition-all hover:scale-105"
-                  >
-                    Contact us
-                    <ArrowRight className="size-4 stroke-[2.5]" />
-                  </Link>
+                  <ContactUsButton variant="teal" className="bg-teal-light/35" />
                 </div>
               </div>
 

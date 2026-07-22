@@ -85,7 +85,7 @@ export default function Footer() {
                 href={`tel:${COMPANY.phoneTel}`}
                 className="inline-flex items-center gap-2 transition hover:text-white"
               >
-                <Phone className="size-3.5 text-brand-yellow" />
+                <Phone className="text-brand-yellow size-3.5" />
                 {COMPANY.phoneInternational}
               </a>
             </li>
@@ -94,8 +94,8 @@ export default function Footer() {
                 href={`mailto:${COMPANY.email}`}
                 className="inline-flex items-center gap-2 transition hover:text-white"
               >
-                <Mail className="size-3.5 text-brand-yellow" />
-                {COMPANY.email}
+                <Mail className="text-brand-yellow size-3.5" />
+                {COMPANY.supportEmail}
               </a>
             </li>
             <li>
@@ -105,11 +105,11 @@ export default function Footer() {
                 rel="noopener noreferrer"
                 className="inline-flex items-start gap-2 transition hover:text-white"
               >
-                <MapPin className="mt-0.5 size-3.5 shrink-0 text-brand-yellow" />
+                <MapPin className="text-brand-yellow mt-0.5 size-3.5 shrink-0" />
                 <span>
                   {COMPANY.locationLabel}
                   <span className="mt-0.5 block text-xs text-white/40">
-                    {COMPANY.locationDetail}
+                    Dubai
                   </span>
                 </span>
               </a>

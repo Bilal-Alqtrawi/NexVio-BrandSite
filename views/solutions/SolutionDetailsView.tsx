@@ -11,6 +11,7 @@ import {
   Lock
 } from "lucide-react";
 import { SolutionData } from "@/data/solutions";
+import ContactUsButton from "@/components/shared/ContactUsButton";
 
 const fadeInUp: Variants = {
   hidden: { opacity: 0, y: 40 },
@@ -360,13 +361,7 @@ export default function SolutionDetailsView({
           </p>
 
           <div className="pt-6">
-            <Link
-              href="/contact"
-              className="inline-flex items-center gap-3 border-b-2 border-neutral-950 pb-2 text-sm font-black tracking-widest text-neutral-950 uppercase transition-colors hover:border-[#D4A313] hover:text-[#D4A313]"
-            >
-              Contact us
-              <ArrowRight className="size-4" />
-            </Link>
+            <ContactUsButton variant="teal" />
           </div>
         </div>
       </section>

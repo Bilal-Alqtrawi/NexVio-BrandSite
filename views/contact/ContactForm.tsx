@@ -101,11 +101,11 @@ export default function ContactForm() {
         />
       </div>
 
-      <div className="flex items-start gap-3 pt-2">
+      <div className="flex items-center gap-3 pt-2">
         <input
           type="checkbox"
           id="marketing"
-          className="mt-1 size-4 shrink-0 rounded border-neutral-300 accent-[#FFD700]"
+          className="size-4 shrink-0 rounded border-neutral-300 accent-[#FFD700]"
           onChange={(e) =>
             setFormData({ ...formData, marketing: e.target.checked })
           }

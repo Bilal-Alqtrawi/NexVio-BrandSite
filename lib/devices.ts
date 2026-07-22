@@ -40,7 +40,7 @@ export const devices: Device[] = [
     description:
       "Serve customers and accept payments anywhere, using a single, compact retail POS solution, built for business growth.",
     bannerImg: "/banners/F55.png",
-    deviceImg: "/banners/F55.png",
+    deviceImg: "/images/devices/heroes/nova-55f.png",
     videoUrl: "/videos/nova-55f.mp4",
     specs: [
       "Accepts cards, wallets, and more - on the go",
@@ -123,7 +123,7 @@ export const devices: Device[] = [
     description:
       "Empower your customers to browse, order, and pay independently with a sleek interactive terminal assembled on a dedicated kiosk stand.",
     bannerImg: "/sliders/nova-kiosk.png",
-    deviceImg: "/banners/nova-kiosk.png",
+    deviceImg: "/public/images/devices/heroes/nova-kiosk.png",
     videoUrl: "/videos/nova-kiosk.mp4",
     specs: [
       '21.5" Full HD interactive touch display',
@@ -151,7 +151,7 @@ export const devices: Device[] = [
     description:
       "A durable countertop cash register built for fast checkouts, keeping lines moving and customers happy with smooth retail operations.",
     bannerImg: "/sliders/slider-2.svg",
-    deviceImg: "/sliders/slider-2.svg",
+    deviceImg: "/images/devices/heroes/nova-c20.png",
     videoUrl: "/videos/nova-c3.mp4",
     specs: [
       "Accepts EMV, contactless, magnetic stripe, QR code, and mobile wallet payments",
@@ -213,7 +213,7 @@ export const devices: Device[] = [
     description:
       "A stylish dual-display POS station designed for boutiques, cafés, and modern micromarkets—built as a true cash register, not a PIN pad.",
     bannerImg: "/sliders/156.png",
-    deviceImg: "/banners/156.png",
+    deviceImg: "/images/devices/heroes/nova-market.png",
     videoUrl: "/videos/nova-market.mp4",
     specs: [
       "High-definition dual IPS capacitive display",

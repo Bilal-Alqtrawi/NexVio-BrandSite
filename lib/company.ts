@@ -4,6 +4,7 @@ export const COMPANY = {
   phoneTel: "+971564030208",
   phoneInternational: "+971 56 403 0208",
   email: "office@nex-vio.com",
+  supportEmail: "Support@nex-vio.com",
   locationLabel: "United Arab Emirates",
   locationDetail: "Dubai · Abu Dhabi · Sharjah · Ajman · Ras Al Khaimah",
   mapsUrl:
@@ -19,9 +20,9 @@ export const COMPANY = {
 } as const;
 
 export const UAE_OFFICES = [
-  { id: "dubai", name: "Dubai", x: "52%", y: "58%" },
-  { id: "abu-dhabi", name: "Abu Dhabi", x: "38%", y: "68%" },
-  { id: "sharjah", name: "Sharjah", x: "56%", y: "52%" },
-  { id: "ajman", name: "Ajman", x: "58%", y: "48%" },
-  { id: "rak", name: "Ras Al Khaimah", x: "62%", y: "38%" }
+  { id: "abu-dhabi", name: "Abu Dhabi", x: "32%", y: "65%" },
+  { id: "dubai", name: "Dubai", x: "64%", y: "44%" },
+  { id: "sharjah", name: "Sharjah", x: "69%", y: "38%" },
+  { id: "ajman", name: "Ajman", x: "72%", y: "34%" },
+  { id: "rak", name: "Ras Al Khaimah", x: "78%", y: "24%" }
 ] as const;

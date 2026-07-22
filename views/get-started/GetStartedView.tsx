@@ -2,6 +2,7 @@
 
 import { ArrowRight, Code2, Zap, LayoutTemplate } from "lucide-react";
 import { motion, Variants } from "framer-motion";
+import { BsDeviceSsd } from "react-icons/bs";
 
 const fadeUp = {
   hidden: { opacity: 0, y: 30 },
@@ -22,19 +23,24 @@ const staggerContainer = {
 
 const services = [
   {
-    title: "React/Next.js App",
-    desc: "High-performance web apps built for massive scale.",
+    title: "Restaurant Solutions",
+    desc: "Complete POS, payments, and business management for restaurants and cafés.",
     icon: <Code2 size={32} className="text-brand-yellow mb-4" />
   },
   {
-    title: "Front-end Optimization",
-    desc: "Lightning-fast loading times and spotless clean code.",
+    title: "Retail Solutions",
+    desc: "Smart solutions to manage sales, inventory, customers, and daily operations.",
     icon: <Zap size={32} className="text-brand-yellow mb-4" />
   },
   {
-    title: "Custom UI/UX",
-    desc: "Pixel-perfect, engaging interfaces using Tailwind CSS.",
+    title: "Payment Solutions",
+    desc: "Secure, seamless, and integrated payment acceptance for every business.",
     icon: <LayoutTemplate size={32} className="text-brand-yellow mb-4" />
+  },
+  {
+    title: "Smart Commerce Devices",
+    desc: "Powerful Android devices designed for speed, mobility, and reliability.",
+    icon: <BsDeviceSsd size={32} className="text-brand-yellow mb-4" />
   }
 ];
 
@@ -49,16 +55,15 @@ export default function GetStartedView() {
         variants={fadeUp}
         className="mb-20 text-center"
       >
-        <div className="border-brand-yellow/30 bg-brand-yellow/10 text-brand-yellow mb-6 inline-block rounded-full border px-4 py-1.5 text-sm font-medium tracking-wide">
+        {/* <div className="border-brand-yellow/30 bg-brand-yellow/10 text-brand-yellow mb-6 inline-block rounded-full border px-4 py-1.5 text-sm font-medium tracking-wide">
           Let&apos;s Collaborate
-        </div>
+        </div> */}
         <h1 className="bg-linear-to-r from-gray-900 to-gray-500 bg-clip-text text-5xl font-extrabold tracking-tight text-transparent lg:text-7xl">
-          Build Something <br className="hidden md:block" /> Exceptional.
+          Let&apos;s Talk Business
         </h1>
         <p className="text-muted-foreground mx-auto mt-6 max-w-2xl text-lg leading-relaxed lg:text-xl">
-          You&apos;re one step away from high-performance, clean-coded web
-          solutions. Select the service that fits your vision, and let&apos;s
-          get to work.
+          Tell us about your business, and we&apos;ll help you find the right
+          POS, payment, and business management solution.
         </p>
       </motion.section>
 
@@ -68,7 +73,7 @@ export default function GetStartedView() {
         initial="hidden"
         whileInView="visible"
         viewport={{ once: true, margin: "-50px" }}
-        className="mb-24 grid gap-8 md:grid-cols-3"
+        className="mb-24 grid gap-6 md:grid-cols-4"
       >
         {services.map((service) => (
           <motion.div
@@ -76,7 +81,6 @@ export default function GetStartedView() {
             variants={fadeUp}
             className="group relative rounded-3xl border border-gray-100 bg-white p-8 shadow-sm transition-all duration-500 hover:-translate-y-2 hover:shadow-2xl"
           >
-            {/* تأثير إضاءة خلفية عند الـ Hover */}
             <div className="from-brand-yellow/5 absolute inset-0 rounded-3xl bg-linear-to-br to-transparent opacity-0 transition-opacity duration-500 group-hover:opacity-100"></div>
 
             <div className="relative z-10">
@@ -109,25 +113,25 @@ export default function GetStartedView() {
                 Let’s start <br /> the conversation.
               </h2>
               <p className="text-lg text-gray-500">
-                Fill out the form and I&apos;ll get back to you within 24 hours
-                with a solid plan.
+                Tell us about your business, and our team will help you find the
+                right solution for your needs. We&apos;ll get back to you as
+                soon as possible.
               </p>
             </div>
 
-            {/* النموذج الفعلي */}
             <form className="space-y-5 lg:col-span-3">
               <input
                 type="text"
-                placeholder="Your Name or Company"
+                placeholder="Your Name/Company"
                 className="focus:ring-brand-yellow w-full rounded-2xl border-0 bg-white/80 p-5 text-gray-900 shadow-sm ring-1 ring-gray-200 transition-all outline-none ring-inset focus:ring-2 focus:ring-inset"
               />
               <textarea
-                placeholder="Tell me about your project goals..."
+                placeholder="Tell us how we can help your business ..."
                 className="focus:ring-brand-yellow h-32 w-full resize-none rounded-2xl border-0 bg-white/80 p-5 text-gray-900 shadow-sm ring-1 ring-gray-200 transition-all outline-none ring-inset focus:ring-2 focus:ring-inset"
               />
 
               <button className="group hover:shadow-brand-yellow/20 relative flex w-full items-center justify-center gap-3 rounded-full bg-gray-900 px-8 py-5 text-base font-semibold text-white transition-all hover:scale-[1.02] hover:bg-black hover:shadow-lg active:scale-[0.98] lg:w-auto">
-                <span>Send Request</span>
+                <span>Request a demo</span>
                 <ArrowRight
                   className="transition-transform group-hover:translate-x-1"
                   size={18}

@@ -35,7 +35,7 @@ export const SOLUTIONS_DATA: Record<string, SolutionData> = {
     description:
       "Successful businesses are built on informed decisions, not assumptions.",
     subParagraph:
-      "NexVio gives you real-time insights into sales, inventory, employees, and customer activity—all from one centralized dashboard. Monitor performance instantly, make data-driven decisions, and gain complete visibility across every branch.",
+      "NexVio gives you real-time insights into sales, inventory, employees, and customer activity all from one centralized dashboard. Monitor performance instantly, make data-driven decisions, and gain complete visibility across every branch.",
     capabilitiesTitle: "Real-Time Business Insights",
     capabilities: [
       {
@@ -147,7 +147,7 @@ export const SOLUTIONS_DATA: Record<string, SolutionData> = {
     ],
     whyItMattersTitle: "Why Loyalty Matters",
     whyItMattersDesc:
-      "Customer retention is the most cost-effective path to business expansion. With NexVio CRM, you don't just store data—you build rich customer profiles that make every guest feel valued.",
+      "Customer retention is the most cost-effective path to business expansion. With NexVio CRM, you don't just store data you build rich customer profiles that make every guest feel valued.",
     benefitsTitle: "Key Benefits",
     benefits: [
       "Build Long-Term Customer Relationships",

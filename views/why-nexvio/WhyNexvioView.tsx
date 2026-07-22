@@ -78,7 +78,7 @@ export default function WhyNexvioView() {
             A better way to run your business.
           </p>
           <div className="mt-4">
-            <ContactUsButton variant="link" />
+            <ContactUsButton variant="teal" />
           </div>
         </div>
 

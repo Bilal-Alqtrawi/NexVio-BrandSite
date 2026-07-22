@@ -212,7 +212,7 @@ export default function AtAGlanceView() {
                 variants={fadeInUp}
                 className="space-y-6 lg:col-span-6"
               >
-                <span className="rounded-full border border-[#F5C41B]/10 bg-[#F5C41B]/5 px-3.5 py-1 text-xs font-black tracking-widest text-[#D4A313] uppercase">
+                <span className="inline-flex rounded-full border border-[#F5C41B]/10 bg-[#F5C41B]/5 px-3.5 py-1 text-xs font-black tracking-widest text-[#D4A313] uppercase">
                   Our Track Record
                 </span>
                 <h2 className="text-3xl leading-tight font-black tracking-tight text-neutral-950 uppercase sm:text-4xl md:text-5xl">
@@ -429,4 +429,3 @@ export default function AtAGlanceView() {
     </main>
   );
 }
-  

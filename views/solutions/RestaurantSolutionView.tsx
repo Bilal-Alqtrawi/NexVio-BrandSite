@@ -68,7 +68,7 @@ export default function RestaurantSolutionView() {
             Running a successful restaurant requires speed, accuracy and
             complete operational control. NexVio Restaurant Solution connects
             every stage of restaurant operations into one intelligent
-            platform—from taking orders and communicating with the kitchen to
+            platform from taking orders and communicating with the kitchen to
             processing payments.
           </p>
         </section>
