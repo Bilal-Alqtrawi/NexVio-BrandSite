@@ -50,35 +50,38 @@ export const companyLogos = [
   }
 ];
 
+const duplicatedLogos = [...companyLogos, ...companyLogos, ...companyLogos];
+
 export default function LogoCloud() {
   return (
     <section
       id="partners"
       className="relative w-full overflow-hidden pt-16 pb-24"
     >
-      <div className="from-background to-background pointer-events-none absolute inset-0 z-10 h-full w-full bg-gradient-to-r via-transparent" />
+      <div className="pointer-events-none absolute inset-0 z-10 h-full w-full bg-linear-to-r from-[#FBF9F3] via-transparent to-[#FBF9F3]" />
+
       <motion.div
-        className="flex items-center gap-8"
-        animate={{ x: ["0%", "-50%"] }}
+        className="flex w-max flex-nowrap items-center gap-12"
+        animate={{ x: ["0%", "-33.333%"] }}
         transition={{
           repeat: Infinity,
           repeatType: "loop",
-          duration: 35,
+          duration: 120,
           ease: "linear"
         }}
       >
-        {[...companyLogos, ...companyLogos].map((logo, idx) => (
+        {duplicatedLogos.map((logo, idx) => (
           <div
             key={idx}
-            className="flex shrink-0 items-center justify-center rounded-xl px-4 py-2 transition-all duration-300 hover:scale-105"
+            className="flex h-20 w-36 shrink-0 items-center justify-center rounded-xl p-2 transition-all duration-300 hover:scale-105"
           >
             <Image
               src={logo.src}
               alt={logo.name}
-              width={150}
-              height={75}
+              width={140}
+              height={70}
               quality={90}
-              className="h-16 w-auto scale-110 object-cover"
+              className="max-h-full w-auto object-contain"
             />
           </div>
         ))}
