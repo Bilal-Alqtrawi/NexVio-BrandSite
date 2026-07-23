@@ -8,7 +8,6 @@ interface DeviceContactFormProps {
   device: Device;
 }
 
-// قائمة الدول مع أكواد الاتصال الخاصة بها
 const COUNTRIES_DATA = [
   { code: "PS", name: "Palestine (فلسطين)", dialCode: "+970" },
   { code: "JO", name: "Jordan (الأردن)", dialCode: "+962" },
@@ -16,25 +15,61 @@ const COUNTRIES_DATA = [
   { code: "AE", name: "UAE (الإمارات)", dialCode: "+971" }
 ];
 
-const LOGO_PARTNERS = [
-  { src: "/logos/logo-1.svg", alt: "iRobot" },
-  { src: "/logos/logo-2.svg", alt: "Femina" },
-  { src: "/logos/logo-3.svg", alt: "Furla" },
-  { src: "/logos/logo-4.svg", alt: "Golf Group" },
-  { src: "/logos/logo-5.svg", alt: "H.Stern" },
-  { src: "/logos/logo-6.svg", alt: "April" },
-  { src: "/logos/logo-7.svg", alt: "Hoff" },
-  { src: "/logos/logo-8.svg", alt: "Express City Wash" }
+export const LOGO_PARTNERS = [
+  {
+    name: "PK",
+    src: "/logo-companies/514352753_1056017823375880_8090410080493881335_n.jpg"
+  },
+  { name: "April", src: "/logo-companies/April.webp" },
+  { name: "Bara Herbs", src: "/logo-companies/Bara Herbs.webp" },
+  { name: "Bubbles Self", src: "/logo-companies/bubbles-self-logo.png" },
+  { name: "Centeral Park", src: "/logo-companies/centeral-park.png" },
+  { name: "Channels4 Profile", src: "/logo-companies/channels4_profile.jpg" },
+  { name: "Cibus1", src: "/logo-companies/cibus1.png" },
+  { name: "Cook and Bake", src: "/logo-companies/cook-and-bake.gif" },
+  {
+    name: "Cropped Vending Machine",
+    src: "/logo-companies/cropped-vending-machine-logo.png"
+  },
+  {
+    name: "e3943f",
+    src: "/logo-companies/e3943f_ba99efa79d854194ab408ef2f462d2da~mv2.avif"
+  },
+  { name: "Edited Photo", src: "/logo-companies/edited-photo.png" },
+  { name: "Express", src: "/logo-companies/express-logo.svg" },
+  { name: "Femina", src: "/logo-companies/femina.png" },
+  { name: "Frid", src: "/logo-companies/Frid-removebg-preview.png" },
+  { name: "Furla", src: "/logo-companies/furla-logo.svg" },
+  { name: "Glof", src: "/logo-companies/glof.png" },
+  {
+    name: "H Stern",
+    src: "/logo-companies/h-stern-logo-png_seeklogo-64520.png"
+  },
+  { name: "Hoff", src: "/logo-companies/hoff.png" },
+  { name: "Icell", src: "/logo-companies/icell.avif" },
+  { name: "Images 1", src: "/logo-companies/images (1).png" },
+  {
+    name: "Images Removebg",
+    src: "/logo-companies/images-removebg-preview.png"
+  },
+  {
+    name: "Images 2 Removebg",
+    src: "/logo-companies/images__2_-removebg-preview.png"
+  },
+  {
+    name: "Images 3 Removebg",
+    src: "/logo-companies/images__3_-removebg-preview.png"
+  }
 ];
 
 export default function DeviceContactForm({ device }: DeviceContactFormProps) {
-  const [selectedCountry, setSelectedCountry] = useState(COUNTRIES_DATA[0]);
+  const [selectedCountry, setSelectedCountry] = useState(COUNTRIES_DATA[3]);
   const [formData, setFormData] = useState({
     firstName: "",
     lastName: "",
     email: "",
     company: "",
-    country: COUNTRIES_DATA[0].name,
+    country: COUNTRIES_DATA[3].name,
     inquiryType: "",
     phone: "",
     message: "",
@@ -44,7 +79,7 @@ export default function DeviceContactForm({ device }: DeviceContactFormProps) {
   const handleCountryChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
     const countryName = e.target.value;
     const found =
-      COUNTRIES_DATA.find((c) => c.name === countryName) || COUNTRIES_DATA[0];
+      COUNTRIES_DATA.find((c) => c.name === countryName) || COUNTRIES_DATA[3];
     setSelectedCountry(found);
     setFormData((prev) => ({ ...prev, country: countryName }));
   };
@@ -63,7 +98,6 @@ export default function DeviceContactForm({ device }: DeviceContactFormProps) {
       className="w-full border-t border-neutral-200 bg-[#FBF9F4] px-6 py-20 md:py-28"
     >
       <div className="container mx-auto grid max-w-7xl grid-cols-1 items-start gap-16 lg:grid-cols-12 lg:gap-8">
-        {/* العمود الأيسر */}
         <div className="space-y-10 lg:sticky lg:top-8 lg:col-span-5">
           <div className="space-y-4">
             <h2 className="max-w-md text-3xl leading-[1.15] font-black tracking-tight text-neutral-950 uppercase sm:text-4xl lg:text-[42px]">
@@ -78,22 +112,21 @@ export default function DeviceContactForm({ device }: DeviceContactFormProps) {
             {LOGO_PARTNERS.map((logo, index) => (
               <div
                 key={index}
-                className="relative flex h-12 w-full items-center justify-start opacity-60 grayscale filter transition-all duration-300 ease-in-out hover:opacity-100"
+                className="relative flex h-12 w-full items-center justify-start opacity-60 grayscale filter transition-all duration-300 ease-in-out hover:opacity-100 hover:grayscale-0"
               >
                 <Image
                   src={logo.src}
-                  alt={logo.alt}
+                  alt={logo.name}
                   width={130}
                   height={45}
                   className="max-h-10 w-auto object-contain"
-                  priority={index < 4}
+                  priority={index < 6}
                 />
               </div>
             ))}
           </div>
         </div>
 
-        {/* العمود الأيمن */}
         <div className="w-full bg-transparent lg:col-span-7">
           <form onSubmit={handleSubmit} className="w-full space-y-5">
             <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
