@@ -9,8 +9,9 @@ import DeviceStatsReveal from "@/views/devices/DeviceStatsReveal";
 import InfinitePaymentsMarquee from "@/views/devices/InfinitePaymentsMarquee";
 import DeviceFAQ from "@/views/devices/DeviceFAQ";
 import DeviceContactForm from "@/views/devices/DeviceContactForm";
+import type { Device } from "@/lib/devices";
 
-export default function DeviceView({ device }) {
+export default function DeviceView({ device }: { device: Device }) {
   return (
     <main>
       <DeviceHero device={device} />
