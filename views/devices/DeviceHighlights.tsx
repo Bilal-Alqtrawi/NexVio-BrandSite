@@ -80,7 +80,7 @@ export default function DeviceHighlights({ device }: { device: Device }) {
                       {device.name}
                     </h4>
                   </div>
-                  <div className="relative my-2 h-[120px] w-full">
+                  <div className="relative my-2 h-30 w-full">
                     <Image
                       src={device.deviceImg}
                       alt={device.name}

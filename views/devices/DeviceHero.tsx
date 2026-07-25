@@ -73,8 +73,12 @@ export default function DeviceHero({ device }: DeviceHeroProps) {
                 alt={device.name}
                 width={500}
                 height={500}
+                style={{
+                  width: "auto",
+                  height: "auto"
+                }}
                 priority
-                className="max-h-95 w-auto object-contain drop-shadow-[0_20px_30px_rgba(0,0,0,0.12)]"
+                className="max-h-95! w-auto object-contain drop-shadow-[0_20px_30px_rgba(0,0,0,0.12)]"
               />
             </div>
 

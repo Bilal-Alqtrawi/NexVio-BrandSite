@@ -87,7 +87,7 @@ export const devices: Device[] = [
     description:
       "A highly modular smart retail device crafted to adapt seamlessly to your inventory tracking, mobile or tabletop needs.",
     bannerImg: "/sliders/nova mod.png",
-    deviceImg: "/banners/nova mod.png",
+    deviceImg: "/images/devices/heroes/nova-modu.png",
     videoUrl: "/videos/nova-modu.mp4",
     specs: [
       '6.5" bright touch screen',
@@ -123,7 +123,7 @@ export const devices: Device[] = [
     description:
       "Empower your customers to browse, order, and pay independently with a sleek interactive terminal assembled on a dedicated kiosk stand.",
     bannerImg: "/sliders/nova-kiosk.png",
-    deviceImg: "/public/images/devices/heroes/nova-kiosk.png",
+    deviceImg: "/images/devices/heroes/nova-kiosk.png",
     videoUrl: "/videos/nova-kiosk.mp4",
     specs: [
       '21.5" Full HD interactive touch display',
