@@ -76,16 +76,16 @@ export default function Devices() {
     >
       <div className="container mx-auto flex flex-col justify-between gap-6 px-4 sm:flex-row sm:items-start sm:px-10 lg:px-40">
         <div className="max-w-2xl space-y-3">
-          <span className="text-xs font-bold tracking-widest text-neutral-400 uppercase">
+          <span className="text-brand-yellow text-xs font-bold tracking-widest uppercase">
             Smart Commerce Devices
           </span>
-          <h2 className="text-3xl leading-tight font-black tracking-tight text-neutral-900 sm:text-5xl">
+          <h2 className="text-brand-cream text-3xl leading-tight font-black tracking-tight sm:text-5xl">
             Powerful Technology.
             <br />
             One Smart Device.
           </h2>
         </div>
-        <div className="max-w-xl space-y-1 mt-5  self-center text-base leading-8 text-neutral-600">
+        <div className="text-teal-light mt-5 max-w-xl space-y-1 self-center text-base leading-8">
           <p>NexVio Smart Commerce Devices combine Point of Sale,</p>
           <p>
             integrated payments & business management into one intelligent
@@ -108,7 +108,7 @@ export default function Devices() {
           />
         </button>
 
-        <div className="relative aspect-16/10 w-full flex-1 overflow-hidden rounded-3xl bg-[#F5F1E8] sm:aspect-16/8">
+        <div className="border-teal-light/20 relative aspect-16/10 w-full flex-1 overflow-hidden rounded-3xl border bg-[#142429] sm:aspect-16/8">
           <AnimatePresence initial={false} custom={direction} mode="popLayout">
             <motion.div
               key={active.slug}
@@ -144,7 +144,6 @@ export default function Devices() {
             </motion.div>
           </AnimatePresence>
 
-          {/* Slide number */}
           <div className="absolute top-4 left-4 z-10 text-3xl font-medium text-white/80 sm:top-8 sm:left-8">
             {active.slug}
           </div>
@@ -162,17 +161,16 @@ export default function Devices() {
             <Button
               nativeButton={false}
               render={<Link href={`/devices/${active.slug}`} />}
-              className="text-foreground hover:bg-foreground group flex shrink-0 space-x-3 self-start rounded-full bg-white px-5 py-3 transition duration-300 hover:text-white sm:mr-15 sm:self-auto sm:px-6 lg:py-8"
+              className="bg-brand-yellow text-brand-teal group flex shrink-0 space-x-3 self-start rounded-full px-5 py-3 font-semibold transition duration-300 hover:bg-white sm:mr-15 sm:self-auto sm:px-6 lg:py-8"
             >
               <span className="text-sm font-medium">view more</span>
-              <span className="bg-foreground inline-flex size-5 items-center justify-center rounded-full text-white group-hover:bg-white group-hover:text-black sm:size-6 lg:size-10.25">
+              <span className="bg-brand-teal text-brand-yellow group-hover:bg-brand-teal inline-flex size-5 items-center justify-center rounded-full group-hover:text-white sm:size-6 lg:size-10.25">
                 <ChevronRight className="size-3 sm:size-4 lg:size-6" />
               </span>
             </Button>
           </div>
         </div>
 
-        {/* Next peek */}
         <button
           onClick={() => goTo(1)}
           aria-label="Next slide"
@@ -189,7 +187,7 @@ export default function Devices() {
         <button
           onClick={() => goTo(-1)}
           aria-label="Previous slide"
-          className="absolute top-1/2 left-4 z-20 hidden h-10 w-10 -translate-x-1/2 -translate-y-1/2 items-center justify-center rounded-full bg-white text-black shadow-md transition-transform hover:scale-105 sm:left-[calc(4.5%+2rem)] lg:top-auto lg:-bottom-8 lg:flex lg:translate-y-0"
+          className="bg-brand-teal border-teal-light/30 text-brand-cream absolute top-1/2 left-4 z-20 hidden h-10 w-10 -translate-x-1/2 -translate-y-1/2 items-center justify-center rounded-full border shadow-md transition-transform hover:scale-105 sm:left-[calc(4.5%+2rem)] lg:top-auto lg:-bottom-8 lg:flex lg:translate-y-0"
         >
           <ChevronLeft size={16} />
         </button>
@@ -197,7 +195,7 @@ export default function Devices() {
         <button
           onClick={() => goTo(1)}
           aria-label="Next slide"
-          className="absolute top-1/2 right-4 z-20 hidden h-10 w-10 translate-x-1/2 -translate-y-1/2 items-center justify-center rounded-full bg-yellow-400 text-black shadow-md transition-transform hover:scale-105 sm:right-[calc(4.5%+2rem)] lg:-top-8 lg:flex"
+          className="bg-brand-yellow text-brand-teal absolute top-1/2 right-4 z-20 hidden h-10 w-10 translate-x-1/2 -translate-y-1/2 items-center justify-center rounded-full shadow-md transition-transform hover:scale-105 sm:right-[calc(4.5%+2rem)] lg:-top-8 lg:flex"
         >
           <ChevronRight size={16} />
         </button>
@@ -214,20 +212,20 @@ export default function Devices() {
             aria-label={`Go to slide ${i + 1}`}
             className={cn(
               "h-1.5 rounded-full transition-all duration-300",
-              i === index ? "w-6 bg-black" : "w-1.5 bg-black/20"
+              i === index ? "bg-brand-yellow w-6" : "w-1.5 bg-white/20"
             )}
           />
         ))}
       </div>
 
       <div className="container mx-auto px-4 sm:px-10 lg:px-40">
-        <div className="grid grid-cols-1 gap-8 rounded-3xl border border-neutral-200/60 bg-[#FDFBF7] p-8 shadow-xs sm:p-12 md:grid-cols-2">
+        <div className="bg-brand-teal/80 border-teal-light/20 grid grid-cols-1 gap-8 rounded-3xl border p-8 shadow-xl backdrop-blur-md sm:p-12 md:grid-cols-2">
           <div className="space-y-6">
             <div className="flex items-center gap-3">
-              <div className="rounded-xl bg-neutral-900 p-2 text-white">
+              <div className="bg-brand-yellow text-brand-teal rounded-xl p-2">
                 <Cpu size={18} />
               </div>
-              <h3 className="text-xl font-bold tracking-tight text-neutral-900">
+              <h3 className="text-brand-cream text-xl font-bold tracking-tight">
                 Key Benefits
               </h3>
             </div>
@@ -235,11 +233,11 @@ export default function Devices() {
               {keyBenefits.map((benefit, idx) => (
                 <div
                   key={idx}
-                  className="flex items-center gap-2.5 text-xs font-medium text-neutral-700 sm:text-sm"
+                  className="text-teal-light flex items-center gap-2.5 text-xs font-medium sm:text-sm"
                 >
                   <CheckCircle2
                     size={15}
-                    className="shrink-0 text-neutral-900"
+                    className="text-brand-yellow shrink-0"
                   />
                   <span>{benefit}</span>
                 </div>
@@ -247,16 +245,16 @@ export default function Devices() {
             </div>
           </div>
 
-          <div className="space-y-6 border-t border-neutral-200 pt-6 md:border-t-0 md:border-l md:pt-0 md:pl-8">
+          <div className="border-teal-light/20 space-y-6 border-t pt-6 md:border-t-0 md:border-l md:pt-0 md:pl-8">
             <div className="flex items-center gap-3">
-              <div className="rounded-xl bg-neutral-900 p-2 text-white">
+              <div className="bg-brand-yellow text-brand-teal rounded-xl p-2">
                 <Smartphone size={18} />
               </div>
-              <h3 className="text-xl font-bold tracking-tight text-neutral-900">
+              <h3 className="text-brand-cream text-xl font-bold tracking-tight">
                 One Device. Complete Control.
               </h3>
             </div>
-            <p className="text-xs leading-relaxed text-neutral-500">
+            <p className="text-teal-light text-xs leading-relaxed">
               Every device is fully integrated with the NexVio platform,
               allowing your team to complete daily workflows from a single
               interface:
@@ -265,7 +263,7 @@ export default function Devices() {
               {controls.map((control, idx) => (
                 <div
                   key={idx}
-                  className="cursor-default rounded-xl border border-neutral-200 bg-white p-3 text-center text-xs font-bold text-neutral-800 shadow-2xs transition-colors duration-250 hover:bg-neutral-900 hover:text-white"
+                  className="bg-brand-teal border-teal-light/30 text-brand-cream hover:bg-brand-yellow hover:text-brand-teal cursor-default rounded-xl border p-3 text-center text-xs font-bold transition-colors duration-250"
                 >
                   {control}
                 </div>

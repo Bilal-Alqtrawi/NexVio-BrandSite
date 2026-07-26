@@ -43,14 +43,14 @@ export default function Hero() {
       >
         <motion.h1
           variants={textItemVariants}
-          className="text-primary text-4xl leading-[1.1] tracking-tight sm:text-5xl"
+          className="text-brand-cream text-4xl leading-[1.1] font-bold tracking-tight sm:text-5xl lg:text-6xl"
         >
           Everything Your Business Needs
         </motion.h1>
 
         <motion.h2
           variants={textItemVariants}
-          className="text-muted-foreground text-xl font-light tracking-wide sm:text-2xl lg:text-3xl"
+          className="text-teal-light text-xl font-light tracking-wide sm:text-2xl lg:text-3xl"
         >
           Business Technology Solutions
         </motion.h2>
@@ -61,7 +61,7 @@ export default function Hero() {
           whileHover="hover"
           variants={cardHoverEffect}
           style={{ willChange: "transform" }}
-          className="from-brand-teal to-teal-light relative flex flex-col items-center justify-center overflow-hidden rounded-[2rem] bg-linear-to-t lg:col-span-2"
+          className="from-brand-yellow relative flex flex-col items-center justify-center overflow-hidden rounded-[2rem] border bg-linear-to-t lg:col-span-2"
         >
           <Image
             src="/hero/box-1.svg"
@@ -73,7 +73,7 @@ export default function Hero() {
             sizes="(max-width: 768px) 100vw, 50vw"
           />
 
-          <figcaption className="text-brand-cream mx-auto max-w-lg text-center text-xl font-semibold">
+          <figcaption className="text-brand-cream mx-auto max-w-lg p-6 text-center text-xl font-semibold">
             Smart Machine Management With Real-Time Analytics, Reports, And
             Monitoring
           </figcaption>
@@ -83,7 +83,7 @@ export default function Hero() {
           <motion.div
             whileHover="hover"
             variants={cardHoverEffect}
-            className="relative overflow-hidden rounded-[2rem]"
+            className="border-teal-light/20 relative overflow-hidden rounded-[2rem] border"
           >
             <Image
               src="/hero/box-2.svg"
@@ -98,10 +98,10 @@ export default function Hero() {
           <motion.div
             whileHover="hover"
             variants={cardHoverEffect}
-            className="from-brand-yellow-light via-brand-yellow-light to-brand-yellow relative flex h-52 w-auto flex-col items-center justify-center gap-4 overflow-hidden rounded-[2rem] bg-linear-to-br"
+            className="from-brand-yellow-light via-brand-yellow text-brand-teal relative flex h-52 w-auto flex-col items-center justify-center gap-4 overflow-hidden rounded-[2rem] bg-linear-to-br to-[#d1b000] shadow-lg"
           >
-            <ShieldCheck size={60} color="white" />
-            <p className="text-center text-lg font-semibold tracking-tight">
+            <ShieldCheck size={60} className="text-brand-teal" />
+            <p className="text-brand-teal text-center text-lg font-bold tracking-tight">
               Smart, Safe, and <br /> Secure
             </p>
           </motion.div>
@@ -110,7 +110,7 @@ export default function Hero() {
         <motion.div
           whileHover="hover"
           variants={cardHoverEffect}
-          className="relative overflow-hidden rounded-[2rem] lg:col-span-1"
+          className="border-teal-light/20 relative overflow-hidden rounded-[2rem] border lg:col-span-1"
         >
           <Image
             src="/hero/box-4.svg"

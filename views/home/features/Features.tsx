@@ -12,8 +12,8 @@ export default function Features() {
         <span className="border-brand-yellow/30 text-brand-yellow inline-flex rounded-full border bg-transparent px-4 py-1.5 text-xs font-bold tracking-widest uppercase">
           The NexVio Ecosystem
         </span>
-        <h2 className="text-brand-teal text-2xl leading-[1.2] font-black tracking-tight sm:text-5xl">
-          One Platform, Unlimited Possibilities{" "}
+        <h2 className="text-brand-cream text-2xl leading-[1.2] font-black tracking-tight sm:text-5xl">
+          One Platform, Unlimited Possibilities
         </h2>
         <p className="text-teal-light mx-auto max-w-2xl text-sm leading-relaxed sm:text-base">
           Everything works together in one connected platform, giving you

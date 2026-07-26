@@ -33,27 +33,29 @@ const WHY_NEXVIO = [
 
 export default function AboutView() {
   return (
-    <main className="from-background to-card/20 text-foreground w-full bg-linear-to-b pb-24 font-sans">
+    <main className="bg-brand-teal text-brand-cream w-full pb-24 font-sans">
+      {/* Hero Header Section */}
       <section className="container mx-auto px-4 py-12 sm:px-8">
         <div className="relative flex flex-col gap-3 sm:flex-row sm:items-center sm:gap-6">
-          <h1 className="text-brand-teal shrink-0 text-3xl font-black tracking-tight uppercase sm:text-4xl">
+          <h1 className="text-brand-yellow shrink-0 text-3xl font-black tracking-tight uppercase sm:text-4xl">
             About
           </h1>
-          <span className="text-brand-teal hidden rotate-12 transform text-5xl font-extralight sm:block">
+          <span className="text-brand-yellow/50 hidden rotate-12 transform text-5xl font-extralight sm:block">
             /
           </span>
-          <p className="text-muted-foreground max-w-sm pt-1 text-sm leading-relaxed font-bold tracking-wider uppercase">
+          <p className="text-brand-cream/80 max-w-sm pt-1 text-sm leading-relaxed font-bold tracking-wider uppercase">
             More Than a POS
             <br />A Complete Business Platform
           </p>
         </div>
       </section>
 
+      {/* Main Intro Card Section */}
       <section className="container mx-auto px-4 pl-4 sm:px-0 sm:pl-6">
         <div className="relative">
-          <div className="bg-card/10 border-brand-teal/20 flex flex-col items-center gap-8 rounded-3xl border p-6 backdrop-blur-xs lg:flex-row lg:gap-12 lg:rounded-l-full lg:p-8 lg:pr-16">
-            <div className="border-brand-teal/20 w-full max-w-145 shrink-0 rounded-full border p-3 sm:p-4 lg:w-1/2">
-              <div className="relative aspect-16/10 w-full overflow-hidden rounded-full shadow-xs">
+          <div className="bg-brand-cream/10 border-teal-light/20 flex flex-col items-center gap-8 rounded-3xl border p-6 backdrop-blur-md lg:flex-row lg:gap-12 lg:rounded-l-full lg:p-8 lg:pr-16">
+            <div className="border-teal-light/30 w-full max-w-145 shrink-0 rounded-full border p-3 sm:p-4 lg:w-1/2">
+              <div className="relative aspect-16/10 w-full overflow-hidden rounded-full shadow-lg">
                 <Image
                   src="/about/about-office.png"
                   alt="NexVio office and team workspace"
@@ -66,12 +68,12 @@ export default function AboutView() {
             </div>
 
             <div className="flex-1 lg:max-w-xl">
-              <p className="text-brand-teal text-base leading-relaxed font-bold md:text-lg">
+              <p className="text-brand-cream text-base leading-relaxed font-bold md:text-lg">
                 Run your entire business from one connected platform—combining
                 smart POS, integrated payments, business management, and
                 real-time insights to simplify operations and drive growth.
               </p>
-              <p className="text-brand-teal/80 mt-4 text-sm leading-relaxed font-normal sm:text-base">
+              <p className="text-brand-cream/80 mt-4 text-sm leading-relaxed font-normal sm:text-base">
                 Whether you&apos;re opening your first business or expanding
                 across multiple locations, NexVio provides the flexibility,
                 reliability and support needed to grow with confidence.
@@ -87,12 +89,13 @@ export default function AboutView() {
         </div>
       </section>
 
+      {/* Strategic Advantages Grid Section */}
       <section className="container mx-auto mt-28 px-4 sm:px-8">
         <div className="mb-12 space-y-2 text-center">
-          <span className="text-xs font-black tracking-widest text-[#D4A313] uppercase">
+          <span className="text-brand-yellow text-xs font-black tracking-widest uppercase">
             Strategic Advantages
           </span>
-          <h2 className="text-brand-teal text-3xl font-black tracking-tight uppercase sm:text-4xl lg:text-5xl">
+          <h2 className="text-brand-cream text-3xl font-black tracking-tight uppercase sm:text-4xl lg:text-5xl">
             Why Businesses Choose NexVio
           </h2>
         </div>
@@ -101,9 +104,9 @@ export default function AboutView() {
           {WHY_NEXVIO.map(({ icon: Icon, label }) => (
             <div
               key={label}
-              className="flex flex-col items-start justify-between gap-4 rounded-2xl border border-neutral-200/70 bg-white p-5 shadow-[0_4px_20px_-4px_rgba(0,0,0,0.02)] transition-all duration-300 hover:border-[#F5C41B] hover:shadow-[0_12px_30px_-10px_rgba(245,196,27,0.15)]"
+              className="group border-teal-light/20 bg-brand-cream hover:border-brand-yellow flex flex-col items-start justify-between gap-4 rounded-2xl border p-5 shadow-lg transition-all duration-300 hover:-translate-y-1 hover:shadow-2xl"
             >
-              <span className="inline-flex size-10 items-center justify-center rounded-full bg-[#F5C41B]/10 text-[#D4A313]">
+              <span className="bg-brand-yellow/20 text-brand-teal group-hover:bg-brand-yellow inline-flex size-10 items-center justify-center rounded-full transition-colors duration-300">
                 <Icon className="size-5 stroke-2" />
               </span>
               <p className="text-brand-teal text-sm leading-snug font-black">
@@ -114,13 +117,14 @@ export default function AboutView() {
         </div>
       </section>
 
+      {/* Powered by Nayax Banner Section */}
       <section className="container mx-auto mt-24 px-4 sm:px-8">
-        <div className="relative overflow-hidden rounded-[2.5rem] bg-[#152830] px-8 py-16 text-center text-white sm:px-16">
-          <div className="pointer-events-none absolute inset-0 opacity-10">
-            <div className="absolute top-0 left-0 size-80 -translate-x-20 -translate-y-20 rounded-full bg-[#80a6af] blur-[100px]" />
+        <div className="border-teal-light/20 bg-brand-cream/5 text-brand-cream relative overflow-hidden rounded-[2.5rem] border px-8 py-16 text-center backdrop-blur-md sm:px-16">
+          <div className="pointer-events-none absolute inset-0 opacity-20">
+            <div className="bg-brand-yellow/30 absolute top-0 left-0 size-80 -translate-x-20 -translate-y-20 rounded-full blur-[100px]" />
           </div>
 
-          <p className="text-xs font-black tracking-[0.2em] text-[#F5C41B] uppercase">
+          <p className="text-brand-yellow text-xs font-black tracking-[0.2em] uppercase">
             Powered by Nayax. Delivered by NexVio
           </p>
 
@@ -128,20 +132,20 @@ export default function AboutView() {
             Global Technology. Local UAE Expertise
           </h2>
 
-          <p className="mx-auto mt-6 max-w-3xl text-sm leading-relaxed text-neutral-300 sm:text-base">
+          <p className="text-brand-cream/80 mx-auto mt-6 max-w-3xl text-sm leading-relaxed sm:text-base">
             As an Authorized Nayax Partner, NexVio combines globally trusted
             commerce technology with local expertise to deliver secure,
             scalable, and future-ready business solutions across the UAE.
           </p>
 
-          <p className="mx-auto mt-4 max-w-3xl text-sm leading-relaxed text-neutral-400">
+          <p className="text-brand-cream/60 mx-auto mt-4 max-w-3xl text-sm leading-relaxed">
             From implementation and training to ongoing support, we help
             businesses succeed with confidence.
           </p>
 
           <div className="mt-10 flex flex-col items-center justify-center gap-3 sm:flex-row">
             <Button
-              className="bg-brand-yellow h-12 w-full rounded-full border-none px-8 text-sm font-bold tracking-wide text-neutral-950 hover:bg-[#D4A313] sm:w-auto"
+              className="bg-brand-yellow text-brand-teal hover:bg-brand-yellow-dark h-12 w-full rounded-full border-none px-8 text-sm font-bold tracking-wide transition-all sm:w-auto"
               nativeButton={false}
               render={<Link href="/at-a-glance" />}
             >
@@ -149,7 +153,7 @@ export default function AboutView() {
             </Button>
             <Button
               variant="outline"
-              className="hover:text-brand-cream h-12 w-full rounded-full border-white/30 bg-transparent px-8 text-sm font-bold tracking-wide text-white hover:bg-white/10 sm:w-auto"
+              className="border-brand-cream/30 text-brand-cream hover:bg-brand-cream/10 hover:text-brand-cream h-12 w-full rounded-full bg-transparent px-8 text-sm font-bold tracking-wide sm:w-auto"
               nativeButton={false}
               render={<Link href="/vision-and-mission" />}
             >
@@ -159,15 +163,16 @@ export default function AboutView() {
         </div>
       </section>
 
-      <section className="container mx-auto mt-24 border-t border-neutral-200/60 px-4 pt-16 text-center sm:px-8">
-        <div className="mx-auto max-w-2xl space-y-4 bg-brand-yellow-light p-6 rounded-md shadow-lg">
-          <div className="inline-flex size-10 items-center justify-center rounded-xl bg-[#152830] text-brand-yellow">
+      {/* Promise Card Section */}
+      <section className="border-teal-light/20 container mx-auto mt-24 border-t px-4 pt-16 text-center sm:px-8">
+        <div className="bg-brand-cream border-brand-yellow/30 mx-auto max-w-2xl space-y-4 rounded-2xl border p-8 shadow-xl">
+          <div className="bg-brand-teal text-brand-yellow inline-flex size-10 items-center justify-center rounded-xl">
             <Sparkles className="size-5" />
           </div>
           <h3 className="text-brand-teal text-xl font-black tracking-tight uppercase sm:text-2xl">
             The NexVio Promise
           </h3>
-          <p className="text-base leading-relaxed font-medium text-neutral-600 italic sm:text-lg">
+          <p className="text-brand-teal/80 text-base leading-relaxed font-medium italic sm:text-lg">
             &ldquo;Helping businesses simplify operations, improve efficiency
             and deliver better customer experiences every day.&rdquo;
           </p>

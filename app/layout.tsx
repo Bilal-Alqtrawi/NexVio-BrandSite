@@ -30,7 +30,7 @@ export default function RootLayout({
       className={cn("h-full", "antialiased", "font-sans", inter.variable)}
     >
       <body className="bg-brand-cream flex min-h-full flex-col">
-        <LoadingScreen />
+        {/* <LoadingScreen /> */}
 
         <Header />
         {children}

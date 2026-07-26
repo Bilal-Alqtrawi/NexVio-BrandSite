@@ -46,7 +46,7 @@ const services = [
 
 export default function GetStartedView() {
   return (
-    <main className="container mx-auto overflow-hidden px-6 py-12 lg:py-24">
+    <main className="bg-brand-teal text-brand-cream min-h-screen w-full overflow-hidden px-6 py-12 font-sans lg:py-24">
       {/* Hero Section */}
       <motion.section
         initial="hidden"
@@ -55,13 +55,13 @@ export default function GetStartedView() {
         variants={fadeUp}
         className="mb-20 text-center"
       >
-        {/* <div className="border-brand-yellow/30 bg-brand-yellow/10 text-brand-yellow mb-6 inline-block rounded-full border px-4 py-1.5 text-sm font-medium tracking-wide">
+        <div className="border-brand-yellow/30 bg-brand-yellow/10 text-brand-yellow mb-6 inline-block rounded-full border px-4 py-1.5 text-xs font-black tracking-widest uppercase">
           Let&apos;s Collaborate
-        </div> */}
-        <h1 className="bg-linear-to-r from-gray-900 to-gray-500 bg-clip-text text-5xl font-extrabold tracking-tight text-transparent lg:text-7xl">
-          Let&apos;s Talk Business
+        </div>
+        <h1 className="text-brand-cream text-4xl font-extrabold tracking-tight sm:text-5xl lg:text-7xl">
+          Let&apos;s Talk <span className="text-brand-yellow">Business</span>
         </h1>
-        <p className="text-muted-foreground mx-auto mt-6 max-w-2xl text-lg leading-relaxed lg:text-xl">
+        <p className="text-brand-cream/80 mx-auto mt-6 max-w-2xl text-base leading-relaxed sm:text-lg lg:text-xl">
           Tell us about your business, and we&apos;ll help you find the right
           POS, payment, and business management solution.
         </p>
@@ -73,67 +73,74 @@ export default function GetStartedView() {
         initial="hidden"
         whileInView="visible"
         viewport={{ once: true, margin: "-50px" }}
-        className="mb-24 grid gap-6 md:grid-cols-4"
+        className="container mx-auto mb-24 grid gap-6 sm:grid-cols-2 lg:grid-cols-4"
       >
         {services.map((service) => (
           <motion.div
             key={service.title}
             variants={fadeUp}
-            className="group relative rounded-3xl border border-gray-100 bg-white p-8 shadow-sm transition-all duration-500 hover:-translate-y-2 hover:shadow-2xl"
+            className="group border-teal-light/20 bg-brand-cream/5 hover:border-brand-yellow relative rounded-3xl border p-8 shadow-lg backdrop-blur-md transition-all duration-300 hover:-translate-y-2 hover:shadow-2xl"
           >
-            <div className="from-brand-yellow/5 absolute inset-0 rounded-3xl bg-linear-to-br to-transparent opacity-0 transition-opacity duration-500 group-hover:opacity-100"></div>
+            <div className="from-brand-yellow/10 absolute inset-0 rounded-3xl bg-gradient-to-br to-transparent opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
 
             <div className="relative z-10">
-              {service.icon}
-              <h3 className="mb-3 text-2xl font-bold text-gray-900">
+              <span className="bg-brand-yellow/20 group-hover:bg-brand-yellow group-hover:text-brand-teal inline-flex size-14 items-center justify-center rounded-2xl transition-colors duration-300">
+                {service.icon}
+              </span>
+              <h3 className="text-brand-cream mt-4 mb-2 text-xl font-bold tracking-tight">
                 {service.title}
               </h3>
-              <p className="leading-relaxed text-gray-500">{service.desc}</p>
+              <p className="text-brand-cream/70 text-sm leading-relaxed">
+                {service.desc}
+              </p>
             </div>
           </motion.div>
         ))}
       </motion.section>
 
+      {/* Form Section */}
       <motion.section
         initial="hidden"
         whileInView="visible"
         viewport={{ once: true }}
         variants={fadeUp}
-        className="relative mx-auto mt-16 max-w-4xl"
+        className="relative mx-auto max-w-4xl"
       >
         {/* Glow Effect */}
-        <div className="from-brand-yellow/30 absolute -inset-4 rounded-[3rem] bg-linear-to-r to-orange-400/20 opacity-60 blur-2xl"></div>
+        <div className="bg-brand-yellow/20 absolute -inset-4 rounded-[3rem] blur-3xl" />
 
-        <div className="relative overflow-hidden rounded-[2.5rem] border border-white/60 bg-white/70 p-8 shadow-2xl backdrop-blur-2xl lg:p-16">
-          <div className="bg-brand-yellow/10 absolute -top-24 -right-24 h-64 w-64 rounded-full blur-3xl"></div>
+        <div className="border-teal-light/20 bg-brand-cream/10 relative overflow-hidden rounded-[2.5rem] border p-8 shadow-2xl backdrop-blur-xl lg:p-14">
+          <div className="bg-brand-yellow/10 absolute -top-24 -right-24 size-64 rounded-full blur-3xl" />
 
-          <div className="relative z-10 grid items-center gap-12 lg:grid-cols-5">
-            <div className="space-y-6 lg:col-span-2">
-              <h2 className="text-4xl font-extrabold text-gray-900">
-                Let’s start <br /> the conversation.
+          <div className="relative z-10 grid items-center gap-10 lg:grid-cols-5">
+            <div className="space-y-4 lg:col-span-2">
+              <span className="text-brand-yellow text-xs font-black tracking-widest uppercase">
+                Contact Us
+              </span>
+              <h2 className="text-brand-cream text-3xl font-black tracking-tight uppercase sm:text-4xl">
+                Let’s start <br className="hidden lg:block" /> the conversation.
               </h2>
-              <p className="text-lg text-gray-500">
+              <p className="text-brand-cream/80 text-sm leading-relaxed sm:text-base">
                 Tell us about your business, and our team will help you find the
-                right solution for your needs. We&apos;ll get back to you as
-                soon as possible.
+                right solution for your needs.
               </p>
             </div>
 
-            <form className="space-y-5 lg:col-span-3">
+            <form className="space-y-4 lg:col-span-3">
               <input
                 type="text"
-                placeholder="Your Name/Company"
-                className="focus:ring-brand-yellow w-full rounded-2xl border-0 bg-white/80 p-5 text-gray-900 shadow-sm ring-1 ring-gray-200 transition-all outline-none ring-inset focus:ring-2 focus:ring-inset"
+                placeholder="Your Name / Company"
+                className="bg-brand-teal/60 border-teal-light/30 text-brand-cream placeholder:text-brand-cream/40 focus:border-brand-yellow focus:ring-brand-yellow/20 w-full rounded-2xl border p-4 text-sm transition-all outline-none focus:ring-2"
               />
               <textarea
-                placeholder="Tell us how we can help your business ..."
-                className="focus:ring-brand-yellow h-32 w-full resize-none rounded-2xl border-0 bg-white/80 p-5 text-gray-900 shadow-sm ring-1 ring-gray-200 transition-all outline-none ring-inset focus:ring-2 focus:ring-inset"
+                placeholder="Tell us how we can help your business..."
+                className="bg-brand-teal/60 border-teal-light/30 text-brand-cream placeholder:text-brand-cream/40 focus:border-brand-yellow focus:ring-brand-yellow/20 h-32 w-full resize-none rounded-2xl border p-4 text-sm transition-all outline-none focus:ring-2"
               />
 
-              <button className="group hover:shadow-brand-yellow/20 relative flex w-full items-center justify-center gap-3 rounded-full bg-gray-900 px-8 py-5 text-base font-semibold text-white transition-all hover:scale-[1.02] hover:bg-black hover:shadow-lg active:scale-[0.98] lg:w-auto">
-                <span>Request a demo</span>
+              <button className="bg-brand-yellow text-brand-teal hover:bg-brand-yellow-light group relative flex w-full items-center justify-center gap-2 rounded-full px-8 py-4 text-sm font-extrabold tracking-wide transition-all duration-300 hover:scale-[1.02] hover:shadow-lg active:scale-[0.98] sm:w-auto">
+                <span>Request a Demo</span>
                 <ArrowRight
-                  className="transition-transform group-hover:translate-x-1"
+                  className="transition-transform duration-300 group-hover:translate-x-1"
                   size={18}
                 />
               </button>

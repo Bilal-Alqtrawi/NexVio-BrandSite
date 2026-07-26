@@ -48,31 +48,31 @@
 }
 
 :root {
-  --background: #fffbf0;
-  --foreground: #192d34;
+  --background: #192d34;
+  --foreground: #fffbf0;
 
-  --card: #ffffff;
-  --card-foreground: #192d34;
+  --card: #15262c;
+  --card-foreground: #fffbf0;
 
-  --popover: #ffffff;
-  --popover-foreground: #192d34;
+  --popover: #15262c;
+  --popover-foreground: #fffbf0;
 
-  --primary: #192d34;
-  --primary-foreground: #ffffff;
+  --primary: #fffbf0;
+  --primary-foreground: #192d34;
 
   --secondary: #fedf11;
   --secondary-foreground: #192d34;
 
-  --muted: #f4f4f5;
+  --muted: #1e353c;
   --muted-foreground: #80a6af;
 
   --accent: #ffe958;
   --accent-foreground: #192d34;
 
   --destructive: #e5484d;
-  --border: #d9d9d9;
-  --input: #d9d9d9;
-  --ring: #cbb524;
+  --border: #354a50;
+  --input: #354a50;
+  --ring: #fedf11;
 
   --radius: 1rem;
 
@@ -136,8 +136,6 @@
     opacity: 0.25;
     -webkit-transform: translate3d(-50%, 0, 0) scale(0.88);
     -moz-transform: translate3d(-50%, 0, 0) scale(0.88);
-    -ms-transform: translate3d(-50%, 0, 0) scale(0.88);
-    -o-transform: translate3d(-50%, 0, 0) scale(0.88);
   }
 }
 
@@ -155,4 +153,5 @@ html {
 }
 body {
   scroll-behavior: smooth;
+  background-color: var(--background);
 }

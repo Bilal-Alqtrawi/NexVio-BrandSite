@@ -26,7 +26,7 @@ export function CarouselContent({
   const totalStep = String(total).padStart(2, "0");
 
   return (
-    <div className="z-10 flex min-h-85 flex-col justify-between bg-transparent p-6 sm:p-10 lg:col-span-5">
+    <div className="z-10 flex min-h-85 flex-col justify-between bg-transparent">
       <AnimatePresence mode="wait">
         <motion.div
           key={item.id}
@@ -36,39 +36,44 @@ export function CarouselContent({
           transition={{ duration: 0.2, ease: "easeOut" }}
           className="space-y-4"
         >
-          <span className="block font-mono text-xl font-bold tracking-wider text-neutral-800">
+          {/* رقم الخطوة بالأصفر الفاقع */}
+          <span className="text-brand-yellow block font-mono text-2xl font-black tracking-wider">
             {step}
           </span>
-          <h2 className="text-xl leading-tight font-black tracking-tight text-neutral-950 sm:text-3xl">
+          {/* العنوان باللون الكرييمي المشرق */}
+          <h2 className="text-brand-cream text-2xl leading-tight font-black tracking-tight uppercase sm:text-3xl lg:text-4xl">
             {item.title}
           </h2>
-          <p className="max-w-sm text-sm leading-relaxed font-normal text-neutral-600 ">
+          {/* الوصف باللون الأبيض بنسبة شفافية خفيفة لمظهر راقي */}
+          <p className="text-brand-cream/80 max-w-md text-sm leading-relaxed font-medium sm:text-base">
             {item.description}
           </p>
         </motion.div>
       </AnimatePresence>
 
-      <div className="flex items-center gap-4 pt-6">
-        <Button
-          onClick={onPrev}
-          disabled={disabled}
-          variant="outline"
-          className="size-12 rounded-full border border-neutral-900/20 bg-white/60 text-neutral-800 shadow-xs transition-all duration-200 hover:bg-white active:scale-95 disabled:pointer-events-none disabled:opacity-50"
-        >
-          <ArrowLeft size={16} strokeWidth={2.5} />
-        </Button>
+      <div className="space-y-6 pt-8">
+        <div className="flex items-center gap-4">
+          <Button
+            onClick={onPrev}
+            disabled={disabled}
+            variant="outline"
+            className="border-teal-light/30 text-brand-cream hover:bg-brand-cream/10 size-12 rounded-full border bg-transparent shadow-xs transition-all duration-200 active:scale-95 disabled:pointer-events-none disabled:opacity-30"
+          >
+            <ArrowLeft size={18} strokeWidth={2.5} />
+          </Button>
 
-        <Button
-          onClick={onNext}
-          disabled={disabled}
-          className="bg-brand-yellow size-12 rounded-full border-none text-neutral-950 shadow-sm transition-all duration-200 hover:bg-yellow-400 active:scale-95 disabled:pointer-events-none disabled:opacity-50"
-        >
-          <ArrowRight size={16} strokeWidth={2.5} />
-        </Button>
-      </div>
+          <Button
+            onClick={onNext}
+            disabled={disabled}
+            className="bg-brand-yellow text-brand-teal hover:bg-brand-yellow-light size-12 rounded-full border-none shadow-md transition-all duration-200 active:scale-95 disabled:pointer-events-none disabled:opacity-30"
+          >
+            <ArrowRight size={18} strokeWidth={2.5} />
+          </Button>
+        </div>
 
-      <div className="pt-6 font-mono text-sm font-bold tracking-widest text-neutral-800 select-none">
-        {step}/{totalStep}
+        <div className="text-brand-cream/50 font-mono text-sm font-bold tracking-widest select-none">
+          {step}/{totalStep}
+        </div>
       </div>
     </div>
   );
