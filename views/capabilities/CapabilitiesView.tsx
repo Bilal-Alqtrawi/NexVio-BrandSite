@@ -1,6 +1,5 @@
 "use client";
 
-import Link from "next/link";
 import { motion, Variants } from "framer-motion";
 import {
   Monitor,
@@ -12,7 +11,6 @@ import {
   ChefHat,
   CloudLightning,
   CheckCircle,
-  ArrowRight,
   Sparkles,
   QrCode,
   Gift,
@@ -191,7 +189,7 @@ export default function CapabilitiesView() {
               </p>
             </div>
             <div className="flex flex-wrap justify-start gap-2 lg:col-span-5 lg:justify-end">
-              <span className="text-teal-light/60 mb-1 w-full text-[10px] font-bold tracking-widest uppercase">
+              <span className="text-brand-yellow mb-1 w-full text-[10px] font-bold tracking-widest uppercase lg:text-right">
                 Device Tags
               </span>
               {DEVICE_TAGS.map((device, i) => (
@@ -233,11 +231,11 @@ export default function CapabilitiesView() {
                   className="group bg-card hover:border-brand-yellow/40 hover:shadow-brand-yellow/5 relative flex h-80 flex-col justify-between rounded-[28px] border border-white/10 p-7 shadow-lg transition-all duration-300 hover:-translate-y-1 hover:bg-[#1a3038] hover:shadow-2xl"
                 >
                   <div className="space-y-5">
-                    <div className="flex items-start justify-between">
+                    <div className="flex items-center justify-between">
                       <div className="bg-brand-yellow/10 text-brand-yellow group-hover:bg-brand-yellow group-hover:text-brand-teal flex size-11 items-center justify-center rounded-2xl transition-all duration-300">
                         <IconComponent className="size-5 stroke-2" />
                       </div>
-                      <span className="text-teal-light/60 group-hover:text-brand-yellow font-mono text-[9px] font-black tracking-wider uppercase transition-colors">
+                      <span className="text-brand-cream/60 group-hover:text-brand-yellow font-mono text-[9px] font-black tracking-wider uppercase transition-colors">
                         {cap.badge}
                       </span>
                     </div>

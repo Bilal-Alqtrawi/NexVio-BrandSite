@@ -32,7 +32,6 @@ export default function LogoCloud() {
       id="partners"
       className="relative w-full overflow-hidden pt-16 pb-24"
     >
-      {/* تم تغيير التدرج الشفاف للتطابق مع لون الخلفية الداكن (#192d34 / brand-teal) */}
       <div className="from-brand-teal to-brand-teal/0 pointer-events-none absolute inset-y-0 left-0 z-10 w-24 bg-linear-to-r" />
       <div className="from-brand-teal to-brand-teal/0 pointer-events-none absolute inset-y-0 right-0 z-10 w-24 bg-linear-to-l" />
 
@@ -49,7 +48,7 @@ export default function LogoCloud() {
         {duplicatedLogos.map((logo, idx) => (
           <div
             key={idx}
-            className="border-teal-light/10 bg-teal-light/20 flex h-fit w-36 shrink-0 items-center justify-center rounded-sm border p-4 backdrop-blur-xs transition-all duration-300 hover:scale-105"
+            className="flex h-fit w-36 shrink-0 items-center justify-center invert-5 brightness-100 p-4 transition-all duration-300 hover:scale-105"
           >
             <Image
               src={logo.src}

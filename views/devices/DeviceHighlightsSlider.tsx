@@ -79,7 +79,7 @@ export default function DeviceHighlightsSlider({ device }: { device: Device }) {
   return (
     <section
       ref={targetRef}
-      className="relative h-screen overflow-x-hidden bg-teal-light/20 "
+      className="bg-teal-light/20 relative h-screen overflow-x-hidden"
     >
       <motion.div
         style={{ width: containerWidth, borderRadius: containerRadius }}

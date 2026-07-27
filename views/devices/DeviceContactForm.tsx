@@ -69,7 +69,7 @@ export default function DeviceContactForm({ device }: DeviceContactFormProps) {
   return (
     <section
       id="contact-us"
-      className="bg-brand-teal border-brand-cream/15 w-full border-t px-6 py-20 font-sans md:py-28"
+      className="bg-brand-teal w-full px-6 py-20 font-sans md:py-28"
     >
       <div className="container mx-auto grid max-w-7xl grid-cols-1 items-start gap-16 lg:grid-cols-12 lg:gap-8">
         <div className="space-y-10 lg:sticky lg:top-8 lg:col-span-5">
