@@ -47,7 +47,7 @@ export default function Hero() {
           className="text-4xl leading-[1.1] font-black tracking-tight text-[#EAEAEA] uppercase sm:text-6xl md:text-7xl lg:text-8xl"
         >
           Empowering Businesses <br />
-          <span className="bg-gradient-to-r from-[#ffe958] via-[#FFD900] to-[#67BCD3] bg-clip-text text-transparent drop-shadow-md">
+          <span className="bg-linear-to-r from-[#ffe958] via-[#FFD900] to-[#67BCD3] bg-clip-text text-transparent drop-shadow-md">
             Through Connected Tech
           </span>
         </motion.h1>

@@ -21,15 +21,15 @@ function FAQItem({
   toggleOpen: () => void;
 }) {
   return (
-    <div className="border-b border-neutral-200 py-5">
+    <div className="border-brand-cream/15 border-b py-5">
       <button
         onClick={toggleOpen}
         className="flex w-full items-center justify-between text-left transition-colors duration-200"
       >
-        <span className="pr-4 text-base font-bold tracking-tight text-neutral-950 sm:text-lg">
+        <span className="text-brand-cream pr-4 text-base font-bold tracking-tight sm:text-lg">
           {question}
         </span>
-        <div className="flex size-7 shrink-0 items-center justify-center rounded-full bg-[#FFFBE6] text-[#FFD700]">
+        <div className="bg-brand-yellow/15 text-brand-yellow flex size-8 shrink-0 items-center justify-center rounded-full">
           {isOpen ? (
             <Minus className="size-4 stroke-3" />
           ) : (
@@ -47,7 +47,7 @@ function FAQItem({
             transition={{ duration: 0.25, ease: "easeInOut" }}
             className="overflow-hidden"
           >
-            <p className="max-w-4xl pt-3 text-sm leading-relaxed font-medium text-neutral-600 sm:text-base">
+            <p className="text-brand-cream/70 max-w-4xl pt-3 text-sm leading-relaxed font-medium sm:text-base">
               {answer}
             </p>
           </motion.div>
@@ -60,7 +60,6 @@ function FAQItem({
 export default function DeviceFAQ({ device }: DeviceFAQProps) {
   const [openIndex, setOpenIndex] = useState<number | null>(null);
 
-  // توليد أسئلة ديناميكية ذكية مخصصة باسم الجهاز الحالي في حال عدم وجود faqs ثابتة له
   const dynamicFaqs =
     device?.faqs && device?.faqs?.length > 0
       ? device?.faqs
@@ -80,11 +79,16 @@ export default function DeviceFAQ({ device }: DeviceFAQProps) {
         ];
 
   return (
-    <section className="w-full bg-white px-6 py-20 md:py-28">
+    <section className="bg-brand-teal w-full px-6 py-20 font-sans md:py-28">
       <div className="container mx-auto max-w-4xl">
-        <h2 className="mb-10 text-3xl font-black tracking-tight text-neutral-950 uppercase sm:text-5xl">
-          FAQ
-        </h2>
+        <div className="mb-10 space-y-2">
+          <span className="text-brand-yellow text-xs font-black tracking-widest uppercase">
+            Got Questions?
+          </span>
+          <h2 className="text-brand-cream text-3xl font-black tracking-tight uppercase sm:text-5xl">
+            Frequently Asked
+          </h2>
+        </div>
         <div className="flex flex-col">
           {dynamicFaqs.map((faq, index) => (
             <FAQItem

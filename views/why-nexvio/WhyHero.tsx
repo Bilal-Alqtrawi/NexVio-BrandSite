@@ -26,7 +26,7 @@ export default function WhyHero() {
           className="text-foreground text-4xl font-black tracking-tight uppercase sm:text-6xl lg:text-7xl"
         >
           One Platform. <br />
-          <span className="from-brand-yellow-light via-brand-yellow to-brand-teal-light bg-gradient-to-r bg-clip-text text-transparent drop-shadow-sm">
+          <span className="from-brand-yellow-light via-brand-yellow to-brand-teal-light bg-linear-to-r bg-clip-text text-transparent drop-shadow-sm">
             Endless Possibilities.
           </span>
         </motion.h1>

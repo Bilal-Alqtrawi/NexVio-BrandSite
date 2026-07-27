@@ -39,7 +39,7 @@ export const devices: Device[] = [
     tagline: "All-in-one POS and payment terminal",
     description:
       "Serve customers and accept payments anywhere, using a single, compact retail POS solution, built for business growth.",
-    bannerImg: "/banners/F55.png",
+    bannerImg: "/banners/nova-55f-banner.jpeg",
     deviceImg: "/images/devices/heroes/nova-55f.png",
     videoUrl: "/videos/nova-55f.mp4",
     specs: [
@@ -86,7 +86,7 @@ export const devices: Device[] = [
     tagline: "A smart POS for ultimate business flexibility",
     description:
       "A highly modular smart retail device crafted to adapt seamlessly to your inventory tracking, mobile or tabletop needs.",
-    bannerImg: "/sliders/nova mod.png",
+    bannerImg: "/banners/nova-modu-banner.jpeg",
     deviceImg: "/images/devices/heroes/nova-modu.png",
     videoUrl: "/videos/nova-modu.mp4",
     specs: [
@@ -122,7 +122,7 @@ export const devices: Device[] = [
     tagline: "Self-service reimagined for modern retail",
     description:
       "Empower your customers to browse, order, and pay independently with a sleek interactive terminal assembled on a dedicated kiosk stand.",
-    bannerImg: "/sliders/nova-kiosk.png",
+    bannerImg: "/banners/nova-kiosk-banner.jpeg",
     deviceImg: "/images/devices/heroes/nova-kiosk.png",
     videoUrl: "/videos/nova-kiosk.mp4",
     specs: [
@@ -212,7 +212,7 @@ export const devices: Device[] = [
     tagline: "Elegant dual-display retail POS station",
     description:
       "A stylish dual-display POS station designed for boutiques, cafés, and modern micromarkets—built as a true cash register, not a PIN pad.",
-    bannerImg: "/sliders/156.png",
+    bannerImg: "/banners/nova-market-banner.jpeg",
     deviceImg: "/images/devices/heroes/nova-market.png",
     videoUrl: "/videos/nova-market.mp4",
     specs: [

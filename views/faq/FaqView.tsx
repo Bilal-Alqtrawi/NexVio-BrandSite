@@ -23,7 +23,7 @@ export default function FaqView() {
       {/* Dynamic Background Mesh */}
       <div className="pointer-events-none absolute inset-0 z-0">
         <div
-          className="absolute inset-0 bg-[linear-gradient(to_right,rgba(255,255,255,0.02)_1px,transparent_1px),linear-gradient(to_bottom,rgba(255,255,255,0.02)_1px,transparent_1px)] bg-[size:5rem_5rem]"
+          className="absolute inset-0 bg-[linear-gradient(to_right,rgba(255,255,255,0.02)_1px,transparent_1px),linear-gradient(to_bottom,rgba(255,255,255,0.02)_1px,transparent_1px)] bg-size[5rem_5rem]"
           style={{
             WebkitMaskImage:
               "radial-gradient(ellipse 80% 50% at 50% 0%, #000 70%, transparent 100%)",
@@ -31,8 +31,8 @@ export default function FaqView() {
               "radial-gradient(ellipse 80% 50% at 50% 0%, #000 70%, transparent 100%)"
           }}
         />
-        <div className="bg-brand-yellow/10 absolute top-[5%] left-1/2 size-[500px] -translate-x-1/2 rounded-full blur-[160px]" />
-        <div className="bg-brand-teal-light/10 absolute top-[35%] -left-40 size-[400px] rounded-full blur-[160px]" />
+        <div className="bg-brand-yellow/10 absolute top-[5%] left-1/2 size-125 -translate-x-1/2 rounded-full blur-[160px]" />
+        <div className="bg-brand-teal-light/10 absolute top-[35%] -left-40 size-100 rounded-full blur-[160px]" />
       </div>
 
       <div className="relative z-10">
@@ -55,7 +55,7 @@ export default function FaqView() {
           >
             <h1 className="text-foreground shrink-0 text-3xl font-black tracking-tight uppercase sm:text-5xl">
               Frequently Asked <br />
-              <span className="from-brand-yellow-light via-brand-yellow to-brand-teal-light bg-gradient-to-r bg-clip-text text-transparent">
+              <span className="from-brand-yellow-light via-brand-yellow to-brand-teal-light bg-linear-to-r bg-clip-text text-transparent">
                 Questions
               </span>
             </h1>

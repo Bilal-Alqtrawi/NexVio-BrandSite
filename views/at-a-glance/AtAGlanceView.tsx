@@ -130,13 +130,13 @@ export default function AtAGlanceView() {
                 <MetricCard
                   icon={Calendar}
                   value={<Counter value={16} suffix="+" />}
-                  title="16+ Years"
+                  title="Years"
                   subtitle="Industry Experience"
                 />
                 <MetricCard
                   icon={Users}
                   value={<Counter value={3000} />}
-                  title="3000 Businesses"
+                  title="Businesses"
                   subtitle="Powered by our experience"
                   isHighlight
                 />

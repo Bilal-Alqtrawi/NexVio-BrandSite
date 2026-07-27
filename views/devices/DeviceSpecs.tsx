@@ -1,29 +1,36 @@
-import Image from "next/image";
 import type { Device } from "@/lib/devices";
 import FlipCard from "./FlipCard";
 
 export default function DeviceSpecs({ device }: { device: Device }) {
   return (
-    <section className="relative z-10 overflow-hidden border-t border-neutral-200/40 bg-[#FBF9F4] py-24 lg:py-32">
-      <div className="container mx-auto max-w-7xl px-6 md:px-12 lg:px-8">
+    <section className="bg-brand-teal relative z-10 overflow-hidden py-24 lg:py-32">
+      {/* Subtle Glow Background */}
+      <div className="bg-brand-yellow/5 pointer-events-none absolute top-1/2 left-1/2 size-150 -translate-x-1/2 -translate-y-1/2 rounded-full blur-[160px]" />
+
+      <div className="relative z-10 container mx-auto max-w-7xl px-6 md:px-12 lg:px-8">
+        {/* Section Heading */}
         <div className="mx-auto mb-20 max-w-3xl space-y-4 text-center">
-          <h2 className="text-3xl leading-[1.15] font-black tracking-tight text-neutral-950 uppercase sm:text-5xl">
+          <span className="text-brand-yellow border-brand-yellow/30 bg-brand-yellow/10 inline-block rounded-full border px-4 py-1 text-xs font-black tracking-widest uppercase">
+            Core Performance
+          </span>
+          <h2 className="text-brand-cream text-3xl leading-[1.15] font-black tracking-tight uppercase sm:text-5xl">
             Turn every transaction into a growth opportunity
           </h2>
         </div>
 
+        {/* Dynamic Cards Grid */}
         <div className="grid grid-cols-1 items-stretch gap-8 md:grid-cols-3">
           <FlipCard
             title="Features"
-            frontBg="bg-white border border-neutral-200/50"
-            backBg="bg-neutral-900 text-white"
+            frontBg="bg-brand-cream/10 border border-brand-cream/15 text-brand-cream backdrop-blur-md shadow-lg"
+            backBg="bg-brand-cream text-brand-teal shadow-2xl"
             frontContent={
               <>
-                <p className="text-sm leading-relaxed font-medium text-neutral-500">
+                <p className="text-brand-cream/80 text-sm leading-relaxed font-medium">
                   A compact, smart infrastructure designed to seamlessly
                   streamline operations, drive retail growth, and sell anywhere.
                 </p>
-                <div className="mt-auto flex items-center gap-1.5 pt-4 text-[11px] font-black tracking-widest text-[#FFD700] uppercase opacity-80 transition-opacity group-hover:opacity-100">
+                <div className="text-brand-yellow mt-auto flex items-center gap-1.5 pt-4 text-[11px] font-black tracking-widest uppercase opacity-80 transition-opacity group-hover:opacity-100">
                   <span>Hover to flip</span>
                   <span className="text-sm">→</span>
                 </div>
@@ -31,16 +38,16 @@ export default function DeviceSpecs({ device }: { device: Device }) {
             }
             backContent={
               <>
-                <h4 className="mb-5 text-lg font-black tracking-wider text-[#FFD700] uppercase">
+                <h4 className="text-brand-teal mb-5 text-lg font-black tracking-wider uppercase">
                   Core Specs
                 </h4>
                 <ul className="space-y-4">
                   {device.specs.map((spec) => (
                     <li
                       key={spec}
-                      className="flex items-start gap-3 text-xs font-semibold text-neutral-200 sm:text-sm"
+                      className="text-brand-teal/90 flex items-start gap-3 text-xs font-bold sm:text-sm"
                     >
-                      <span className="mt-0.5 flex size-4 shrink-0 items-center justify-center rounded-full bg-[#FFD700] text-neutral-950">
+                      <span className="bg-brand-teal text-brand-yellow mt-0.5 flex size-4 shrink-0 items-center justify-center rounded-full">
                         <svg
                           fill="none"
                           viewBox="0 0 24 24"
@@ -65,32 +72,22 @@ export default function DeviceSpecs({ device }: { device: Device }) {
 
           <FlipCard
             title="Benefits"
-            frontBg="bg-[#FFFDF6] border-2 border-[#FFD700]/30"
-            backBg="bg-[#FFD700] text-neutral-950"
+            frontBg="bg-brand-yellow text-brand-teal shadow-xl border-none"
+            backBg="bg-brand-cream text-brand-teal shadow-2xl"
             frontContent={
               <>
-                <p className="mb-4 text-sm leading-relaxed font-medium text-neutral-600">
+                <p className="text-brand-teal/90 mb-4 text-sm leading-relaxed font-bold">
                   The {device.name} ecosystem offers fast secure transactions,
                   enterprise connectivity, and optimized workflow tracking.
                 </p>
-                <div className="absolute -right-8 -bottom-8 -left-8 flex h-50 w-[calc(100%+64px)] items-end justify-center overflow-hidden">
-                  <div className="relative h-[90%] w-full translate-y-2 transform transition-transform duration-500 group-hover:translate-y-0">
-                    <Image
-                      src={device.deviceImg}
-                      alt={device.name}
-                      fill
-                      className="object-cover object-bottom"
-                    />
-                  </div>
-                </div>
               </>
             }
             backContent={
               <div className="space-y-3 px-2 text-center">
-                <h4 className="text-2xl font-black tracking-tight uppercase">
+                <h4 className="text-brand-teal text-2xl font-black tracking-tight uppercase">
                   High Efficiency
                 </h4>
-                <p className="text-sm leading-relaxed font-bold text-neutral-900/80">
+                <p className="text-brand-teal/80 text-sm leading-relaxed font-bold">
                   Engineered to minimize transaction latency and maximize client
                   satisfaction in heavy-duty environments.
                 </p>
@@ -98,19 +95,20 @@ export default function DeviceSpecs({ device }: { device: Device }) {
             }
           />
 
+          {/* Card 3: Engagement (Clean Light Cream Style) */}
           <FlipCard
             title="Engagement"
-            frontBg="bg-white border border-neutral-200/50"
-            backBg="bg-neutral-950 text-white"
+            frontBg="bg-brand-cream text-brand-teal shadow-xl border-none"
+            backBg="bg-brand-teal text-brand-cream border border-brand-cream/20 shadow-2xl"
             frontContent={
               <>
-                <p className="text-sm leading-relaxed font-medium text-neutral-500">
+                <p className="text-brand-teal/80 text-sm leading-relaxed font-bold">
                   Engage customers everywhere—on the shop floor, indoors, or
                   outdoors—all while staying connected to your central cloud
                   terminal.
                 </p>
-                <div className="mt-auto rounded-2xl border border-neutral-100 bg-neutral-50 p-4">
-                  <p className="text-center text-[11px] font-bold tracking-widest text-neutral-400 uppercase">
+                <div className="border-brand-teal/15 bg-brand-teal/5 mt-auto rounded-2xl border p-4">
+                  <p className="text-brand-teal text-center text-[11px] font-black tracking-widest uppercase">
                     Cloud Analytics Enabled
                   </p>
                 </div>
@@ -118,23 +116,23 @@ export default function DeviceSpecs({ device }: { device: Device }) {
             }
             backContent={
               <div className="space-y-5">
-                <h4 className="text-xl font-black tracking-wider text-[#FFD700] uppercase">
+                <h4 className="text-brand-yellow text-xl font-black tracking-wider uppercase">
                   Highlights
                 </h4>
                 {device.highlights?.slice(0, 2).map((highlight) => (
                   <div
                     key={highlight.title}
-                    className="space-y-1 border-l-2 border-[#FFD700] pl-3"
+                    className="border-brand-yellow space-y-1 border-l-2 pl-3"
                   >
-                    <h5 className="text-xs font-black tracking-wider text-white uppercase">
+                    <h5 className="text-brand-cream text-xs font-black tracking-wider uppercase">
                       {highlight.title}
                     </h5>
-                    <p className="text-xs leading-normal font-medium text-neutral-400">
+                    <p className="text-brand-cream/70 text-xs leading-normal font-medium">
                       {highlight.description}
                     </p>
                   </div>
                 )) || (
-                  <p className="text-xs text-neutral-400 italic">
+                  <p className="text-brand-cream/60 text-xs italic">
                     Advanced smart hardware connectivity built-in.
                   </p>
                 )}

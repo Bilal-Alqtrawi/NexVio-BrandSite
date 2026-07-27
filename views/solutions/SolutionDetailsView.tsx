@@ -45,6 +45,7 @@ export default function SolutionDetailsView({
 
   return (
     <main className="bg-brand-teal text-brand-cream relative w-full overflow-hidden font-sans">
+      {/* Hero Section */}
       <section className="relative flex min-h-[90vh] items-center px-4 pt-10 pb-20 sm:px-6 lg:px-8">
         <div className="pointer-events-none absolute inset-0 z-0 opacity-40">
           <div className="bg-brand-yellow/10 absolute top-0 right-0 size-150 translate-x-12 -translate-y-12 rounded-full blur-[130px]" />
@@ -246,10 +247,10 @@ export default function SolutionDetailsView({
         </div>
       </section>
 
-      <section className="bg-brand-teal px-4 py-24 sm:px-6 lg:px-8">
+      <section className="bg-brand-teal px-4 py-20 sm:px-6 lg:px-8">
         <div className="container mx-auto max-w-7xl">
-          <div className="mb-16 max-w-3xl space-y-4">
-            <span className="bg-brand-yellow/10 text-brand-yellow border-brand-yellow/30 rounded-full border px-3.5 py-1.5 text-xs font-black tracking-widest uppercase">
+          <div className="mb-12 max-w-3xl space-y-3">
+            <span className="bg-brand-yellow/10 text-brand-yellow border-brand-yellow/30 inline-flex rounded-full border px-3.5 py-1.5 text-xs font-black tracking-widest uppercase">
               {data.modulesLabel}
             </span>
             <h2 className="text-brand-cream text-3xl font-black tracking-tight uppercase sm:text-4xl md:text-5xl">
@@ -262,34 +263,31 @@ export default function SolutionDetailsView({
             whileInView="visible"
             viewport={{ once: true, margin: "-100px" }}
             variants={stagger}
-            className="grid auto-rows-45 grid-cols-1 gap-6 md:grid-cols-3"
+            className="grid grid-cols-1 gap-5 md:grid-cols-2 lg:grid-cols-3"
           >
             {data.capabilities.map((cap, idx) => {
-              const isFeatured = idx === 0 || idx === 4;
               return (
                 <motion.div
                   variants={fadeInUp}
                   key={idx}
-                  className={`group border-teal-light/20 hover:border-brand-yellow relative flex flex-col justify-between rounded-[28px] border p-6 transition-all duration-300 hover:shadow-2xl ${
-                    isFeatured
-                      ? "bg-brand-cream/10 md:col-span-2"
-                      : "bg-brand-cream/5"
-                  }`}
+                  className="group border-teal-light/20 hover:border-brand-yellow bg-brand-cream/5 hover:bg-brand-cream/10 relative flex flex-col justify-start gap-3 rounded-2xl border p-5 transition-all duration-300 hover:shadow-xl"
                 >
-                  <div className="flex items-start justify-between">
-                    <span className="text-brand-yellow/70 group-hover:text-brand-yellow font-mono text-xs font-bold transition-colors">
+                  {/* Header Pin & Index */}
+                  <div className="flex items-center justify-between border-b border-white/5 pb-2.5">
+                    <span className="text-brand-yellow/80 group-hover:text-brand-yellow font-mono text-xs font-extrabold tracking-wider transition-colors">
                       [ 0{idx + 1} ]
                     </span>
-                    <div className="bg-brand-teal/80 text-brand-yellow group-hover:bg-brand-yellow group-hover:text-brand-teal flex size-7 items-center justify-center rounded-lg transition-colors">
-                      <CheckCircle2 className="size-4" />
+                    <div className="bg-brand-teal/80 text-brand-yellow group-hover:bg-brand-yellow group-hover:text-brand-teal flex size-6 items-center justify-center rounded-md transition-colors">
+                      <CheckCircle2 className="size-3.5" />
                     </div>
                   </div>
 
-                  <div>
-                    <h3 className="text-brand-cream text-lg font-black duration-200 group-hover:translate-x-1">
+                  {/* Title & Description - مرتفعة للأعلى ومشدودة بدون مسافات بيضاء ضخمة */}
+                  <div className="space-y-1.5">
+                    <h3 className="text-brand-cream text-base leading-snug font-black tracking-tight transition-transform duration-200 group-hover:translate-x-0.5">
                       {cap.title}
                     </h3>
-                    <p className="text-brand-cream/70 mt-2 max-w-md text-xs">
+                    <p className="text-brand-cream/70 text-xs leading-relaxed font-normal">
                       {cap.description}
                     </p>
                   </div>
@@ -300,6 +298,7 @@ export default function SolutionDetailsView({
         </div>
       </section>
 
+      {/* Strategic Edge */}
       <section className="bg-brand-teal relative overflow-hidden px-4 py-28 sm:px-6 lg:px-8">
         <div className="pointer-events-none absolute inset-0 z-0">
           <div className="bg-teal-light/10 absolute top-1/2 left-1/4 size-125 -translate-y-1/2 rounded-full blur-[120px]" />
@@ -342,6 +341,7 @@ export default function SolutionDetailsView({
         </div>
       </section>
 
+      {/* CTA Section */}
       <section className="bg-brand-teal px-4 py-24 sm:px-6 md:py-36 lg:px-8">
         <div className="container mx-auto max-w-4xl space-y-8 text-center">
           <div className="bg-brand-cream/10 text-brand-yellow mb-4 inline-flex size-12 items-center justify-center rounded-2xl">

@@ -16,29 +16,12 @@ const COUNTRIES_DATA = [
 ];
 
 export const LOGO_PARTNERS = [
-  // {
-  //   name: "PK",
-  //   src: "/logo-companies/514352753_1056017823375880_8090410080493881335_n.jpg"
-  // },
   { name: "April", src: "/logo-companies/April.webp" },
-  // { name: "Bara Herbs", src: "/logo-companies/Bara Herbs.webp" },
-  // { name: "Bubbles Self", src: "/logo-companies/bubbles-self-logo.png" },
   { name: "Centeral Park", src: "/logo-companies/centeral-park.png" },
-  // { name: "Channels4 Profile", src: "/logo-companies/channels4_profile.jpg" },
   { name: "Cibus1", src: "/logo-companies/cibus1.png" },
   { name: "Cook and Bake", src: "/logo-companies/cook-and-bake.gif" },
-  // {
-  //   name: "Cropped Vending Machine",
-  //   src: "/logo-companies/cropped-vending-machine-logo.png"
-  // },
-  // {
-  //   name: "e3943f",
-  //   src: "/logo-companies/e3943f_ba99efa79d854194ab408ef2f462d2da~mv2.avif"
-  // },
-  // { name: "Edited Photo", src: "/logo-companies/edited-photo.png" },
   { name: "Express", src: "/logo-companies/express-logo.svg" },
   { name: "Femina", src: "/logo-companies/femina.png" },
-  // { name: "Frid", src: "/logo-companies/Frid-removebg-preview.png" },
   { name: "Furla", src: "/logo-companies/furla-logo.svg" },
   { name: "Glof", src: "/logo-companies/glof.png" },
   {
@@ -46,20 +29,11 @@ export const LOGO_PARTNERS = [
     src: "/logo-companies/h-stern-logo-png_seeklogo-64520.png"
   },
   { name: "Hoff", src: "/logo-companies/hoff.png" },
-  // { name: "Icell", src: "/logo-companies/icell.avif" },
   { name: "Images 1", src: "/logo-companies/images (1).png" },
   {
     name: "Images Removebg",
     src: "/logo-companies/images-removebg-preview.png"
   }
-  // {
-  //   name: "Images 2 Removebg",
-  //   src: "/logo-companies/images__2_-removebg-preview.png"
-  // }
-  // {
-  //   name: "Images 3 Removebg",
-  //   src: "/logo-companies/images__3_-removebg-preview.png"
-  // }
 ];
 
 export default function DeviceContactForm({ device }: DeviceContactFormProps) {
@@ -95,15 +69,18 @@ export default function DeviceContactForm({ device }: DeviceContactFormProps) {
   return (
     <section
       id="contact-us"
-      className="w-full border-t border-neutral-200 bg-[#FBF9F4] px-6 py-20 md:py-28"
+      className="bg-brand-teal border-brand-cream/15 w-full border-t px-6 py-20 font-sans md:py-28"
     >
       <div className="container mx-auto grid max-w-7xl grid-cols-1 items-start gap-16 lg:grid-cols-12 lg:gap-8">
         <div className="space-y-10 lg:sticky lg:top-8 lg:col-span-5">
           <div className="space-y-4">
-            <h2 className="max-w-md text-3xl leading-[1.15] font-black tracking-tight text-neutral-950 uppercase sm:text-4xl lg:text-[42px]">
+            <span className="text-brand-yellow text-xs font-black tracking-widest uppercase">
+              Get Started
+            </span>
+            <h2 className="text-brand-cream max-w-md text-3xl leading-[1.15] font-black tracking-tight uppercase sm:text-4xl lg:text-[42px]">
               Tell us about your business so we can help you grow.
             </h2>
-            <p className="pt-2 text-base font-semibold tracking-wide text-neutral-500">
+            <p className="text-brand-cream/70 pt-2 text-base font-semibold tracking-wide">
               Trusted by businesses like yours
             </p>
           </div>
@@ -112,14 +89,14 @@ export default function DeviceContactForm({ device }: DeviceContactFormProps) {
             {LOGO_PARTNERS.map((logo, index) => (
               <div
                 key={index}
-                className="relative flex h-12 w-full items-center justify-start opacity-60 grayscale filter transition-all duration-300 ease-in-out hover:opacity-100 hover:grayscale-0"
+                className="relative flex h-12 w-full items-center justify-start opacity-60 brightness-0 invert transition-all duration-300 ease-in-out hover:opacity-100 hover:brightness-100 hover:invert-0"
               >
                 <Image
                   src={logo.src}
                   alt={logo.name}
                   width={130}
                   height={45}
-                  className="max-h-10 w-auto object-contain"
+                  className="max-h-15 w-auto object-contain"
                   priority={index < 6}
                 />
               </div>
@@ -134,7 +111,7 @@ export default function DeviceContactForm({ device }: DeviceContactFormProps) {
                 type="text"
                 placeholder="First Name*"
                 required
-                className="h-14 w-full rounded-lg border border-neutral-400 bg-white px-5 text-sm font-medium text-neutral-900 focus:border-neutral-900 focus:outline-none"
+                className="border-brand-cream/20 bg-brand-cream/10 text-brand-cream placeholder:text-brand-cream/50 focus:border-brand-yellow h-14 w-full rounded-xl border px-5 text-sm font-medium backdrop-blur-md focus:outline-none"
                 onChange={(e) =>
                   setFormData({ ...formData, firstName: e.target.value })
                 }
@@ -143,7 +120,7 @@ export default function DeviceContactForm({ device }: DeviceContactFormProps) {
                 type="text"
                 placeholder="Last Name*"
                 required
-                className="h-14 w-full rounded-lg border border-neutral-400 bg-white px-5 text-sm font-medium text-neutral-900 focus:border-neutral-900 focus:outline-none"
+                className="border-brand-cream/20 bg-brand-cream/10 text-brand-cream placeholder:text-brand-cream/50 focus:border-brand-yellow h-14 w-full rounded-xl border px-5 text-sm font-medium backdrop-blur-md focus:outline-none"
                 onChange={(e) =>
                   setFormData({ ...formData, lastName: e.target.value })
                 }
@@ -155,7 +132,7 @@ export default function DeviceContactForm({ device }: DeviceContactFormProps) {
                 type="email"
                 placeholder="Email*"
                 required
-                className="h-14 w-full rounded-lg border border-neutral-400 bg-white px-5 text-sm font-medium text-neutral-900 focus:border-neutral-900 focus:outline-none"
+                className="border-brand-cream/20 bg-brand-cream/10 text-brand-cream placeholder:text-brand-cream/50 focus:border-brand-yellow h-14 w-full rounded-xl border px-5 text-sm font-medium backdrop-blur-md focus:outline-none"
                 onChange={(e) =>
                   setFormData({ ...formData, email: e.target.value })
                 }
@@ -164,7 +141,7 @@ export default function DeviceContactForm({ device }: DeviceContactFormProps) {
                 type="text"
                 placeholder="Company*"
                 required
-                className="h-14 w-full rounded-lg border border-neutral-400 bg-white px-5 text-sm font-medium text-neutral-900 focus:border-neutral-900 focus:outline-none"
+                className="border-brand-cream/20 bg-brand-cream/10 text-brand-cream placeholder:text-brand-cream/50 focus:border-brand-yellow h-14 w-full rounded-xl border px-5 text-sm font-medium backdrop-blur-md focus:outline-none"
                 onChange={(e) =>
                   setFormData({ ...formData, company: e.target.value })
                 }
@@ -172,13 +149,13 @@ export default function DeviceContactForm({ device }: DeviceContactFormProps) {
             </div>
 
             <div className="space-y-1">
-              <label className="text-xs font-bold tracking-wide text-neutral-700">
+              <label className="text-brand-cream/70 text-xs font-bold tracking-wide">
                 Country *
               </label>
               <select
-                className="h-14 w-full appearance-none rounded-lg border border-neutral-400 bg-white px-5 text-sm font-medium text-neutral-900 focus:border-neutral-900 focus:outline-none"
+                className="border-brand-cream/20 bg-brand-teal text-brand-cream focus:border-brand-yellow h-14 w-full appearance-none rounded-xl border px-5 text-sm font-medium focus:outline-none"
                 style={{
-                  backgroundImage: `url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%234a4a4a' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6 9 12 15 18 9'/%3e%3c/svg%3e")`,
+                  backgroundImage: `url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23fefbf3' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6 9 12 15 18 9'/%3e%3c/svg%3e")`,
                   backgroundRepeat: "no-repeat",
                   backgroundPosition: "right 20px center",
                   backgroundSize: "16px"
@@ -187,7 +164,11 @@ export default function DeviceContactForm({ device }: DeviceContactFormProps) {
                 value={formData.country}
               >
                 {COUNTRIES_DATA.map((c) => (
-                  <option key={c.code} value={c.name}>
+                  <option
+                    key={c.code}
+                    value={c.name}
+                    className="bg-brand-teal text-brand-cream"
+                  >
                     {c.name}
                   </option>
                 ))}
@@ -197,9 +178,9 @@ export default function DeviceContactForm({ device }: DeviceContactFormProps) {
             <div>
               <select
                 required
-                className="h-14 w-full appearance-none rounded-lg border border-neutral-400 bg-white px-5 text-sm font-medium text-neutral-900 focus:border-neutral-900 focus:outline-none"
+                className="border-brand-cream/20 bg-brand-teal text-brand-cream focus:border-brand-yellow h-14 w-full appearance-none rounded-xl border px-5 text-sm font-medium focus:outline-none"
                 style={{
-                  backgroundImage: `url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%234a4a4a' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6 9 12 15 18 9'/%3e%3c/svg%3e")`,
+                  backgroundImage: `url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23fefbf3' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6 9 12 15 18 9'/%3e%3c/svg%3e")`,
                   backgroundRepeat: "no-repeat",
                   backgroundPosition: "right 20px center",
                   backgroundSize: "16px"
@@ -209,28 +190,47 @@ export default function DeviceContactForm({ device }: DeviceContactFormProps) {
                 }
                 defaultValue=""
               >
-                <option value="" disabled>
+                <option
+                  value=""
+                  disabled
+                  className="bg-brand-teal text-brand-cream/50"
+                >
                   Inquiry type*
                 </option>
-                <option value="sales">Sales & Pricing</option>
-                <option value="support">Technical Support</option>
-                <option value="partnership">Partnership</option>
+                <option
+                  value="sales"
+                  className="bg-brand-teal text-brand-cream"
+                >
+                  Sales & Pricing
+                </option>
+                <option
+                  value="support"
+                  className="bg-brand-teal text-brand-cream"
+                >
+                  Technical Support
+                </option>
+                <option
+                  value="partnership"
+                  className="bg-brand-teal text-brand-cream"
+                >
+                  Partnership
+                </option>
               </select>
             </div>
 
             <div className="grid grid-cols-1 gap-4 sm:grid-cols-12">
-              <div className="flex h-14 items-center justify-between rounded-lg border border-neutral-400 bg-white px-5 text-sm font-medium text-neutral-800 sm:col-span-4">
+              <div className="border-brand-cream/20 bg-brand-cream/10 text-brand-cream flex h-14 items-center justify-between rounded-xl border px-5 text-sm font-medium sm:col-span-4">
                 <span className="truncate">
                   {selectedCountry.name.split(" ")[0]}
                 </span>
-                <span className="font-mono text-neutral-400">
+                <span className="text-brand-yellow font-mono font-bold">
                   {selectedCountry.dialCode}
                 </span>
               </div>
               <input
                 type="tel"
                 placeholder="Phone Number"
-                className="h-14 w-full rounded-lg border border-neutral-400 bg-white px-5 text-sm font-medium text-neutral-900 focus:border-neutral-900 focus:outline-none sm:col-span-8"
+                className="border-brand-cream/20 bg-brand-cream/10 text-brand-cream placeholder:text-brand-cream/50 focus:border-brand-yellow h-14 w-full rounded-xl border px-5 text-sm font-medium backdrop-blur-md focus:outline-none sm:col-span-8"
                 onChange={(e) =>
                   setFormData({ ...formData, phone: e.target.value })
                 }
@@ -242,7 +242,7 @@ export default function DeviceContactForm({ device }: DeviceContactFormProps) {
                 placeholder="Message*"
                 required
                 rows={4}
-                className="w-full resize-y rounded-lg border border-neutral-400 bg-white p-5 text-sm font-medium text-neutral-900 focus:border-neutral-900 focus:outline-none"
+                className="border-brand-cream/20 bg-brand-cream/10 text-brand-cream placeholder:text-brand-cream/50 focus:border-brand-yellow w-full resize-y rounded-xl border p-5 text-sm font-medium backdrop-blur-md focus:outline-none"
                 onChange={(e) =>
                   setFormData({ ...formData, message: e.target.value })
                 }
@@ -253,14 +253,14 @@ export default function DeviceContactForm({ device }: DeviceContactFormProps) {
               <input
                 type="checkbox"
                 id="marketing"
-                className="size-4 shrink-0 rounded border-neutral-400 accent-[#FFD700]"
+                className="accent-brand-yellow border-brand-cream/30 size-4 shrink-0 rounded"
                 onChange={(e) =>
                   setFormData({ ...formData, marketing: e.target.checked })
                 }
               />
               <label
                 htmlFor="marketing"
-                className="cursor-pointer text-[11px] leading-relaxed font-medium text-neutral-500 select-none"
+                className="text-brand-cream/70 cursor-pointer text-[11px] leading-relaxed font-medium select-none"
               >
                 I want to receive marketing materials, promotions and
                 newsletters from NexVio.
@@ -270,7 +270,7 @@ export default function DeviceContactForm({ device }: DeviceContactFormProps) {
             <div className="pt-4">
               <button
                 type="submit"
-                className="h-14 w-full rounded-lg bg-[#FFD700] text-sm font-bold tracking-wider text-neutral-950 uppercase shadow-md transition-colors duration-200 hover:bg-[#e6c200]"
+                className="bg-brand-yellow text-brand-teal hover:bg-brand-cream h-14 w-full rounded-full text-xs font-black tracking-widest uppercase shadow-lg transition-all duration-300"
               >
                 Submit
               </button>

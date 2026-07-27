@@ -35,7 +35,7 @@ const ReasonCard = memo(function ReasonCard({
       whileHover={{ y: -8, scale: 1.02 }}
       className="group border-border bg-card/60 hover:border-brand-yellow/50 hover:bg-card hover:shadow-brand-yellow/5 relative overflow-hidden rounded-3xl border p-8 backdrop-blur-xl transition-all duration-300 hover:shadow-2xl"
     >
-      <div className="from-brand-yellow/5 to-brand-teal-light/5 pointer-events-none absolute inset-0 bg-gradient-to-br via-transparent opacity-0 transition-opacity duration-500 group-hover:opacity-100" />
+      <div className="from-brand-yellow/5 to-brand-teal-light/5 pointer-events-none absolute inset-0 bg-linear-to-br via-transparent opacity-0 transition-opacity duration-500 group-hover:opacity-100" />
 
       <div className="relative z-10 mb-6 flex items-center justify-between">
         <div className="border-border bg-background text-brand-yellow group-hover:border-brand-yellow/40 flex size-14 items-center justify-center rounded-2xl border transition-transform duration-300 group-hover:scale-110">

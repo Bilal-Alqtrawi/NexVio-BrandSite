@@ -6,47 +6,44 @@ import { useInView } from "framer-motion";
 interface CounterProps {
   value: number;
   suffix?: string;
+  duration?: number;
 }
 
-export function Counter({ value, suffix = "" }: CounterProps) {
+export function Counter({ value, suffix = "", duration = 1.5 }: CounterProps) {
   const ref = useRef<HTMLSpanElement>(null);
-  const isInView = useInView(ref, { once: true, margin: "-80px" });
+
+  // 1. تقليل الـ margin أو إزالته لضمان التقاط الـ span فور دخوله الشاشة
+  const isInView = useInView(ref, { once: true, margin: "0px 0px -20px 0px" });
+
   const [count, setCount] = useState(0);
-  const [mounted, setMounted] = useState(false);
 
   useEffect(() => {
-    setMounted(true);
-  }, []);
+    if (!isInView) return;
 
-  useEffect(() => {
-    if (!isInView || !mounted) return;
+    let startTime: number | null = null;
+    let animationFrameId: number;
 
-    const duration = 1.2;
-    const totalFrames = 60 * duration;
-    let frame = 0;
+    const animate = (timestamp: number) => {
+      if (!startTime) startTime = timestamp;
+      const progress = Math.min((timestamp - startTime) / (duration * 1000), 1);
 
-    const counterInterval = setInterval(() => {
-      frame++;
-      const progress = frame / totalFrames;
-      const currentCount = Math.round(value * (progress * (2 - progress)));
+      const easeOutProgress = progress * (2 - progress);
+      setCount(Math.floor(value * easeOutProgress));
 
-      if (frame >= totalFrames) {
-        setCount(value);
-        clearInterval(counterInterval);
+      if (progress < 1) {
+        animationFrameId = requestAnimationFrame(animate);
       } else {
-        setCount(currentCount);
+        setCount(value);
       }
-    }, 1000 / 60);
+    };
 
-    return () => clearInterval(counterInterval);
-  }, [isInView, value, mounted]);
+    animationFrameId = requestAnimationFrame(animate);
 
-  if (!mounted) {
-    return <span className="tabular-nums">0{suffix}</span>;
-  }
+    return () => cancelAnimationFrame(animationFrameId);
+  }, [isInView, value, duration]);
 
   return (
-    <span ref={ref} className="tabular-nums">
+    <span ref={ref} className="inline-block tabular-nums">
       {count.toLocaleString("en-US")}
       {suffix}
     </span>

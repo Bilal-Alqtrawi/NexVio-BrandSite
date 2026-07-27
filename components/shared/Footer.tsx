@@ -14,9 +14,9 @@ import { COMPANY } from "@/lib/company";
 const socialLinks = [
   { href: COMPANY.social.facebook, label: "Facebook", Icon: FaFacebookF },
   { href: COMPANY.social.instagram, label: "Instagram", Icon: FaInstagram },
-  { href: COMPANY.social.x, label: "X", Icon: FaXTwitter },
+  // { href: COMPANY.social.x, label: "X", Icon: FaXTwitter },
   { href: COMPANY.social.linkedin, label: "LinkedIn", Icon: FaLinkedinIn },
-  { href: COMPANY.social.youtube, label: "YouTube", Icon: FaYoutube },
+  // { href: COMPANY.social.youtube, label: "YouTube", Icon: FaYoutube },
   { href: COMPANY.social.whatsapp, label: "WhatsApp", Icon: RiWhatsappFill }
 ];
 
@@ -95,7 +95,7 @@ export default function Footer() {
                 className="inline-flex items-center gap-2 transition hover:text-white"
               >
                 <Mail className="text-brand-yellow size-3.5" />
-                {COMPANY.supportEmail}
+                {COMPANY.email}
               </a>
             </li>
             <li>

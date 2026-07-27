@@ -32,28 +32,26 @@ export default function DeviceOperatorVideo({ device }: { device: Device }) {
   return (
     <section
       ref={containerRef}
-      className="relative h-screen overflow-hidden bg-transparent"
+      className="relative h-screen overflow-hidden bg-transparent font-sans"
     >
       <motion.div
         style={{ width, borderRadius }}
-        className="sticky top-0 z-10 mx-auto flex h-screen transform-gpu flex-col items-center justify-center bg-[#FDF0A6] px-6 py-12 will-change-[width,border-radius]"
+        className="bg-brand-teal sticky top-0 z-10 mx-auto flex h-screen transform-gpu flex-col items-center justify-center px-6 py-12 backdrop-blur-lg will-change-[width,border-radius]"
       >
         <div className="w-full max-w-4xl space-y-8 text-center">
-          <h2 className="text-2xl font-black tracking-tight text-neutral-900 uppercase md:text-4xl">
-            See {device.name} In Action
-            {/* JOIN OVER{" "} */}
-            {/* <span className="relative inline-block">85,000 OPERATORS</span> */}
+          <h2 className="text-brand-cream text-2xl font-black tracking-tight uppercase md:text-4xl">
+            See <span className="text-brand-yellow">{device.name}</span> In
+            Action
           </h2>
 
           <motion.div
             style={{ scale: videoScale }}
-            className="group relative aspect-video w-full transform-gpu cursor-pointer overflow-hidden rounded-2xl bg-neutral-800 shadow-2xl md:rounded-[24px]"
+            className="border-brand-cream/20 bg-brand-cream/5 group relative aspect-video w-full transform-gpu cursor-pointer overflow-hidden rounded-2xl border shadow-2xl backdrop-blur-md md:rounded-[24px]"
           >
-            {/* LATER */}
-            <div className="absolute inset-0 bg-neutral-900/10 transition-colors duration-300 group-hover:bg-neutral-900/30" />
+            <div className="bg-brand-teal/40 group-hover:bg-brand-teal/20 absolute inset-0 transition-colors duration-300" />
 
             <div className="absolute inset-0 flex items-center justify-center">
-              <div className="flex size-16 transform-gpu items-center justify-center rounded-full bg-[#FFD700] text-neutral-950 shadow-xl transition-transform duration-300 group-hover:scale-110 md:size-20">
+              <div className="bg-brand-yellow text-brand-teal flex size-16 transform-gpu items-center justify-center rounded-full shadow-xl transition-transform duration-300 group-hover:scale-110 md:size-20">
                 <Play className="ml-1 size-8 fill-current" />
               </div>
             </div>

@@ -2,51 +2,75 @@ import { FeatureItem } from "./features.data";
 import { cn } from "@/lib/utils";
 
 export function FeatureCard({ feat }: { feat: FeatureItem }) {
-  const isInventory = feat.variant === "inventory";
+  const isInventory = feat.variant === "inventory" || feat.id === 2;
   const isHighlight = feat.variant === "highlight";
 
   return (
     <div
       className={cn(
-        "group relative z-1 flex h-88 w-[85vw] shrink-0 snap-center flex-col justify-between overflow-hidden rounded-[30px] border p-8 shadow-xl transition-all duration-300 hover:-translate-y-2 sm:h-84 sm:w-full sm:snap-align-none",
+        "group relative flex h-88 w-[85vw] shrink-0 snap-center flex-col justify-between overflow-hidden rounded-[32px] border p-8 transition-all duration-500 ease-out sm:h-84 sm:w-full sm:snap-align-none",
+        "hover:shadow-brand-teal/20 shadow-lg hover:-translate-y-2 hover:shadow-2xl",
         isInventory
-          ? "border-teal-light/30 bg-brand-cream/95 hover:border-teal-light"
+          ? "border-teal-light/25 bg-linear-to-br from-[#1c3238] via-[#132428] to-[#0d181b]"
           : isHighlight
-            ? "border-brand-yellow-dark/20 bg-brand-yellow hover:border-brand-teal/40"
-            : "border-border/60 bg-brand-cream hover:border-brand-yellow"
+            ? "border-brand-yellow/30 bg-linear-to-br from-[#1a2d33] via-[#0f1d21] to-[#091013]"
+            : "border-white/10 bg-linear-to-br from-[#142327]/90 to-[#0b1417]/95"
       )}
     >
       <div
-        className="pointer-events-none absolute -right-18.75 -bottom-20.5 z-0 size-52.5 rotate-42 rounded-tl-[62px] rounded-tr-[62px] rounded-br-[62px] rounded-bl-[16px] border-30 transition-all duration-500 group-hover:scale-105"
-        style={{ borderColor: feat.accentColor }}
+        className={cn(
+          "pointer-events-none absolute -top-24 -left-24 size-48 rounded-full opacity-0 blur-3xl transition-opacity duration-500 group-hover:opacity-100",
+          isHighlight ? "bg-brand-yellow/15" : "bg-teal-light/15"
+        )}
       />
 
-      <div className="relative z-10 flex-1 space-y-3">
+      <div className="pointer-events-none absolute -right-8 -bottom-8 z-0 transition-all duration-700 ease-out group-hover:-translate-x-2 group-hover:-translate-y-2 group-hover:scale-110">
+        <svg
+          width="180"
+          height="180"
+          viewBox="0 0 100 100"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+          className={cn(
+            "transition-all duration-500",
+            isHighlight
+              ? "stroke-brand-yellow/30 group-hover:stroke-brand-yellow/50"
+              : "stroke-teal-light/20 group-hover:stroke-teal-light/40"
+          )}
+          strokeWidth="2.5"
+        >
+          <path d="M50 0 C50 30 70 50 100 50 C70 50 50 70 50 100 C50 70 30 50 0 50 C30 50 50 30 50 0 Z" />
+        </svg>
+      </div>
+
+      <div className="relative z-10 flex items-center justify-between">
         <span
           className={cn(
-            "inline-flex font-mono text-base font-bold tracking-wider",
-            isHighlight ? "text-brand-teal/70" : "text-brand-yellow-dark"
+            "inline-flex rounded-full border px-3 py-1 font-mono text-sm font-bold tracking-widest backdrop-blur-md transition-colors duration-300",
+            isHighlight
+              ? "text-brand-yellow border-brand-yellow/30 bg-brand-yellow/10"
+              : "text-brand-yellow/90 border-brand-yellow/20 bg-brand-yellow/5"
           )}
         >
           {feat.id <= 9 ? `0${feat.id}` : feat.id}
         </span>
 
-        <div className="mt-auto">
-          <h3 className="text-brand-teal text-xl font-bold tracking-tight sm:text-2xl">
-            {feat.title}
-          </h3>
+        <div
+          className={cn(
+            "size-2 rounded-full transition-transform duration-300 group-hover:scale-150",
+            isHighlight ? "bg-brand-yellow" : "bg-teal-light/50"
+          )}
+        />
+      </div>
 
-          <p
-            className={cn(
-              "mt-2 line-clamp-4 max-w-xs text-sm leading-relaxed",
-              isHighlight
-                ? "text-brand-teal/85 font-medium"
-                : "text-brand-teal/70"
-            )}
-          >
-            {feat.desc}
-          </p>
-        </div>
+      <div className="relative z-10 space-y-3 mb-auto mt-8">
+        <h3 className="group-hover:text-brand-yellow-light text-xl font-bold tracking-tight text-white transition-colors duration-300 sm:text-2xl">
+          {feat.title}
+        </h3>
+
+        <p className="line-clamp-3 text-sm leading-relaxed font-normal text-gray-300/80">
+          {feat.desc}
+        </p>
       </div>
     </div>
   );

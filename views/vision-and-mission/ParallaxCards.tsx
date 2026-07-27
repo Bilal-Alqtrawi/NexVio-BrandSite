@@ -63,7 +63,7 @@ const VisionMissionCard = memo(function VisionMissionCard({
       viewport={{ once: true, margin: "-100px" }}
       variants={fadeInUp}
       whileHover={{ y: -8 }}
-      className="group relative overflow-hidden rounded-[40px] border border-[#80a6af]/20 bg-gradient-to-br from-[#1a2e35]/90 via-[#15262c]/80 to-[#1a2e35]/90 p-8 backdrop-blur-2xl transition-all duration-500 hover:border-[#FFD900]/50 hover:shadow-2xl hover:shadow-[#FFD900]/10 md:p-12"
+      className="group relative overflow-hidden rounded-[40px] border border-[#80a6af]/20 bg-linear-to-br from-[#1a2e35]/90 via-[#15262c]/80 to-[#1a2e35]/90 p-8 backdrop-blur-2xl transition-all duration-500 hover:border-[#FFD900]/50 hover:shadow-2xl hover:shadow-[#FFD900]/10 md:p-12"
     >
       {/* Dynamic Hover Glow */}
       <div className="absolute -top-24 -right-24 h-64 w-64 rounded-full bg-[#FFD900]/10 blur-3xl transition-all duration-700 group-hover:scale-150 group-hover:bg-[#FFD900]/20" />

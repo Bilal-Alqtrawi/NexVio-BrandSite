@@ -2,6 +2,7 @@
 
 import { motion } from "framer-motion";
 import Image from "next/image";
+import { Download, Cpu } from "lucide-react";
 import type { Device, DeviceSpecSheet } from "@/lib/devices";
 
 export default function DeviceSpecsSheet({
@@ -17,13 +18,24 @@ export default function DeviceSpecsSheet({
   }));
 
   return (
-    <section className="relative z-10 overflow-hidden border-t border-neutral-200/30 bg-[#FFFDF9]/40 py-24 lg:py-32">
-      <div className="container mx-auto max-w-7xl px-6 md:px-12 lg:px-8">
-        <div className="grid grid-cols-1 items-center gap-12 lg:grid-cols-12 lg:gap-20">
-          <div className="space-y-12 lg:col-span-7">
-            <h2 className="text-3xl font-black tracking-tight text-neutral-950 uppercase sm:text-4xl">
-              Technical Specifications
-            </h2>
+    <section className="bg-brand-teal text-brand-cream relative z-10 overflow-hidden py-24 font-sans lg:py-32">
+      {/* Background Ambient Glow */}
+      <div className="bg-brand-yellow/10 pointer-events-none absolute top-1/2 -left-40 size-125 -translate-y-1/2 rounded-full blur-[150px]" />
+      <div className="bg-teal-light/10 pointer-events-none absolute right-0 bottom-0 size-100 rounded-full blur-[140px]" />
+
+      <div className="relative z-10 container mx-auto max-w-7xl px-6 md:px-12 lg:px-8">
+        <div className="grid grid-cols-1 items-center gap-12 lg:grid-cols-12 lg:gap-16">
+          {/* Left Column: Specifications List */}
+          <div className="space-y-8 lg:col-span-7">
+            <div className="space-y-3">
+              <div className="bg-brand-yellow/10 border-brand-yellow/30 text-brand-yellow inline-flex items-center gap-2 rounded-full border px-4 py-1 text-xs font-black tracking-widest uppercase">
+                <Cpu className="size-3.5" />
+                <span>Technical Sheet</span>
+              </div>
+              <h2 className="text-brand-cream text-3xl font-black tracking-tight uppercase sm:text-4xl lg:text-5xl">
+                Technical Specifications
+              </h2>
+            </div>
 
             <div className="grid gap-4 sm:grid-cols-2">
               {specsList.map((spec, i) => (
@@ -32,13 +44,13 @@ export default function DeviceSpecsSheet({
                   initial={{ opacity: 0, y: 20 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
-                  transition={{ delay: i * 0.05 }}
-                  className="rounded-2xl border border-neutral-200/60 bg-white p-5 shadow-sm"
+                  transition={{ delay: i * 0.04 }}
+                  className="bg-brand-cream/10 border-brand-cream/15 hover:border-brand-yellow/40 rounded-2xl border p-5 shadow-lg backdrop-blur-md transition-colors duration-300"
                 >
-                  <p className="text-[10px] font-black tracking-widest text-[#FFD700] uppercase">
+                  <p className="text-brand-yellow text-[11px] font-black tracking-widest uppercase">
                     {spec.label}
                   </p>
-                  <p className="mt-1 text-sm font-bold text-neutral-900">
+                  <p className="text-brand-cream mt-1 text-sm leading-snug font-bold">
                     {spec.value}
                   </p>
                 </motion.div>
@@ -46,24 +58,38 @@ export default function DeviceSpecsSheet({
             </div>
           </div>
 
-          <motion.div className="w-full lg:col-span-5">
-            <div className="relative flex min-h-100 flex-col items-center justify-center rounded-[40px] border border-[#FFD700]/20 bg-[#FFFDF6] p-8">
-              <div className="relative size-50">
-                <Image
-                  src={device.deviceImg}
-                  alt={device.name}
-                  fill
-                  className="object-contain"
-                />
+          {/* Right Column: Featured Device Card */}
+          <motion.div
+            initial={{ opacity: 0, scale: 0.95 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5 }}
+            className="w-full lg:col-span-5"
+          >
+            <div className="bg-brand-cream text-brand-teal relative flex min-h-110 flex-col items-center justify-center rounded-[36px] p-8 shadow-2xl">
+              {/* Product Image Container with subtle background ring */}
+              <div className="relative flex size-56 items-center justify-center">
+                <div className="bg-brand-teal/5 absolute inset-0 rounded-full blur-sm" />
+                <div className="relative size-48 transition-transform duration-500 hover:scale-105">
+                  <Image
+                    src={device.deviceImg}
+                    alt={device.name}
+                    fill
+                    className="object-contain"
+                  />
+                </div>
               </div>
-              <h3 className="mt-6 text-xl font-black uppercase">
+
+              <h3 className="text-brand-teal mt-6 text-2xl font-black tracking-wider uppercase">
                 {device.name}
               </h3>
+
               <button
                 onClick={() => window.print()}
-                className="mt-8 rounded-full bg-neutral-950 px-8 py-3 text-sm font-bold text-white transition hover:bg-neutral-800"
+                className="bg-brand-yellow text-brand-teal hover:bg-brand-teal hover:text-brand-cream mt-6 inline-flex items-center gap-2 rounded-full px-8 py-3.5 text-xs font-black tracking-widest uppercase shadow-md transition-all duration-300 active:scale-95"
               >
-                Download PDF
+                <Download className="size-4" />
+                <span>Download PDF</span>
               </button>
             </div>
           </motion.div>

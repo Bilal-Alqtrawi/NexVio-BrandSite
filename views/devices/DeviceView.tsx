@@ -13,7 +13,7 @@ import type { Device } from "@/lib/devices";
 
 export default function DeviceView({ device }: { device: Device }) {
   return (
-    <main>
+    <main className="bg-background text-foreground min-h-screen">
       <DeviceHero device={device} />
       <LogoCloud />
       <DeviceSpecs device={device} />
@@ -22,11 +22,10 @@ export default function DeviceView({ device }: { device: Device }) {
       )}
       <DeviceHowHelp device={device} />
       <DeviceHighlightsSlider device={device} />
-      {/* {device.videoUrl && <DeviceOperatorVideo videoUrl={device.videoUrl} />} */}
-      <DeviceOperatorVideo device={device} />
+      {/* <DeviceOperatorVideo device={device} /> */}
 
       <DeviceStatsReveal device={device} />
-      <InfinitePaymentsMarquee device={device} />
+      {/* <InfinitePaymentsMarquee device={device} /> */}
       <DeviceContactForm device={device} />
 
       <DeviceFAQ device={device} />

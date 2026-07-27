@@ -34,7 +34,6 @@ const WHY_NEXVIO = [
 export default function AboutView() {
   return (
     <main className="bg-brand-teal text-brand-cream w-full pb-24 font-sans">
-      {/* Hero Header Section */}
       <section className="container mx-auto px-4 py-12 sm:px-8">
         <div className="relative flex flex-col gap-3 sm:flex-row sm:items-center sm:gap-6">
           <h1 className="text-brand-yellow shrink-0 text-3xl font-black tracking-tight uppercase sm:text-4xl">
@@ -50,7 +49,6 @@ export default function AboutView() {
         </div>
       </section>
 
-      {/* Main Intro Card Section */}
       <section className="container mx-auto px-4 pl-4 sm:px-0 sm:pl-6">
         <div className="relative">
           <div className="bg-brand-cream/10 border-teal-light/20 flex flex-col items-center gap-8 rounded-3xl border p-6 backdrop-blur-md lg:flex-row lg:gap-12 lg:rounded-l-full lg:p-8 lg:pr-16">
@@ -89,7 +87,6 @@ export default function AboutView() {
         </div>
       </section>
 
-      {/* Strategic Advantages Grid Section */}
       <section className="container mx-auto mt-28 px-4 sm:px-8">
         <div className="mb-12 space-y-2 text-center">
           <span className="text-brand-yellow text-xs font-black tracking-widest uppercase">
@@ -117,7 +114,6 @@ export default function AboutView() {
         </div>
       </section>
 
-      {/* Powered by Nayax Banner Section */}
       <section className="container mx-auto mt-24 px-4 sm:px-8">
         <div className="border-teal-light/20 bg-brand-cream/5 text-brand-cream relative overflow-hidden rounded-[2.5rem] border px-8 py-16 text-center backdrop-blur-md sm:px-16">
           <div className="pointer-events-none absolute inset-0 opacity-20">
@@ -163,7 +159,6 @@ export default function AboutView() {
         </div>
       </section>
 
-      {/* Promise Card Section */}
       <section className="border-teal-light/20 container mx-auto mt-24 border-t px-4 pt-16 text-center sm:px-8">
         <div className="bg-brand-cream border-brand-yellow/30 mx-auto max-w-2xl space-y-4 rounded-2xl border p-8 shadow-xl">
           <div className="bg-brand-teal text-brand-yellow inline-flex size-10 items-center justify-center rounded-xl">

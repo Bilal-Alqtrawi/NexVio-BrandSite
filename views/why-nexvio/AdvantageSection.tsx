@@ -13,10 +13,10 @@ export default function AdvantageSection() {
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true, margin: "-80px" }}
         transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
-        className="border-border from-card via-background to-card text-foreground relative overflow-hidden rounded-[2.5rem] border bg-gradient-to-b p-8 text-center shadow-2xl backdrop-blur-2xl sm:p-16"
+        className="border-border from-card via-background to-card text-foreground relative overflow-hidden rounded-[2.5rem] border bg-linear-to-b p-8 text-center shadow-2xl backdrop-blur-2xl sm:p-16"
       >
         <div className="text-brand-yellow/5 pointer-events-none absolute -top-10 -right-10 size-40">
-          <ShieldCheck className="size-full stroke-[1]" />
+          <ShieldCheck className="size-full stroke-1" />
         </div>
 
         <span className="border-brand-yellow/30 bg-brand-yellow/10 text-brand-yellow inline-flex items-center gap-2 rounded-full border px-4 py-1.5 text-xs font-black tracking-[0.2em] uppercase">

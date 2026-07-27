@@ -81,7 +81,7 @@ export default function GetStartedView() {
             variants={fadeUp}
             className="group border-teal-light/20 bg-brand-cream/5 hover:border-brand-yellow relative rounded-3xl border p-8 shadow-lg backdrop-blur-md transition-all duration-300 hover:-translate-y-2 hover:shadow-2xl"
           >
-            <div className="from-brand-yellow/10 absolute inset-0 rounded-3xl bg-gradient-to-br to-transparent opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
+            <div className="from-brand-yellow/10 absolute inset-0 rounded-3xl bg-linear-to-br to-transparent opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
 
             <div className="relative z-10">
               <span className="bg-brand-yellow/20 group-hover:bg-brand-yellow group-hover:text-brand-teal inline-flex size-14 items-center justify-center rounded-2xl transition-colors duration-300">

@@ -98,7 +98,7 @@ export default function Header() {
             className="group hover:bg-brand-yellow hover:text-brand-teal text-brand-cream border-teal-light/20 space-x-3 rounded-full border bg-[#112025] px-5 py-6 text-xs font-bold tracking-wider shadow-md transition-all duration-300"
           >
             <span>Get Started</span>
-            <span className="bg-teal-light/20 text-brand-cream group-hover:bg-brand-teal group-hover:text-brand-yellow inline-flex size-8 items-center justify-center rounded-full transition-colors duration-300">
+            <span className="bg-teal-light text-brand-cream group-hover:bg-brand-teal group-hover:text-brand-yellow inline-flex size-8 items-center justify-center rounded-full transition-colors duration-300">
               <ArrowRight size={14} />
             </span>
           </Button>

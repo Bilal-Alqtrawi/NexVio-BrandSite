@@ -66,9 +66,9 @@ export default function RestaurantSolutionView() {
           <p className="mx-auto max-w-3xl text-sm leading-relaxed font-medium text-neutral-600 sm:text-base md:text-lg">
             Running a successful restaurant requires speed, accuracy and
             complete operational control. NexVio Restaurant Solution connects
-            every stage of restaurant operations into one intelligent
-            platform from taking orders and communicating with the kitchen to
-            processing payments.
+            every stage of restaurant operations into one intelligent platform
+            from taking orders and communicating with the kitchen to processing
+            payments.
           </p>
         </section>
 
@@ -93,7 +93,7 @@ export default function RestaurantSolutionView() {
                     <div className="flex size-14 items-center justify-center rounded-2xl border border-black/10 bg-white text-neutral-900 shadow-xs transition-transform duration-300 hover:scale-105">
                       <Icon className="size-6 stroke-2" />
                     </div>
-                    <span className="max-w-[110px] text-xs font-bold text-neutral-700">
+                    <span className="max-w-27.5 text-xs font-bold text-neutral-700">
                       {step.label}
                     </span>
                   </div>

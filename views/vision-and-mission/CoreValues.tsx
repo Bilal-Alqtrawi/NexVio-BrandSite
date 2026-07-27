@@ -25,7 +25,7 @@ export default function CoreValues() {
           <h2 className="mt-4 text-3xl font-black tracking-tight text-[#EAEAEA] uppercase sm:text-5xl">
             Our Core Values
           </h2>
-          <div className="mx-auto mt-4 h-1 w-20 rounded-full bg-gradient-to-r from-[#FFD900] via-[#ffe958] to-transparent" />
+          <div className="mx-auto mt-4 h-1 w-20 rounded-full bg-linear-to-r from-[#FFD900] via-[#ffe958] to-transparent" />
         </div>
 
         <motion.div
@@ -56,7 +56,7 @@ const ValueCard = memo(function ValueCard({
       whileHover={{ y: -6, scale: 1.02 }}
       className="group relative overflow-hidden rounded-3xl border border-[#80a6af]/20 bg-[#1a2e35]/60 p-8 backdrop-blur-xl transition-all duration-300 hover:border-[#FFD900]/40 hover:bg-[#1a2e35] hover:shadow-2xl hover:shadow-[#FFD900]/5"
     >
-      <div className="pointer-events-none absolute inset-0 bg-gradient-to-br from-[#FFD900]/5 via-transparent to-[#67BCD3]/5 opacity-0 transition-opacity duration-500 group-hover:opacity-100" />
+      <div className="pointer-events-none absolute inset-0 bg-linear-to-br from-[#FFD900]/5 via-transparent to-[#67BCD3]/5 opacity-0 transition-opacity duration-500 group-hover:opacity-100" />
 
       <div className="relative z-10 mb-6 flex items-center justify-between">
         <div className="flex size-14 items-center justify-center rounded-2xl border border-[#80a6af]/30 bg-[#1a2e35] text-[#FFD900] transition-transform duration-300 group-hover:scale-110 group-hover:border-[#FFD900]/40">

@@ -33,7 +33,7 @@ export const INDUSTRIES_DATA = [
     features: [
       "Quick-checkout & tap-to-pay",
       "Custom loyalty point engines",
-      "Multi-modifier modifiers (milk, size, syrup)"
+      "Multi-option modifiers (milk, size, syrup)"
     ]
   },
   {

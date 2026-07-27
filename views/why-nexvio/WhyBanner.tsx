@@ -12,7 +12,7 @@ export default function WhyBanner() {
         whileInView={{ opacity: 1, scale: 1, y: 0 }}
         viewport={{ once: true, margin: "-100px" }}
         transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
-        className="group border-brand-yellow/40 from-brand-yellow via-brand-yellow-light to-brand-yellow text-brand-teal relative overflow-hidden rounded-3xl border bg-gradient-to-br p-8 text-center shadow-2xl sm:p-14"
+        className="group border-brand-yellow/40 from-brand-yellow via-brand-yellow-light to-brand-yellow text-brand-teal relative overflow-hidden rounded-3xl border bg-linear-to-br p-8 text-center shadow-2xl sm:p-14"
       >
         {/* Dynamic Glowing Ambient */}
         <div className="pointer-events-none absolute -top-24 -right-24 size-64 rounded-full bg-white/20 blur-3xl transition-transform duration-700 group-hover:scale-150" />

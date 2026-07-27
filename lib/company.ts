@@ -6,7 +6,8 @@ export const COMPANY = {
   email: "office@nex-vio.com",
   supportEmail: "Support@nex-vio.com",
   locationLabel: "United Arab Emirates",
-  locationDetail: "Dubai · Abu Dhabi · Sharjah · Ajman · Ras Al Khaimah",
+  locationDetail:
+    "Dubai · Abu Dhabi · Sharjah · Ajman · Ras Al Khaimah · Umm Al Quwain · Fujairah",
   mapsUrl:
     "https://www.google.com/maps/search/?api=1&query=Dubai%2C%20United%20Arab%20Emirates",
   social: {
@@ -20,9 +21,23 @@ export const COMPANY = {
 } as const;
 
 export const UAE_OFFICES = [
-  { id: "abu-dhabi", name: "Abu Dhabi", x: "32%", y: "65%" },
-  { id: "dubai", name: "Dubai", x: "64%", y: "44%" },
-  { id: "sharjah", name: "Sharjah", x: "69%", y: "38%" },
-  { id: "ajman", name: "Ajman", x: "72%", y: "34%" },
-  { id: "rak", name: "Ras Al Khaimah", x: "78%", y: "24%" }
+  { id: "abu-dhabi", name: "Abu Dhabi", nameAr: "أبوظبي", x: "36%", y: "73%" },
+  { id: "dubai", name: "Dubai", nameAr: "دبي", x: "61%", y: "54%" },
+  { id: "sharjah", name: "Sharjah", nameAr: "الشارقة", x: "65%", y: "46%" },
+  { id: "ajman", name: "Ajman", nameAr: "عجمان", x: "67%", y: "40%" },
+  {
+    id: "umm-al-quwain",
+    name: "Umm Al Quwain",
+    nameAr: "أم القيوين",
+    x: "69%",
+    y: "34%"
+  },
+  {
+    id: "rak",
+    name: "Ras Al Khaimah",
+    nameAr: "رأس الخيمة",
+    x: "73%",
+    y: "24%"
+  },
+  { id: "fujairah", name: "Fujairah", nameAr: "الفجيرة", x: "73%", y: "46%" }
 ] as const;
