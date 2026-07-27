@@ -148,38 +148,41 @@ const itemVariants: Variants = {
 
 export default function CapabilitiesView() {
   return (
-    <main className="bg-brand-cream relative min-h-screen overflow-hidden pt-10 pb-12 font-sans text-black">
-      <div className="pointer-events-none absolute top-0 left-1/4 size-150 rounded-full bg-[#ffcc00]/5 blur-[130px]" />
-      <div className="pointer-events-none absolute right-1/4 bottom-1/3 size-125 rounded-full bg-[#80a6af]/15 blur-[150px]" />
+    <main className="bg-brand-teal text-brand-cream relative min-h-screen overflow-hidden pt-10 pb-16 font-sans">
+      {/* Background Glows Matching System Palette */}
+      <div className="bg-brand-yellow/10 pointer-events-none absolute top-0 left-1/4 size-150 rounded-full blur-[140px]" />
+      <div className="bg-teal-light/10 pointer-events-none absolute right-1/4 bottom-1/3 size-125 rounded-full blur-[150px]" />
 
       <div className="relative z-10 container mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        {/* HERO SECTION */}
         <section className="mx-auto max-w-4xl space-y-6 pt-10 pb-16 text-center">
-          <div className="inline-flex items-center gap-2 rounded-full border border-black/5 bg-black/2 px-4 py-1.5 text-xs font-black tracking-widest text-[#D4A313] uppercase">
-            <Sparkles className="size-3.5 fill-[#ffcc00] stroke-none" />
+          <div className="text-brand-yellow inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-4 py-1.5 text-xs font-black tracking-widest uppercase backdrop-blur-md">
+            <Sparkles className="fill-brand-yellow text-brand-yellow size-3.5" />
             Everything Connected
           </div>
 
-          <h1 className="text-4xl leading-[1.05] font-black tracking-tight text-black uppercase sm:text-6xl md:text-7xl">
+          <h1 className="text-brand-cream text-4xl leading-[1.05] font-black tracking-tight uppercase sm:text-6xl md:text-7xl">
             Smart Business <br />
-            <span className="bg-linear-to-r from-black via-neutral-800 to-[#D4A313] bg-clip-text text-transparent">
+            <span className="from-brand-yellow via-brand-yellow-light to-teal-light bg-linear-to-r bg-clip-text text-transparent">
               Solutions
             </span>
           </h1>
 
-          <p className="mx-auto max-w-2xl text-base leading-relaxed font-semibold text-neutral-600 sm:text-lg">
+          <p className="text-teal-light mx-auto max-w-2xl text-base leading-relaxed font-semibold sm:text-lg">
             NexVio brings POS, payments, sales, inventory, and reporting
             together in one intelligent platform helping businesses operate
             faster, more efficiently, and with complete control.
           </p>
         </section>
 
+        {/* DEVICE TAGS SECTION */}
         <section className="mb-20">
-          <div className="grid grid-cols-1 items-center gap-8 rounded-[32px] border border-black/5 bg-white p-8 shadow-[0_30px_60px_-20px_rgba(0,0,0,0.03)] md:p-12 lg:grid-cols-12">
+          <div className="bg-card grid grid-cols-1 items-center gap-8 rounded-[32px] border border-white/10 p-8 shadow-2xl backdrop-blur-xs md:p-12 lg:grid-cols-12">
             <div className="space-y-4 lg:col-span-7">
-              <h3 className="text-2xl font-black tracking-tight text-black uppercase">
+              <h3 className="text-brand-cream text-2xl font-black tracking-tight uppercase">
                 Everything Your Business Needs
               </h3>
-              <p className="text-sm leading-relaxed font-medium text-neutral-600">
+              <p className="text-teal-light text-sm leading-relaxed font-medium">
                 Instead of relying on multiple disconnected systems, NexVio
                 brings POS, payments, inventory, sales, and reporting together
                 in one intelligent platform. Everything works seamlessly to
@@ -188,13 +191,13 @@ export default function CapabilitiesView() {
               </p>
             </div>
             <div className="flex flex-wrap justify-start gap-2 lg:col-span-5 lg:justify-end">
-              <span className="mb-1 w-full text-[10px] font-bold tracking-widest text-neutral-400 uppercase">
+              <span className="text-teal-light/60 mb-1 w-full text-[10px] font-bold tracking-widest uppercase">
                 Device Tags
               </span>
               {DEVICE_TAGS.map((device, i) => (
                 <span
                   key={i}
-                  className="rounded-full border border-black/5 bg-black/1 px-3.5 py-1.5 text-xs font-bold text-neutral-800"
+                  className="text-brand-cream rounded-full border border-white/10 bg-white/5 px-3.5 py-1.5 text-xs font-bold"
                 >
                   {device}
                 </span>
@@ -203,12 +206,13 @@ export default function CapabilitiesView() {
           </div>
         </section>
 
+        {/* CAPABILITIES CARDS GRID */}
         <section className="py-8">
           <div className="mb-10 space-y-2 text-center md:text-left">
-            <span className="font-mono text-[10px] font-black tracking-widest text-[#D4A313] uppercase">
-              / / SYSTEM CAPABILITIES
+            <span className="text-brand-yellow font-mono text-[10px] font-black tracking-widest uppercase">
+              SYSTEM CAPABILITIES
             </span>
-            <h2 className="text-3xl font-black tracking-tight uppercase">
+            <h2 className="text-brand-cream text-3xl font-black tracking-tight uppercase">
               Platform Features
             </h2>
           </div>
@@ -226,57 +230,58 @@ export default function CapabilitiesView() {
                 <motion.div
                   key={idx}
                   variants={itemVariants}
-                  className="group relative flex h-80 flex-col justify-between rounded-[28px] border border-black/5 bg-white p-7 shadow-[0_20px_40px_-15px_rgba(0,0,0,0.02)] transition-all duration-300 hover:-translate-y-1 hover:bg-[#152830] hover:text-white hover:shadow-[0_30px_50px_-15px_rgba(128,166,175,0.25)]"
+                  className="group bg-card hover:border-brand-yellow/40 hover:shadow-brand-yellow/5 relative flex h-80 flex-col justify-between rounded-[28px] border border-white/10 p-7 shadow-lg transition-all duration-300 hover:-translate-y-1 hover:bg-[#1a3038] hover:shadow-2xl"
                 >
                   <div className="space-y-5">
                     <div className="flex items-start justify-between">
-                      <div className="flex size-11 items-center justify-center rounded-2xl bg-[#ffcc00]/10 text-black transition-colors duration-300 group-hover:bg-[#ffcc00] group-hover:text-black">
+                      <div className="bg-brand-yellow/10 text-brand-yellow group-hover:bg-brand-yellow group-hover:text-brand-teal flex size-11 items-center justify-center rounded-2xl transition-all duration-300">
                         <IconComponent className="size-5 stroke-2" />
                       </div>
-                      <span className="font-mono text-[9px] font-black tracking-wider text-neutral-400 uppercase transition-colors group-hover:text-[#ffcc00]/80">
+                      <span className="text-teal-light/60 group-hover:text-brand-yellow font-mono text-[9px] font-black tracking-wider uppercase transition-colors">
                         {cap.badge}
                       </span>
                     </div>
 
                     <div className="space-y-2">
-                      <h3 className="text-lg font-black tracking-tight uppercase group-hover:text-white">
+                      <h3 className="text-brand-cream text-lg font-black tracking-tight uppercase transition-colors group-hover:text-white">
                         {cap.title}
                       </h3>
-                      <p className="text-xs leading-relaxed font-semibold text-neutral-500 transition-colors duration-300 group-hover:text-neutral-400">
+                      <p className="text-teal-light group-hover:text-teal-light/90 text-xs leading-relaxed font-semibold transition-colors duration-300">
                         {cap.desc}
                       </p>
                     </div>
                   </div>
 
-                  <div className="flex items-center gap-1.5 border-t border-black/3 pt-4 text-[10px] font-black tracking-wider text-[#D4A313] uppercase transition-colors group-hover:border-white/10 group-hover:text-[#ffcc00]">
+                  {/* <div className="text-brand-yellow flex items-center gap-1.5 border-t border-white/5 pt-4 text-[10px] font-black tracking-wider uppercase transition-colors group-hover:border-white/10">
                     <span>Explore integration</span>
                     <ArrowRight className="size-3 transition-transform duration-300 group-hover:translate-x-1" />
-                  </div>
+                  </div> */}
                 </motion.div>
               );
             })}
           </motion.div>
         </section>
 
-        <section className="mt-16 border-t border-black/5 py-24">
-          <div className="relative overflow-hidden rounded-[40px] bg-[#152830] p-8 text-white shadow-[0_40px_80px_-20px_rgba(0,0,0,0.15)] md:p-16">
-            <div className="pointer-events-none absolute -right-20 -bottom-20 size-80 rounded-full bg-[#80a6af]/20 blur-3xl" />
+        {/* BOTTOM CTA BLOCK */}
+        <section className="mt-16 border-t border-white/10 py-24">
+          <div className="bg-card text-brand-cream relative overflow-hidden rounded-[40px] border border-white/10 p-8 shadow-2xl md:p-16">
+            <div className="bg-brand-yellow/10 pointer-events-none absolute -right-20 -bottom-20 size-80 rounded-full blur-3xl" />
 
             <div className="relative z-10 grid grid-cols-1 items-center gap-12 lg:grid-cols-12">
               <div className="space-y-6 lg:col-span-5">
-                <span className="font-mono text-[10px] font-black tracking-widest text-[#ffcc00] uppercase">
-                  / / MASTER CONFIGURATION
+                <span className="text-brand-yellow font-mono text-[10px] font-black tracking-widest uppercase">
+                  MASTER CONFIGURATION
                 </span>
-                <h2 className="text-3xl leading-none font-black tracking-tight uppercase sm:text-4xl md:text-5xl">
+                <h2 className="text-brand-cream text-3xl leading-none font-black tracking-tight uppercase sm:text-4xl md:text-5xl">
                   One Platform. <br /> Complete Business Control.
                 </h2>
-                <p className="text-sm leading-relaxed font-semibold text-neutral-300">
+                <p className="text-teal-light text-sm leading-relaxed font-semibold">
                   Run your entire business from one intelligent platform. Every
                   sale, payment, inventory update, and report is synchronized in
                   real time giving you complete visibility and control.
                 </p>
                 <div className="pt-2">
-                  <ContactUsButton variant="teal" className="bg-teal-light/35" />
+                  <ContactUsButton variant="yellow" />
                 </div>
               </div>
 
@@ -285,19 +290,19 @@ export default function CapabilitiesView() {
                   {CONNECTED_TAGS.map((tag, idx) => (
                     <div
                       key={idx}
-                      className="flex items-center gap-3 rounded-2xl border border-white/5 bg-white/3 p-4 transition-colors hover:border-[#ffcc00]/30"
+                      className="hover:border-brand-yellow/30 flex items-center gap-3 rounded-2xl border border-white/10 bg-white/5 p-4 transition-colors"
                     >
-                      <div className="flex size-7 shrink-0 items-center justify-center rounded-lg bg-[#ffcc00]/10 text-[#ffcc00]">
+                      <div className="bg-brand-yellow/10 text-brand-yellow flex size-7 shrink-0 items-center justify-center rounded-lg">
                         <CheckCircle className="size-3.5 stroke-[2.5]" />
                       </div>
-                      <span className="text-xs font-black tracking-widest text-neutral-200 uppercase">
+                      <span className="text-brand-cream text-xs font-black tracking-widest uppercase">
                         {tag}
                       </span>
                     </div>
                   ))}
 
-                  <div className="flex items-center rounded-2xl border border-[#ffcc00]/10 bg-[#ffcc00]/5 p-4 sm:col-span-2">
-                    <p className="mx-auto text-center text-[11px] font-bold tracking-wider text-[#ffcc00] uppercase">
+                  <div className="border-brand-yellow/20 bg-brand-yellow/10 flex items-center rounded-2xl border p-4 sm:col-span-2">
+                    <p className="text-brand-yellow mx-auto text-center text-[11px] font-bold tracking-wider uppercase">
                       Everything connected through one intelligent platform.
                     </p>
                   </div>

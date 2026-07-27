@@ -263,7 +263,7 @@ export default function Devices() {
               {controls.map((control, idx) => (
                 <div
                   key={idx}
-                  className="bg-brand-teal border-teal-light/30 text-brand-cream hover:bg-brand-yellow hover:text-brand-teal cursor-default rounded-xl border p-3 text-center text-xs font-bold transition-colors duration-250"
+                  className="bg-brand-teal border-teal-light/30 text-brand-cream hover:bg-brand-yellow hover:text-brand-teal flex cursor-default items-center justify-center rounded-xl border p-3 text-center text-xs font-bold transition-colors duration-250"
                 >
                   {control}
                 </div>
