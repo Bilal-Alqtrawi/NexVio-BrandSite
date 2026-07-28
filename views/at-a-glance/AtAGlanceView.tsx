@@ -87,9 +87,11 @@ export default function AtAGlanceView() {
               }}
               className="text-teal-light mx-auto mt-6 max-w-3xl text-base leading-relaxed font-semibold sm:text-lg md:text-xl"
             >
-              With over 16 years of industry expertise and more than 3,000
-              businesses served, NexVio delivers proven technology designed to
-              support long-term business growth.
+              With over{" "}
+              <span className="text-brand-cream font-black">16 years</span> of
+              industry expertise and more than <span className="font-black text-brand-cream"> 3,000 businesses </span>{" "}
+              served, NexVio delivers proven technology designed to support
+              long-term business growth.
             </motion.p>
 
             <motion.div
