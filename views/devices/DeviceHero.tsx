@@ -55,13 +55,17 @@ export default function DeviceHero({ device }: { device: Device }) {
                 </Link>
               </Button>
 
-              <Button
-                variant="outline"
+              {device.specSheet && (
+                <Button
+                  variant="outline"
 
-                className="border-brand-cream/30 text-brand-cream hover:bg-brand-cream/10 hover:text-brand-cream rounded-full bg-transparent px-8 py-6 text-xs font-black tracking-widest uppercase transition-all duration-300"
-              >
-                <Link href="#specs">View Specifications</Link>
-              </Button>
+                  className="border-brand-cream/30 text-brand-cream hover:bg-brand-cream/10 hover:text-brand-cream rounded-full bg-transparent px-8 py-6 text-xs font-black tracking-widest uppercase transition-all duration-300"
+                >
+                  <Link href={`/devices/${device.slug}#specsSheet`}>
+                    View Specifications
+                  </Link>
+                </Button>
+              )}
             </div>
           </div>
 

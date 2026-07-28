@@ -18,7 +18,10 @@ export default function DeviceSpecsSheet({
   }));
 
   return (
-    <section className="bg-brand-teal text-brand-cream relative z-10 overflow-hidden py-24 font-sans lg:py-32">
+    <section
+      id="specsSheet"
+      className="bg-brand-teal text-brand-cream relative z-10 overflow-hidden py-24 font-sans lg:py-32"
+    >
       {/* Background Ambient Glow */}
       <div className="bg-brand-yellow/10 pointer-events-none absolute top-1/2 -left-40 size-125 -translate-y-1/2 rounded-full blur-[150px]" />
       <div className="bg-teal-light/10 pointer-events-none absolute right-0 bottom-0 size-100 rounded-full blur-[140px]" />
