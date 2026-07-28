@@ -2,11 +2,10 @@ import Link from "next/link";
 import Image from "next/image";
 import {
   FaFacebookF,
+  FaGoogle,
   FaInstagram,
-  FaLinkedinIn,
-  FaYoutube
+  FaLinkedinIn
 } from "react-icons/fa";
-import { FaXTwitter } from "react-icons/fa6";
 import { RiWhatsappFill } from "react-icons/ri";
 import { Mail, MapPin, Phone } from "lucide-react";
 import { COMPANY } from "@/lib/company";
@@ -17,7 +16,8 @@ const socialLinks = [
   // { href: COMPANY.social.x, label: "X", Icon: FaXTwitter },
   { href: COMPANY.social.linkedin, label: "LinkedIn", Icon: FaLinkedinIn },
   // { href: COMPANY.social.youtube, label: "YouTube", Icon: FaYoutube },
-  { href: COMPANY.social.whatsapp, label: "WhatsApp", Icon: RiWhatsappFill }
+  { href: COMPANY.social.whatsapp, label: "WhatsApp", Icon: RiWhatsappFill },
+  { href: "https://www.goole.com", label: "Google", Icon: FaGoogle }
 ];
 
 const footerColumns = [

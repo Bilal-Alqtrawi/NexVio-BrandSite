@@ -59,13 +59,8 @@ export default function ContactMap() {
           </p>
         </div>
 
-        {/* 
-          Container الرئيسي مع أبعاد متناسبة (@container + aspect-[16/10])
-          هذا الكارت يتجاوب بنسبة 100% على الموبايل بنفس الهيكل تماماً 
-        */}
         <div className="@container relative mx-auto w-full max-w-5xl">
-          <div className="border-border bg-card/70 relative aspect-[16/10] w-full overflow-hidden rounded-[2.5cqw] border shadow-2xl backdrop-blur-md">
-            {/* 1. خريطة الإمارات الخلفية (Dot Matrix Mask) */}
+          <div className="border-border bg-card/70 relative aspect-16/10 w-full overflow-hidden rounded-[2.5cqw] border shadow-2xl backdrop-blur-md">
             <div
               className="pointer-events-none absolute inset-0 size-full opacity-85 select-none"
               style={{

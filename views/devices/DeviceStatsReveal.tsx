@@ -3,13 +3,13 @@
 import { useRef } from "react";
 import { motion, useScroll, useTransform } from "framer-motion";
 import type { Device } from "@/lib/devices";
-import Link from "next/link";
+// import Link from "next/link";
 
-const STATS = [
-  { value: "1.5M+", label: "Managed and Connected Devices" },
-  { value: "120K+", label: "Customers" },
-  { value: "120+", label: "Countries Worldwide" }
-];
+// const STATS = [
+//   { value: "1.5M+", label: "Managed and Connected Devices" },
+//   { value: "120K+", label: "Customers" },
+//   { value: "120+", label: "Countries Worldwide" }
+// ];
 
 interface DeviceStatsRevealProps {
   device: Device;

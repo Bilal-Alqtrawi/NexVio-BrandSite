@@ -36,7 +36,7 @@ export default function LogoCloud() {
       <div className="from-brand-teal to-brand-teal/0 pointer-events-none absolute inset-y-0 right-0 z-10 w-24 bg-linear-to-l" />
 
       <motion.div
-        className="flex w-max flex-nowrap items-center gap-12"
+        className="flex w-max flex-nowrap items-center gap-12 will-change-transform"
         animate={{ x: ["0%", "-33.333%"] }}
         transition={{
           repeat: Infinity,
@@ -48,7 +48,7 @@ export default function LogoCloud() {
         {duplicatedLogos.map((logo, idx) => (
           <div
             key={idx}
-            className="flex h-fit w-36 shrink-0 items-center justify-center invert-5 brightness-100 p-4 transition-all duration-300 hover:scale-105"
+            className="flex h-fit w-36 shrink-0 items-center justify-center p-4 brightness-100 invert-5 transition-all duration-300 hover:scale-105"
           >
             <Image
               src={logo.src}
