@@ -1,8 +1,9 @@
 "use client";
 
 import { useRef } from "react";
-import { motion, useScroll, useTransform, MotionValue } from "framer-motion";
+import { motion, useScroll, useTransform } from "framer-motion";
 import type { Device } from "@/lib/devices";
+import Link from "next/link";
 
 const STATS = [
   { value: "1.5M+", label: "Managed and Connected Devices" },
@@ -10,28 +11,9 @@ const STATS = [
   { value: "120+", label: "Countries Worldwide" }
 ];
 
-interface WordProps {
-  children: string;
-  progress: MotionValue<number>;
-  range: [number, number];
-}
-
 interface DeviceStatsRevealProps {
   device: Device;
 }
-
-const WordReveal = ({ children, progress, range }: WordProps) => {
-  const opacity = useTransform(progress, range, [0.25, 1]);
-
-  return (
-    <motion.span
-      style={{ opacity }}
-      className="text-foreground relative inline-block font-medium will-change-[opacity]"
-    >
-      {children}
-    </motion.span>
-  );
-};
 
 export default function DeviceStatsReveal({ device }: DeviceStatsRevealProps) {
   const containerRef = useRef<HTMLDivElement>(null);
@@ -43,8 +25,6 @@ export default function DeviceStatsReveal({ device }: DeviceStatsRevealProps) {
 
   const bgWidth = useTransform(scrollYProgress, [0, 0.35], ["92vw", "100vw"]);
   const bgRadius = useTransform(scrollYProgress, [0, 0.35], ["32px", "0px"]);
-
-  const words = device.description.split(" ");
 
   return (
     <section
@@ -60,24 +40,12 @@ export default function DeviceStatsReveal({ device }: DeviceStatsRevealProps) {
       >
         <div className="container mx-auto flex max-w-5xl flex-col items-center justify-center gap-12 md:gap-16">
           <div className="w-full max-w-4xl text-center">
-            <p className="text-muted-foreground flex flex-wrap justify-center gap-x-2 gap-y-3 text-center text-2xl leading-relaxed tracking-normal sm:text-3xl md:text-[38px] md:leading-[1.4]">
-              {words.map((word, i) => {
-                const start = 0.15 + (i / words.length) * 0.55;
-                const end = start + 0.1;
-                return (
-                  <WordReveal
-                    key={i}
-                    progress={scrollYProgress}
-                    range={[start, end]}
-                  >
-                    {word}
-                  </WordReveal>
-                );
-              })}
+            <p className="text-foreground text-center text-2xl leading-relaxed font-medium tracking-normal sm:text-3xl md:text-[38px] md:leading-[1.4]">
+              {device.description}
             </p>
           </div>
 
-          <div className="w-full max-w-4xl space-y-12 md:space-y-16">
+          {/* <div className="w-full max-w-4xl space-y-12 md:space-y-16">
             <div className="grid grid-cols-1 gap-8 text-center md:grid-cols-3">
               {STATS.map((stat) => (
                 <div key={stat.label} className="space-y-2">
@@ -92,14 +60,14 @@ export default function DeviceStatsReveal({ device }: DeviceStatsRevealProps) {
             </div>
 
             <div className="flex flex-wrap items-center justify-center gap-4">
-              <button className="bg-brand-yellow text-primary-foreground transform-gpu rounded-full px-8 py-3.5 text-sm font-bold shadow-sm transition-all duration-200 hover:scale-105 active:scale-95">
+              <Link
+                href={"/about"}
+                className="bg-brand-yellow text-primary-foreground transform-gpu rounded-full px-8 py-3.5 text-sm font-bold shadow-sm transition-all duration-200 hover:scale-105 active:scale-95"
+              >
                 About NexVio
-              </button>
-              <button className="bg-muted text-foreground hover:bg-muted/80 transform-gpu rounded-full px-8 py-3.5 text-sm font-bold shadow-md transition-all duration-200 hover:scale-105 active:scale-95">
-                Investor Relations
-              </button>
+              </Link>
             </div>
-          </div>
+          </div> */}
         </div>
       </motion.div>
     </section>

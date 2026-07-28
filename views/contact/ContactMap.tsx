@@ -1,98 +1,73 @@
 ﻿"use client";
 
-import React, { useState } from "react";
-import { motion } from "framer-motion";
+import React from "react";
 import {
-  Phone,
-  Mail,
   Building2,
   Calendar,
   Headphones,
-  ShieldCheck
+  ShieldCheck,
+  Phone,
+  Mail
 } from "lucide-react";
-import { COMPANY, UAE_OFFICES } from "@/lib/company";
+import { COMPANY } from "@/lib/company";
 
 const UAE_MAP_URL =
   "https://raw.githubusercontent.com/djaiss/mapsicon/master/all/ae/vector.svg";
 
-// Floating Stat Card using Design Tokens
-function FloatingStatCard({
-  icon,
-  value,
-  label,
-  className
-}: {
-  icon: React.ReactNode;
-  value: string;
-  label: string;
-  className: string;
-}) {
-  return (
-    <motion.div
-      initial={{ opacity: 0, scale: 0.9 }}
-      whileInView={{ opacity: 1, scale: 1 }}
-      animate={{ y: [0, -5, 0] }}
-      transition={{
-        y: { duration: 4, repeat: Infinity, ease: "easeInOut" },
-        opacity: { duration: 0.5 }
-      }}
-      viewport={{ once: true }}
-      className={`border-border bg-card/85 shadow-card/50 absolute z-30 flex items-center gap-3.5 rounded-2xl border p-4 shadow-xl backdrop-blur-xl ${className}`}
-    >
-      <div className="relative flex size-11 shrink-0 items-center justify-center">
-        <span className="border-teal-light/40 absolute -inset-1 animate-[spin_10s_linear_infinite] rounded-full border border-dashed" />
-        <div className="border-border bg-muted/50 text-brand-yellow relative flex size-11 items-center justify-center rounded-xl border">
-          {icon}
-        </div>
-      </div>
-      <div>
-        <div className="text-foreground text-xl font-black tracking-tight">
-          {value}
-        </div>
-        <div className="text-teal-light text-[11px] font-semibold tracking-wide uppercase">
-          {label}
-        </div>
-      </div>
-    </motion.div>
-  );
-}
+// قائمة المدن بإحداثيات مئوية دقيقة متوافقة مع aspect-[16/10]
+const UAE_CITIES = [
+  { id: "abu-dhabi", nameAr: "أبوظبي", nameEn: "ABU DHABI", x: 38.5, y: 72 },
+  { id: "dubai", nameAr: "دبي", nameEn: "DUBAI", x: 56.5, y: 56.5 },
+  { id: "sharjah", nameAr: "الشارقة", nameEn: "SHARJAH", x: 60.5, y: 50.5 },
+  { id: "ajman", nameAr: "عجمان", nameEn: "AJMAN", x: 62.5, y: 45 },
+  {
+    id: "umm-al-quwain",
+    nameAr: "أم القيوين",
+    nameEn: "UMM AL QUWAIN",
+    x: 64.5,
+    y: 39
+  },
+  {
+    id: "ras-al-khaimah",
+    nameAr: "رأس الخيمة",
+    nameEn: "RAS AL KHAIMAH",
+    x: 67,
+    y: 28
+  },
+  { id: "fujairah", nameAr: "الفجيرة", nameEn: "FUJAIRAH", x: 72.5, y: 47 }
+];
 
 export default function ContactMap() {
-  const [activeOffice, setActiveOffice] = useState<string | null>(null);
-
   return (
-    <section className="border-border bg-background text-foreground relative w-full overflow-hidden border-t px-6 py-20 md:py-28">
-      {/* Background Radial Glow using Brand Tokens */}
+    <section className="border-border bg-background text-foreground relative w-full overflow-hidden border-t px-3 py-10 sm:px-6 md:py-20">
+      {/* Background Radial Glow */}
       <div className="bg-teal-light/10 pointer-events-none absolute top-1/2 left-1/2 size-162.5 -translate-x-1/2 -translate-y-1/2 rounded-full blur-[160px]" />
 
       <div className="relative z-10 container mx-auto max-w-7xl">
         {/* Header Section */}
-        <div className="mx-auto max-w-3xl text-center">
-          <motion.div
-            initial={{ opacity: 0, y: -10 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            className="border-brand-yellow/30 bg-brand-yellow/10 text-brand-yellow mb-4 inline-flex items-center gap-2 rounded-full border px-4 py-1.5 text-xs font-bold tracking-widest uppercase shadow-sm"
-          >
+        <div className="mx-auto mb-8 max-w-3xl text-center md:mb-12">
+          <div className="border-brand-yellow/30 bg-brand-yellow/10 text-brand-yellow mb-3 inline-flex items-center gap-2 rounded-full border px-3 py-1 text-[11px] font-bold tracking-widest uppercase shadow-sm">
             <span className="bg-brand-yellow size-2 animate-pulse rounded-full" />
             Serving Key Emirates
-          </motion.div>
-
-          <h2 className="text-foreground text-3xl font-black tracking-tight uppercase sm:text-4xl md:text-5xl">
+          </div>
+          <h2 className="text-foreground text-2xl font-black tracking-tight uppercase sm:text-4xl md:text-5xl">
             Built for Businesses Across the UAE
           </h2>
-          <p className="text-muted-foreground mx-auto mt-4 max-w-2xl text-sm leading-relaxed font-medium sm:text-base">
+          <p className="text-muted-foreground mx-auto mt-2 max-w-2xl text-xs leading-relaxed font-medium sm:text-base">
             NexVio helps businesses across the UAE simplify operations,
             streamline payments, and grow through one connected platform.
           </p>
         </div>
 
-        {/* Main UAE Map Canvas Container */}
-        <div className="relative mx-auto mt-16 max-w-6xl">
-          <div className="border-border bg-card/60 relative min-h-155 w-full overflow-hidden rounded-3xl border p-6 shadow-2xl md:p-12">
-            {/* Holographic Matrix Map Mask */}
+        {/* 
+          Container الرئيسي مع أبعاد متناسبة (@container + aspect-[16/10])
+          هذا الكارت يتجاوب بنسبة 100% على الموبايل بنفس الهيكل تماماً 
+        */}
+        <div className="@container relative mx-auto w-full max-w-5xl">
+          <div className="border-border bg-card/70 relative aspect-[16/10] w-full overflow-hidden rounded-[2.5cqw] border shadow-2xl backdrop-blur-md">
+            {/* 1. خريطة الإمارات الخلفية (Dot Matrix Mask) */}
             <div
-              className="pointer-events-none absolute inset-0 size-full p-6 opacity-80 select-none md:p-12"
+              className="pointer-events-none absolute inset-0 size-full opacity-85 select-none"
               style={{
                 maskImage: `url('${UAE_MAP_URL}')`,
                 WebkitMaskImage: `url('${UAE_MAP_URL}')`,
@@ -104,13 +79,13 @@ export default function ContactMap() {
                 WebkitMaskSize: "contain",
                 backgroundImage:
                   "radial-gradient(var(--color-teal-light, #80a6af) 1.5px, transparent 1.5px)",
-                backgroundSize: "8px 8px"
+                backgroundSize: "0.9cqw 0.9cqw"
               }}
             />
 
-            {/* Glowing Map Border Overlay */}
+            {/* إطار مضيء خفيف حول الخريطة */}
             <div
-              className="pointer-events-none absolute inset-0 size-full p-6 opacity-30 blur-sm select-none md:p-12"
+              className="pointer-events-none absolute inset-0 size-full opacity-30 blur-sm select-none"
               style={{
                 maskImage: `url('${UAE_MAP_URL}')`,
                 WebkitMaskImage: `url('${UAE_MAP_URL}')`,
@@ -125,127 +100,102 @@ export default function ContactMap() {
               }}
             />
 
-            {/* Floating Cards */}
-            <div className="pointer-events-none absolute inset-0 z-20 hidden md:block">
-              <FloatingStatCard
-                icon={<Building2 className="size-5" />}
-                value="3000+"
-                label="Businesses"
-                className="top-8 left-8"
-              />
-              <FloatingStatCard
-                icon={<ShieldCheck className="size-5" />}
-                value="7"
-                label="Emirates Covered"
-                className="bottom-10 left-8"
-              />
-              <FloatingStatCard
-                icon={<Calendar className="size-5" />}
-                value="16+"
-                label="Years Experience"
-                className="top-8 right-8"
-              />
-              <FloatingStatCard
-                icon={<Headphones className="size-5" />}
-                value="24/7"
-                label="Local Support"
-                className="right-8 bottom-10"
-              />
-            </div>
-
-            {/* City Pin Markers */}
-            {UAE_OFFICES.map((loc) => {
-              const isActive = activeOffice === loc.id;
-
-              return (
-                <div
-                  key={loc.id}
-                  className="group absolute z-30 -translate-x-1/2 -translate-y-1/2"
-                  style={{ left: loc.x, top: loc.y }}
-                  onMouseEnter={() => setActiveOffice(loc.id)}
-                  onMouseLeave={() => setActiveOffice(null)}
-                >
-                  <button
-                    type="button"
-                    className="relative flex flex-col items-center focus:outline-none"
-                    onClick={() => setActiveOffice(isActive ? null : loc.id)}
-                  >
-                    {/* Gold Pulsing Point */}
-                    <div className="relative flex items-center justify-center">
-                      <span className="bg-brand-yellow/40 absolute size-7 animate-ping rounded-full" />
-                      <span className="border-brand-yellow-light bg-brand-yellow relative flex size-4 items-center justify-center rounded-full border-2 shadow-md transition-transform duration-300 group-hover:scale-125">
-                        <span className="bg-brand-teal size-1.5 rounded-full" />
-                      </span>
-                    </div>
-
-                    {/* Bilingual Floating Label */}
-                    <div className="border-border bg-popover/90 group-hover:border-brand-yellow mt-1.5 flex flex-col items-center rounded-lg border px-2.5 py-1 text-center shadow-lg backdrop-blur-md transition-all duration-300 group-hover:scale-110">
-                      <span className="text-brand-yellow text-[11px] font-bold">
-                        {loc.nameAr}
-                      </span>
-                      <span className="text-foreground text-[9px] font-black tracking-wider uppercase">
-                        {loc.name}
-                      </span>
-                    </div>
-                  </button>
-                </div>
-              );
-            })}
-          </div>
-
-          {/* Mobile Grid Layout */}
-          <div className="mt-4 grid grid-cols-2 gap-3 md:hidden">
-            <div className="border-border bg-card flex items-center gap-3 rounded-2xl border p-3 backdrop-blur-md">
-              <div className="border-border bg-muted/50 text-brand-yellow flex size-9 shrink-0 items-center justify-center rounded-xl border">
-                <Building2 className="size-4" />
+            {/* 2. البطاقات الأربع في الزوايا الأربع (تتكيف قيمها بحجم cqw لتظل واضحة وبنفس المكان) */}
+            {/* أعلى اليسار */}
+            <div className="border-border bg-background/80 absolute top-[5%] left-[4%] z-20 flex items-center gap-[1.2cqw] rounded-[1.2cqw] border p-[1.2cqw] shadow-lg backdrop-blur-md">
+              <div className="border-border bg-muted/50 text-brand-yellow flex size-[3.2cqw] items-center justify-center rounded-[0.8cqw] border">
+                <Building2 className="size-[1.8cqw]" />
               </div>
               <div>
-                <div className="text-foreground text-sm font-black">3000+</div>
-                <div className="text-muted-foreground text-[10px]">
+                <div className="text-foreground text-[1.8cqw] leading-none font-black">
+                  3000+
+                </div>
+                <div className="text-muted-foreground mt-[0.2cqw] text-[1cqw] font-semibold tracking-wider uppercase">
                   Businesses
                 </div>
               </div>
             </div>
-            <div className="border-border bg-card flex items-center gap-3 rounded-2xl border p-3 backdrop-blur-md">
-              <div className="border-border bg-muted/50 text-brand-yellow flex size-9 shrink-0 items-center justify-center rounded-xl border">
-                <ShieldCheck className="size-4" />
+
+            {/* أعلى اليمين */}
+            <div className="border-border bg-background/80 absolute top-[5%] right-[4%] z-20 flex items-center gap-[1.2cqw] rounded-[1.2cqw] border p-[1.2cqw] shadow-lg backdrop-blur-md">
+              <div className="border-border bg-muted/50 text-brand-yellow flex size-[3.2cqw] items-center justify-center rounded-[0.8cqw] border">
+                <Calendar className="size-[1.8cqw]" />
               </div>
               <div>
-                <div className="text-foreground text-sm font-black">
-                  7 Emirates
+                <div className="text-foreground text-[1.8cqw] leading-none font-black">
+                  16+
                 </div>
-                <div className="text-muted-foreground text-[10px]">
-                  Coverage
-                </div>
-              </div>
-            </div>
-            <div className="border-border bg-card flex items-center gap-3 rounded-2xl border p-3 backdrop-blur-md">
-              <div className="border-border bg-muted/50 text-brand-yellow flex size-9 shrink-0 items-center justify-center rounded-xl border">
-                <Headphones className="size-4" />
-              </div>
-              <div>
-                <div className="text-foreground text-sm font-black">24/7</div>
-                <div className="text-muted-foreground text-[10px]">Support</div>
-              </div>
-            </div>
-            <div className="border-border bg-card flex items-center gap-3 rounded-2xl border p-3 backdrop-blur-md">
-              <div className="border-border bg-muted/50 text-brand-yellow flex size-9 shrink-0 items-center justify-center rounded-xl border">
-                <Calendar className="size-4" />
-              </div>
-              <div>
-                <div className="text-foreground text-sm font-black">16+</div>
-                <div className="text-muted-foreground text-[10px]">
-                  Years Exp
+                <div className="text-muted-foreground mt-[0.2cqw] text-[1cqw] font-semibold tracking-wider uppercase">
+                  Years Experience
                 </div>
               </div>
             </div>
+
+            {/* أسفل اليسار */}
+            <div className="border-border bg-background/80 absolute bottom-[5%] left-[4%] z-20 flex items-center gap-[1.2cqw] rounded-[1.2cqw] border p-[1.2cqw] shadow-lg backdrop-blur-md">
+              <div className="border-border bg-muted/50 text-brand-yellow flex size-[3.2cqw] items-center justify-center rounded-[0.8cqw] border">
+                <ShieldCheck className="size-[1.8cqw]" />
+              </div>
+              <div>
+                <div className="text-foreground text-[1.8cqw] leading-none font-black">
+                  7
+                </div>
+                <div className="text-muted-foreground mt-[0.2cqw] text-[1cqw] font-semibold tracking-wider uppercase">
+                  Emirates Covered
+                </div>
+              </div>
+            </div>
+
+            {/* أسفل اليمين */}
+            <div className="border-border bg-background/80 absolute right-[4%] bottom-[5%] z-20 flex items-center gap-[1.2cqw] rounded-[1.2cqw] border p-[1.2cqw] shadow-lg backdrop-blur-md">
+              <div className="border-border bg-muted/50 text-brand-yellow flex size-[3.2cqw] items-center justify-center rounded-[0.8cqw] border">
+                <Headphones className="size-[1.8cqw]" />
+              </div>
+              <div>
+                <div className="text-foreground text-[1.8cqw] leading-none font-black">
+                  24/7
+                </div>
+                <div className="text-muted-foreground mt-[0.2cqw] text-[1cqw] font-semibold tracking-wider uppercase">
+                  Local Support
+                </div>
+              </div>
+            </div>
+
+            {/* 3. نقاط المدن والبطاقات العائمة فوق الخريطة */}
+            {UAE_CITIES.map((city) => (
+              <div
+                key={city.id}
+                className="group absolute z-30 -translate-x-1/2 -translate-y-1/2"
+                style={{ left: `${city.x}%`, top: `${city.y}%` }}
+              >
+                <div className="relative flex flex-col items-center">
+                  {/* النقطة الصفراء */}
+                  <div className="relative flex items-center justify-center">
+                    <span className="bg-brand-yellow/40 absolute size-[1.8cqw] animate-ping rounded-full" />
+                    <span className="border-brand-yellow-light bg-brand-yellow relative flex size-[1.1cqw] items-center justify-center rounded-full border shadow-md transition-transform duration-300 group-hover:scale-125">
+                      <span className="bg-brand-teal size-[0.4cqw] rounded-full" />
+                    </span>
+                  </div>
+
+                  {/* بطاقة اسم المدينة */}
+                  <div className="border-border bg-popover/90 group-hover:border-brand-yellow mt-[0.4cqw] flex flex-col items-center rounded-[0.4cqw] border px-[0.8cqw] py-[0.3cqw] text-center whitespace-nowrap shadow-lg backdrop-blur-md transition-all duration-300">
+                    <span className="text-brand-yellow text-[1cqw] leading-tight font-bold">
+                      {city.nameAr}
+                    </span>
+                    <span className="text-foreground text-[0.8cqw] leading-tight font-black tracking-wider uppercase">
+                      {city.nameEn}
+                    </span>
+                  </div>
+                </div>
+              </div>
+            ))}
           </div>
         </div>
 
         {/* Bottom Contact Details Panel */}
-        <div className="border-border bg-card/80 relative z-10 mt-12 grid grid-cols-1 items-center justify-center gap-6 rounded-3xl border p-6 shadow-xl backdrop-blur-xl sm:grid-cols-2 lg:mx-auto lg:max-w-3xl">
+        <div className="border-border bg-card/80 relative z-10 mt-8 grid grid-cols-1 items-center justify-center gap-4 rounded-3xl border p-5 shadow-xl backdrop-blur-xl sm:grid-cols-2 lg:mx-auto lg:max-w-3xl">
           <div className="flex items-start gap-4 p-2">
-            <div className="border-border bg-muted/40 text-brand-yellow flex size-12 shrink-0 items-center justify-center rounded-2xl border">
+            <div className="border-border bg-muted/40 text-brand-yellow flex size-11 shrink-0 items-center justify-center rounded-2xl border">
               <Phone className="size-5" />
             </div>
             <div>
@@ -254,7 +204,7 @@ export default function ContactMap() {
               </h4>
               <a
                 href={`tel:${COMPANY.phoneTel}`}
-                className="text-foreground hover:text-brand-yellow mt-1 block text-sm font-bold transition-colors"
+                className="text-foreground hover:text-brand-yellow mt-0.5 block text-sm font-bold transition-colors"
               >
                 {COMPANY.phoneDisplay}
               </a>
@@ -274,7 +224,7 @@ export default function ContactMap() {
               </h4>
               <a
                 href={`mailto:${COMPANY.email}`}
-                className="text-foreground hover:text-brand-yellow mt-1 block text-sm font-bold transition-colors"
+                className="text-foreground hover:text-brand-yellow mt-0.5 block text-sm font-bold transition-colors"
               >
                 {COMPANY.email}
               </a>

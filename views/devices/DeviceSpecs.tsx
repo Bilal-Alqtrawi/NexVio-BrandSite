@@ -1,15 +1,44 @@
 import type { Device } from "@/lib/devices";
 import FlipCard from "./FlipCard";
 
+const DEFAULT_ENGAGEMENT_ITEMS = [
+  { title: "Cloud Sync", subtitle: "Always Connected" },
+  { title: "Customer Profiles", subtitle: "Instant Access" },
+  { title: "Loyalty Rewards", subtitle: "Ready to Redeem" }
+];
+
 export default function DeviceSpecs({ device }: { device: Device }) {
+  const details = device.featureDetails;
+
+  const featuresText =
+    details?.featuresText ||
+    "A compact, smart device designed to seamlessly streamline operations, drive retail growth, and sell anywhere.";
+
+  const featuresTags = details?.featuresTags || [
+    "POS",
+    "Payments",
+    "Inventory",
+    "CRM"
+  ];
+
+  const benefitsText =
+    details?.benefitsText ||
+    `The ${device.name} ecosystem offers fast secure transactions, enterprise connectivity, and optimized workflow management.`;
+
+  const engagementText =
+    details?.engagementText ||
+    "Engage customers everywhere—on the shop floor, indoors, or outdoors—all while staying connected to your central cloud terminal.";
+
+  const engagementItems = details?.engagementItems || DEFAULT_ENGAGEMENT_ITEMS;
+
   return (
     <section className="bg-brand-teal relative z-10 overflow-hidden py-24 lg:py-32">
-      {/* Subtle Glow Background */}
+      {/* Background Glow */}
       <div className="bg-brand-yellow/5 pointer-events-none absolute top-1/2 left-1/2 size-150 -translate-x-1/2 -translate-y-1/2 rounded-full blur-[160px]" />
 
       <div className="relative z-10 container mx-auto max-w-7xl px-6 md:px-12 lg:px-8">
         {/* Section Heading */}
-        <div className="mx-auto mb-20 max-w-3xl space-y-4 text-center">
+        <div className="mx-auto mb-16 max-w-3xl space-y-4 text-center">
           <span className="text-brand-yellow border-brand-yellow/30 bg-brand-yellow/10 inline-block rounded-full border px-4 py-1 text-xs font-black tracking-widest uppercase">
             Core Performance
           </span>
@@ -20,28 +49,41 @@ export default function DeviceSpecs({ device }: { device: Device }) {
 
         {/* Dynamic Cards Grid */}
         <div className="grid grid-cols-1 items-stretch gap-8 md:grid-cols-3">
+          {/* Card 1: Features */}
           <FlipCard
             title="Features"
             frontBg="bg-brand-cream/10 border border-brand-cream/15 text-brand-cream backdrop-blur-md shadow-lg"
             backBg="bg-brand-cream text-brand-teal shadow-2xl"
             frontContent={
-              <>
-                <p className="text-brand-cream/80 text-sm leading-relaxed font-medium">
-                  A compact, smart infrastructure designed to seamlessly
-                  streamline operations, drive retail growth, and sell anywhere.
+              <div className="flex h-full flex-col justify-between space-y-6">
+                <p className="text-brand-cream/90 text-sm leading-relaxed font-medium">
+                  {featuresText}
                 </p>
-                <div className="text-brand-yellow mt-auto flex items-center gap-1.5 pt-4 text-[11px] font-black tracking-widest uppercase opacity-80 transition-opacity group-hover:opacity-100">
+
+                {/* Fill empty space with feature tags */}
+                <div className="grid grid-cols-2 gap-2.5 pt-2">
+                  {featuresTags.map((tag) => (
+                    <div
+                      key={tag}
+                      className="border-brand-cream/20 bg-brand-cream/10 flex items-center justify-center rounded-xl border px-3 py-2 text-center text-xs font-bold"
+                    >
+                      {tag}
+                    </div>
+                  ))}
+                </div>
+
+                <div className="text-brand-yellow mt-auto flex items-center gap-1.5 pt-2 text-[11px] font-black tracking-widest uppercase opacity-80 transition-opacity group-hover:opacity-100">
                   <span>Hover to flip</span>
                   <span className="text-sm">→</span>
                 </div>
-              </>
+              </div>
             }
             backContent={
               <>
                 <h4 className="text-brand-teal mb-5 text-lg font-black tracking-wider uppercase">
                   Core Specs
                 </h4>
-                <ul className="space-y-4">
+                <ul className="space-y-3.5">
                   {device.specs.map((spec) => (
                     <li
                       key={spec}
@@ -70,17 +112,23 @@ export default function DeviceSpecs({ device }: { device: Device }) {
             }
           />
 
+          {/* Card 2: Benefits */}
           <FlipCard
             title="Benefits"
             frontBg="bg-brand-yellow text-brand-teal shadow-xl border-none"
             backBg="bg-brand-cream text-brand-teal shadow-2xl"
             frontContent={
-              <>
-                <p className="text-brand-teal/90 mb-4 text-sm leading-relaxed font-bold">
-                  The {device.name} ecosystem offers fast secure transactions,
-                  enterprise connectivity, and optimized workflow tracking.
+              <div className="flex h-full flex-col justify-between space-y-6">
+                <p className="text-brand-teal/90 text-sm leading-relaxed font-bold">
+                  {benefitsText}
                 </p>
-              </>
+
+                <div className="bg-brand-teal/10 border-brand-teal/20 mt-auto rounded-2xl border p-4 text-center">
+                  <p className="text-brand-teal text-xs font-black tracking-wider uppercase">
+                    Optimized Workflow Management
+                  </p>
+                </div>
+              </div>
             }
             backContent={
               <div className="space-y-3 px-2 text-center">
@@ -95,24 +143,40 @@ export default function DeviceSpecs({ device }: { device: Device }) {
             }
           />
 
-          {/* Card 3: Engagement (Clean Light Cream Style) */}
+          {/* Card 3: Engagement */}
           <FlipCard
             title="Engagement"
             frontBg="bg-brand-cream text-brand-teal shadow-xl border-none"
             backBg="bg-brand-teal text-brand-cream border border-brand-cream/20 shadow-2xl"
             frontContent={
-              <>
+              <div className="flex h-full flex-col justify-between space-y-5">
                 <p className="text-brand-teal/80 text-sm leading-relaxed font-bold">
-                  Engage customers everywhere—on the shop floor, indoors, or
-                  outdoors—all while staying connected to your central cloud
-                  terminal.
+                  {engagementText}
                 </p>
-                <div className="border-brand-teal/15 bg-brand-teal/5 mt-auto rounded-2xl border p-4">
-                  <p className="text-brand-teal text-center text-[11px] font-black tracking-widest uppercase">
+
+                {/* Engagement grid items to fill space */}
+                <div className="space-y-2 pt-1">
+                  {engagementItems.map((item) => (
+                    <div
+                      key={item.title}
+                      className="border-brand-teal/10 bg-brand-teal/5 flex items-center justify-between rounded-xl border px-3.5 py-2"
+                    >
+                      <span className="text-brand-teal text-xs font-black uppercase">
+                        {item.title}
+                      </span>
+                      <span className="text-brand-teal/60 text-[10px] font-semibold">
+                        {item.subtitle}
+                      </span>
+                    </div>
+                  ))}
+                </div>
+
+                {/* <div className="border-brand-teal/15 bg-brand-teal/5 mt-auto rounded-2xl border p-3">
+                  <p className="text-brand-teal text-center text-[10px] font-black tracking-widest uppercase">
                     Cloud Analytics Enabled
                   </p>
-                </div>
-              </>
+                </div> */}
+              </div>
             }
             backContent={
               <div className="space-y-5">

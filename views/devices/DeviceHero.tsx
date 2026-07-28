@@ -49,7 +49,7 @@ export default function DeviceHero({ device }: { device: Device }) {
             {/* CTA Buttons */}
             <div className="flex flex-wrap items-center gap-4 pt-4">
               <Button className="bg-brand-yellow text-brand-teal rounded-full px-8 py-6 text-xs font-black tracking-widest uppercase shadow-xl transition-all duration-300 hover:bg-white hover:text-black">
-                <Link href="#contact-us">
+                <Link href="#contact-us" className="flex items-center">
                   <span>Get Started</span>
                   <ArrowRight className="ml-2 size-4" />
                 </Link>

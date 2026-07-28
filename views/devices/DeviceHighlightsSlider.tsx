@@ -87,14 +87,21 @@ export default function DeviceHighlightsSlider({ device }: { device: Device }) {
       >
         <div className="bg-brand-yellow/10 pointer-events-none absolute top-1/2 left-1/2 size-125 -translate-x-1/2 -translate-y-1/2 rounded-full blur-[130px]" />
 
-        <div className="relative z-10 container mx-auto max-w-7xl shrink-0 px-6 text-center">
+        <div className="relative z-10 container mx-auto max-w-7xl shrink-0 space-y-3 px-6 text-center">
           <h2 className="text-brand-yellow text-3xl font-black tracking-widest uppercase sm:text-5xl">
-            Highlights
+            <span className="text-brand-cream">{device.name}</span> Highlights
           </h2>
+          <p className="text-brand-cream/80 mx-auto max-w-lg">
+            {device.slug === "nova-modu" || device.slug === "nova-maket"
+              ? "Designed to simplify retail operations, accelerate checkouts, and enhance every customer interaction."
+              : device.slug === "nova-c20"
+                ? "Designed for fast, secure payments and smooth everyday retail transactions."
+                : "Designed to streamline self-service, accelerate ordering, and enhance every customer interaction."}
+          </p>
         </div>
 
         <div className="relative z-10 my-auto flex w-full flex-1 items-center justify-center overflow-hidden px-6">
-          <div className="relative flex h-80 w-full max-w-lg items-center justify-center">
+          <div className="relative flex h-85 w-full max-w-2xl items-center justify-center">
             <AnimatePresence initial={false} custom={direction} mode="wait">
               {highlights.length > 0 && (
                 <motion.div
@@ -111,7 +118,7 @@ export default function DeviceHighlightsSlider({ device }: { device: Device }) {
                     <IconComponent className="size-7 stroke-[2.5]" />
                   </div>
 
-                  <div className="mt-4 flex-1 space-y-3">
+                  <div className="mt-6 flex-1 space-y-3">
                     <h3 className="text-brand-cream text-xl leading-snug font-black tracking-tight sm:text-2xl">
                       {highlights[currentIndex].title}.
                     </h3>
@@ -136,7 +143,7 @@ export default function DeviceHighlightsSlider({ device }: { device: Device }) {
                   : "border-brand-cream/30 text-brand-cream hover:border-brand-yellow hover:bg-brand-yellow/10"
               }`}
             >
-              <ChevronLeft className="size-5" />
+              <ChevronLeft className="size-6.5" />
             </button>
 
             <div className="flex items-center gap-2 px-1">
@@ -161,7 +168,7 @@ export default function DeviceHighlightsSlider({ device }: { device: Device }) {
                   : "border-brand-cream/30 text-brand-cream hover:border-brand-yellow hover:bg-brand-yellow/10"
               }`}
             >
-              <ChevronRight className="size-5" />
+              <ChevronRight className="size-6.5" />
             </button>
           </div>
         </div>

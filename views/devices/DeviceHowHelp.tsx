@@ -28,8 +28,8 @@ export default function DeviceHowHelp({ device }: DeviceHowHelpProps) {
           className="max-w-3xl space-y-8"
         >
           <h2 className="text-brand-cream text-3xl font-black tracking-tight uppercase sm:text-4xl md:text-5xl">
-            How can <span className="text-brand-yellow">{device.name}</span>{" "}
-            help you grow?
+            Ready to Grow with the{" "}
+            <span className="text-brand-yellow">{device.name}</span> ?
           </h2>
 
           <motion.div

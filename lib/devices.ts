@@ -18,6 +18,14 @@ export interface DeviceFAQItem {
   answer: string;
 }
 
+export interface DeviceFeatureDetails {
+  featuresText?: string;
+  featuresTags?: string[];
+  benefitsText?: string;
+  engagementText?: string;
+  engagementItems?: { title: string; subtitle: string }[];
+}
+
 export interface Device {
   slug: string;
   name: string;
@@ -30,6 +38,7 @@ export interface Device {
   specSheet?: DeviceSpecSheet;
   videoUrl?: string;
   faqs?: DeviceFAQItem[];
+  featureDetails?: DeviceFeatureDetails;
 }
 
 export const devices: Device[] = [
@@ -40,7 +49,7 @@ export const devices: Device[] = [
     description:
       "Serve customers and accept payments anywhere, using a single, compact retail POS solution, built for business growth.",
     bannerImg: "/banners/nova-55f-banner.jpeg",
-    deviceImg: "/images/devices/heroes/nova-55f.png",
+    deviceImg: "/devices/nova-55f.png",
     videoUrl: "/videos/nova-55f.mp4",
     specs: [
       "Accepts cards, wallets, and more - on the go",
@@ -50,9 +59,8 @@ export const devices: Device[] = [
     ],
     highlights: [
       {
-        title: "Globally Trusted",
-        description:
-          "Secure, reliable devices trusted by businesses worldwide to scale daily operations."
+        title: "Built for Business",
+        description: "Reliable technology engineered for everyday operations."
       },
       {
         title: "80+ Payment Methods",
@@ -78,22 +86,31 @@ export const devices: Device[] = [
       printer: "Built-in 58mm high-speed thermal printer",
       connectivity: "4G LTE / Dual-band Wi-Fi / Bluetooth 5.0",
       battery: "5200mAh Li-ion rechargeable for full-day mobility"
+    },
+    featureDetails: {
+      featuresText:
+        "A compact, smart device designed to seamlessly streamline operations, drive retail growth, and sell anywhere.",
+      featuresTags: ["POS", "Payments", "Inventory", "CRM"],
+      benefitsText:
+        "The Nova 55F ecosystem offers fast secure transactions, enterprise connectivity, and optimized workflow management.",
+      engagementText:
+        "Engage customers everywhere—on the shop floor, indoors, or outdoors—all while staying connected to your central cloud terminal."
     }
   },
   {
     slug: "nova-modu",
     name: "Nova Modu",
-    tagline: "A smart POS for ultimate business flexibility",
+    tagline: "The Smart POS That Adapts to Your Business",
     description:
-      "A highly modular smart retail device crafted to adapt seamlessly to your inventory tracking, mobile or tabletop needs.",
+      "Designed for businesses that need flexibility, Nova Modu adapts to mobile, countertop, and retail environments while keeping operations fast, connected, and efficient.",
     bannerImg: "/banners/nova-modu-banner.jpeg",
-    deviceImg: "/images/devices/heroes/nova-modu.png",
+    deviceImg: "/devices/nova-modu.png",
     videoUrl: "/videos/nova-modu.mp4",
     specs: [
       '6.5" bright touch screen',
-      "Optional clip-on scanner for barcodes",
-      "Flexible attachment options for thermal printers",
-      "Supports 5G and Wi-Fi 6 connectivity"
+      "Optional Barcode Scanner",
+      "Thermal Printer Support",
+      "5G & Wi-Fi 6 Connectivity"
     ],
     highlights: [
       {
@@ -114,6 +131,15 @@ export const devices: Device[] = [
       display: "6.5-inch FHD+ capacitive touch screen",
       connectivity: "5G / 4G LTE / Wi-Fi 6 / NFC",
       battery: "6000mAh with Quick Charge"
+    },
+    featureDetails: {
+      featuresText:
+        "A compact, smart device designed to seamlessly streamline operations.",
+      featuresTags: ["Modular POS", "Barcodes", "5G Ready", "Flexibility"],
+      benefitsText:
+        "The Nova Modu ecosystem offers fast secure transactions, enterprise connectivity, and optimized workflow management.",
+      engagementText:
+        "Engage customers everywhere—on the shop floor, indoors, or outdoors—all while staying connected to your central cloud terminal."
     }
   },
   {
@@ -121,9 +147,9 @@ export const devices: Device[] = [
     name: "Nova Kiosk",
     tagline: "Self-service reimagined for modern retail",
     description:
-      "Empower your customers to browse, order, and pay independently with a sleek interactive terminal assembled on a dedicated kiosk stand.",
+      "Empower customers to browse, order, and pay independently through a sleek, self-service kiosk designed for fast and seamless experiences.",
     bannerImg: "/banners/nova-kiosk-banner.jpeg",
-    deviceImg: "/images/devices/heroes/nova-kiosk.png",
+    deviceImg: "/devices/nova-kiosk.webp",
     videoUrl: "/videos/nova-kiosk.mp4",
     specs: [
       '21.5" Full HD interactive touch display',
@@ -142,7 +168,21 @@ export const devices: Device[] = [
         description:
           "Smart software UI encourages add-ons and dynamic promotions seamlessly."
       }
-    ]
+    ],
+    featureDetails: {
+      featuresText:
+        "A complete self-service kiosk designed to streamline operations and improve customer flow.",
+      featuresTags: [
+        "Self-Service",
+        "Touch Display",
+        "Auto-Cutter",
+        "Kiosk Stand"
+      ],
+      benefitsText:
+        "The Nova Kiosk ecosystem offers fast secure transactions, enterprise connectivity, and optimized workflow management.",
+      engagementText:
+        "Engage customers everywhere—on the shop floor, indoors, or outdoors—all while staying connected to your central cloud terminal."
+    }
   },
   {
     slug: "nova-c20",
@@ -151,7 +191,7 @@ export const devices: Device[] = [
     description:
       "A durable countertop cash register built for fast checkouts, keeping lines moving and customers happy with smooth retail operations.",
     bannerImg: "/sliders/slider-2.svg",
-    deviceImg: "/images/devices/heroes/nova-c20.png",
+    deviceImg: "/devices/156.png",
     videoUrl: "/videos/nova-c3.mp4",
     specs: [
       "Accepts EMV, contactless, magnetic stripe, QR code, and mobile wallet payments",
@@ -204,7 +244,21 @@ export const devices: Device[] = [
         answer:
           "Absolutely. Thanks to its compact design and robust connectivity, it seamlessly integrates with Nayax POS setups and self-checkout kiosks."
       }
-    ]
+    ],
+    featureDetails: {
+      featuresText:
+        "A compact countertop payment terminal designed for fast, secure transactions and reliable everyday retail operations.",
+      featuresTags: [
+        "Countertop",
+        "NFC / QR",
+        "PCI Compliant",
+        "Multi-Language"
+      ],
+      benefitsText:
+        "The Nova C20 ecosystem offers fast secure transactions, enterprise connectivity, and optimized workflow management.",
+      engagementText:
+        "Engage customers everywhere—on the shop floor, indoors, or outdoors—all while staying connected to your central cloud terminal."
+    }
   },
   {
     slug: "nova-market",
@@ -213,7 +267,7 @@ export const devices: Device[] = [
     description:
       "A stylish dual-display POS station designed for boutiques, cafés, and modern micromarkets—built as a true cash register, not a PIN pad.",
     bannerImg: "/banners/nova-market-banner.jpeg",
-    deviceImg: "/images/devices/heroes/nova-market.png",
+    deviceImg: "/devices/nova-market.webp",
     videoUrl: "/videos/nova-market.mp4",
     specs: [
       "High-definition dual IPS capacitive display",
@@ -231,7 +285,16 @@ export const devices: Device[] = [
         description:
           "Intuitive touch controls optimized for speedy orders and multi-operator shifts."
       }
-    ]
+    ],
+    featureDetails: {
+      featuresText:
+        "A smart retail POS station designed to streamline operations, improve efficiency, and support everyday business growth.",
+      featuresTags: ["Dual Display", "Fast Checkout", "Scanner", "Printer"],
+      benefitsText:
+        "The Nova Market ecosystem offers fast secure transactions, enterprise connectivity, and optimized workflow management.",
+      engagementText:
+        "Engage customers everywhere—on the shop floor, indoors, or outdoors—all while staying connected to your central cloud terminal."
+    }
   }
 ];
 

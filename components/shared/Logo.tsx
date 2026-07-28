@@ -3,7 +3,7 @@ import Image from "next/image";
 export default function Logo() {
   return (
     <Image
-      src="/logo.svg"
+      src="/logo-dark.svg"
       alt="NexVio Logo"
       width={131}
       height={28}

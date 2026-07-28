@@ -23,7 +23,7 @@ export default function FaqView() {
       {/* Dynamic Background Mesh */}
       <div className="pointer-events-none absolute inset-0 z-0">
         <div
-          className="absolute inset-0 bg-[linear-gradient(to_right,rgba(255,255,255,0.02)_1px,transparent_1px),linear-gradient(to_bottom,rgba(255,255,255,0.02)_1px,transparent_1px)] bg-size[5rem_5rem]"
+          className="bg-size[5rem_5rem] absolute inset-0 bg-[linear-gradient(to_right,rgba(255,255,255,0.02)_1px,transparent_1px),linear-gradient(to_bottom,rgba(255,255,255,0.02)_1px,transparent_1px)]"
           style={{
             WebkitMaskImage:
               "radial-gradient(ellipse 80% 50% at 50% 0%, #000 70%, transparent 100%)",
@@ -65,8 +65,7 @@ export default function FaqView() {
             </span>
 
             <p className="text-muted-foreground max-w-xs pt-1 text-sm leading-relaxed font-medium tracking-wide">
-              Everything you need to know about NexVio, answered clearly in one
-              place.
+              Answers to the questions businesses <br /> ask most
             </p>
           </motion.div>
         </section>

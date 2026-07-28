@@ -21,7 +21,7 @@ export const faqData = [
     id: "faq-4",
     question: "How does NexVio process payments?",
     answer:
-      "Payments are accepted directly from the same smart device used to take the order — cards, contactless, digital wallets and QR codes are all supported, with every transaction reconciled automatically."
+      "Payments are accepted directly through the same smart device used for sales.Cards, contactless payments, digital wallets, and QR codes are all supported, with every transaction securely processed and automatically synchronized."
   },
   {
     id: "faq-5",
@@ -43,7 +43,7 @@ export const faqData = [
   },
   {
     id: "faq-8",
-    question: "Can I get real-time reports on how my business is doing?",
+    question: "Can I monitor my business in real time?",
     answer:
       "Yes. NexVio's Business Intelligence gives you a live dashboard covering sales, revenue, inventory, employee performance and branch performance, updated in real time."
   }

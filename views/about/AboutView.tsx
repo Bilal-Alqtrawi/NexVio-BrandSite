@@ -88,8 +88,8 @@ export default function AboutView() {
       </section>
 
       <section className="container mx-auto mt-28 px-4 sm:px-8">
-        <div className="mb-12 space-y-2 text-center">
-          <span className="text-brand-yellow text-xs font-black tracking-widest uppercase">
+        <div className="mb-12 space-y-4 text-center">
+          <span className="text-brand-yellow inline-flex text-xs font-black tracking-widest uppercase">
             Strategic Advantages
           </span>
           <h2 className="text-brand-cream text-3xl font-black tracking-tight uppercase sm:text-4xl lg:text-5xl">
@@ -160,14 +160,14 @@ export default function AboutView() {
       </section>
 
       <section className="border-teal-light/20 container mx-auto mt-24 border-t px-4 pt-16 text-center sm:px-8">
-        <div className="bg-brand-cream border-brand-yellow/30 mx-auto max-w-2xl space-y-4 rounded-2xl border p-8 shadow-xl">
+        <div className="from-brand-yellow-light via-brand-yellow to-brand-yellow border-brand-yellow/30 mx-auto max-w-2xl space-y-4 rounded-2xl border bg-linear-to-tl p-8 shadow-xl">
           <div className="bg-brand-teal text-brand-yellow inline-flex size-10 items-center justify-center rounded-xl">
             <Sparkles className="size-5" />
           </div>
           <h3 className="text-brand-teal text-xl font-black tracking-tight uppercase sm:text-2xl">
             The NexVio Promise
           </h3>
-          <p className="text-brand-teal/80 text-base leading-relaxed font-medium italic sm:text-lg">
+          <p className="text-brand-teal/80 text-base leading-relaxed font-medium sm:text-lg">
             &ldquo;Helping businesses simplify operations, improve efficiency
             and deliver better customer experiences every day.&rdquo;
           </p>

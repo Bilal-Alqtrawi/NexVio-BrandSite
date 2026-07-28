@@ -32,9 +32,15 @@ export default function DeviceSpecsSheet({
                 <Cpu className="size-3.5" />
                 <span>Technical Sheet</span>
               </div>
-              <h2 className="text-brand-cream text-3xl font-black tracking-tight uppercase sm:text-4xl lg:text-5xl">
-                Technical Specifications
-              </h2>
+              <div className="space-y-3">
+                <h2 className="text-brand-cream text-3xl font-black tracking-tight uppercase sm:text-4xl lg:text-5xl">
+                  Built for Performance
+                </h2>
+                <p className="text-brand-cream/60 max-w-sm text-sm">
+                  Powerful hardware engineered for speed, reliability, and
+                  all-day business operations
+                </p>
+              </div>
             </div>
 
             <div className="grid gap-4 sm:grid-cols-2">
@@ -66,11 +72,11 @@ export default function DeviceSpecsSheet({
             transition={{ duration: 0.5 }}
             className="w-full lg:col-span-5"
           >
-            <div className="bg-brand-cream text-brand-teal relative flex min-h-110 flex-col items-center justify-center rounded-[36px] p-8 shadow-2xl">
+            <div className="text-brand-teal p relative flex min-h-110 flex-col items-center justify-center">
               {/* Product Image Container with subtle background ring */}
-              <div className="relative flex size-56 items-center justify-center">
+              <div className="relative flex size-80 items-center justify-center">
                 <div className="bg-brand-teal/5 absolute inset-0 rounded-full blur-sm" />
-                <div className="relative size-48 transition-transform duration-500 hover:scale-105">
+                <div className="relative h-full w-full scale-120 transition-transform duration-500 hover:scale-125">
                   <Image
                     src={device.deviceImg}
                     alt={device.name}
