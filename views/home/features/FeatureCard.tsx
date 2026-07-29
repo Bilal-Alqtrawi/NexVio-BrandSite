@@ -1,4 +1,4 @@
-import { FeatureItem } from "./features.data";
+import type { FeatureItem } from "./features.data";
 import { cn } from "@/lib/utils";
 import { motion, useReducedMotion } from "framer-motion";
 
@@ -33,7 +33,9 @@ export default function FeatureCard({ feat }: { feat: FeatureItem }) {
       />
       <motion.div
         className="pointer-events-none absolute -right-8 -bottom-8 z-0 transition-all duration-700 ease-out group-hover:-translate-x-2 group-hover:-translate-y-2 group-hover:scale-110"
-        whileHover={!shouldReduceMotion && { scale: 1.1, x: -8, y: -8 }}
+        whileHover={
+          !shouldReduceMotion ? { scale: 1.1, x: -8, y: -8 } : undefined
+        }
         transition={{ duration: 0.3, ease: "easeOut" }}
         style={{ willChange: "transform" }}
       >
@@ -77,7 +79,7 @@ export default function FeatureCard({ feat }: { feat: FeatureItem }) {
           className={cn(
             "group-hover:text-brand-yellow-light text-xl font-bold tracking-tight text-white transition-colors duration-300 sm:text-2xl"
           )}
-          whileHover={!shouldReduceMotion && { color: "#fbbf24" }}
+          whileHover={!shouldReduceMotion ? { color: "#fbbf24" } : undefined}
           transition={{ duration: 0.2, ease: "easeOut" }}
         >
           {feat.title}
