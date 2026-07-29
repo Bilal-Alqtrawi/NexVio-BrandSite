@@ -1,7 +1,7 @@
 "use client";
 
 import Image from "next/image";
-import { motion, Variants } from "framer-motion";
+import { motion, Variants, useReducedMotion } from "framer-motion";
 import { ShieldCheck } from "lucide-react";
 
 const textContainerVariants: Variants = {
@@ -30,16 +30,20 @@ const cardHoverEffect: Variants = {
 };
 
 export default function Hero() {
+  const shouldReduceMotion = useReducedMotion();
+
   return (
     <motion.section
       id="overview"
       className="relative container mx-auto w-full overflow-hidden px-4 pt-16 pb-24 sm:px-6"
+      viewport={{ once: true, margin: "-100px" }}
     >
       <motion.div
         className="mb-16 space-y-4 text-center"
         variants={textContainerVariants}
         initial="hidden"
-        animate="visible"
+        animate={shouldReduceMotion ? "visible" : "visible"}
+        style={{ willChange: "transform, opacity" }}
       >
         <motion.h1
           variants={textItemVariants}
@@ -58,7 +62,7 @@ export default function Hero() {
 
       <div className="grid grid-cols-1 items-stretch gap-6 md:grid-cols-2 lg:grid-cols-4">
         <motion.figure
-          whileHover="hover"
+          whileHover={shouldReduceMotion ? undefined : "hover"}
           variants={cardHoverEffect}
           style={{ willChange: "transform" }}
           className="from-brand-yellow relative flex flex-col items-center justify-center overflow-hidden rounded-[2rem] border bg-linear-to-t lg:col-span-2"
@@ -81,8 +85,9 @@ export default function Hero() {
 
         <div className="flex flex-col gap-6 lg:col-span-1">
           <motion.div
-            whileHover="hover"
+            whileHover={shouldReduceMotion ? undefined : "hover"}
             variants={cardHoverEffect}
+            style={{ willChange: "transform" }}
             className="border-teal-light/20 relative overflow-hidden rounded-[2rem] border"
           >
             <Image
@@ -96,8 +101,9 @@ export default function Hero() {
           </motion.div>
 
           <motion.div
-            whileHover="hover"
+            whileHover={shouldReduceMotion ? undefined : "hover"}
             variants={cardHoverEffect}
+            style={{ willChange: "transform" }}
             className="from-brand-yellow-light via-brand-yellow text-brand-teal relative flex h-52 w-auto flex-col items-center justify-center gap-4 overflow-hidden rounded-[2rem] bg-linear-to-br to-[#d1b000] shadow-lg"
           >
             <ShieldCheck size={60} className="text-brand-teal" />
@@ -108,8 +114,9 @@ export default function Hero() {
         </div>
 
         <motion.div
-          whileHover="hover"
+          whileHover={shouldReduceMotion ? undefined : "hover"}
           variants={cardHoverEffect}
+          style={{ willChange: "transform" }}
           className="border-teal-light/20 relative overflow-hidden rounded-[2rem] border lg:col-span-1"
         >
           <Image

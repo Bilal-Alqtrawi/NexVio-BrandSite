@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import Image from "next/image";
-import { AnimatePresence, motion } from "framer-motion";
+import { AnimatePresence, motion, useReducedMotion } from "framer-motion";
 import {
   ChevronLeft,
   ChevronRight,
@@ -56,6 +56,7 @@ const controls = [
 export default function Devices() {
   const [index, setIndex] = useState(0);
   const [direction, setDirection] = useState(0);
+  const shouldReduceMotion = useReducedMotion();
 
   const goTo = (dir: 1 | -1) => {
     setDirection(dir);
@@ -70,12 +71,23 @@ export default function Devices() {
   const nextSlide = getSlide(1);
 
   return (
-    <section
+    <motion.section
       id="devices"
       className="relative w-full space-y-16 overflow-x-hidden pt-16 pb-24"
+      initial={shouldReduceMotion ? undefined : { opacity: 0, y: 20 }}
+      animate={shouldReduceMotion ? { opacity: 1, y: 0 } : { opacity: 1, y: 0 }}
+      transition={{ duration: 0.6, ease: "easeOut" }}
+      style={{ willChange: "transform, opacity" }}
+      viewport={{ once: true, margin: "-200px" }}
     >
       {/* Header Section */}
-      <div className="container mx-auto flex flex-col justify-between gap-6 px-4 sm:flex-row sm:items-start sm:px-10 lg:px-40">
+      <motion.div
+        className="container mx-auto flex flex-col justify-between gap-6 px-4 sm:flex-row sm:items-start sm:px-10 lg:px-40"
+        initial={shouldReduceMotion ? undefined : { opacity: 0, y: 20 }}
+        animate={shouldReduceMotion ? { opacity: 1, y: 0 } : { opacity: 1, y: 0 }}
+        transition={{ duration: 0.5, ease: "easeOut", delay: 0.1 }}
+        style={{ willChange: "transform, opacity" }}
+      >
         <div className="max-w-2xl space-y-3">
           <span className="text-brand-yellow text-xs font-bold tracking-widest uppercase">
             Smart Commerce Devices
@@ -93,7 +105,7 @@ export default function Devices() {
             solution.
           </p>
         </div>
-      </div>
+      </motion.div>
 
       {/* Main Slider Area */}
       <div className="relative flex w-full items-stretch gap-3 px-4 sm:gap-4 sm:px-0">
@@ -108,6 +120,8 @@ export default function Devices() {
             alt=""
             fill
             className="rounded-l-none rounded-r-3xl object-cover"
+            sizes="(max-width: 768px) 100vw, 80vw"
+            priority
           />
         </button>
 
@@ -129,6 +143,8 @@ export default function Devices() {
                 willChange: "transform, opacity"
               }}
               onDragEnd={(e, { offset, velocity }) => {
+                if (shouldReduceMotion) return;
+
                 const swipeDistance = Math.abs(offset.x) > 50;
                 const swipeFlick = Math.abs(velocity.x) > 500;
 
@@ -172,10 +188,14 @@ export default function Devices() {
             <Button
               nativeButton={false}
               render={<Link href={`/devices/${active.slug}`} />}
-              className="bg-brand-yellow text-brand-teal group flex shrink-0 items-center justify-between gap-3 rounded-full px-5 py-3 font-semibold transition duration-300 hover:bg-white sm:mr-15 sm:self-auto sm:px-6 lg:py-8"
+              className={cn(
+                "bg-brand-yellow text-brand-teal group flex shrink-0 items-center justify-between gap-3 rounded-full px-5 py-3 font-semibold transition duration-300 hover:bg-white sm:mr-15 sm:self-auto sm:px-6 lg:py-8"
+              )}
             >
               <span className="text-xs font-bold sm:text-sm">view more</span>
-              <span className="bg-brand-teal text-brand-yellow group-hover:bg-brand-teal inline-flex size-6 items-center justify-center rounded-full group-hover:text-white sm:size-6 lg:size-10.25">
+              <span className={cn(
+                "bg-brand-teal text-brand-yellow group-hover:bg-brand-teal inline-flex size-6 items-center justify-center rounded-full group-hover:text-white sm:size-6 lg:size-10.25"
+              )}>
                 <ChevronRight className="size-3.5 sm:size-4 lg:size-6" />
               </span>
             </Button>
@@ -193,6 +213,8 @@ export default function Devices() {
             alt=""
             fill
             className="rounded-l-3xl rounded-r-none object-cover"
+            sizes="(max-width: 768px) 100vw, 80vw"
+            priority
           />
         </button>
 
@@ -200,7 +222,9 @@ export default function Devices() {
         <button
           onClick={() => goTo(-1)}
           aria-label="Previous slide"
-          className="bg-brand-teal border-teal-light/30 text-brand-cream absolute top-1/2 left-4 z-20 hidden h-10 w-10 -translate-x-1/2 -translate-y-1/2 items-center justify-center rounded-full border shadow-md transition-transform hover:scale-105 sm:left-[calc(4.5%+2rem)] lg:top-auto lg:-bottom-8 lg:flex lg:translate-y-0"
+          className={cn(
+            "bg-brand-teal border-teal-light/30 text-brand-cream absolute top-1/2 left-4 z-20 hidden h-10 w-10 -translate-x-1/2 -translate-y-1/2 items-center justify-center rounded-full border shadow-md transition-transform hover:scale-105 sm:left-[calc(4.5%+2rem)] lg:top-auto lg:-bottom-8 lg:flex lg:translate-y-0"
+          )}
         >
           <ChevronLeft size={16} />
         </button>
@@ -208,7 +232,9 @@ export default function Devices() {
         <button
           onClick={() => goTo(1)}
           aria-label="Next slide"
-          className="bg-brand-yellow text-brand-teal absolute top-1/2 right-4 z-20 hidden h-10 w-10 translate-x-1/2 -translate-y-1/2 items-center justify-center rounded-full shadow-md transition-transform hover:scale-105 sm:right-[calc(4.5%+2rem)] lg:-top-8 lg:flex"
+          className={cn(
+            "bg-brand-yellow text-brand-teal absolute top-1/2 right-4 z-20 hidden h-10 w-10 translate-x-1/2 -translate-y-1/2 items-center justify-center rounded-full shadow-md transition-transform hover:scale-105 sm:right-[calc(4.5%+2rem)] lg:-top-8 lg:flex"
+          )}
         >
           <ChevronRight size={16} />
         </button>
@@ -278,7 +304,9 @@ export default function Devices() {
               {controls.map((control, idx) => (
                 <div
                   key={idx}
-                  className="bg-brand-teal border-teal-light/30 text-brand-cream hover:bg-brand-yellow hover:text-brand-teal flex cursor-default items-center justify-center rounded-xl border p-3 text-center text-xs font-bold transition-colors duration-250"
+                  className={cn(
+                    "bg-brand-teal border-teal-light/30 text-brand-cream hover:bg-brand-yellow hover:text-brand-teal flex cursor-default items-center justify-center rounded-xl border p-3 text-center text-xs font-bold transition-colors duration-250"
+                  )}
                 >
                   {control}
                 </div>
@@ -287,6 +315,6 @@ export default function Devices() {
           </div>
         </div>
       </div>
-    </section>
+    </motion.section>
   );
 }
