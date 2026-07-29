@@ -86,7 +86,7 @@ export default function Hero() {
             className="border-teal-light/20 relative overflow-hidden rounded-[2rem] border"
           >
             <Image
-              src="/hero/box-2.svg"
+              src="/hero/man.jpeg"
               alt="POS Solutions Management"
               width={250}
               height={235}
@@ -113,11 +113,11 @@ export default function Hero() {
           className="border-teal-light/20 relative overflow-hidden rounded-[2rem] border lg:col-span-1"
         >
           <Image
-            src="/hero/box-4.svg"
+            src="/hero/woman.jpeg"
             alt="Analytics Dashboard Mobile"
             width={251}
             height={432}
-            className="block h-auto w-full object-cover select-none"
+            className="block h-full w-full object-cover select-none"
             sizes="(max-width: 768px) 100vw, 25vw"
           />
         </motion.div>
