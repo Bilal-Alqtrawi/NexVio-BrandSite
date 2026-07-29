@@ -1,6 +1,6 @@
 import { RefreshCw } from "lucide-react";
 
-export function EcosystemFooterCard() {
+export default function EcosystemFooterCard() {
   return (
     <div className="border-brand-yellow/40 from-brand-yellow-light via-brand-yellow to-brand-yellow relative mx-auto flex max-w-5xl flex-col items-center justify-between gap-6 overflow-hidden rounded-[32px] border bg-linear-to-l p-8 shadow-2xl transition-all duration-300 hover:scale-[1.01] sm:p-10 md:flex-row">
       <div className="bg-brand-cream/20 pointer-events-none absolute inset-x-4 top-1/3 h-2/3 rounded-[24px]" />

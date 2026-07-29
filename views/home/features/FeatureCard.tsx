@@ -1,12 +1,14 @@
 import { FeatureItem } from "./features.data";
 import { cn } from "@/lib/utils";
+import { motion, useReducedMotion } from "framer-motion";
 
-export function FeatureCard({ feat }: { feat: FeatureItem }) {
+export default function FeatureCard({ feat }: { feat: FeatureItem }) {
+  const shouldReduceMotion = useReducedMotion();
   const isInventory = feat.variant === "inventory" || feat.id === 2;
   const isHighlight = feat.variant === "highlight";
 
   return (
-    <div
+    <motion.div
       className={cn(
         "group relative flex h-88 w-[85vw] shrink-0 snap-center flex-col justify-between overflow-hidden rounded-[32px] border p-8 transition-all duration-500 ease-out sm:h-84 sm:w-full sm:snap-align-none",
         "hover:shadow-brand-teal/20 shadow-lg hover:-translate-y-2 hover:shadow-2xl",
@@ -16,6 +18,12 @@ export function FeatureCard({ feat }: { feat: FeatureItem }) {
             ? "border-brand-yellow/30 bg-linear-to-br from-[#1a2d33] via-[#0f1d21] to-[#091013]"
             : "border-white/10 bg-linear-to-br from-[#142327]/90 to-[#0b1417]/95"
       )}
+      whileHover={shouldReduceMotion ? undefined : "hover"}
+      transition={{ duration: 0.3, ease: "easeOut" }}
+      style={{ willChange: "transform" }}
+      viewport={{ once: true }}
+      initial={shouldReduceMotion ? undefined : { opacity: 0, y: 20 }}
+      animate={shouldReduceMotion ? { opacity: 1, y: 0 } : { opacity: 1, y: 0 }}
     >
       <div
         className={cn(
@@ -23,8 +31,12 @@ export function FeatureCard({ feat }: { feat: FeatureItem }) {
           isHighlight ? "bg-brand-yellow/15" : "bg-teal-light/15"
         )}
       />
-
-      <div className="pointer-events-none absolute -right-8 -bottom-8 z-0 transition-all duration-700 ease-out group-hover:-translate-x-2 group-hover:-translate-y-2 group-hover:scale-110">
+      <motion.div
+        className="pointer-events-none absolute -right-8 -bottom-8 z-0 transition-all duration-700 ease-out group-hover:-translate-x-2 group-hover:-translate-y-2 group-hover:scale-110"
+        whileHover={!shouldReduceMotion && { scale: 1.1, x: -8, y: -8 }}
+        transition={{ duration: 0.3, ease: "easeOut" }}
+        style={{ willChange: "transform" }}
+      >
         <svg
           width="180"
           height="180"
@@ -41,8 +53,7 @@ export function FeatureCard({ feat }: { feat: FeatureItem }) {
         >
           <path d="M50 0 C50 30 70 50 100 50 C70 50 50 70 50 100 C50 70 30 50 0 50 C30 50 50 30 50 0 Z" />
         </svg>
-      </div>
-
+      </motion.div>
       <div className="relative z-10 flex items-center justify-between">
         <span
           className={cn(
@@ -54,7 +65,6 @@ export function FeatureCard({ feat }: { feat: FeatureItem }) {
         >
           {feat.id <= 9 ? `0${feat.id}` : feat.id}
         </span>
-
         <div
           className={cn(
             "size-2 rounded-full transition-transform duration-300 group-hover:scale-150",
@@ -62,16 +72,20 @@ export function FeatureCard({ feat }: { feat: FeatureItem }) {
           )}
         />
       </div>
-
-      <div className="relative z-10 space-y-3 mb-auto mt-8">
-        <h3 className="group-hover:text-brand-yellow-light text-xl font-bold tracking-tight text-white transition-colors duration-300 sm:text-2xl">
+      <div className="relative z-10 mt-8 mb-auto space-y-3">
+        <motion.h3
+          className={cn(
+            "group-hover:text-brand-yellow-light text-xl font-bold tracking-tight text-white transition-colors duration-300 sm:text-2xl"
+          )}
+          whileHover={!shouldReduceMotion && { color: "#fbbf24" }}
+          transition={{ duration: 0.2, ease: "easeOut" }}
+        >
           {feat.title}
-        </h3>
-
+        </motion.h3>
         <p className="line-clamp-3 text-sm leading-relaxed font-normal text-gray-300/80">
           {feat.desc}
         </p>
       </div>
-    </div>
+    </motion.div>
   );
 }

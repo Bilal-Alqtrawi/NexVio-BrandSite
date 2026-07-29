@@ -1,7 +1,7 @@
 "use client";
 
 import Image from "next/image";
-import { motion } from "framer-motion";
+import { motion, useReducedMotion } from "framer-motion";
 
 export const companyLogos = [
   { name: "April", src: "/logo-companies/April.webp" },
@@ -27,23 +27,27 @@ export const companyLogos = [
 const duplicatedLogos = [...companyLogos, ...companyLogos, ...companyLogos];
 
 export default function LogoCloud() {
+  const shouldReduceMotion = useReducedMotion();
+
   return (
     <section
       id="partners"
-      className="relative w-full overflow-hidden pt-16 pb-24"
+      className="relative w-full overflow-x-hidden pt-16 pb-24"
     >
       <div className="from-brand-teal to-brand-teal/0 pointer-events-none absolute inset-y-0 left-0 z-10 w-24 bg-linear-to-r" />
       <div className="from-brand-teal to-brand-teal/0 pointer-events-none absolute inset-y-0 right-0 z-10 w-24 bg-linear-to-l" />
 
       <motion.div
         className="flex w-max flex-nowrap items-center gap-12 will-change-transform"
-        animate={{ x: ["0%", "-33.333%"] }}
+        animate={shouldReduceMotion ? { x: 0 } : { x: ["0%", "-33.333%"] }}
         transition={{
           repeat: Infinity,
           repeatType: "loop",
           duration: 120,
           ease: "linear"
         }}
+        style={{ willChange: "transform" }}
+        viewport={{ once: true }}
       >
         {duplicatedLogos.map((logo, idx) => (
           <div
@@ -57,6 +61,7 @@ export default function LogoCloud() {
               height={70}
               quality={90}
               className="h-auto w-30 object-cover"
+              sizes="(max-width: 640px) 80px, (max-width: 1024px) 100px, 140px"
             />
           </div>
         ))}
